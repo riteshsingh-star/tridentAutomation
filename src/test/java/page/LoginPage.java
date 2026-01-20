@@ -1,14 +1,12 @@
-package Page;
+package page;
 
 import com.microsoft.playwright.Page;
-import com.trident.playwright.Base.BasePage;
+import base.BasePage;
 
 public class LoginPage extends BasePage {
 
-    private Page page;
-
     public LoginPage(Page page) {
-        this.page = page;
+        super(page);
     }
 
     public void login(String user, String pass) throws InterruptedException {

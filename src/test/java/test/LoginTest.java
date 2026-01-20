@@ -1,13 +1,14 @@
-package Test;
+package test;
 
 
-import Page.LoginPage;
-import com.trident.playwright.Base.BaseTest;
 import org.testng.annotations.Test;
+import page.LoginPage;
+import base.BaseTest;
+import org.testng.annotations.BeforeTest;
 
 public class LoginTest extends BaseTest {
 
-    @Test
+    @Test(alwaysRun = true)
     public void validLoginTest() throws InterruptedException {
 
         LoginPage login = new LoginPage(page);

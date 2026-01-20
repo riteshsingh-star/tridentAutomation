@@ -1,8 +1,11 @@
-package com.trident.playwright.Base;
+package base;
 
 import com.microsoft.playwright.*;
 import com.trident.playwright.utils.ReadPropertiesFile;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 
 public class BaseTest {
@@ -12,7 +15,7 @@ public class BaseTest {
     protected BrowserContext context;
     protected Page page;
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
 
         String browserName = ReadPropertiesFile.get("browser");

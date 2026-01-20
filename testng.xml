@@ -2,7 +2,8 @@
     <test name="PlaywrightTrident">
         <parameter name="deviceIndex" value="${deviceIndex}"/>
         <classes>
-            <class name="Test.LoginTest"/>
+            <class name="test.LoginTest"/>
+            <class name="test.DashboardTest"/>
         </classes>
     </test>
 </suite>
