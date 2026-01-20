@@ -1,0 +1,8 @@
+<suite name="PlaywrightJava" parallel="tests" thread-count="2">
+    <test name="PlaywrightTrident">
+        <parameter name="deviceIndex" value="${deviceIndex}"/>
+        <classes>
+            <class name="Test.LoginTest"/>
+        </classes>
+    </test>
+</suite>
