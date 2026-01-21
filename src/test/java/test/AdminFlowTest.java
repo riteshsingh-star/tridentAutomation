@@ -12,10 +12,9 @@ public class AdminFlowTest extends BaseTest {
     public void createAdminFowTest() throws InterruptedException {
         LoginPage login = new LoginPage(page);
         login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
-        CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);
-        adminFlow.createGlobalParameter();
+        CreateAdminFlow adminFlow = new CreateAdminFlow(page, context);
+        // adminFlow.createGlobalParameter();
         adminFlow.createNewKPIDefinition();
-
 
     }
 }
