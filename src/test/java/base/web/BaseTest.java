@@ -1,11 +1,9 @@
-package base;
+package base.web;
 
 import com.microsoft.playwright.*;
 import com.trident.playwright.utils.ReadPropertiesFile;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 
 public class BaseTest {
@@ -45,6 +43,10 @@ public class BaseTest {
         page = context.newPage();
 
         page.navigate(baseUrl);
+    }
+
+    public Page getPage() {
+        return page;
     }
 
     @AfterMethod

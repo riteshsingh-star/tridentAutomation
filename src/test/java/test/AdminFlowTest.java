@@ -1,8 +1,9 @@
-package Test;
+package test;
 
-import Page.CreateAdminFlow;
-import Page.LoginPage;
-import com.trident.playwright.Base.BaseTest;
+import page.web.CreateAdminFlow;
+import page.web.LoginPage;
+
+import base.web.BaseTest;
 import org.testng.annotations.Test;
 
 public class AdminFlowTest extends BaseTest {

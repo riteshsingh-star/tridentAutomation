@@ -1,18 +1,18 @@
-package page;
+package page.web;
 
+import base.web.BasePage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.trident.playwright.Base.BasePage;
 
 public class CreateAdminFlow extends BasePage {
 
-    Page page;
+
     BrowserContext context;
     Page childPage;
 
     public CreateAdminFlow(Page page, BrowserContext context) {
-        this.page = page;
+        super(page);
         this.context = context;
         this.childPage = OpenAdminPage.moveToAdminPage(page, context);
     }

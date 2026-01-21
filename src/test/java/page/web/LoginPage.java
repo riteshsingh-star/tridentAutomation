@@ -1,7 +1,7 @@
-package page;
+package page.web;
 
 import com.microsoft.playwright.Page;
-import base.BasePage;
+import base.web.BasePage;
 
 public class LoginPage extends BasePage {
 
@@ -10,11 +10,11 @@ public class LoginPage extends BasePage {
     }
 
     public void login(String user, String pass) throws InterruptedException {
-        page.fill("#username", user);
-        page.click("#kc-login");
-        page.fill("#password", pass);
+        clickAndFill("#username", user);
+        waitAndClick("#kc-login");
+        clickAndFill("#password", pass);
         syncUntil(2000);
-        page.click("#kc-login");
+        waitAndClick("#kc-login");
     }
 
     public String getTitle() {
