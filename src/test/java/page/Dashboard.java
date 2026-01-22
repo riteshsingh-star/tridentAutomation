@@ -8,7 +8,7 @@ public class Dashboard extends BasePage {
 
 
     public Dashboard(Page page) {
-        super(page);
+        super(page, context);
     }
     public void createDashboard(String dashboardName, String description) {
         page.click("//button[text()='Add Dashboard']");
