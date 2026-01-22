@@ -3,7 +3,8 @@ package test;
 
 import base.web.BaseTest;
 import org.testng.annotations.Test;
-import page.DashboardVerify;
+
+import page.web.DashboardVerify;
 import page.web.LoginPage;
 
 public class DashBoardVerifyTest extends BaseTest {

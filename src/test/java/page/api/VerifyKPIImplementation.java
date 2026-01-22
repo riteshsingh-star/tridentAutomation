@@ -3,7 +3,6 @@ package page.api;
 import base.api.APIBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.options.RequestOptions;
 import com.trident.playwright.utils.ParseTheTimeFormat;
@@ -21,7 +20,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class GetTimeSeriesDetails extends APIBase {
+public class VerifyKPIImplementation extends APIBase {
 
     @BeforeClass
     public void setup() {
@@ -29,11 +28,11 @@ public class GetTimeSeriesDetails extends APIBase {
     }
 
     @Test
-    public static String getTimeSeriesDataAccordingToKPI() throws IOException {
+    public static String verrifyKPIImple() throws IOException {
         String equipmentID= ReadPropertiesFile.get("kpiParamDefIds");
 
         String body = Files.readString(
-                Paths.get("src/test/resources/APIRequests/getEquipmentDetails.json"),
+                Paths.get("src/test/resources/APIRequests/verifyKPIImplemetationonMachin.json"),
                 StandardCharsets.UTF_8
         );
         APIResponse response = request.post("/query/api/kpis/timeseries", RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
@@ -45,7 +44,7 @@ public class GetTimeSeriesDetails extends APIBase {
 
     @Test
     public void parseJsonResponse() throws IOException {
-        String json=getTimeSeriesDataAccordingToKPI();
+        String json=verrifyKPIImple();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(json);
 
@@ -63,15 +62,13 @@ public class GetTimeSeriesDetails extends APIBase {
         while(iterator.hasNext())
         {
             JsonNode node = iterator.next();
-//            String timestamp = node.get("timestamp").asText();
-//            ParseTheTimeFormat.changeTimeFormat(timestamp);
             String gmtTimestamp = node.get("timestamp").asText();
             String istTimestamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
             JsonNode valueNode = node.get("doubleValue");
             if (!valueNode.isNull()) {
                 double value = valueNode.asDouble();
-                //apiValues.put(timestamp, value);
-               apiValues.put(istTimestamp, value);
+
+                apiValues.put(istTimestamp, value);
             }
         }
 

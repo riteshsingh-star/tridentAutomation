@@ -1,11 +1,12 @@
-package page;
+package page.web;
 
-import base.BasePage;
+
+import base.web.BasePage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import page.web.OpenAdminPage;
+
 
 
 public class CreateAdminFlow extends BasePage {
@@ -15,7 +16,7 @@ public class CreateAdminFlow extends BasePage {
     Page childPage;
 
     public CreateAdminFlow(Page page, BrowserContext context) {
-        super(page, context);
+        super(page);
 
         this.context = context;
         this.childPage = OpenAdminPage.moveToAdminPage(page, context);
@@ -106,7 +107,6 @@ public class CreateAdminFlow extends BasePage {
 //        syncUntil(5000);
 //
 //        childPage.selectOption("//div[@class='machine-661']//select[@class='multipleSelDD searchSelect form-control select-batch-frequency']","Batch Start");
-//        //childPage.selectOption("//div[@class='machine-661']//select[@class='multipleSelDD searchSelect form-control select-batch-frequency']","Batch Start");
 //
 //        childPage.selectOption("div[class='machine-661'] select[class='multipleSelDD searchSelect form-control select-unit']","meter (N.A.)");
 //
@@ -118,7 +118,7 @@ public class CreateAdminFlow extends BasePage {
 //
 //    }
 
-    public void addLogicToTheKPIAndValidate() {
+    public void addLogicToTheKPIAndValidate() throws InterruptedException {
 
         // Click "Advanced Implementation" menu
         childPage.getByText("Advanced Implementation", new Page.GetByTextOptions().setExact(true))
@@ -163,42 +163,37 @@ public class CreateAdminFlow extends BasePage {
         // Click VALIDATE button
         childPage.locator("button").filter(new Locator.FilterOptions().setHasText("VALIDATE")).first().click();
 
-        // Click Search button
-        childPage.getByRole(AriaRole.BUTTON,
-                        new Page.GetByRoleOptions().setName("Search"))
-                .nth(1)
-                .click();
+//        // Click Search button
+//        childPage.getByRole(AriaRole.BUTTON,
+//                        new Page.GetByRoleOptions().setName("Search"))
+//                .nth(1)
+//                .click();
+//
+//        // Search Batch
+//        childPage.fill("input[aria-label='Search']","NewBatchB");
+//
+//        syncUntil(2000);
 
-        // Search Batch
-        childPage.getByLabel("Search").fill("NewBatchB");
-
-        // Click table row using text instead of hard-coded row id
-        childPage.getByRole(AriaRole.ROW)
-                .filter(new Locator.FilterOptions().setHasText("NewBatchB"))
-                .click();
-
-        // Select Batch Frequency
-        childPage.getByRole(AriaRole.COMBOBOX)
-                .filter(new Locator.FilterOptions().setHasText("Batch Frequency"))
-                .selectOption("Batch Start");
-
-        // Select Unit
-        childPage.getByRole(AriaRole.COMBOBOX)
-                .filter(new Locator.FilterOptions().setHasText("Unit"))
-                .selectOption("meter (N.A.)");
-
-        // Date input (aria-label or placeholder preferred)
-        childPage.getByLabel("Date").fill("2022-05-20");
-
-        // Active checkbox
-        childPage.getByRole(AriaRole.CHECKBOX,
-                        new Page.GetByRoleOptions().setName("Active"))
-                .check();
-
-        // Save / Update button (second button in group)
-        childPage.getByRole(AriaRole.BUTTON,
-                        new Page.GetByRoleOptions().setName("Save"))
-                .click();
+//        page.getByRole(AriaRole.ROW).first().click();
+//
+//
+//        childPage.getByRole(AriaRole.COMBOBOX)
+//                .filter(new Locator.FilterOptions().setHasText("Batch Frequency"))
+//                .selectOption("Batch Start");
+//
+//        childPage.getByRole(AriaRole.COMBOBOX)
+//                .filter(new Locator.FilterOptions().setHasText("Unit"))
+//                .selectOption("meter (N.A.)");
+//
+//        childPage.getByLabel("Date").fill("2022-05-20");
+//
+//        childPage.getByRole(AriaRole.CHECKBOX,
+//                        new Page.GetByRoleOptions().setName("Active"))
+//                .check();
+//
+//        childPage.getByRole(AriaRole.BUTTON,
+//                        new Page.GetByRoleOptions().setName("Save"))
+//                .click();
     }
 
 }
