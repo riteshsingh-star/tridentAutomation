@@ -1,10 +1,16 @@
 package page.web;
 
+import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import base.web.BasePage;
 import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.options.BoundingBox;
+import org.testng.annotations.Test;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Dashboard extends BasePage {
@@ -100,6 +106,35 @@ public class Dashboard extends BasePage {
         if(hideExpandCompactButton){
             waitAndClick("//label[text()='Hide Expand/Compact Button']//preceding-sibling::button");
         }
+
+    }
+
+
+    public void readToolTipData() throws InterruptedException {
+        List<String> times = new ArrayList<>();
+        List<String> values = new ArrayList<>();
+        syncUntil(5000);
+        Locator noOfElements=page.locator("g.highcharts-markers.highcharts-series-0 path.highcharts-point");
+        for(int i=0;i<noOfElements.count();i++){
+            Locator firstPath =
+                    page.locator("g.highcharts-markers.highcharts-series-0 path.highcharts-point").nth(i);
+            BoundingBox box = firstPath.boundingBox();
+            if (box != null) {
+                page.mouse().move(box.x - 5, box.y - 5);
+                page.mouse().move(box.x + box.width / 2, box.y + box.height / 2);
+            }
+            Locator tSpans=page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
+            String key = tSpans.nth(0).textContent().trim();
+            String value = tSpans.nth(2).textContent().trim();
+            times.add(key);
+            values.add(value);
+        }
+
+        System.out.println(times.size());
+        System.out.println(values.size());
+    }
+
+    public void verifyChartData() throws InterruptedException {
 
     }
 

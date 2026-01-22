@@ -1,6 +1,9 @@
 package base.web;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.BoundingBox;
+
+import java.util.ArrayList;
 import java.util.List;
 public class BasePage {
 
@@ -36,4 +39,29 @@ public class BasePage {
     public void clickAndFill(String locater, String value){
         page.fill(locater, value);
     }
+
+    public List<String> getChartData(String dataType) throws InterruptedException {
+        List<String> times = new ArrayList<>();
+        //List<String> values = new ArrayList<>();
+        syncUntil(5000);
+        Locator noOfElements=page.locator("g.highcharts-markers.highcharts-series-0 path.highcharts-point");
+        for(int i=0;i<noOfElements.count();i++){
+            Locator firstPath =
+                    page.locator("g.highcharts-markers.highcharts-series-0 path.highcharts-point").nth(i);
+            BoundingBox box = firstPath.boundingBox();
+            if (box != null) {
+                page.mouse().move(box.x - 5, box.y - 5);
+                page.mouse().move(box.x + box.width / 2, box.y + box.height / 2);
+            }
+            Locator tSpans=page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
+            String key = tSpans.nth(0).textContent().trim();
+            String value = tSpans.nth(2).textContent().trim();
+            times.add(key+ " "+ value);
+
+        }
+
+        return times;
+    }
+
+
 }

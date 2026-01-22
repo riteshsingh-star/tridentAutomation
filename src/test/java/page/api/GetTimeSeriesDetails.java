@@ -28,7 +28,7 @@ public class GetTimeSeriesDetails extends APIBase {
         initApi();
     }
 
-    @Test
+
     public static String getTimeSeriesDataAccordingToKPI() throws IOException {
         String equipmentID= ReadPropertiesFile.get("kpiParamDefIds");
 
@@ -44,7 +44,7 @@ public class GetTimeSeriesDetails extends APIBase {
     }
 
     @Test
-    public void parseJsonResponse() throws IOException {
+    public static Map<String,Double> parseJsonResponse() throws IOException {
         String json=getTimeSeriesDataAccordingToKPI();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(json);
@@ -55,16 +55,13 @@ public class GetTimeSeriesDetails extends APIBase {
                         .path("kpis")
                         .path(0)
                         .path("data");
-
-
         Map<String, Double> apiValues = new LinkedHashMap<>();
-
         Iterator<JsonNode> iterator = dataArray.elements();
         while(iterator.hasNext())
         {
             JsonNode node = iterator.next();
             String timestamp = node.get("timestamp").asText();
-            ParseTheTimeFormat.changeTimeFormat(timestamp);
+            //ParseTheTimeFormat.changeTimeFormat(timestamp);
             JsonNode valueNode = node.get("doubleValue");
             if (!valueNode.isNull()) {
                 double value = valueNode.asDouble();
@@ -72,10 +69,12 @@ public class GetTimeSeriesDetails extends APIBase {
             }
         }
 
-        for (Map.Entry<String, Double> entry : apiValues.entrySet()) {
-            System.out.println("TimeStamp "+entry.getKey() + " : " + "Value "+entry.getValue());
+        /*for (Map.Entry<String, Double> entry : apiValues.entrySet()) {
+            System.out.println("TimeStamp:- "+entry.getKey() + " : " + "Value:- "+entry.getValue());
 
-        }
+        }*/
+        //System.out.println(apiValues.size());
+        return apiValues;
     }
 
 
