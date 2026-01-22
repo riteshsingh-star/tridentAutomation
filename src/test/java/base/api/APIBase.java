@@ -12,7 +12,7 @@ public class APIBase {
     protected static Playwright playwright;
     protected static APIRequestContext request;
 
-    public static void initApi() {
+    public void initApi() {
         String baseURIIU = ReadPropertiesFile.get("APIBaseURL");
         String authToken = ReadPropertiesFile.get("authToken");
         playwright = Playwright.create();

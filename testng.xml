@@ -5,7 +5,7 @@
     <test name="PlaywrightTrident">
         <parameter name="deviceIndex" value="${deviceIndex}"/>
         <classes>
-            <class name="test.DashboardTest"/>
+            <class name="page.api.GetTimeSeriesDetails"/>
         </classes>
     </test>
 </suite>

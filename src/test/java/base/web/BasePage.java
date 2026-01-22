@@ -2,9 +2,17 @@ package base.web;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.BoundingBox;
+import com.trident.playwright.utils.ParseTheTimeFormat;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 public class BasePage {
 
    public Page page;
@@ -40,7 +48,7 @@ public class BasePage {
         page.fill(locater, value);
     }
 
-    public List<String> getChartData(String dataType) throws InterruptedException {
+    public List<String> getChartData() throws InterruptedException {
         List<String> times = new ArrayList<>();
         //List<String> values = new ArrayList<>();
         syncUntil(5000);
@@ -56,12 +64,15 @@ public class BasePage {
             Locator tSpans=page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
             String key = tSpans.nth(0).textContent().trim();
             String value = tSpans.nth(2).textContent().trim();
-            times.add(key+ " "+ value);
 
+            times.add(normalizeSpaces(key+ " "+ ParseTheTimeFormat.formatStringTo2Decimal(value)));
         }
 
         return times;
     }
 
+    public static String normalizeSpaces(String s) {
+        return s.replaceAll("\\s+", " ").trim();
+    }
 
 }

@@ -9,7 +9,7 @@
   ],
   "dateRange": {
     "startTs": "2026-01-01T04:30:00.000Z",
-    "endTs": "2026-01-22T08:21:36.397Z"
+    "endTs": "2026-01-22T14:40:07.182Z"
   },
   "granularityInMillis": 3600000,
   "addMissingTimestamps": true

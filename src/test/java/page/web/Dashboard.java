@@ -6,7 +6,9 @@ import base.web.BasePage;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import org.testng.annotations.Test;
+import page.api.GetCharDataApi;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -134,8 +136,8 @@ public class Dashboard extends BasePage {
         System.out.println(values.size());
     }
 
-    public void verifyChartData() throws InterruptedException {
-
+    public void verifyChartData() throws InterruptedException, IOException {
+        System.out.println(GetCharDataApi.getTimeSeriesDataAccordingToKPIS().containsAll(getChartData()));
     }
 
     public void saveTheWidget(){

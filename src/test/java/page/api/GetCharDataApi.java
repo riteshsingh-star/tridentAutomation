@@ -1,46 +1,49 @@
 package page.api;
 
-
-
-
 import base.api.APIBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.options.RequestOptions;
 import com.trident.playwright.utils.ParseTheTimeFormat;
-import com.trident.playwright.utils.ReadPropertiesFile;
-import org.testng.*;
-import com.microsoft.playwright.APIResponse;
-import org.testng.annotations.*;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
-public class GetTimeSeriesDetails extends APIBase {
+import static page.api.GetTimeSeriesDetails.getTimeSeriesDataAccordingToKPI;
+
+public class GetCharDataApi extends APIBase {
 
     @BeforeClass
     public void setup() {
         initApi();
     }
-
-    public static String getTimeSeriesDataAccordingToKPI() throws IOException {
-        String equipmentID = ReadPropertiesFile.get("kpiParamDefIds");
+    public static String my() throws IOException {
 
         String body = Files.readString(
-                Paths.get("src/test/resources/APIRequests/getEquipmentDetails.json"),
-                StandardCharsets.UTF_8);
-        APIResponse response = request.post("/query/api/kpis/timeseries",
-                RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
+                Paths.get(System.getProperty("user.dir"),
+                        "src","test","resources","APIRequests","getEquipmentDetails.json"),
+                StandardCharsets.UTF_8
+        );
+        APIResponse response = request.post(
+                "/query/api/kpis/timeseries",
+                RequestOptions.create().setData(body)
+        );
         Assert.assertEquals(response.status(), 200);
-
-        return response.text();
+        String responseText = response.text();
+        return responseText;
     }
 
-    @Test
-    public static Map<String, Double> parseJsonResponse() throws IOException {
+    public static List<String> getTimeSeriesDataAccordingToKPIS() throws IOException {
         String json = getTimeSeriesDataAccordingToKPI();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(json);
@@ -49,8 +52,7 @@ public class GetTimeSeriesDetails extends APIBase {
                 .path("kpis")
                 .path(0)
                 .path("data");
-        //List<String> apiValues= new ArrayList<>();
-        Map<String, Double> apiValues = new HashMap<>();
+        List<String> apiValues = new ArrayList<>();
         Iterator<JsonNode> iterator = dataArray.elements();
         while (iterator.hasNext()) {
             JsonNode node = iterator.next();
@@ -59,20 +61,18 @@ public class GetTimeSeriesDetails extends APIBase {
             JsonNode valueNode = node.get("doubleValue");
             if (!valueNode.isNull()) {
                 double value = valueNode.asDouble();
-                String istTimestamp = ParseTheTimeFormat.changeTimeFormatAndValue(gmtTimestamp,value);
-                apiValues.put(istTimestamp, value);
+                String valueFromAPI = ParseTheTimeFormat.changeTimeFormatAndValue(gmtTimestamp,value);
+                apiValues.add(valueFromAPI);
             }
         }
-
-        /*
-         * for (Map.Entry<String, Double> entry : apiValues.entrySet()) {
-         * System.out.println("TimeStamp:- "+entry.getKey() + " : " +
-         * "Value:- "+entry.getValue());
-         * 
-         * }
-         */
         System.out.println(apiValues.size());
         return apiValues;
+    }
+
+    @Test
+    public void fetchAndParseTheResponse() throws IOException {
+        List<String> json = getTimeSeriesDataAccordingToKPIS();
+        System.out.println(json);
     }
 
     @AfterClass
