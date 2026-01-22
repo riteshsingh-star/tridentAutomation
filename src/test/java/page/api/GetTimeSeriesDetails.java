@@ -17,9 +17,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GetTimeSeriesDetails extends APIBase {
 
@@ -42,29 +40,25 @@ public class GetTimeSeriesDetails extends APIBase {
     }
 
     @Test
-    public static Map<String, Double> parseJsonResponse() throws IOException {
+    public static List<String> parseJsonResponse() throws IOException {
         String json = getTimeSeriesDataAccordingToKPI();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(json);
-
         JsonNode dataArray = root.path("equipKpis")
                 .path(0)
                 .path("kpis")
                 .path(0)
                 .path("data");
-        Map<String, Double> apiValues = new LinkedHashMap<>();
+        List<String> apiValues= new ArrayList<>();
         Iterator<JsonNode> iterator = dataArray.elements();
         while (iterator.hasNext()) {
             JsonNode node = iterator.next();
-            // String timestamp = node.get("timestamp").asText();
-            // ParseTheTimeFormat.changeTimeFormat(timestamp);
             String gmtTimestamp = node.get("timestamp").asText();
             String istTimestamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
             JsonNode valueNode = node.get("doubleValue");
             if (!valueNode.isNull()) {
                 double value = valueNode.asDouble();
-                // apiValues.put(timestamp, value);
-                apiValues.put(istTimestamp, value);
+                apiValues.add(istTimestamp+ " " + value);
             }
         }
 
@@ -75,7 +69,7 @@ public class GetTimeSeriesDetails extends APIBase {
          * 
          * }
          */
-        // System.out.println(apiValues.size());
+        System.out.println(apiValues.size());
         return apiValues;
     }
 
