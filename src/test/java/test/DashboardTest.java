@@ -15,12 +15,13 @@ public class DashboardTest extends BaseTest {
         Dashboard dashboard = new Dashboard(page);
         //dashboard.createDashboard("Test1234Auto", "TestingAutomation");
         dashboard.searchDashboard("Test1234Auto");
-        dashboard.openWidgetCreationPage();
+        //dashboard.openWidgetCreationPage();
         //dashboard.addEquipmentTrendWidget("Equipment Trend", "SINGEING", List.of("MachineDuration","Availability"),"This Week", "Two Hour");
         //dashboard.createEquipmentStoppageDonutWidget("Equipment Stoppage Donut", "SINGEING");
         //dashboard.createEquipmentBatchDetailsWidget("Equipment Batch Details", "SINGEING");
 
         //dashboard.createBatchTrendWidget("Batch Trend", "SINGEING", List.of("MachineDuration","Availability"));
         //dashboard.createEquipmentWidget("Equipment", "SINGEING", "Expanded",true);
+        dashboard.readToolTipData();
     }
 }

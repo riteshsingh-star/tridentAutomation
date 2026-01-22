@@ -13,4 +13,6 @@ public class OpenAdminPage {
         newPage.waitForLoadState();
         return newPage;
     }
+
+
 }
