@@ -1,0 +1,18 @@
+{
+  "equipKpis": [
+    {
+      "id": 661,
+      "kpiParamDefIds": [
+        13
+      ]
+    }
+  ],
+  "dateRange": {
+    "startTs": "2026-01-01T04:30:00.000Z",
+    "endTs": "2026-01-21T12:41:24.452Z"
+  },
+  "granularityInMillis": 3600000,
+  "addMissingTimestamps": true,
+  "timestampAnchor": "START"
+}
+

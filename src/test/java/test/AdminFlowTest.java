@@ -1,9 +1,8 @@
 package test;
 
-import base.BaseTest;
-import page.CreateAdminFlow;
-import page.LoginPage;
-
+import page.web.CreateAdminFlow;
+import page.web.LoginPage;
+import base.web.BaseTest;
 import org.testng.annotations.Test;
 
 public class AdminFlowTest extends BaseTest {
@@ -16,7 +15,6 @@ public class AdminFlowTest extends BaseTest {
         //adminFlow.createGlobalParameter();
         //adminFlow.createNewKPIDefinition();
         adminFlow.addLogicToTheKPIAndValidate();
-
 
     }
 }

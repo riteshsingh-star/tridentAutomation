@@ -2,9 +2,8 @@ package test;
 
 
 import org.testng.annotations.Test;
-import page.LoginPage;
-import base.BaseTest;
-import org.testng.annotations.BeforeTest;
+import page.web.LoginPage;
+import base.web.BaseTest;
 
 public class LoginTest extends BaseTest {
 

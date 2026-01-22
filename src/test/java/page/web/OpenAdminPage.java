@@ -1,4 +1,4 @@
-package page;
+package page.web;
 
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
