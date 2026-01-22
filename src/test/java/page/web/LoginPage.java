@@ -6,7 +6,7 @@ import base.web.BasePage;
 public class LoginPage extends BasePage {
 
     public LoginPage(Page page) {
-        super(page, context);
+        super(page);
     }
 
     public void login(String user, String pass) throws InterruptedException {

@@ -1,9 +1,10 @@
 package test;
 
-import base.BaseTest;
+
+import base.web.BaseTest;
 import org.testng.annotations.Test;
 import page.DashboardVerify;
-import page.LoginPage;
+import page.web.LoginPage;
 
 public class DashBoardVerifyTest extends BaseTest {
 
