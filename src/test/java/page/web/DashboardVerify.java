@@ -5,34 +5,47 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import com.microsoft.playwright.options.BoundingBox;
+import page.api.GetCharDataApi;
+import com.trident.playwright.utils.CalenderUtil;
+import page.api.VerifyKPIImplementation;
 
-public class DashboardVerify  extends BasePage {
+import java.io.IOException;
+import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.List;
 
-    public DashboardVerify(Page page, BrowserContext context) {
+public class DashboardVerify extends BasePage {
+
+    public DashboardVerify(Page page) {
         super(page);
     }
-    public void EquipmentPage(int hour , int minutes ,String local) throws InterruptedException {
 
+    public void EquipmentPage() throws InterruptedException {
         page.getByRole(AriaRole.LINK,
                         new Page.GetByRoleOptions().setName("Equipment"))
                 .click();
-        page.click("(//div[@class='flex items-center gap-3'])[1]");
-        page.click("//button[normalize-space()='Custom Time']");
-        page.click("(//button[contains(text(),'AM') or contains(text(),'PM')])[1]");
-        page.click("(//button[contains(text(),20)])[3]");
-        page.click("((//div[@class='flex sm:flex-col p-2'])[1]//child::button)["+hour+"]");
-        page.click("((//div[@class='flex sm:flex-col p-2'])[2]//child::button)["+minutes+"]");
-        page.click("((//div[@class='flex sm:flex-col p-2'])[3]//child::button)["+local+"]");
-        page.locator("div.p-5.overflow-y-auto").click();
-        page.click("(//button[contains(text(),'AM') or contains(text(),'PM')])[2]");
-        page.click("(//button[contains(text(),21)])[3]");
-        //page.locator("div.p-5.overflow-y-auto").click();
-        page.click("//button[@aria-label='Wednesday, January 21st, 2026, selected']");
-        page.click("//button[normalize-space()='Apply']");
+        page.click("(//button[@data-slot=\"popover-trigger\"])[1]");
+
+        //CalenderUtil.selectDate(page,2026,"January","20");
+        syncUntil(5000);
+        page.locator("//button[text()='Calendar']").click();
+        Locator locators = page.locator("//*[@class='rdp-weeks']/tr/td/button");
+        int count = locators.count();
+
+        // System.out.println(locators.isVisible());
+
+        for (int i = 0; i < count; i++) {
+            if(locators.nth(i).textContent().equals("20")  ){
+
+                locators.nth(i).click();
+            }
+        }
+        page.locator("//button[text()='Apply']").click();;
+        syncUntil(5000);
 
 
-
-
+        //page.click("//div[@class='shrink-0 flex items-center justify-between border-t border-border bg-background px-4 py-3']//button[2]");
         page.getByPlaceholder("Search...")
                 .fill("singeing");
 
@@ -47,6 +60,14 @@ public class DashboardVerify  extends BasePage {
         page.keyboard().press("Escape");
 
         page.click("button[title='Show in trend panel']");
+
+        syncUntil(5000);
+
+
+    }
+
+    public void verifyChartData() throws InterruptedException, IOException {
+        System.out.println(getChartData());
     }
 
 }
