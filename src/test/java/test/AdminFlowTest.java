@@ -12,8 +12,8 @@ public class AdminFlowTest extends BaseTest {
         LoginPage login = new LoginPage(page);
         login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
         CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);
-        //adminFlow.createGlobalParameter();
-          adminFlow.createNewKPIDefinition();
+        adminFlow.createGlobalParameter("NEWBBW");
+        //adminFlow.createNewKPIDefinition("TESTQAA");
         //adminFlow.addLogicToTheKPIAndValidate();
 
     }

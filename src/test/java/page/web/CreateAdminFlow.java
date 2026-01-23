@@ -22,14 +22,17 @@ public class CreateAdminFlow extends BasePage {
         this.childPage = OpenAdminPage.moveToAdminPage(page, context);
     }
 
-    public void createGlobalParameter() throws InterruptedException {
+    public void createGlobalParameter(String name) throws InterruptedException {
 
-        childPage.click("li[id='Global Parameters List']");
-        syncUntil(2000);
-        childPage.click("//button[@id='createNewGlobalParameter']");
+
+        childPage.getByText("New Global Parameter").click();
+
+
         syncUntil(1000);
-        childPage.fill("//input[@id='parameterName']","NewBatchBB");
-        syncUntil(1000);
+        //childPage.fill("//input[@id='parameterName']","NewBatchBB");
+        childPage.getByLabel("Parameter Name").fill(name);
+
+        syncUntil(10000);
         childPage.click("//*[@class=' css-1hwfws3']");
         syncUntil(1000);
         childPage.click("//*[contains(text(),'Double')]");
@@ -52,11 +55,11 @@ public class CreateAdminFlow extends BasePage {
         source.dragTo(target);
     }
 
-    public  void createNewKPIDefinition() throws InterruptedException{
+    public  void createNewKPIDefinition(String name) throws InterruptedException{
 
-        childPage.click("li[id='New KPI Definition']");
+        childPage.click("#kpiName");
         syncUntil(2000);
-        childPage.fill("//input[@id='kpiName']","TEstIng");
+        childPage.fill("//input[@id='kpiName']",name);
         childPage.selectOption("#selectedPlant","covacsis_dev");
         childPage.getByRole(AriaRole.CHECKBOX,
                         new Page.GetByRoleOptions().setName("Aluminium"))
