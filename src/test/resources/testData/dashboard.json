@@ -1,0 +1,10 @@
+{
+  "dashboardName": "Test1234Auto",
+  "dashboardDescription": "TestAutomation",
+  "widgetType": "Equipment Trend",
+  "equipmentName": "SINGEING",
+  "viewType": "Expanded",
+  "measuresName": ["Machine_Runtime"],
+  "time": "This Week",
+  "granularity": "One Hour"
+}

@@ -1,5 +1,7 @@
 package test;
 
+import com.trident.playwright.pojo.DashboardData;
+import com.trident.playwright.utils.ReadJsonFile;
 import page.web.Dashboard;
 import base.web.BaseTest;
 import org.testng.annotations.Test;
@@ -13,19 +15,20 @@ public class DashboardTest extends BaseTest {
     @Test
     public void createDashboardTest() throws InterruptedException, IOException {
 
-        LoginPage login = new LoginPage(page);
-        login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
+        DashboardData data =
+                ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
+        List<String> measuresName = data.measuresName;
         Dashboard dashboard = new Dashboard(page);
-        dashboard.createDashboard("Test1234Auto", "TestingAutomation");
-        dashboard.searchDashboard("Test1234Auto");
-        dashboard.openWidgetCreationPage();
-        dashboard.addEquipmentTrendWidget("Equipment Trend", "SINGEING", List.of("MachineDuration"),"This Week", "Two Hour");
-        //dashboard.createEquipmentStoppageDonutWidget("Equipment Stoppage Donut", "SINGEING");
-        //dashboard.createEquipmentBatchDetailsWidget("Equipment Batch Details", "SINGEING");
+        //dashboard.createDashboard(data.dashboardName, data.dashboardDescription);
+        dashboard.searchDashboard(data.dashboardName);
+        //dashboard.openWidgetCreationPage();
+        //dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
+        //dashboard.createEquipmentStoppageDonutWidget(data.widgetType, data.equipmentName);
+        //dashboard.createEquipmentBatchDetailsWidget(data.widgetType, data.equipmentName);
 
-        //dashboard.createBatchTrendWidget("Batch Trend", "SINGEING", List.of("MachineDuration","Availability"));
-        //dashboard.createEquipmentWidget("Equipment", "SINGEING", "Expanded",true);
-
-        dashboard.verifyChartData();
+        //dashboard.createBatchTrendWidget(data.widgetType, data.equipmentName, measuresName);
+        //dashboard.createEquipmentWidget(data.widgetType, data.equipmentName, data.viewType,true);
+        //dashboard.saveTheWidget();
+        dashboard.getChartDataWeekly();
     }
 }

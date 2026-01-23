@@ -2,6 +2,8 @@ package test;
 
 import base.api.APIBase;
 import base.web.BaseTest;
+import com.trident.playwright.pojo.DashboardData;
+import com.trident.playwright.utils.ReadJsonFile;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -12,6 +14,7 @@ import page.web.LoginPage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
 public class GraphVsApiValidationTest extends BaseTest {
 
@@ -30,24 +33,25 @@ public class GraphVsApiValidationTest extends BaseTest {
 
     @Test
     public void validateGraphWithApi() throws InterruptedException, IOException {
-        LoginPage login = new LoginPage(page);
-        login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
-
+        DashboardData data =
+                ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
+        List<String> measuresName = data.measuresName;
         Dashboard dashboard = new Dashboard(page);
-        dashboard.createDashboard("Test1234Auto", "TestingAutomation");
-        dashboard.searchDashboard("Test1234Auto");
-        dashboard.openWidgetCreationPage();
-        dashboard.addEquipmentTrendWidget("Equipment Trend", "SINGEING", List.of("MachineDuration"),"This Week", "Two Hour");
-        List<String> uiList = dashboard.getChartData();
-
-        GetCharDataApi api = new GetCharDataApi();
-        List<String> apiList = GetCharDataApi.getTimeSeriesDataAccordingToKPIS();
+        //dashboard.createDashboard(data.dashboardName, data.dashboardDescription);
+        dashboard.searchDashboard(data.dashboardName);
+        //dashboard.openWidgetCreationPage();
+        //dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
+        //dashboard.saveTheWidget();
+        Set<String> uiList = dashboard.getChartData();
+        System.out.println("uiList: " + uiList);
+        Set<String> apiList = GetCharDataApi.getTimeSeriesDataAccordingToKPIS();
+        System.out.println("apiList: " + apiList);
         Assert.assertEquals(uiList.size(), apiList.size(),
                 "UI and API data count mismatch");
 
         // 2. Exact order comparison
-        /*Assert.assertEquals(uiList, apiList,
-                "UI and API graph data mismatch");*/
+        Assert.assertEquals(uiList, apiList,
+                "UI and API graph data mismatch");
         System.out.println(apiList.containsAll(uiList));
     }
 }
