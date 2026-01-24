@@ -4,7 +4,7 @@
   "widgetType": "Equipment Trend",
   "equipmentName": "SINGEING",
   "viewType": "Expanded",
-  "measuresName": ["Machine_Runtime"],
-  "time": "This Week",
-  "granularity": "One Hour"
+  "measuresName": ["Availability"],
+  "time": "Last Month",
+  "granularity": "Eight Hour"
 }

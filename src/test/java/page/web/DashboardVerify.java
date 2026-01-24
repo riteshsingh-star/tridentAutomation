@@ -1,19 +1,11 @@
 package page.web;
 
 import base.web.BasePage;
-import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import com.microsoft.playwright.options.BoundingBox;
-import page.api.GetCharDataApi;
-import com.trident.playwright.utils.CalenderUtil;
-import page.api.VerifyKPIImplementation;
 
 import java.io.IOException;
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.List;
 
 public class DashboardVerify extends BasePage {
 
@@ -66,10 +58,10 @@ public class DashboardVerify extends BasePage {
 
     }
 
-    public void verifyChartData() throws InterruptedException, IOException {
+   /* public void verifyChartData() throws InterruptedException, IOException {
         System.out.println(getChartData());
     }
-
+*/
 }
 
 

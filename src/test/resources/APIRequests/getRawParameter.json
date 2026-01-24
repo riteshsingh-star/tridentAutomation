@@ -1,9 +1,9 @@
 {
-  "equipKpis": [
+  "equipments": [
     {
       "id": 661,
-      "kpiParamDefIds": [
-        20
+      "rawParamDefIds": [
+        1
       ]
     }
   ],
@@ -13,5 +13,5 @@
   },
   "granularityInMillis": 28800000,
   "addMissingTimestamps": true
-}
 
+}

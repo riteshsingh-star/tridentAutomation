@@ -3,17 +3,18 @@ package test;
 import base.api.APIBase;
 import base.web.BaseTest;
 import com.trident.playwright.pojo.DashboardData;
+import com.trident.playwright.utils.CompareGraphAndApiData;
 import com.trident.playwright.utils.ReadJsonFile;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page.api.GetCharDataApi;
+import page.api.GetChartDataApi;
 import page.web.Dashboard;
-import page.web.LoginPage;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class GraphVsApiValidationTest extends BaseTest {
@@ -39,19 +40,14 @@ public class GraphVsApiValidationTest extends BaseTest {
         Dashboard dashboard = new Dashboard(page);
         //dashboard.createDashboard(data.dashboardName, data.dashboardDescription);
         dashboard.searchDashboard(data.dashboardName);
-        //dashboard.openWidgetCreationPage();
-        //dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
-        //dashboard.saveTheWidget();
-        Set<String> uiList = dashboard.getChartData();
+        dashboard.openWidgetCreationPage();
+        dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
+        dashboard.saveTheWidget();
+        Map<String, String> uiList = dashboard.getChartData(0, 2);
         System.out.println("uiList: " + uiList);
-        Set<String> apiList = GetCharDataApi.getTimeSeriesDataAccordingToKPIS();
+        Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList: " + apiList);
-        Assert.assertEquals(uiList.size(), apiList.size(),
-                "UI and API data count mismatch");
-
-        // 2. Exact order comparison
-        Assert.assertEquals(uiList, apiList,
-                "UI and API graph data mismatch");
-        System.out.println(apiList.containsAll(uiList));
+        Assert.assertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
+        CompareGraphAndApiData.compareStringMaps(uiList, apiList);
     }
 }

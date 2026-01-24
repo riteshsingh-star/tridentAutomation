@@ -38,20 +38,30 @@ public class BasePage {
         }
     }
 
-    public void waitAndClick(String locater){
-        page.click(locater);
+    public void waitAndClick(String text){
+        page.click(text);
+    }
+    public static void waitAndClick(Page page, Locator locator, int waitMs) {
+        page.waitForTimeout(waitMs);   // fixed wait
+        locator.scrollIntoViewIfNeeded();
+        locator.click();
     }
 
-    public void clickAndFill(String locater, String value){
-        page.fill(locater, value);
+    public void clickAndFill(String locater, String text ){
+        page.fill(locater,text);
+    }
+    public static void waitAndFill(Page page, Locator locator, String text, int waitMs) {
+        page.waitForTimeout(waitMs);
+        locator.scrollIntoViewIfNeeded();
+        locator.fill(text);
     }
 
     public void waitForLocater(String locator){
         page.waitForSelector(locator);
     }
 
-    public Set<String> getChartData() throws InterruptedException {
-        Set<String> times = new LinkedHashSet<>();
+    public Map<String,String> getChartData(int timeStampIndex, int dataIndex) throws InterruptedException {
+        Map<String, String> graphData = new LinkedHashMap<>();
         waitForLocater(chartGraph);
         Locator noOfElements= page.locator(chartGraph);
         for(int i=0;i<noOfElements.count();i++){
@@ -62,11 +72,11 @@ public class BasePage {
                 page.mouse().move(box.x + box.width / 2, box.y + box.height / 2);
             }
             Locator tSpans=page.locator(dataToolTip);
-            String key = tSpans.nth(0).textContent().trim();
-            String value = tSpans.nth(3).textContent().trim();
-            times.add(normalizeSpaces(key+ " "+ ParseTheTimeFormat.formatStringTo2Decimal(value)));
+            String key = tSpans.nth(timeStampIndex).textContent().trim();
+            String value = tSpans.nth(dataIndex).textContent().trim();
+            graphData.put(normalizeSpaces(key), ParseTheTimeFormat.formatStringTo2Decimal(value));
         }
-        return times;
+        return graphData;
     }
 
     public static String normalizeSpaces(String s) {

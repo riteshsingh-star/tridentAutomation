@@ -1,24 +1,18 @@
 package page.api;
 
 import base.api.APIBase;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.options.RequestOptions;
-import com.trident.playwright.utils.ParseTheTimeFormat;
-import com.trident.playwright.utils.ReadPropertiesFile;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.*;
 
-import static page.api.GetTimeSeriesDetails.getTimeSeriesDataAccordingToKPI;
+//import static page.api.GetTimeSeriesDetails.getTimeSeriesDataAccordingToKPI;
 
 public class VerifyKPIImplementation extends APIBase {
 
@@ -42,7 +36,7 @@ public class VerifyKPIImplementation extends APIBase {
         return responseText;
     }
 
-    public static List<String> getTimeSeriesDataAccordingToKPIS() throws IOException {
+/*    public static Set<String> getTimeSeriesDataAccordingToKPIS() throws IOException {
         String json = getTimeSeriesDataAccordingToKPI();
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(json);
@@ -51,7 +45,7 @@ public class VerifyKPIImplementation extends APIBase {
                 .path("kpis")
                 .path(0)
                 .path("data");
-        List<String> apiValues = new ArrayList<>();
+        Set<String> apiValues = new LinkedHashSet<>();
         Iterator<JsonNode> iterator = dataArray.elements();
         while (iterator.hasNext()) {
             JsonNode node = iterator.next();
@@ -70,9 +64,9 @@ public class VerifyKPIImplementation extends APIBase {
 
     @Test
     public void fetchAndParseTheResponse() throws IOException {
-        List<String> json = getTimeSeriesDataAccordingToKPIS();
+        Set<String> json = getTimeSeriesDataAccordingToKPIS();
         System.out.println(json);
-    }
+    }*/
 
     @AfterClass
     public void tearDown() {

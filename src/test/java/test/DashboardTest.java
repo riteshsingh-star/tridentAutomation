@@ -21,14 +21,14 @@ public class DashboardTest extends BaseTest {
         Dashboard dashboard = new Dashboard(page);
         //dashboard.createDashboard(data.dashboardName, data.dashboardDescription);
         dashboard.searchDashboard(data.dashboardName);
-        //dashboard.openWidgetCreationPage();
-        //dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
+        dashboard.openWidgetCreationPage();
+        dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
         //dashboard.createEquipmentStoppageDonutWidget(data.widgetType, data.equipmentName);
         //dashboard.createEquipmentBatchDetailsWidget(data.widgetType, data.equipmentName);
 
         //dashboard.createBatchTrendWidget(data.widgetType, data.equipmentName, measuresName);
         //dashboard.createEquipmentWidget(data.widgetType, data.equipmentName, data.viewType,true);
         //dashboard.saveTheWidget();
-        dashboard.getChartDataWeekly();
+        //System.out.println(dashboard.getChartDataLocally(0,2));
     }
 }

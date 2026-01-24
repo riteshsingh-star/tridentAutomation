@@ -8,7 +8,9 @@ import com.microsoft.playwright.options.BoundingBox;
 import com.trident.playwright.utils.ParseTheTimeFormat;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Dashboard extends BasePage {
@@ -17,6 +19,11 @@ public class Dashboard extends BasePage {
     public Dashboard(Page page) {
         super(page);
     }
+
+    private static final String chartGraph="//*[local-name()='g'][contains(@class,'highcharts-markers highcharts-series-0 highcharts-line-series highcharts-tracker')]//*[local-name()='path'][contains(@opacity,'1')]";
+    private static final String dataToolTip="//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']";
+    Locator granularityL=page.locator("//span[text()='One Hour']//parent::button");
+
 
     public void createDashboard(String dashboardName, String description) throws InterruptedException {
         try {
@@ -55,17 +62,19 @@ public class Dashboard extends BasePage {
             page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Summary")).click();
             page.getByLabel("Global widget search").fill(widgetType);
             page.getByText(widgetType).click();
-            waitAndClick("//label[text()='Select Equipment']//following-sibling::div//child::button");
+            //waitAndClick("//label[text()='Select Equipment']//following-sibling::div//child::button");
+            page.getByText("Summary").click();
             page.getByPlaceholder("Search equipment...").fill(equipmentName);
             page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(equipmentName)).click();
             enterMeasureName(measureName);
             page.keyboard().press("Escape");
-            waitAndClick("//span[text()='Current']//parent::button");
+            //waitAndClick("//span[text()='Current']//parent::button");
+            page.getByText("Current").click();
             page.getByText(time).click();
-            waitAndClick("//span[text()='One Hour']//parent::button");
+            if(time.equals("Last Month"))
+                page.getByLabel(granularity).getByText(granularity).click();
+            waitAndClick(page,granularityL,100);
             page.getByLabel(granularity).getByText(granularity).click();
-            waitAndClick("//label[text()='Merge All']//following-sibling::button");
-            waitAndClick("//label[text()='Show Overview']//following-sibling::button");
         } catch (Exception e) {
             System.out.println("Not able to add equipment trend widget: " + e);
         }
@@ -156,28 +165,23 @@ public class Dashboard extends BasePage {
         }
     }
 
-    public void getChartDataWeekly() throws InterruptedException {
-        //List<String> times = new ArrayList<>();
-        //List<String> values = new ArrayList<>();
-        syncUntil(5000);
-        page.locator("rect.highcharts-legend-box").hover();
-        page.locator("//div[@class='ui-resizable-handle ui-resizable-se']").dragTo( page.locator("body"),new Locator.DragToOptions()
-                .setTargetPosition(500, 500));
-        Locator noOfElements=page.locator("//*[local-name()='g'][contains(@class,'highcharts-markers highcharts-series-0 highcharts-line-series highcharts-tracker')]//*[local-name()='path'][contains(@opacity,'1')]");
+    public Map<String,String> getChartDataLocally(int timeIndex,int dataIndex) throws InterruptedException {
+        Map<String, String> graphData = new LinkedHashMap<>();
+        waitForLocater(chartGraph);
+        Locator noOfElements= page.locator(chartGraph);
         for(int i=0;i<noOfElements.count();i++){
-            Locator firstPath =
-                    page.locator("//*[local-name()='g'][contains(@class,'highcharts-markers highcharts-series-0 highcharts-line-series highcharts-tracker')]//*[local-name()='path'][contains(@opacity,'1')]").nth(i);
+            Locator firstPath =page.locator(chartGraph).nth(i);
             BoundingBox box = firstPath.boundingBox();
             if (box != null) {
                 page.mouse().move(box.x - 5, box.y - 5);
                 page.mouse().move(box.x + box.width / 2, box.y + box.height / 2);
             }
-            Locator tSpans = page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
-            String key = tSpans.nth(0).textContent().trim();
-            String value = tSpans.nth(3).textContent().trim();
-            //times.add(normalizeSpaces(key+ " "+ ParseTheTimeFormat.formatStringTo2Decimal(value)));
-            System.out.println(key + " " + value);
+            Locator tSpans=page.locator(dataToolTip);
+            String key = tSpans.nth(timeIndex).textContent().trim();
+            String value = tSpans.nth(dataIndex).textContent().trim();
+            graphData.put(key, ParseTheTimeFormat.formatStringTo2Decimal(value));
         }
+        return graphData;
     }
 }
 

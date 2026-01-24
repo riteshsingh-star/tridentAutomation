@@ -5,13 +5,26 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIRequest;
 import com.microsoft.playwright.APIRequestContext;
+import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Playwright;
+import com.microsoft.playwright.options.RequestOptions;
 import com.trident.playwright.utils.ParseTheTimeFormat;
 import com.trident.playwright.utils.ReadPropertiesFile;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class APIBase {
+
+    @BeforeClass
+    public void setup() {
+        initApi();
+    }
     protected static Playwright playwright;
     protected static APIRequestContext request;
 
@@ -32,29 +45,39 @@ public class APIBase {
         );
     }
 
-    public static Set<String> fetchApiData(String json) throws JsonProcessingException {
+    public static Map<String, String> fetchApiData(String responseJson, String rootPath,int parameterIndexNumber, String parameterName, int dataIndexNo, String parameterDataName) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        JsonNode root = mapper.readTree(json);
-        JsonNode dataArray = root.path("equipKpis")
-                .path(0)
-                .path("kpis")
-                .path(0)
-                .path("data");
-        Set<String> apiValues = new LinkedHashSet<>();
+        JsonNode root = mapper.readTree(responseJson);
+        JsonNode dataArray = root.path(rootPath)
+                .path(parameterIndexNumber)
+                .path(parameterName)
+                .path(dataIndexNo)
+                .path(parameterDataName);
+        Map<String,String> apiValues = new LinkedHashMap<>();
         Iterator<JsonNode> iterator = dataArray.elements();
         while (iterator.hasNext()) {
             JsonNode node = iterator.next();
             String gmtTimestamp = node.get("timestamp").asText();
-
-            JsonNode valueNode = node.get("doubleValue");
+            JsonNode valueNode = node.get("doubleValue"); //Double, we cannot as it is breaking the null comparison
             if (!valueNode.isNull()) {
-                double value = valueNode.asDouble();
-                String valueFromAPI = ParseTheTimeFormat.changeTimeFormatAndValue(gmtTimestamp,value);
-                apiValues.add(valueFromAPI);
+                String value = valueNode.asText();
+                String convertedTimeStamp=ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
+                String changedDoubleValue=ParseTheTimeFormat.formatStringTo2Decimal(value);
+                apiValues.put(convertedTimeStamp,changedDoubleValue);
             }
         }
-        System.out.println(apiValues.size());
         return apiValues;
+    }
+
+    public static APIResponse readJsonFileForApiRequestPayload(String fileName, String urlPath) throws IOException {
+        String body = Files.readString(
+                Paths.get("src/test/resources/APIRequests/"+fileName+".json"), StandardCharsets.UTF_8);
+        return request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
+    }
+
+    @AfterClass
+    public void tearDown() {
+        closeApi();
     }
 
     public static void closeApi() {
