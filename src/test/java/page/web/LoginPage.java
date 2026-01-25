@@ -35,6 +35,7 @@ public class LoginPage extends BasePage {
         log.info("Entering password");
         waitAndFill(page,password, pass,2000);
     }
+
     public void clickLoginButton() throws InterruptedException {
         log.info("Clicking on Login button");
         waitAndClick(page,loginButton,2000);

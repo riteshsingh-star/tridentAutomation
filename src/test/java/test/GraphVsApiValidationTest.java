@@ -38,8 +38,8 @@ public class GraphVsApiValidationTest extends BaseTest {
                 ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
         List<String> measuresName = data.measuresName;
         Dashboard dashboard = new Dashboard(page);
-        //dashboard.createDashboard(data.dashboardName, data.dashboardDescription);
-        dashboard.searchDashboard(data.dashboardName);
+        dashboard.createDashboard(data.dashboardName, data.dashboardDescription,"Public");
+        //dashboard.searchDashboard(data.dashboardName);
         dashboard.openWidgetCreationPage();
         dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
         dashboard.saveTheWidget();
