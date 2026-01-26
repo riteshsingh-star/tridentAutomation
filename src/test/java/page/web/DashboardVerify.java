@@ -29,7 +29,6 @@ public class DashboardVerify extends BasePage {
 
         for (int i = 0; i < count; i++) {
             if(locators.nth(i).textContent().equals("20")  ){
-
                 locators.nth(i).click();
             }
         }
