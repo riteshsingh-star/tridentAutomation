@@ -3,6 +3,7 @@ package page.web;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import base.web.BasePage;
+import com.microsoft.playwright.options.AriaRole;
 import com.trident.playwright.utils.WaitUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -12,11 +13,11 @@ public class LoginPage extends BasePage {
     public LoginPage(Page page) {
         super(page);
     }
-    private static final Logger log =
-            LogManager.getLogger(LoginPage.class);
-    Locator userName=page.locator("#username");
-    Locator password=page.locator("#password");
-    Locator loginButton=page.locator("#kc-login");
+    private static final Logger log = LogManager.getLogger(LoginPage.class);
+    Locator userName=getByRoleTextbox();
+    Locator password=getByRoleTextbox();
+    Locator loginButton=getByRoleLabelText();
+
 
     public void login(String user, String pass) throws InterruptedException {
         enterUserName(userName,user);

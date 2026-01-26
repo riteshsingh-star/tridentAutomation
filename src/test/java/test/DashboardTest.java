@@ -36,7 +36,7 @@ public class DashboardTest extends BaseTest {
 
         EquipmentPageVerification equipmentPageVerification = new EquipmentPageVerification(page);
         page.waitForLoadState(LoadState.NETWORKIDLE);
-        equipmentPageVerification.openEquipmentAndAddKPI("SINGEING","Availability");
-
+        //equipmentPageVerification.openEquipmentAndAddKPI("SINGEING","Availability","Last week");
+        equipmentPageVerification.verifyTheAggregateAccordingToFormula();
     }
 }

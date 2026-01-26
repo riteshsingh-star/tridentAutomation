@@ -10,6 +10,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import page.web.LoginPage;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public class BaseTest {
     protected static final Logger log =
@@ -38,10 +41,10 @@ public class BaseTest {
             };
             log.info("Headless: " + headless);
             browser = browserType.launch(
-                    new BrowserType.LaunchOptions().setHeadless(headless)
+                    new BrowserType.LaunchOptions().setHeadless(headless).setArgs(List.of("--start-maximized"))
             );
 
-            context = browser.newContext();
+            context = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
             page = context.newPage();
             log.info("Navigating to URL: " + baseUrl);
             page.navigate(baseUrl);

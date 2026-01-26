@@ -43,7 +43,7 @@ public class GraphVsApiValidationTest extends BaseTest {
         dashboard.openWidgetCreationPage();
         dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
         dashboard.saveTheWidget();
-        Map<String, String> uiList = dashboard.getChartData(0, 2);
+        Map<String, String> uiList = dashboard.getChartData(0, 2,0);
         System.out.println("uiList: " + uiList);
         Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList: " + apiList);
