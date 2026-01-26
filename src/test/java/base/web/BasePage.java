@@ -1,8 +1,10 @@
 package base.web;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.trident.playwright.utils.ParseTheTimeFormat;
+import com.trident.playwright.utils.WaitUtils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -10,6 +12,7 @@ import java.time.LocalTime;
 import java.time.Year;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.regex.Pattern;
 
 public class BasePage {
 
@@ -62,6 +65,7 @@ public class BasePage {
 
     public Map<String,String> getChartData(int timeStampIndex, int dataIndex) throws InterruptedException {
         Map<String, String> graphData = new LinkedHashMap<>();
+        page.waitForSelector(chartGraph, new Page.WaitForSelectorOptions().setTimeout(25000));
         waitForLocater(chartGraph);
         Locator noOfElements= page.locator(chartGraph);
         for(int i=0;i<noOfElements.count();i++){
@@ -83,4 +87,63 @@ public class BasePage {
         return s.replaceAll("\\s+", " ").trim();
     }
 
+    public void getByRoleButton(String text){
+        page.getByRole(AriaRole.BUTTON,new Page.GetByRoleOptions().setName(text)).click();
+    }
+
+    public void getByPlaceholder(String text){
+        page.getByPlaceholder(text).click();
+    }
+
+    public void getByPlaceholder(String placeholderValue, String text ){
+        page.getByPlaceholder(placeholderValue).fill(text);
+    }
+
+    public void getByText(String text){
+       Locator loc= page.getByText(text);
+        WaitUtils.waitForVisible(loc,8000);
+        loc.click();
+    }
+
+    public void getByRoleButton(){
+        page.getByRole(AriaRole.BUTTON).click();
+    }
+
+    public void getByTextWithButtonParent(String text){
+       Locator buttonText= page.getByText(text).filter(new Locator.FilterOptions()
+                .setHas(page.locator("button")));
+       WaitUtils.waitForVisible(buttonText,4000);
+       buttonText.click();
+    }
+
+    public void getByLabel(String text, String value){
+        page.getByLabel(text).fill(value);
+    }
+
+    public void getByRoleWithPartialText(String text){
+        page.getByRole(
+                AriaRole.BUTTON,
+                new Page.GetByRoleOptions().setName(Pattern.compile(text, Pattern.CASE_INSENSITIVE))).click();
+    }
+
+    public void getByRoleOption(String text){
+        page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(text)).click();
+    }
+
+
+    public void getByLabelAndText(String label){
+        page.getByLabel(label).getByText(label).click();
+    }
+
+    public void getByLabelButton(String LabelName){
+        page.getByText(LabelName).locator("..").getByRole(AriaRole.COMBOBOX).click();
+    }
+
+    public void getByLabelButtonSwitch(String LabelName){
+        page.getByText(LabelName).locator("..").getByRole(AriaRole.SWITCH).click();
+    }
+
+    public void getByRoleLink(String text){
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(text)).click();
+    }
 }
