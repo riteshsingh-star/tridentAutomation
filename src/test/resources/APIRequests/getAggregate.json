@@ -1,0 +1,15 @@
+{
+  "equipments": [
+    {
+      "id": 662,
+      "kpiParamDefIds": [
+        23
+      ]
+    }
+  ],
+  "dateRange": {
+    "startTs": "2026-01-19T04:30:00.000Z",
+    "endTs": "2026-01-26T04:30:00.000Z"
+  }
+
+}

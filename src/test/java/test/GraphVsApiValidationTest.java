@@ -20,7 +20,6 @@ import java.util.Set;
 public class GraphVsApiValidationTest extends BaseTest {
 
     private APIBase apiBase;
-
     @BeforeMethod(alwaysRun = true)
     public void setupApi() {
         apiBase = new APIBase();
@@ -38,12 +37,12 @@ public class GraphVsApiValidationTest extends BaseTest {
                 ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
         List<String> measuresName = data.measuresName;
         Dashboard dashboard = new Dashboard(page);
-        dashboard.createDashboard(data.dashboardName, data.dashboardDescription,"Public");
-        //dashboard.searchDashboard(data.dashboardName);
+        //dashboard.createDashboard(data.dashboardName, data.dashboardDescription,"Public");
+        dashboard.searchDashboard(data.dashboardName);
         dashboard.openWidgetCreationPage();
         dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
         dashboard.saveTheWidget();
-        Map<String, String> uiList = dashboard.getChartData(0, 2,0);
+        Map<String, String> uiList = dashboard.getChartData(0, 2,1);
         System.out.println("uiList: " + uiList);
         Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList: " + apiList);

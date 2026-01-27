@@ -75,6 +75,39 @@ public class APIBase {
         return request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
     }
 
+    public static Map<String, Map<String, Double>> getAllStatistics(JsonNode rootNode) {
+        Map<String, Map<String, Double>> result = new LinkedHashMap<>();
+        for (JsonNode equip : rootNode.path("equipments")) {
+            int eqId = equip.path("id").asInt();
+            for (JsonNode param : equip.path("rawParameters")) {
+                int paramId = param.path("rawParamDefId").asInt();
+                JsonNode stats = param.path("statistics");
+                Map<String, Double> s = new HashMap<>();
+                s.put("max", stats.path("maxValue").asDouble());
+                s.put("min", stats.path("minValue").asDouble());
+                s.put("mean", stats.path("meanValue").asDouble());
+                s.put("median", stats.path("medianValue").asDouble());
+                s.put("stdDev", stats.path("standardDeviationValue").asDouble());
+                result.put(eqId + "_" + paramId, s);
+            }
+        }
+        return result;
+    }
+
+    public static Double getRawParameterValue(JsonNode rootNode, int equipmentId, int rawParamDefId) {
+        JsonNode equipments = rootNode.path("equipments");
+        for (JsonNode equip : equipments) {
+            if (equip.path("equipmentId").asInt() == equipmentId) {
+                for (JsonNode param : equip.path("rawParameters")) {
+                    if (param.path("rawParameterDefId").asInt() == rawParamDefId) {
+                        return param.path("data").path("value").asDouble();
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
     @AfterClass
     public void tearDown() {
         closeApi();

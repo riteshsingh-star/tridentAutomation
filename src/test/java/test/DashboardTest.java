@@ -6,8 +6,7 @@ import com.trident.playwright.utils.ReadJsonFile;
 import page.web.Dashboard;
 import base.web.BaseTest;
 import org.testng.annotations.Test;
-import page.web.EquipmentPageVerification;
-import page.web.LoginPage;
+import page.web.EquipmentPageDataVerification;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,7 +33,7 @@ public class DashboardTest extends BaseTest {
         //System.out.println(dashboard.getChartDataLocally(0,2));
         //dashboard.deleteDashboard(data.dashboardName);
 
-        EquipmentPageVerification equipmentPageVerification = new EquipmentPageVerification(page);
+        EquipmentPageDataVerification equipmentPageVerification = new EquipmentPageDataVerification(page);
         page.waitForLoadState(LoadState.NETWORKIDLE);
         //equipmentPageVerification.openEquipmentAndAddKPI("SINGEING","Availability","Last week");
         equipmentPageVerification.verifyTheAggregateAccordingToFormula();

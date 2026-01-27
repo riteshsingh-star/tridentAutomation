@@ -1,6 +1,8 @@
 package page.api;
 
 import base.api.APIBase;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
 import com.trident.playwright.utils.ReadPropertiesFile;
 import org.testng.Assert;

@@ -3,9 +3,8 @@
         <listener class-name="listners.Listeners"/>
     </listeners>
     <test name="PlaywrightTrident">
-        <parameter name="deviceIndex" value="${deviceIndex}"/>
         <classes>
-            <class name="test.DashboardTest"/>
+            <class name="test.GraphVsApiValidationTest"/>
         </classes>
     </test>
 </suite>
