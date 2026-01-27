@@ -14,7 +14,7 @@ public class DashBoardVerifyTest extends BaseTest {
     @Test
     public void Dashboardverify() throws InterruptedException, IOException {
         DashboardVerify dashboardv=new DashboardVerify(page);
-        dashboardv.EquipmentPage();
+        dashboardv.EquipmentPage("singeing");
         //dashboardv.verifyChartData();
 
 

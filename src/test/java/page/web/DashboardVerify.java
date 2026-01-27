@@ -13,7 +13,7 @@ public class DashboardVerify extends BasePage {
         super(page);
     }
 
-    public void EquipmentPage() throws InterruptedException {
+    public void EquipmentPage(String SearchName) throws InterruptedException {
         page.getByRole(AriaRole.LINK,
                         new Page.GetByRoleOptions().setName("Equipment"))
                 .click();
@@ -39,7 +39,7 @@ public class DashboardVerify extends BasePage {
         //page.click("//div[@class='shrink-0 flex items-center justify-between border-t border-border bg-background px-4 py-3']//button[2]");
 //        page.getByPlaceholder("Search...")
 //                .fill("singeing");
-        getByPlaceholder("Search...","singing");
+        getByPlaceholder("Search...",SearchName);
 
         page.locator("section")
                 .filter(new Locator.FilterOptions().setHasText("SINGEING"))
@@ -47,7 +47,7 @@ public class DashboardVerify extends BasePage {
                         new Locator.GetByRoleOptions().setName("Add parameters"))
                 .click();
 
-        page.click("(//button[@value='on'])[5]");
+        page.click("(//button[@value='on'])[6]");
 
         page.keyboard().press("Escape");
 
@@ -58,10 +58,9 @@ public class DashboardVerify extends BasePage {
 
     }
 
-   /* public void verifyChartData() throws InterruptedException, IOException {
-        System.out.println(getChartData());
-    }
-*/
+//   public void verifyChartData() throws InterruptedException, IOException {
+//        System.out.println(getChartData());
+//    }
 }
 
 
