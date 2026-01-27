@@ -2,7 +2,15 @@ package test;
 
 import base.api.APIBase;
 import base.web.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import page.api.GetChartDataApi;
+import page.web.DashboardVerify;
+
+import java.io.IOException;
+import java.util.Map;
+
 
 public class AdminGraphValidationTest extends BaseTest {
 
@@ -13,20 +21,19 @@ public class AdminGraphValidationTest extends BaseTest {
         apiBase = new APIBase();
         apiBase.initApi();
     }
-
-/*    public void validateGraphwithmyApi() throws InterruptedException, IOException {
-        LoginPage login = new LoginPage(page);
-        login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
+    @Test
+    public void validateGraphwithmyApi() throws InterruptedException, IOException {
 
         DashboardVerify dashboardv = new DashboardVerify(page);
 
-        dashboardv.EquipmentPage();
-        Set<String> uiList = dashboardv.getChartData();
-        Set<String> apiList = VerifyKPIImplementation.getTimeSeriesDataAccordingToKPIS();
-        VerifyKPIImplementation api = new VerifyKPIImplementation();
+        dashboardv.EquipmentPage("singeing");
+        Map<String ,String> uiList = dashboardv.getChartData(0,2,0);
+        System.out.println("Ui List data "+uiList);
+        Map<String , String > apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
+        System.out.println("apiList " + apiList);
         Assert.assertEquals(uiList.size(), apiList.size(),
                 "UI and API data count mismatch");
-        System.out.println(apiList.containsAll(uiList));*
 
-    }*/
+
+    }
 }

@@ -139,6 +139,7 @@ public class BasePage {
         loc.click();
     }
 
+
     public void getByRoleButton(){
         page.getByRole(AriaRole.BUTTON).click();
     }
