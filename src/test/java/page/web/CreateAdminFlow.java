@@ -21,12 +21,12 @@ public class CreateAdminFlow extends BasePage {
         this.childPage = OpenAdminPage.moveToAdminPage(page, context);
     }
 
-    public void createGlobalParameter() throws InterruptedException {
+    public void createGlobalParameter(String name) throws InterruptedException {
 
 
         clickGlobalParameters();
 
-        clickCreateNewParameter("NewBatchBBB");
+        clickCreateNewParameter(name);
 
         clickSaveButton();
 
@@ -78,12 +78,12 @@ public class CreateAdminFlow extends BasePage {
         source.dragTo(target);
     }
 
-    public  void createNewKPIDefinition() throws InterruptedException {
+    public  void createNewKPIDefinition(String name) throws InterruptedException {
 
         childPage.getByText("New KPI Definition", new Page.GetByTextOptions().setExact(true))
                 .click();
 
-        defineKpi("NEWBBTEEWEQ");
+        defineKpi(name);
 
         selectVeriableandDefine();
 
@@ -127,14 +127,14 @@ public class CreateAdminFlow extends BasePage {
                 .click();
     }
 
-    public void addLogicToTheKPIAndValidate() throws InterruptedException {
+    public void addLogicToTheKPIAndValidate(String name,String text,String SearchName) throws InterruptedException {
 
         childPage.getByText("Advanced Implementation", new Page.GetByTextOptions().setExact(true))
                 .click();
 
-        editGlobalParameterImplementations("NEWBatchBB","SINGEING");
+        editGlobalParameterImplementations(name,text);
 
-        editKPIImplementation("NEWPARA");
+        editKPIImplementation(SearchName);
 
     }
         private void editGlobalParameterImplementations(String name , String text) {

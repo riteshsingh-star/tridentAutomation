@@ -13,8 +13,6 @@ public class DashBoardVerifyTest extends BaseTest {
 
     @Test
     public void Dashboardverify() throws InterruptedException, IOException {
-        LoginPage login = new LoginPage(page);
-        login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
         DashboardVerify dashboardv=new DashboardVerify(page);
         dashboardv.EquipmentPage();
         //dashboardv.verifyChartData();
