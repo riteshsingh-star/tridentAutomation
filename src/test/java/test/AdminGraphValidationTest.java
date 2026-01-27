@@ -2,7 +2,12 @@ package test;
 
 import base.api.APIBase;
 import base.web.BaseTest;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import page.web.DashboardVerify;
+
+import java.io.IOException;
+import java.util.Set;
 
 public class AdminGraphValidationTest extends BaseTest {
 
@@ -14,9 +19,7 @@ public class AdminGraphValidationTest extends BaseTest {
         apiBase.initApi();
     }
 
-/*    public void validateGraphwithmyApi() throws InterruptedException, IOException {
-        LoginPage login = new LoginPage(page);
-        login.login("covacsis_admin@techprescient.com", "MqdYgv29wAq5nG8CZY58B");
+    public void validateGraphwithmyApi() throws InterruptedException, IOException {
 
         DashboardVerify dashboardv = new DashboardVerify(page);
 
@@ -26,7 +29,7 @@ public class AdminGraphValidationTest extends BaseTest {
         VerifyKPIImplementation api = new VerifyKPIImplementation();
         Assert.assertEquals(uiList.size(), apiList.size(),
                 "UI and API data count mismatch");
-        System.out.println(apiList.containsAll(uiList));*
+        System.out.println(apiList.containsAll(uiList));
 
-    }*/
+    }
 }
