@@ -8,8 +8,8 @@ import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.Playwright;
 import com.microsoft.playwright.options.RequestOptions;
-import com.trident.playwright.utils.ParseTheTimeFormat;
-import com.trident.playwright.utils.ReadPropertiesFile;
+import utils.ParseTheTimeFormat;
+import utils.ReadPropertiesFile;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -25,6 +25,7 @@ public class APIBase {
     public void setup() {
         initApi();
     }
+
     protected static Playwright playwright;
     protected static APIRequestContext request;
 
@@ -36,7 +37,7 @@ public class APIBase {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("X-ORG-ID", "901");
-        headers.put("Authorization", "Bearer "+authToken);
+        headers.put("Authorization", "Bearer " + authToken);
 
         request = playwright.request().newContext(
                 new APIRequest.NewContextOptions()
@@ -44,16 +45,12 @@ public class APIBase {
                         .setExtraHTTPHeaders(headers)
         );
     }
-
-    public static Map<String, String> fetchApiData(String responseJson, String rootPath,int parameterIndexNumber, String parameterName, int dataIndexNo, String parameterDataName) throws JsonProcessingException {
+    static String changedDoubleValue;
+    public static Map<String, String> fetchApiData(String responseJson, String rootPath, int parameterIndexNumber, String parameterName, int dataIndexNo, String parameterDataName, boolean isComparingWebGraph) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         JsonNode root = mapper.readTree(responseJson);
-        JsonNode dataArray = root.path(rootPath)
-                .path(parameterIndexNumber)
-                .path(parameterName)
-                .path(dataIndexNo)
-                .path(parameterDataName);
-        Map<String,String> apiValues = new LinkedHashMap<>();
+        JsonNode dataArray = root.path(rootPath).path(parameterIndexNumber).path(parameterName).path(dataIndexNo).path(parameterDataName);
+        Map<String, String> apiValues = new LinkedHashMap<>();
         Iterator<JsonNode> iterator = dataArray.elements();
         while (iterator.hasNext()) {
             JsonNode node = iterator.next();
@@ -61,9 +58,14 @@ public class APIBase {
             JsonNode valueNode = node.get("doubleValue"); //Double, we cannot as it is breaking the null comparison
             if (!valueNode.isNull()) {
                 String value = valueNode.asText();
-                String convertedTimeStamp=ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
-                String changedDoubleValue=ParseTheTimeFormat.formatStringTo2Decimal(value);
-                apiValues.put(convertedTimeStamp,changedDoubleValue);
+                String convertedTimeStamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
+                if(isComparingWebGraph) {
+                    changedDoubleValue = ParseTheTimeFormat.formatStringTo2Decimal(value);
+                    apiValues.put(convertedTimeStamp, changedDoubleValue);
+                }
+                else{
+                    apiValues.put(convertedTimeStamp, value);
+                }
             }
         }
         return apiValues;
@@ -71,7 +73,7 @@ public class APIBase {
 
     public static APIResponse readJsonFileForApiRequestPayload(String fileName, String urlPath) throws IOException {
         String body = Files.readString(
-                Paths.get("src/test/resources/APIRequests/"+fileName+".json"), StandardCharsets.UTF_8);
+                Paths.get("src/test/resources/APIRequests/" + fileName + ".json"), StandardCharsets.UTF_8);
         return request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
     }
 

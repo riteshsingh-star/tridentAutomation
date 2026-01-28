@@ -7,6 +7,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.api.GetChartDataApi;
 import page.web.DashboardVerify;
+import page.web.PageComponent;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,6 +16,7 @@ import java.util.Map;
 public class AdminGraphValidationTest extends BaseTest {
 
     private APIBase apiBase;
+    PageComponent pageComponent =new PageComponent(page);
 
     @BeforeMethod(alwaysRun = true)
     public void setupApi() {
@@ -22,17 +24,16 @@ public class AdminGraphValidationTest extends BaseTest {
         apiBase.initApi();
     }
     @Test
-    public void validateGraphwithmyApi() throws InterruptedException, IOException {
+    public void validateGraphWithMyApi() throws InterruptedException, IOException {
 
-        DashboardVerify dashboardv = new DashboardVerify(page);
+        DashboardVerify dashboardV = new DashboardVerify(page);
 
-        dashboardv.EquipmentPage("singeing");
-        Map<String ,String> uiList = dashboardv.getChartData(0,2,0);
+        dashboardV.EquipmentPage("singeing");
+        Map<String ,String> uiList = pageComponent.getChartData(0,2,0);
         System.out.println("Ui List data "+uiList);
         Map<String , String > apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList " + apiList);
-        Assert.assertEquals(uiList.size(), apiList.size(),
-                "UI and API data count mismatch");
+        Assert.assertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
 
 
     }

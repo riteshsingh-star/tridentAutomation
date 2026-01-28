@@ -3,8 +3,7 @@ package page.web;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import base.web.BasePage;
-import com.microsoft.playwright.options.AriaRole;
-import com.trident.playwright.utils.WaitUtils;
+import utils.WaitUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 

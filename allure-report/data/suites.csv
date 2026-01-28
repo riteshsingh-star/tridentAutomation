@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","40383","validateGraphWithApi","Default Suite","Tue Jan 27 12:28:36 IST 2026","passed","Tue Jan 27 12:29:16 IST 2026","test.GraphVsApiValidationTest","playwright-java_Trident","test.GraphVsApiValidationTest","validateGraphWithApi"
+"","52058","createDashboardTest","Default Suite","Tue Jan 27 12:34:59 IST 2026","passed","Tue Jan 27 12:35:52 IST 2026","test.DashboardTest","playwright-java_Trident","test.DashboardTest","createDashboardTest"
+"","9098","getRawParameterDataValues","Default Suite","Mon Jan 26 21:41:39 IST 2026","passed","Mon Jan 26 21:41:48 IST 2026","page.api.GetRawParameterData","playwright-java_Trident","page.api.GetRawParameterData","getRawParameterDataValues"
+"","974","getRawAggregateValue","Default Suite","Mon Jan 26 21:35:31 IST 2026","passed","Mon Jan 26 21:35:32 IST 2026","page.api.GetAggregateValueOfKpi","playwright-java_Trident","page.api.GetAggregateValueOfKpi","getRawAggregateValue"
+"","1198","getTimeSeriesDataAccordingToRawParamId","Default Suite","Mon Jan 26 21:37:19 IST 2026","passed","Mon Jan 26 21:37:20 IST 2026","page.api.GetAggregateValueOfKpi","playwright-java_Trident","page.api.GetAggregateValueOfKpi","getTimeSeriesDataAccordingToRawParamId"

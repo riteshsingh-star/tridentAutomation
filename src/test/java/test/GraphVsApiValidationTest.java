@@ -2,9 +2,10 @@ package test;
 
 import base.api.APIBase;
 import base.web.BaseTest;
-import com.trident.playwright.pojo.DashboardData;
-import com.trident.playwright.utils.CompareGraphAndApiData;
-import com.trident.playwright.utils.ReadJsonFile;
+import page.web.PageComponent;
+import pojo.DashboardData;
+import utils.CompareGraphAndApiData;
+import utils.ReadJsonFile;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -15,11 +16,11 @@ import page.web.Dashboard;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class GraphVsApiValidationTest extends BaseTest {
 
     private APIBase apiBase;
+    PageComponent pageComponent;
     @BeforeMethod(alwaysRun = true)
     public void setupApi() {
         apiBase = new APIBase();
@@ -33,16 +34,17 @@ public class GraphVsApiValidationTest extends BaseTest {
 
     @Test
     public void validateGraphWithApi() throws InterruptedException, IOException {
+        pageComponent =new PageComponent(page);
         DashboardData data =
                 ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
-        List<String> measuresName = data.measuresName;
+        List<String> measuresName = data.measuresName();
         Dashboard dashboard = new Dashboard(page);
         //dashboard.createDashboard(data.dashboardName, data.dashboardDescription,"Public");
-        dashboard.searchDashboard(data.dashboardName);
+        dashboard.searchDashboard(data.dashboardName());
         dashboard.openWidgetCreationPage();
-        dashboard.addEquipmentTrendWidget(data.widgetType, data.equipmentName, measuresName,data.time, data.granularity);
+        dashboard.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
         dashboard.saveTheWidget();
-        Map<String, String> uiList = dashboard.getChartData(0, 2,1);
+        Map<String, String> uiList = pageComponent.getChartData(0, 2,1);
         System.out.println("uiList: " + uiList);
         Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList: " + apiList);

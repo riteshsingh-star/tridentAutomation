@@ -13,12 +13,14 @@ public class CreateAdminFlow extends BasePage {
 
     BrowserContext context;
     Page childPage;
+    PageComponent pageComponent;
 
     public CreateAdminFlow(Page page, BrowserContext context) {
         super(page);
+        pageComponent = new PageComponent(page);
 
         this.context = context;
-        this.childPage = OpenAdminPage.moveToAdminPage(page, context);
+        this.childPage = pageComponent.moveToAdminPage(page, context);
     }
 
     public void createGlobalParameter(String name) throws InterruptedException {
@@ -26,13 +28,12 @@ public class CreateAdminFlow extends BasePage {
         clickCreateNewParameter(name);
         clickSaveButton();
     }
+
         private void clickGlobalParameters() {
             childPage.getByText("Global Parameters List").click();
         }
         private void clickCreateNewParameter(String name) {
-            childPage.getByRole(AriaRole.BUTTON,
-                            new Page.GetByRoleOptions().setName("CREATE NEW"))
-                    .click();
+            childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CREATE NEW")).click();
             childPage.getByPlaceholder("Global Parameter Name").fill(name);
             childPage.click("//div[@class=' css-tlfecz-indicatorContainer']");
             childPage.locator("div[class*='menu']")

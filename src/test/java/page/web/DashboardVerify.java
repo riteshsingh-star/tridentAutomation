@@ -39,7 +39,7 @@ public class DashboardVerify extends BasePage {
         //page.click("//div[@class='shrink-0 flex items-center justify-between border-t border-border bg-background px-4 py-3']//button[2]");
 //        page.getByPlaceholder("Search...")
 //                .fill("singeing");
-        getByPlaceholder("Search...",SearchName);
+        //getByPlaceholder("Search...",SearchName);
 
         page.locator("section")
                 .filter(new Locator.FilterOptions().setHasText("SINGEING"))

@@ -1,17 +1,17 @@
 {
   "equipments": [
     {
-      "id": 662,
+      "id": 661,
       "rawParamDefIds": [
-        25
+        14
       ]
     }
   ],
   "dateRange": {
-    "startTs": "2026-01-19T04:30:00.000Z",
-    "endTs": "2026-01-26T04:30:00.000Z"
+    "startTs": "2026-01-26T04:30:00.000Z",
+    "endTs": "2026-01-27T04:30:00.000Z"
   },
-  "granularityInMillis": 28800000,
+  "granularityInMillis": 0,
   "addMissingTimestamps": true
 
 }

@@ -2,7 +2,7 @@ package page.api;
 
 import base.api.APIBase;
 import com.microsoft.playwright.APIResponse;
-import com.trident.playwright.utils.ReadPropertiesFile;
+import utils.ReadPropertiesFile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
