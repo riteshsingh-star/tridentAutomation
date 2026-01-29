@@ -89,7 +89,7 @@ public class BasePage {
     }
 
     public Map<String, String> getChartData(int timeStampIndex, int dataIndex, int graphIndex) throws InterruptedException {
-        syncUntil(20000);
+        WaitUtils.waitForVisible(graphContainerPath,25000);
         Locator chart = page.locator(graphContainerPath).nth(graphIndex);
         Locator plotArea = chart.locator(reactBackground);
         activateChart(plotArea);
