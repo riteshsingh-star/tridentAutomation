@@ -1,5 +1,6 @@
 package test;
 
+import io.qameta.allure.Step;
 import pojo.AdminFlow;
 import utils.ReadJsonFile;
 import page.web.CreateAdminFlow;
@@ -8,13 +9,13 @@ import base.web.BaseTest;
 import org.testng.annotations.Test;
 
 public class AdminFlowTest extends BaseTest {
-    @Step ("Creating Global Parameter and KPI Definition and Validate the KPI in Advance Implementation")
+    @Step("Creating Global Parameter and KPI Definition and Validate the KPI in Advance Implementation")
     @Test
     public void createAdminFowTest() throws InterruptedException {
         CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);
         AdminFlow data =
                 ReadJsonFile.readJson("testdata/adminFlow.json", AdminFlow.class);
-        adminFlow.createGlobalParameter(data.ParameterName());
+        adminFlow.createGlobalParameter(data.parameterName(),data.param(),data.checkbox());
         //adminFlow.createNewKPIDefinition(data.DefineKPIName());
         //adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName(),data.editGlobalText(),data.SearchName());
 

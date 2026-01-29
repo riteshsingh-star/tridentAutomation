@@ -15,18 +15,32 @@ public class CreateAdminFlow extends BasePage {
     BrowserContext context;
     Page childPage;
     PageComponent pageComponent;
+    Private final Locator CreateNew;
+    Private final Locator GlobalParameter;
+    Private final Locator DataTypeButton;
+    Private final Locator MenuButton;
+    Private final Locator SelectCheck;
 
     public CreateAdminFlow(Page page, BrowserContext context) {
         super(page);
         pageComponent = new PageComponent(page);
         this.context = context;
         this.childPage = pageComponent.moveToAdminPage(page, context);
+        this.CreateNew;
+        this.GlobalParameter;
+        this.DataTypeButton;
+        this.MenuButton;
+        this.SelectCheck;
+
+
+
+
     }
     @Step ("Creating Global Parameter")
     public void createGlobalParameter(String name) throws InterruptedException {
        try {
            clickGlobalParameters();
-           clickCreateNewParameter(name);
+           clickCreateNewParameter(parametername,param,checkbox);
            clickSaveButton();
        } catch (Exception e){
            System.out.println("Failed Create Global Parameter...");
@@ -37,12 +51,12 @@ public class CreateAdminFlow extends BasePage {
         childPage.getByText("Global Parameters List").click();
     }
 
-    private void clickCreateNewParameter(String name) {
+    private void clickCreateNewParameter(String parametername , String param ,String checkbox) {
         childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CREATE NEW")).click();
-        childPage.getByPlaceholder("Global Parameter Name").fill(name);
+        childPage.getByPlaceholder("Global Parameter Name").fill(parametername);
         childPage.click("//div[@class=' css-tlfecz-indicatorContainer']");
-        childPage.locator("div[class*='menu']").getByText("Double", new Locator.GetByTextOptions().setExact(true)).click();
-        childPage.getByLabel("Batch", new Page.GetByLabelOptions().setExact(true)).check();
+        childPage.locator("div[class*='menu']").getByText(param, new Locator.GetByTextOptions().setExact(true)).click();
+        childPage.getByLabel(checkbox, new Page.GetByLabelOptions().setExact(true)).check();
     }
 
     private void clickSaveButton() {

@@ -1,7 +1,11 @@
 {
-  "ParameterName":"NewBatchBBB",
+
+  "parameterName":"NewBatchBBB",
+  "param": "Double",
+  "checkbox": "Batch",
   "DefineKPIName": "NEWBBTEEWEQ",
   "editGlobalName": "NEWBatchBB",
   "editGlobalText": "SINGEING",
-  "SearchName": "NEWPARA"
+  "SearchName": "NEWPARA",
+
 }
