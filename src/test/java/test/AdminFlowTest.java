@@ -8,7 +8,7 @@ import base.web.BaseTest;
 import org.testng.annotations.Test;
 
 public class AdminFlowTest extends BaseTest {
-    @Step ("Creating Global Parameter and KPI Definition and Validate the KPI in Advance Implementation")
+    //@Step ("Creating Global Parameter and KPI Definition and Validate the KPI in Advance Implementation")
     @Test
     public void createAdminFowTest() throws InterruptedException {
         CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);

@@ -1,5 +1,7 @@
 package test;
 
+import com.microsoft.playwright.options.LoadState;
+import page.web.EquipmentPageDataVerification;
 import page.web.PageComponent;
 import pojo.DashboardData;
 import utils.ReadJsonFile;
@@ -16,7 +18,7 @@ public class DashboardTest extends BaseTest {
     public void createDashboardTest() throws InterruptedException, IOException {
         PageComponent pageComponent =new PageComponent(page);
         DashboardData data =
-                ReadJsonFile.readJson("testdata/dashboard.json", DashboardData.class);
+                ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
         List<String> measuresName = data.measuresName();
         Dashboard dashboard = new Dashboard(page);
         //dashboard.createDashboard(data.dashboardName, data.dashboardDescription,data.visibilityType);
@@ -31,10 +33,5 @@ public class DashboardTest extends BaseTest {
         dashboard.saveTheWidget();
         System.out.println(pageComponent.getChartData(0,2,0));
         //dashboard.deleteDashboard(data.dashboardName);
-
-        /*EquipmentPageDataVerification equipmentPageVerification = new EquipmentPageDataVerification(page);
-        page.waitForLoadState(LoadState.NETWORKIDLE);
-        //equipmentPageVerification.openEquipmentAndAddKPI("SINGEING","Availability","Last week");
-        equipmentPageVerification.verifyTheAggregateAccordingToFormula();*/
     }
 }

@@ -15,38 +15,50 @@ public class CreateAdminFlow extends BasePage {
     BrowserContext context;
     Page childPage;
     PageComponent pageComponent;
+    private final Locator globalParameterList;
+    private final Locator createNewGlobalParameter;
+    private final Locator globalParameterName;
+    private final Locator globalParameterDataType;
+    private final Locator globalParameterDataTypeValue;
+    private final Locator globalParameterDimension;
+    private final Locator globalParameterSave;
+    private final Locator kpiNameField;
 
     public CreateAdminFlow(Page page, BrowserContext context) {
         super(page);
         pageComponent = new PageComponent(page);
         this.context = context;
         this.childPage = pageComponent.moveToAdminPage(page, context);
+        this.globalParameterList=getByText("Global Parameters List",childPage);
+        this.createNewGlobalParameter=getByRoleButton("CREATE NEW",childPage);
+        this.globalParameterName=getByPlaceholder("Global Parameter Name",childPage);
+        this.globalParameterDataType=childPage.locator("//div[@class=' css-tlfecz-indicatorContainer']");
+        this.globalParameterDataTypeValue=childPage.locator("div[class*='menu']").getByText("Double", new Locator.GetByTextOptions().setExact(true));
+        this.globalParameterDimension=getByLabelCheckbox("Batch", childPage);
+        this.globalParameterSave=getByRoleLabelText(childPage,"Save");
+        this.kpiNameField=getByPlaceholder("KPI Name",childPage);
     }
     @Step ("Creating Global Parameter")
     public void createGlobalParameter(String name) throws InterruptedException {
-       try {
            clickGlobalParameters();
            clickCreateNewParameter(name);
            clickSaveButton();
-       } catch (Exception e){
-           System.out.println("Failed Create Global Parameter...");
-       }
     }
 
     private void clickGlobalParameters() {
-        childPage.getByText("Global Parameters List").click();
+        globalParameterList.click();
     }
 
     private void clickCreateNewParameter(String name) {
-        childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("CREATE NEW")).click();
-        childPage.getByPlaceholder("Global Parameter Name").fill(name);
-        childPage.click("//div[@class=' css-tlfecz-indicatorContainer']");
-        childPage.locator("div[class*='menu']").getByText("Double", new Locator.GetByTextOptions().setExact(true)).click();
-        childPage.getByLabel("Batch", new Page.GetByLabelOptions().setExact(true)).check();
+        createNewGlobalParameter.click();
+        globalParameterName.fill(name);
+        globalParameterDataType.click();
+        globalParameterDataTypeValue.click();
+        globalParameterDimension.check();
     }
 
     private void clickSaveButton() {
-        childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Save")).click();
+        globalParameterSave.click();
     }
 
     public void dragNewBatchBatchToDefinition() {
@@ -54,13 +66,10 @@ public class CreateAdminFlow extends BasePage {
         Locator target = childPage.locator(
                 "textarea[placeholder='Drag and Drop fields to define the KPI...']"
         );
-        try {
             source.scrollIntoViewIfNeeded();
             target.scrollIntoViewIfNeeded();
             source.dragTo(target);
-        }catch (Exception e){
-            System.out.println("Unable to perform drag and drop");
-        }
+
     }
 
     public void createNewKPIDefinition(String name) throws InterruptedException {
@@ -69,8 +78,8 @@ public class CreateAdminFlow extends BasePage {
         selectVariableAndDefine();
     }
 
-    private void defineKpi(String name) {
-        childPage.getByPlaceholder("KPI Name").fill(name);
+    private void defineKpi(String kpiName) {
+        kpiNameField.fill(kpiName);
         childPage.selectOption("#selectedPlant", "covacsis_dev");
         childPage.getByRole(AriaRole.CHECKBOX, new Page.GetByRoleOptions().setName("Aluminium")).check();
         childPage.getByRole(AriaRole.CHECKBOX, new Page.GetByRoleOptions().setName("Batch")).check();

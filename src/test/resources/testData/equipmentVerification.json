@@ -1,0 +1,7 @@
+{
+  "equipmentName": "SINGEING",
+  "measureName": "Total_Water_Consumption",
+  "frequency": "Last week",
+  "granularity": "Eight Hour",
+  "aggregateType": "Sum"
+}
