@@ -3,10 +3,9 @@ package listners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
 import com.microsoft.playwright.Page;
 import base.web.BaseTest;
-import com.trident.playwright.utils.ExtentManager;
+import utils.ExtentManager;
 import io.qameta.allure.Allure;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;

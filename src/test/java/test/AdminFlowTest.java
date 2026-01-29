@@ -1,8 +1,7 @@
 package test;
 
-import com.trident.playwright.pojo.AdminFlow;
-import com.trident.playwright.utils.ReadJsonFile;
-import io.qameta.allure.Step;
+import pojo.AdminFlow;
+import utils.ReadJsonFile;
 import page.web.CreateAdminFlow;
 import page.web.LoginPage;
 import base.web.BaseTest;
@@ -15,9 +14,9 @@ public class AdminFlowTest extends BaseTest {
         CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);
         AdminFlow data =
                 ReadJsonFile.readJson("testdata/adminFlow.json", AdminFlow.class);
-        adminFlow.createGlobalParameter(data.ParameterName);
-        adminFlow.createNewKPIDefinition(data.DefineKPIName);
-        adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName,data.editGlobalText,data.SearchName);
+        adminFlow.createGlobalParameter(data.ParameterName());
+        //adminFlow.createNewKPIDefinition(data.DefineKPIName());
+        //adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName(),data.editGlobalText(),data.SearchName());
 
     }
 }

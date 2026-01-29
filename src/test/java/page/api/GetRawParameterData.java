@@ -1,10 +1,8 @@
 package page.api;
 
 import base.api.APIBase;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
-import com.trident.playwright.utils.ReadPropertiesFile;
+import utils.ReadPropertiesFile;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import java.io.IOException;
@@ -19,10 +17,11 @@ public class GetRawParameterData extends APIBase {
         return response.text();
     }
 
-    @Test
-    public static void getRawParameterDataValues() throws IOException {
+    //@Test
+    public static Map<String,String> getRawParameterDataValues() throws IOException {
         String responseJson = getTimeSeriesDataAccordingToRawParamId();
-        Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data");
-        System.out.println(apiValues);
+        Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data",false);
+        //System.out.println(apiValues);
+        return apiValues;
     }
 }

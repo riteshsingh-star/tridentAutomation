@@ -4,7 +4,8 @@
   "widgetType": "Equipment Trend",
   "equipmentName": "SINGEING",
   "viewType": "Expanded",
-  "measuresName": ["Availability"],
-  "time": "Last Month",
-  "granularity": "Eight Hour"
+  "measuresName": ["Production"],
+  "time": "Last Week",
+  "granularity": "Eight Hour",
+  "visibilityType": "Public"
 }
