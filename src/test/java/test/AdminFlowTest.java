@@ -15,8 +15,8 @@ public class AdminFlowTest extends BaseTest {
         AdminFlow data =
                 ReadJsonFile.readJson("testdata/adminFlow.json", AdminFlow.class);
         adminFlow.createGlobalParameter(data.ParameterName());
-        //adminFlow.createNewKPIDefinition(data.DefineKPIName);
-        //adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName,data.editGlobalText,data.SearchName);
+        //adminFlow.createNewKPIDefinition(data.DefineKPIName());
+        //adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName(),data.editGlobalText(),data.SearchName());
 
     }
 }

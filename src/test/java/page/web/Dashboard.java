@@ -37,26 +37,26 @@ public class Dashboard extends BasePage {
         super(page);
         pageComponent = new PageComponent(page);
         this.visibilityPublic = page.locator("//div[@dir ='ltr']//following::*[text()='Public (Everyone)']");
-        this.addDashboardButton = getByRoleButton("Add Dashboard");
-        this.dashboardTitle = getByPlaceholder("Enter dashboard title");
-        this.dashboardDescription = getByPlaceholder("Enter dashboard description");
+        this.addDashboardButton = getByRoleButton("Add Dashboard",page);
+        this.dashboardTitle = getByPlaceholder("Enter dashboard title",page);
+        this.dashboardDescription = getByPlaceholder("Enter dashboard description",page);
         this.visibility = page.locator("//button[@role='combobox']");
-        this.createDashboard = getByRoleButton("Create");
-        this.searchDashboard = getByPlaceholder("Search...");
-        this.addWidget = getByRoleButton("Add Widget");
-        this.searchEquipment = getByPlaceholder("Search equipment...");
-        this.summaryButton = getByRoleButton("Summary");
-        this.widgetTypeSearchButton = getByLabel("Global widget search");
+        this.createDashboard = getByRoleButton("Create",page);
+        this.searchDashboard = getByPlaceholder("Search...",page);
+        this.addWidget = getByRoleButton("Add Widget",page);
+        this.searchEquipment = getByPlaceholder("Search equipment...",page);
+        this.summaryButton = getByRoleButton("Summary",page);
+        this.widgetTypeSearchButton = getByLabel("Global widget search",page);
         this.selectEquipment = page.locator("button").filter(new Locator.FilterOptions().setHasText("Select equipment"));
         this.deleteDashboardMenu = page.locator("(//button[@data-state='closed']//preceding-sibling::div//following::button)[6]");
         this.deleteButton = page.getByRole(AriaRole.MENU).getByRole(AriaRole.MENUITEM, new Locator.GetByRoleOptions().setName("Delete"));
-        this.saveWidget = getByRoleButton("Save");
-        this.selectEquipmentInEq = getByRoleOption("Equipment");
-        this.selectEquipmentInEqi = getByLabelButton("Select Equipment");
-        this.viewType = getByLabelButton("View Mode");
-        this.hideCompact = getByLabelButtonSwitch("Hide Expand/Compact Button");
-        this.time = getByLabelButton("Time");
-        this.granularityL = getByLabelButton("Granularity");
+        this.saveWidget = getByRoleButton("Save",page);
+        this.selectEquipmentInEq = getByRoleOption("Equipment",page);
+        this.selectEquipmentInEqi = getByLabelButton("Select Equipment",page);
+        this.viewType = getByLabelButton("View Mode",page);
+        this.hideCompact = getByLabelButtonSwitch("Hide Expand/Compact Button",page);
+        this.time = getByLabelButton("Time",page);
+        this.granularityL = getByLabelButton("Granularity",page);
     }
 
     public void createDashboard(String dashboardName, String description, String visibilityType) throws InterruptedException {
@@ -75,7 +75,7 @@ public class Dashboard extends BasePage {
 
     public void searchDashboard(String dashboardName) throws InterruptedException {
         searchDashboard.fill(dashboardName);
-        getByText(dashboardName).click();
+        getByText(dashboardName,page).click();
     }
 
     public void openWidgetCreationPage() throws InterruptedException {
@@ -86,15 +86,15 @@ public class Dashboard extends BasePage {
         selectWidgetType("Equipment Trend");
         selectEquipmentInEqi.click();
         searchEquipment.fill(equipmentName);
-        getByRoleOption(equipmentName).click();
+        getByRoleOption(equipmentName,page).click();
         pageComponent.enterMeasureName(measureName);
         page.keyboard().press("Escape");
         time.click();
-        getByLabelAndText(timeV).click();
+        getByLabelAndText(timeV,page).click();
         if (timeV.equals("Last Month"))
             System.out.println("Eight hour is selected");
         granularityL.click();
-        getByLabelAndText(granularity).click();
+        getByLabelAndText(granularity,page).click();
     }
 
     public void createEquipmentStoppageDonutWidget(String equipmentName) throws InterruptedException {
@@ -111,7 +111,7 @@ public class Dashboard extends BasePage {
         selectWidgetType("Batch Trend");
         selectEquipmentInEqi.click();
         searchEquipment.fill(equipmentName);
-        getByRoleOption(equipmentName).click();
+        getByRoleOption(equipmentName,page).click();
         pageComponent.enterMeasureName(measureName);
         page.keyboard().press("Escape");
     }
@@ -123,7 +123,7 @@ public class Dashboard extends BasePage {
         selectEquipmentInEq.click();
         selectEquipmentInEqi.click();
         searchEquipment.fill(equipmentName);
-        getByRoleOption(equipmentName).click();
+        getByRoleOption(equipmentName,page).click();
         if (viewTypeS.equals("Expanded")) {
             viewType.click();
             page.getByText(viewTypeS).click();
@@ -150,13 +150,13 @@ public class Dashboard extends BasePage {
     public void selectWidgetType(String widgetType) {
         summaryButton.click();
         widgetTypeSearchButton.fill(widgetType);
-        getByText(widgetType).click();
+        getByText(widgetType,page).click();
     }
 
     public void selectEquipmentName(String equipmentName) {
         selectEquipment.click();
         searchEquipment.fill(equipmentName);
-        getByRoleOption(equipmentName).click();
+        getByRoleOption(equipmentName,page).click();
     }
 }
 

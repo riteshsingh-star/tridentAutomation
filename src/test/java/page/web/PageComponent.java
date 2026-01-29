@@ -41,17 +41,17 @@ public class PageComponent extends BasePage {
         this.graphContainer = page.locator("div.highcharts-container");
         this.reactBackground = page.locator("//*[local-name()='rect' and contains(@class,'highcharts-plot-background')]");
         this.graphContainerPath = page.locator("//div[contains(@class,'highcharts-container')]");
-        this.searchMachine=getByPlaceholder("Search...");
+        this.searchMachine=getByPlaceholder("Search...",page);
         this.calander=page.getByRole(AriaRole.BUTTON).getByText(Pattern.compile("\\d{2} .* AM|PM", Pattern.CASE_INSENSITIVE));
-        this.searchMeasure=getByPlaceholder("Search measures...");
-        this.trendPanel=byTitle("Show in trend panel");
-        this.quickLinks=getByRoleButton("Quick Links");
-        this.applyButton=getByRoleButton("Apply");
-        this.addParameter=getByRoleButton("Add parameters");
-        this.equipmentPage=getByRoleLink("Equipment");
+        this.searchMeasure=getByPlaceholder("Search measures...",page);
+        this.trendPanel=byTitle("Show in trend panel",page);
+        this.quickLinks=getByRoleButton("Quick Links",page);
+        this.applyButton=getByRoleButton("Apply",page);
+        this.addParameter=getByRoleButton("Add parameters",page);
+        this.equipmentPage=getByRoleLink("Equipment",page);
         this.selectMeasure=page.locator("//span[text()='Select measures']//parent::button");
-        this.openPlantOS=getByRoleButton("Open PlantOS App Suite");
-        this.openAdminPage=getByRoleLink("Admin Service");
+        this.openPlantOS=getByRoleButton("Open PlantOS App Suite",page);
+        this.openAdminPage=getByRoleLink("Admin Service",page);
 
     }
 
@@ -127,10 +127,10 @@ public class PageComponent extends BasePage {
         equipmentPage.click();
         WaitUtils.waitForVisible(searchMachine, 4000);
         searchMachine.fill(equipmentName);
-        getByRoleLink(equipmentName).click();
+        getByRoleLink(equipmentName,page).click();
         calander.click();
         quickLinks.click();
-        getByText(frequency).click();
+        getByText(frequency,page).click();
         applyButton.click();
         addParameter.click();
         searchMeasure.fill(measureName);
@@ -143,7 +143,7 @@ public class PageComponent extends BasePage {
         Locator combo = page.getByRole(AriaRole.COMBOBOX);
         combo.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         combo.click();
-        getByText(granularity).click();
+        getByText(granularity,page).click();
     }
 
     public Page moveToAdminPage(Page page, BrowserContext context){

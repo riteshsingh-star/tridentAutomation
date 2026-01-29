@@ -38,57 +38,56 @@ public class BasePage {
         return s.replaceAll("\\s+", " ").trim();
     }
 
-    public Locator getByRoleButton(String text) {
+    public Locator getByRoleButton(String text, Page page) {
        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(text));
     }
 
-    public Locator getByPlaceholder(String placeholderValue) {
+    public Locator getByPlaceholder(String placeholderValue,Page page) {
         return page.getByPlaceholder(placeholderValue);
     }
 
-    public Locator getByText(String text) {
+    public Locator getByText(String text,Page page) {
         Locator loc = page.getByText(text, new Page.GetByTextOptions().setExact(true));
         WaitUtils.waitForVisible(loc, 8000);
         return loc;
     }
 
-    public void getByTextWithButtonParent(String text) {
-        Locator buttonText = page.getByText(text).filter(new Locator.FilterOptions()
-                .setHas(page.locator("button")));
+    public void getByTextWithButtonParent(String text,Page page) {
+        Locator buttonText = page.getByText(text).filter(new Locator.FilterOptions().setHas(page.locator("button")));
         WaitUtils.waitForVisible(buttonText, 4000);
         buttonText.click();
     }
 
-    public Locator getByLabel(String text) {
+    public Locator getByLabel(String text,Page page) {
        return page.getByLabel(text);
     }
 
-    public Locator getByRoleOption(String text) {
+    public Locator getByRoleOption(String text,Page page) {
         return page.getByRole(AriaRole.OPTION, new Page.GetByRoleOptions().setName(text).setExact(true));
     }
 
-    public Locator getByLabelAndText(String label) {
+    public Locator getByLabelAndText(String label,Page page) {
        return page.getByLabel(label).getByText(label);
     }
 
-    public Locator getByLabelButton(String LabelName) {
+    public Locator getByLabelButton(String LabelName,Page page) {
       return page.getByText(LabelName).locator("..").getByRole(AriaRole.COMBOBOX);
     }
 
-    public Locator getByLabelButtonSwitch(String LabelName) {
+    public Locator getByLabelButtonSwitch(String LabelName,Page page) {
         return page.getByText(LabelName).locator("..").getByRole(AriaRole.SWITCH);
     }
 
-    public Locator getByRoleLink(String text) {
+    public Locator getByRoleLink(String text,Page page) {
         return page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName(text).setExact(true));
     }
 
-    public Locator getByRoleTextbox() {
+    public Locator getByRoleTextbox(Page page) {
         return page.getByRole(AriaRole.TEXTBOX);
     }
 
-    public Locator getByRoleLabelText() {
-        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Login"));
+    public Locator getByRoleLabelText(Page page,String text) {
+        return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(text));
     }
 
     public Double getMeanAndSDFromUI(String type) {
@@ -96,7 +95,7 @@ public class BasePage {
         return Double.parseDouble(sdText.replace(type + " =", "").trim());
     }
 
-    public Locator byTitle(String text) {
+    public Locator byTitle(String text,Page page) {
         return page.getByTitle(text);
     }
 
