@@ -38,55 +38,6 @@ public class BasePage {
         page.waitForSelector(locator);
     }
 
-
-    public Locator getChartContainer(int graphIndexToLocate) {
-        page.waitForSelector(graphContainer, new Page.WaitForSelectorOptions().setTimeout(25000));
-        Locator chart = page.locator(graphContainer).nth(graphIndexToLocate);
-        chart.waitFor();
-        return chart;
-    }
-
-    public void activateChart(Locator plotArea) {
-        plotArea.waitFor();
-        BoundingBox box = plotArea.boundingBox();
-        if (box == null)
-            return;
-        double x = box.x + box.width / 2;
-        double y = box.y + box.height / 2;
-
-        page.mouse().move(x, y);
-        page.waitForTimeout(150);
-    }
-
-    public Map<String, String> getChartData(int timeStampIndex, int dataIndex, int graphIndex) throws InterruptedException {
-        WaitUtils.waitForVisible(graphContainerPath,25000);
-        Locator chart = page.locator(graphContainerPath).nth(graphIndex);
-        Locator plotArea = chart.locator(reactBackground);
-        activateChart(plotArea);
-        Map<String, String> graphData = new LinkedHashMap<>();
-        Locator tooltipSpans = page.locator(dataToolTip);
-        String lastKey = "";
-        BoundingBox box = plotArea.boundingBox();
-        if (box == null) return graphData;
-        double y = box.y + box.height * 0.6;
-        double startX = box.x - 10;
-        double endX   = box.x + box.width + 10;
-        for (double x = startX; x <= endX; x += 4) {
-            page.mouse().move(x, y);
-            page.waitForTimeout(25);
-            if (tooltipSpans.count() > Math.max(timeStampIndex, dataIndex)) {
-                String key = tooltipSpans.nth(timeStampIndex).textContent().trim();
-                if (!key.equals(lastKey)) {
-                    String value = tooltipSpans.nth(dataIndex).textContent().trim();
-                    graphData.put(normalizeSpaces(key), ParseTheTimeFormat.formatStringTo2Decimal(value)
-                    );
-                    lastKey = key;
-                }
-            }
-        }
-        return graphData;
-    }
-
     public static String normalizeSpaces(String s) {
         return s.replaceAll("\\s+", " ").trim();
     }
@@ -150,6 +101,10 @@ public class BasePage {
 
     public Locator byTitle(String text,Page page) {
         return page.getByTitle(text);
+    }
+
+    public Locator getByLabelCheckbox(String text,Page page) {
+        return page.getByLabel(text, new Page.GetByLabelOptions().setExact(true));
     }
 
 }
