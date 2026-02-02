@@ -2,12 +2,13 @@ package pojo;
 
 public record AdminFlow (
 
-    String parameterName,
+    String globalParameterName,
     String param,
     String checkbox,
-    String DefineKPIName,
-    String editGlobalName,
-    String editGlobalText,
-    String SearchName
-
+    String defineKPIName,
+    String unit,
+    String formula,
+    String machineName,
+    String date,
+    String batchFrequency
 ){}

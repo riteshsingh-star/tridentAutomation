@@ -1,11 +1,13 @@
 {
 
-  "parameterName":"New_Test_Batch",
+  "globalParameterName":"New_One",
   "param": "Double",
   "checkbox": "Batch",
-  "DefineKPIName": "New_Test_Batch_KPI",
-  "editGlobalName": "NEWBatchBB",
-  "editGlobalText": "SINGEING",
-  "SearchName": "NEWPARA"
+  "defineKPIName": "New_Test_Batch",
+  "machineName":"SINGEING",
+  "date": "2026-01-01",
+  "formula": "avg(^SINGEING.SINGED_METER)",
+  "batchFrequency": "Batch Start",
+  "unit": "meter"
 
 }
