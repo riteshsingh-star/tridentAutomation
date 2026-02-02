@@ -1,37 +1,71 @@
 package test;
 
-import com.microsoft.playwright.options.LoadState;
-import page.web.EquipmentPageDataVerification;
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import page.web.CreateWidget;
 import page.web.PageComponent;
 import pojo.DashboardData;
 import utils.ReadJsonFile;
 import page.web.Dashboard;
 import base.web.BaseTest;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 import java.util.List;
 
 public class DashboardTest extends BaseTest {
+    PageComponent pageComponent;
+    DashboardData data;
+    List<String> measuresName;
+    Dashboard dashboard;
+    CreateWidget createWidget;
+
+
+    @BeforeClass
+    public void dashBoardAndWidgetSetup(){
+        pageComponent =new PageComponent(page);
+        data = ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
+        measuresName = data.measuresName();
+        dashboard = new Dashboard(page);
+        createWidget = new CreateWidget(page);
+/*      String actualName=dashboard.createDashboard(data.dashboardName(), data.dashboardDescription(),data.visibilityType());
+        Assert.assertEquals(actualName,data.dashboardName());*/
+        dashboard.searchDashboard(data.dashboardName());
+
+    }
+
+    @BeforeMethod
+    public void openWidgetTab(){
+        createWidget.openWidgetCreationPage();
+    }
+
+    //@Test
+    public void addEquipmentTrendWidgetTest(){
+        String widgetActualName=createWidget.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
+        Assert.assertEquals(widgetActualName,"Equipment Performance"+" "+data.equipmentName());
+    }
+
+    //@Test
+    public void equipmentStoppageDonutWidgetTest(){
+        String widgetActualName=createWidget.createEquipmentStoppageDonutWidget(data.equipmentName());
+        Assert.assertEquals(widgetActualName,"Equipment Runtime"+" "+data.equipmentName());
+    }
+
+    //@Test
+    public void equipmentBatchDetailsTest() {
+        String widgetActualName=createWidget.createEquipmentBatchDetailsWidget(data.equipmentName());
+        Assert.assertEquals(widgetActualName,"Equipment Batch Details"+" "+data.equipmentName());
+    }
+
+    //@Test
+    public void batchTrendTest(){
+      String widgetValidation= createWidget.createBatchTrendWidget(data.equipmentName(), measuresName);
+      Assert.assertEquals(widgetValidation,"Batch Trend"+" "+data.equipmentName());
+    }
 
     @Test
-    public void createDashboardTest() throws InterruptedException, IOException {
-        PageComponent pageComponent =new PageComponent(page);
-        DashboardData data =
-                ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
-        List<String> measuresName = data.measuresName();
-        Dashboard dashboard = new Dashboard(page);
-        //dashboard.createDashboard(data.dashboardName, data.dashboardDescription,data.visibilityType);
-        dashboard.searchDashboard(data.dashboardName());
-        dashboard.openWidgetCreationPage();
-        dashboard.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
-        //dashboard.createEquipmentStoppageDonutWidget(data.equipmentName);
-        //dashboard.createEquipmentBatchDetailsWidget(data.equipmentName);
-
-        //dashboard.createBatchTrendWidget(data.equipmentName, measuresName);
-        //dashboard.createEquipmentWidget(data.equipmentName, data.viewType,true);
-        dashboard.saveTheWidget();
-        System.out.println(pageComponent.getChartData(0,2,0));
-        //dashboard.deleteDashboard(data.dashboardName);
+    public void equipmentWidgetTest(){
+        String widgetValidation= createWidget.createEquipmentWidget(data.equipmentName(), data.viewType(),true);
+        Assert.assertEquals(widgetValidation,"Equipment Runtime"+" "+data.equipmentName());
     }
+
 }

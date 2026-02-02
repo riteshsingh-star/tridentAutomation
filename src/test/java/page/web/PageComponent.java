@@ -7,6 +7,7 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
 import utils.WaitUtils;
 import java.util.LinkedHashMap;
@@ -75,15 +76,12 @@ public class PageComponent extends BasePage {
     }
 
     public Map<String, String> getChartData(int timeStampIndex, int dataIndex, int graphIndex) throws InterruptedException {
-      /* page.waitForResponse(
-                r -> r.url().contains("/api/kpis/time series") && r.status() == 200,
+      page.waitForResponse(
+                r -> r.url().contains("/api/kpis/timeseries") && r.status() == 200,
                 () -> graphContainerPath.nth(graphIndex)
-        );*/
-//        WaitUtils.waitForEnabled(page, page.locator("//*[local-name()='svg'][@width='826' and @height='180']"),25000);
-        /*WaitUtils.waitForEnabled(page, page.locator("((//*[name()='svg']/*[name()='desc' and contains(text(), 'Highcharts')])["+graphIndex+"])/parent::*[name()='svg']"), 25000);
-        page.locator("((//*[name()='svg']/*[name()='desc' and contains(text(), 'Highcharts')])["+graphIndex+"])/parent::*[name()='svg']").hover();
-//        syncUntil(20000);*/
-        syncUntil(20000);
+        );
+        Allure.step("Fetching the Data from the Graph");
+        //syncUntil(20000);
         Locator chart =graphContainerPath.nth(graphIndex);
         chart.scrollIntoViewIfNeeded();
         Locator plotArea = chart.locator(reactBackground);
@@ -153,5 +151,18 @@ public class PageComponent extends BasePage {
         });
         newPage.waitForLoadState();
         return newPage;
+    }
+
+    public Double getMeanAndSDFromUI(String type) {
+        String sdText = page.getByText(Pattern.compile("^" + type + "\\s*=.*")).first().textContent().trim();
+        return Double.parseDouble(sdText.replace(type + " =", "").trim());
+    }
+
+    public static long calculateUCL(long std, long mean){
+        return (long)std+(3*mean);
+    }
+
+    public static long calculateLCL(long std, long mean){
+        return (long)std-(3*mean);
     }
 }

@@ -14,8 +14,8 @@ public class AdminFlowTest extends BaseTest {
     public void createAdminFowTest() throws InterruptedException {
         CreateAdminFlow adminFlow=new CreateAdminFlow(page, context);
         AdminFlow data =
-                ReadJsonFile.readJson("testdata/adminFlow.json", AdminFlow.class);
-        adminFlow.createGlobalParameter(data.parameterName(),data.param(),data.checkbox());
+                ReadJsonFile.readJson("testData/adminFlow.json", AdminFlow.class);
+        adminFlow.createGlobalParameter(data.parameterName());
         //adminFlow.createNewKPIDefinition(data.DefineKPIName());
         //adminFlow.addLogicToTheKPIAndValidate(data.editGlobalName(),data.editGlobalText(),data.SearchName());
 

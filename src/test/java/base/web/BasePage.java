@@ -23,7 +23,7 @@ public class BasePage {
     }
 
     public static void waitAndClick(Page page, Locator locator, int waitMs) {
-        page.waitForTimeout(waitMs);   // fixed wait
+        page.waitForTimeout(waitMs);
         locator.scrollIntoViewIfNeeded();
         locator.click();
     }
@@ -94,11 +94,6 @@ public class BasePage {
         return page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(text));
     }
 
-    public Double getMeanAndSDFromUI(String type) {
-        String sdText = page.getByText(Pattern.compile("^" + type + "\\s*=.*")).first().textContent().trim();
-        return Double.parseDouble(sdText.replace(type + " =", "").trim());
-    }
-
     public Locator byTitle(String text,Page page) {
         return page.getByTitle(text);
     }
@@ -107,4 +102,11 @@ public class BasePage {
         return page.getByLabel(text, new Page.GetByLabelOptions().setExact(true));
     }
 
+    public Locator getByAltText(String text,Page page) {
+        return page.getByAltText(text);
+    }
+
+    public Locator getBySpanAndText(String text,Page page) {
+        page.locator("span").filter(new Locator.FilterOptions().setHasText(text));
+    }
 }

@@ -41,7 +41,7 @@ public class CreateAdminFlow extends BasePage {
     @Step ("Creating Global Parameter")
     public void createGlobalParameter(String name) throws InterruptedException {
            clickGlobalParameters();
-           clickCreateNewParameter(parametername,param,checkbox);
+           clickCreateNewParameter(name);
            clickSaveButton();
     }
 

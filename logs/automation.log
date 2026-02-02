@@ -1,0 +1,211 @@
+2026-02-02 10:14:48 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:14:52 INFO  BaseTest - Browser: chrome
+2026-02-02 10:14:52 INFO  BaseTest - Headless: false
+2026-02-02 10:14:56 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:14:57 INFO  BaseTest - Starting login
+2026-02-02 10:14:57 INFO  LoginPage - Entering username
+2026-02-02 10:15:01 INFO  LoginPage - Entering password
+2026-02-02 10:15:04 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:15:06 INFO  BaseTest - Login successful
+2026-02-02 10:15:07 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:15:45 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 10:15:45 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 10:18:49 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:18:52 INFO  BaseTest - Browser: chrome
+2026-02-02 10:18:52 INFO  BaseTest - Headless: false
+2026-02-02 10:18:53 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:18:54 INFO  BaseTest - Starting login
+2026-02-02 10:18:54 INFO  LoginPage - Entering username
+2026-02-02 10:18:58 INFO  LoginPage - Entering password
+2026-02-02 10:19:01 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:19:03 INFO  BaseTest - Login successful
+2026-02-02 10:19:22 ERROR BaseTest - Test Failed: dashboardVerify
+2026-02-02 10:20:16 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:20:20 INFO  BaseTest - Browser: chrome
+2026-02-02 10:20:20 INFO  BaseTest - Headless: false
+2026-02-02 10:20:21 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:20:22 INFO  BaseTest - Starting login
+2026-02-02 10:20:22 INFO  LoginPage - Entering username
+2026-02-02 10:20:27 INFO  LoginPage - Entering password
+2026-02-02 10:20:29 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:20:31 INFO  BaseTest - Login successful
+2026-02-02 10:21:42 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:21:46 INFO  BaseTest - Browser: chrome
+2026-02-02 10:21:46 INFO  BaseTest - Headless: false
+2026-02-02 10:21:46 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:21:47 INFO  BaseTest - Starting login
+2026-02-02 10:21:47 INFO  LoginPage - Entering username
+2026-02-02 10:21:52 INFO  LoginPage - Entering password
+2026-02-02 10:21:54 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:21:56 INFO  BaseTest - Login successful
+2026-02-02 10:21:58 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:22:36 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 10:22:36 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 10:23:16 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:23:19 INFO  BaseTest - Browser: chrome
+2026-02-02 10:23:19 INFO  BaseTest - Headless: false
+2026-02-02 10:23:20 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:23:21 INFO  BaseTest - Starting login
+2026-02-02 10:23:21 INFO  LoginPage - Entering username
+2026-02-02 10:23:26 INFO  LoginPage - Entering password
+2026-02-02 10:23:28 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:23:30 INFO  BaseTest - Login successful
+2026-02-02 10:23:31 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:23:47 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 10:23:48 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 10:25:26 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:25:29 INFO  BaseTest - Browser: chrome
+2026-02-02 10:25:29 INFO  BaseTest - Headless: false
+2026-02-02 10:25:30 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:25:31 INFO  BaseTest - Starting login
+2026-02-02 10:25:31 INFO  LoginPage - Entering username
+2026-02-02 10:25:36 INFO  LoginPage - Entering password
+2026-02-02 10:25:38 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:25:40 INFO  BaseTest - Login successful
+2026-02-02 10:25:41 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:25:57 INFO  Listeners - validateGraphWithApiPassed
+2026-02-02 10:38:31 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:38:35 INFO  BaseTest - Browser: chrome
+2026-02-02 10:38:35 INFO  BaseTest - Headless: false
+2026-02-02 10:38:35 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:38:36 INFO  BaseTest - Starting login
+2026-02-02 10:38:36 INFO  LoginPage - Entering username
+2026-02-02 10:38:41 INFO  LoginPage - Entering password
+2026-02-02 10:38:43 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:38:45 INFO  BaseTest - Login successful
+2026-02-02 10:38:47 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:38:55 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 10:38:55 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 10:40:30 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:40:33 INFO  BaseTest - Browser: chrome
+2026-02-02 10:40:33 INFO  BaseTest - Headless: false
+2026-02-02 10:40:34 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:40:35 INFO  BaseTest - Starting login
+2026-02-02 10:40:35 INFO  LoginPage - Entering username
+2026-02-02 10:40:40 INFO  LoginPage - Entering password
+2026-02-02 10:40:42 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:40:44 INFO  BaseTest - Login successful
+2026-02-02 10:40:45 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:40:54 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 10:40:54 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 10:48:44 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 10:48:48 INFO  BaseTest - Browser: chrome
+2026-02-02 10:48:48 INFO  BaseTest - Headless: false
+2026-02-02 10:48:49 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 10:48:50 INFO  BaseTest - Starting login
+2026-02-02 10:48:50 INFO  LoginPage - Entering username
+2026-02-02 10:48:55 INFO  LoginPage - Entering password
+2026-02-02 10:48:57 INFO  LoginPage - Clicking on Login button
+2026-02-02 10:48:59 INFO  BaseTest - Login successful
+2026-02-02 10:49:00 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 10:49:19 INFO  Listeners - validateGraphWithApiPassed
+2026-02-02 11:02:11 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 11:02:15 INFO  BaseTest - Browser: chrome
+2026-02-02 11:02:15 INFO  BaseTest - Headless: false
+2026-02-02 11:02:16 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 11:02:17 INFO  BaseTest - Starting login
+2026-02-02 11:02:17 INFO  LoginPage - Entering username
+2026-02-02 11:02:21 INFO  LoginPage - Entering password
+2026-02-02 11:02:23 INFO  LoginPage - Clicking on Login button
+2026-02-02 11:02:26 INFO  BaseTest - Login successful
+2026-02-02 11:02:29 INFO  Listeners - createAndValidateWidgetTest Started
+2026-02-02 11:02:37 INFO  Listeners - createAndValidateWidgetPassed
+2026-02-02 11:02:38 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 11:02:38 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 11:07:06 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 11:07:09 INFO  BaseTest - Browser: chrome
+2026-02-02 11:07:09 INFO  BaseTest - Headless: false
+2026-02-02 11:07:10 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 11:07:13 INFO  BaseTest - Starting login
+2026-02-02 11:07:13 INFO  LoginPage - Entering username
+2026-02-02 11:07:17 INFO  LoginPage - Entering password
+2026-02-02 11:07:20 INFO  LoginPage - Clicking on Login button
+2026-02-02 11:07:22 INFO  BaseTest - Login successful
+2026-02-02 11:07:25 INFO  Listeners - createAndValidateWidgetTest Started
+2026-02-02 11:07:33 INFO  Listeners - createAndValidateWidgetPassed
+2026-02-02 11:07:33 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 11:07:33 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-02 11:10:06 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 11:10:10 INFO  BaseTest - Browser: chrome
+2026-02-02 11:10:10 INFO  BaseTest - Headless: false
+2026-02-02 11:10:11 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 11:10:12 INFO  BaseTest - Starting login
+2026-02-02 11:10:12 INFO  LoginPage - Entering username
+2026-02-02 11:10:16 INFO  LoginPage - Entering password
+2026-02-02 11:10:19 INFO  LoginPage - Clicking on Login button
+2026-02-02 11:10:21 INFO  BaseTest - Login successful
+2026-02-02 11:10:24 INFO  Listeners - createAndValidateWidgetTest Started
+2026-02-02 11:10:32 ERROR Listeners - createAndValidateWidgetFailed
+2026-02-02 11:10:32 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 11:10:59 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 11:11:03 INFO  BaseTest - Browser: chrome
+2026-02-02 11:11:03 INFO  BaseTest - Headless: false
+2026-02-02 11:11:04 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 11:11:05 INFO  BaseTest - Starting login
+2026-02-02 11:11:05 INFO  LoginPage - Entering username
+2026-02-02 11:11:10 INFO  LoginPage - Entering password
+2026-02-02 11:11:12 INFO  LoginPage - Clicking on Login button
+2026-02-02 11:11:14 INFO  BaseTest - Login successful
+2026-02-02 11:11:17 INFO  Listeners - createAndValidateWidgetTest Started
+2026-02-02 11:11:24 INFO  Listeners - createAndValidateWidgetPassed
+2026-02-02 11:11:25 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 11:11:55 ERROR Listeners - validateGraphWithApiFailed
+2026-02-02 11:15:15 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 11:15:18 INFO  BaseTest - Browser: chrome
+2026-02-02 11:15:18 INFO  BaseTest - Headless: false
+2026-02-02 11:15:19 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 11:15:20 INFO  BaseTest - Starting login
+2026-02-02 11:15:20 INFO  LoginPage - Entering username
+2026-02-02 11:15:25 INFO  LoginPage - Entering password
+2026-02-02 11:15:27 INFO  LoginPage - Clicking on Login button
+2026-02-02 11:15:29 INFO  BaseTest - Login successful
+2026-02-02 11:15:33 INFO  Listeners - createAndValidateWidgetTest Started
+2026-02-02 11:15:39 INFO  Listeners - createAndValidateWidgetPassed
+2026-02-02 11:15:39 INFO  Listeners - validateGraphWithApiTest Started
+2026-02-02 11:15:47 INFO  Listeners - validateGraphWithApiPassed
+2026-02-02 11:15:47 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 11:15:47 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:04:58 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:05:02 INFO  BaseTest - Browser: chrome
+2026-02-02 12:05:02 INFO  BaseTest - Headless: false
+2026-02-02 12:05:03 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:05:04 INFO  BaseTest - Starting login
+2026-02-02 12:05:04 INFO  LoginPage - Entering username
+2026-02-02 12:05:09 INFO  LoginPage - Entering password
+2026-02-02 12:05:11 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:05:13 INFO  BaseTest - Login successful
+2026-02-02 12:05:19 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:05:19 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:05:48 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:05:52 INFO  BaseTest - Browser: chrome
+2026-02-02 12:05:52 INFO  BaseTest - Headless: false
+2026-02-02 12:05:53 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:05:54 INFO  BaseTest - Starting login
+2026-02-02 12:05:54 INFO  LoginPage - Entering username
+2026-02-02 12:05:59 INFO  LoginPage - Entering password
+2026-02-02 12:06:01 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:06:03 INFO  BaseTest - Login successful
+2026-02-02 12:06:07 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:06:08 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:06:41 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:06:45 INFO  BaseTest - Browser: chrome
+2026-02-02 12:06:45 INFO  BaseTest - Headless: false
+2026-02-02 12:06:46 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:06:48 INFO  BaseTest - Starting login
+2026-02-02 12:06:48 INFO  LoginPage - Entering username
+2026-02-02 12:06:52 INFO  LoginPage - Entering password
+2026-02-02 12:06:54 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:06:57 INFO  BaseTest - Login successful
+2026-02-02 12:07:04 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:07:05 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:07:29 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:07:33 INFO  BaseTest - Browser: chrome
+2026-02-02 12:07:33 INFO  BaseTest - Headless: false
+2026-02-02 12:07:36 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:07:38 INFO  BaseTest - Starting login
+2026-02-02 12:07:38 INFO  LoginPage - Entering username
+2026-02-02 12:07:42 INFO  LoginPage - Entering password
+2026-02-02 12:07:45 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:07:47 INFO  BaseTest - Login successful
+2026-02-02 12:07:52 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:07:53 INFO  BaseTest - ===== Test Teardown Completed =====
