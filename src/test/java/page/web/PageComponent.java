@@ -52,7 +52,8 @@ public class PageComponent extends BasePage {
         this.equipmentPage=getByRoleLink("Equipment",page);
         this.selectMeasure=page.locator("//span[text()='Select measures']//parent::button");
         this.openPlantOS=getByRoleButton("Open PlantOS App Suite",page);
-        this.openAdminPage=getByRoleLink("Admin Service",page);
+//        this.openAdminPage=getByRoleLink("Admin Service",page);
+        this.openAdminPage=page.locator("//span[text()='Admin Service']");
 
     }
 
