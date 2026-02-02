@@ -66,15 +66,18 @@ public class CreateAdminFlow extends BasePage {
         this.kpiIndustry = getByLabel("Aluminium", childPage);
         this.kpiType = getByLabel("Batch", childPage);
         this.kpiContinueButton = getByRoleButton("Continue", childPage);
-        this.globalParameterButton = childPage.getByText("Global Parameters").first();
-        this.selectGlobalparameter = childPage.getByText("New_Test_Batch", new Page.GetByTextOptions().setExact(true));
+        //this.globalParameterButton = childPage.getByText("Global Parameters");
+        this.globalParameterButton = childPage.locator("//li[.//span[normalize-space()='Global Parameters']]");
+        //this.globalParameterButton=childPage.locator("li", new Page.LocatorOptions().setHasText("Global Parameters"));
+        //this.selectGlobalparameter = childPage.getByText("New_Test_Batch", new Page.GetByTextOptions().setExact(true));
+        this.selectGlobalparameter=childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText("New_Test_Batch"));
         this.textboxKpivalidate = getByPlaceholder("Drag and Drop fields to define the KPI...", childPage);
         this.variblePrecession = getByPlaceholder("Enter Precision", childPage);
         this.variableValidate = getByRoleButton("Validate", childPage);
         this.editKPIPage = childPage.getByText("KPI Definitions List");
         this.searcheditKPI = childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search"));
         this.searchInput = childPage.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Search"));
-        this.editButton = childPage.getByTitle("Edit");
+        this.editButton = childPage.getByTitle("Edit").first();
         this.kpiValidatePage = childPage.getByText("Advanced Implementation");
         this.kpiValidateSearch = getByRoleButton("Search", childPage);
         this.kpiSearch = childPage.locator("//input[@aria-label='Search']");
@@ -154,13 +157,18 @@ public class CreateAdminFlow extends BasePage {
 
     }
 
-    public void editExistingKPI() throws InterruptedException {
+    public void editExistingKPI(String searchName) throws InterruptedException {
         editKPIPage.click();
         searcheditKPI.click();
-        searchInput.fill("New_Test_Batch_KPI");
+        searchInput.fill(searchName);
         editButton.click();
         kpiContinueButton.click();
-        WaitUtils.waitForVisible(globalParameterButton,4000);
+        String classes = globalParameterButton.getAttribute("class");
+        if (classes == null || !classes.contains("active")) {
+            globalParameterButton.click(new Locator.ClickOptions().setForce(true));
+        }
+        syncUntil(2000);
+        //WaitUtils.waitForVisible(globalParameterButton,4000);
         globalParameterButton.click();
         dragNewBatchBatchToDefinition();
       /*  //Locator aggreagte=childPage.locator("div").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^SelectSumAverageAverage By DurationAverage By KpiCumulative$"))).locator("#fromUnit").scrollIntoViewIfNeeded();
@@ -178,19 +186,19 @@ public class CreateAdminFlow extends BasePage {
         //page.locator(kpiAggregate).scrollIntoViewIfNeeded();
         selectVariableAndDefineKPI("SUM", "More Value is Good", "meter", "2");
         variableValidate.click();
-        syncUntil(5000);
+
 
     }
 
-    public void addLogicToTheKPIAndValidate(String name, String text, String searchName,String machineName, String date, String batchFreq, String units) throws InterruptedException {
+    public void addLogicToTheKPIAndValidate( String editGlobalName,String searchName,String machineName, String date, String batchFreq, String units,String formula) throws InterruptedException {
         kpiValidatePage.click();
-        editGlobalParameterImplementations(name, text,"SINGEING");
+        editGlobalParameterImplementations(editGlobalName, machineName,formula,"meter");
         editKPIImplementation(searchName,machineName,date,batchFreq,units);
     }
 
-    private void editGlobalParameterImplementations(String globalParameterName, String machineName, String unit) {
+    private void editGlobalParameterImplementations(String editGlobalName, String machineName, String unit ,String formula) {
         kpiValidateSearch.first().click();
-        kpiSearch.fill(globalParameterName);
+        kpiSearch.fill(editGlobalName);
         expandGlobalParameter.first().click();
         Locator equipmentHeader = childPage.locator("h4").filter(new Locator.FilterOptions().setHasText(machineName));
         equipmentHeader.scrollIntoViewIfNeeded();
@@ -203,7 +211,7 @@ public class CreateAdminFlow extends BasePage {
         //definitionField.press("Control+A");
         //childPage.keyboard().press("Backspace");
         childPage.keyboard().press("Enter");
-        definitionField.type("avg(^SINGEING.SINGED_METER)", new Locator.TypeOptions().setDelay(50));
+        definitionField.type(formula, new Locator.TypeOptions().setDelay(50));
         //System.out.println("Section Visible: " + machineSection.isVisible());
         //System.out.println("Textboxes in this section: " + machineSection.locator("textarea, [role='textbox']").count());
         //childPage.selectOption("(//span[text()='"+machineName+"']//following::select)[1]", "meter");
@@ -214,8 +222,8 @@ public class CreateAdminFlow extends BasePage {
 
     private void editKPIImplementation(String SearchName, String machineName, String date, String batchFrequency, String unit) {
         editKpiImplementationSearch.nth(1).click();
-        editKpiSearch.nth(1).fill(SearchName);
-        childPage.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Search")).nth(1).fill(SearchName);
+        editKpiSearch.fill(SearchName);
+        //childPage.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Search")).nth(1).fill(SearchName);
         Locator targetRow = childPage.locator("tr").filter(new Locator.FilterOptions().setHasText(SearchName));
         Locator expandBtn = targetRow.locator("#expandable-button");
         expandBtn.click();
@@ -228,7 +236,7 @@ public class CreateAdminFlow extends BasePage {
         batchFrequencyDropdown.selectOption(new SelectOption().setLabel(batchFrequency));
         Locator unitDropdown = singeingSection.locator("select.select-unit");
         unitDropdown.selectOption(new SelectOption().setLabel(unit));
-       singeingSection.locator("div.calendarWrap").locator("input[type='date']").fill(date);
+        singeingSection.locator("div.calendarWrap").locator("input[type='date']").fill(date);
         //childPage.locator("input[value='2022-05-20']");
         //page.locator("div").filter(new Locator.FilterOptions().setHasText("SINGEING")).locator("input.custom_datepicker").first().fill("2026-01-08");
         //page.locator("input.custom_datepicker").fill("2026-01-15");
