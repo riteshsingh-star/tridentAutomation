@@ -209,3 +209,75 @@
 2026-02-02 12:07:47 INFO  BaseTest - Login successful
 2026-02-02 12:07:52 INFO  BaseTest - ===== Test Teardown Started =====
 2026-02-02 12:07:53 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:36:14 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:36:18 INFO  BaseTest - Browser: chrome
+2026-02-02 12:36:18 INFO  BaseTest - Headless: false
+2026-02-02 12:36:20 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:36:21 INFO  BaseTest - Starting login
+2026-02-02 12:36:21 INFO  LoginPage - Entering username
+2026-02-02 12:36:26 INFO  LoginPage - Entering password
+2026-02-02 12:36:28 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:36:30 INFO  BaseTest - Login successful
+2026-02-02 12:36:39 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:36:39 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:36:39 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:41:59 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:42:03 INFO  BaseTest - Browser: chrome
+2026-02-02 12:42:03 INFO  BaseTest - Headless: false
+2026-02-02 12:42:04 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:42:05 INFO  BaseTest - Starting login
+2026-02-02 12:42:05 INFO  LoginPage - Entering username
+2026-02-02 12:42:10 INFO  LoginPage - Entering password
+2026-02-02 12:42:12 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:42:14 INFO  BaseTest - Login successful
+2026-02-02 12:42:53 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:42:53 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:42:53 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:49:09 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:49:12 INFO  BaseTest - Browser: chrome
+2026-02-02 12:49:12 INFO  BaseTest - Headless: false
+2026-02-02 12:49:13 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:49:14 INFO  BaseTest - Starting login
+2026-02-02 12:49:14 INFO  LoginPage - Entering username
+2026-02-02 12:49:19 INFO  LoginPage - Entering password
+2026-02-02 12:49:21 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:49:23 INFO  BaseTest - Login successful
+2026-02-02 12:49:33 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:49:33 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:49:33 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:50:00 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:50:04 INFO  BaseTest - Browser: chrome
+2026-02-02 12:50:04 INFO  BaseTest - Headless: false
+2026-02-02 12:50:05 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:50:06 INFO  BaseTest - Starting login
+2026-02-02 12:50:06 INFO  LoginPage - Entering username
+2026-02-02 12:50:10 INFO  LoginPage - Entering password
+2026-02-02 12:50:13 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:50:15 INFO  BaseTest - Login successful
+2026-02-02 12:51:00 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:51:00 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:51:01 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:55:20 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:55:24 INFO  BaseTest - Browser: chrome
+2026-02-02 12:55:24 INFO  BaseTest - Headless: false
+2026-02-02 12:55:24 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:55:26 INFO  BaseTest - Starting login
+2026-02-02 12:55:26 INFO  LoginPage - Entering username
+2026-02-02 12:55:30 INFO  LoginPage - Entering password
+2026-02-02 12:55:32 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:55:35 INFO  BaseTest - Login successful
+2026-02-02 12:55:40 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:55:40 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:55:41 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 12:57:01 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 12:57:04 INFO  BaseTest - Browser: chrome
+2026-02-02 12:57:04 INFO  BaseTest - Headless: false
+2026-02-02 12:57:05 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 12:57:06 INFO  BaseTest - Starting login
+2026-02-02 12:57:06 INFO  LoginPage - Entering username
+2026-02-02 12:57:11 INFO  LoginPage - Entering password
+2026-02-02 12:57:13 INFO  LoginPage - Clicking on Login button
+2026-02-02 12:57:16 INFO  BaseTest - Login successful
+2026-02-02 12:57:21 ERROR BaseTest - Test Failed: addEquipmentTrendWidgetTest
+2026-02-02 12:57:21 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 12:57:22 INFO  BaseTest - ===== Test Teardown Completed =====

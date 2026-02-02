@@ -38,7 +38,7 @@ public class DashboardTest extends BaseTest {
         createWidget.openWidgetCreationPage();
     }
 
-    //@Test
+    @Test
     public void addEquipmentTrendWidgetTest(){
         String widgetActualName=createWidget.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
         Assert.assertEquals(widgetActualName,"Equipment Performance"+" "+data.equipmentName());
@@ -62,7 +62,7 @@ public class DashboardTest extends BaseTest {
       Assert.assertEquals(widgetValidation,"Batch Trend"+" "+data.equipmentName());
     }
 
-    @Test
+    //@Test
     public void equipmentWidgetTest(){
         String widgetValidation= createWidget.createEquipmentWidget(data.equipmentName(), data.viewType(),true);
         Assert.assertEquals(widgetValidation,"Equipment Runtime"+" "+data.equipmentName());

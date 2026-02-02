@@ -107,6 +107,6 @@ public class BasePage {
     }
 
     public Locator getBySpanAndText(String text,Page page) {
-        page.locator("span").filter(new Locator.FilterOptions().setHasText(text));
+       return page.locator("span").filter(new Locator.FilterOptions().setHasText(text));
     }
 }

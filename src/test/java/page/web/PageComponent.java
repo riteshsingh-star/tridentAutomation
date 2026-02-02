@@ -3,9 +3,11 @@ package page.web;
 import base.web.BasePage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
+import com.microsoft.playwright.Mouse;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
+import com.microsoft.playwright.options.ViewportSize;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
@@ -165,5 +167,22 @@ public class PageComponent extends BasePage {
 
     public static long calculateLCL(long std, long mean){
         return (long)std-(3*mean);
+    }
+
+    public void dragTheChartGraph(Locator resizeHandle,Page page){
+        BoundingBox handleBox = resizeHandle.boundingBox();
+        ViewportSize viewport = page.viewportSize();
+
+        page.mouse().move(
+                handleBox.x + handleBox.width / 2,
+                handleBox.y + handleBox.height / 2
+        );
+        page.mouse().down();
+        page.mouse().move(
+                viewport.width - 20,
+                viewport.height - 20,
+                new Mouse.MoveOptions().setSteps(15)
+        );
+        page.mouse().up();
     }
 }
