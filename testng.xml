@@ -1,6 +1,6 @@
 <suite name="PlaywrightJava" parallel="tests" thread-count="2">
     <listeners>
-        <listener class-name="listners.Listeners"/>
+        <listener class-name="listeners.Listeners"/>
     </listeners>
     <test name="PlaywrightTrident">
         <classes>

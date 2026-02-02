@@ -45,6 +45,7 @@ public class APIBase {
                         .setExtraHTTPHeaders(headers)
         );
     }
+
     static String changedDoubleValue;
     public static Map<String, String> fetchApiData(String responseJson, String rootPath, int parameterIndexNumber, String parameterName, int dataIndexNo, String parameterDataName, boolean isComparingWebGraph) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -57,7 +58,7 @@ public class APIBase {
             String gmtTimestamp = node.get("timestamp").asText();
             JsonNode valueNode = node.get("doubleValue"); //Double, we cannot as it is breaking the null comparison
             if (!valueNode.isNull()) {
-                String value = valueNode.asText();
+                String value = valueNode.asText(); //gson
                 String convertedTimeStamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
                 if(isComparingWebGraph) {
                     changedDoubleValue = ParseTheTimeFormat.formatStringTo2Decimal(value);

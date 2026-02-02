@@ -1,9 +1,10 @@
 package base.web;
 
 import com.microsoft.playwright.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.testng.annotations.AfterClass;
 import utils.ReadPropertiesFile;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -65,10 +66,15 @@ public class BaseTest {
     @AfterMethod
     public void tearDown(ITestResult result) {
         if (!result.isSuccess()) {
-            log.error("Test Failed: "+ result.getName());
+            log.error("Test Failed: {}", result.getName());
         }
-        context.close();
-        browser.close();
-        playwright.close();
+    }
+    @AfterClass(alwaysRun = true)
+    public void tearDown() {
+        log.info("===== Test Teardown Started =====");
+        if (context != null) context.close();
+        if (browser != null) browser.close();
+        if (playwright != null) playwright.close();
+        log.info("===== Test Teardown Completed =====");
     }
 }

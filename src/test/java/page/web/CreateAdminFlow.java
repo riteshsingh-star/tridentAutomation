@@ -91,9 +91,15 @@ public class CreateAdminFlow extends BasePage {
     }
 
     public void createGlobalParameter(String name) throws InterruptedException {
+<<<<<<< HEAD
+           clickGlobalParameters();
+           clickCreateNewParameter(name);
+           clickSaveButton();
+=======
         clickGlobalParameters();
         clickCreateNewParameter(name);
         clickSaveButton();
+>>>>>>> d8ec8e4cd789d3025335f924f296b7aff8f393ea
     }
 
     private void clickGlobalParameters() {

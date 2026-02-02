@@ -11,7 +11,7 @@ import java.util.Map;
 public class GetRawParameterData extends APIBase {
 
     static String pathURL = ReadPropertiesFile.get("rawParameterPathURL");
-    public static String getTimeSeriesDataAccordingToRawParamId() throws IOException {
+    public static String getTimeSeriesResponseAccordingToRawParamId() throws IOException {
         APIResponse response = readJsonFileForApiRequestPayload("getRawParameter",pathURL);
         Assert.assertEquals(response.status(), 200);
         return response.text();
@@ -19,7 +19,7 @@ public class GetRawParameterData extends APIBase {
 
     //@Test
     public static Map<String,String> getRawParameterDataValues() throws IOException {
-        String responseJson = getTimeSeriesDataAccordingToRawParamId();
+        String responseJson = getTimeSeriesResponseAccordingToRawParamId();
         Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data",false);
         //System.out.println(apiValues);
         return apiValues;

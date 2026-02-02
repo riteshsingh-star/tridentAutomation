@@ -1,1 +1,0 @@
-{"uuid":"bcd8735f-b6cc-42ca-bd61-aaf0f0a0bf83","name":"test.GraphVsApiValidationTest","children":["c4ca367c-8007-41f1-a418-fba2658baee1"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1769582246999,"stop":1769582262114}],"afters":[],"start":1769582246961,"stop":1769582300877}
