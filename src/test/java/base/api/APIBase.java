@@ -30,13 +30,13 @@ public class APIBase {
     protected static APIRequestContext request;
 
     public void initApi() {
-        String baseURIIU = ReadPropertiesFile.get("APIBaseURL");
+        String baseURIIU = ReadPropertiesFile.get("APIBaseURLUAT");
         String authToken = ReadPropertiesFile.get("authToken");
         playwright = Playwright.create();
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("X-ORG-ID", "901");
+        headers.put("X-ORG-ID", "1138");
         headers.put("Authorization", "Bearer " + authToken);
 
         request = playwright.request().newContext(
@@ -151,6 +151,14 @@ public class APIBase {
         }
         double variance = varianceSum / (values.size() - 1);
         return Math.sqrt(variance);
+    }
+
+    public static double calculateUCL(double std, double mean){
+        return (3 * std) + mean;
+    }
+
+    public static double calculateLCL(double std, double mean){
+        return mean - (3 * std);
     }
 
 }

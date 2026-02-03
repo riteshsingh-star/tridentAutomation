@@ -12,22 +12,46 @@ public class StandardDeviationAndMean extends APIBase {
     public static void testCalculateStandardDeviation() throws IOException {
         Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataValues();
         double standardDeviation = APIBase.calculateSTDdiv(rawParameterData);
-        System.out.println("\n--- Sample Data Points ---");
+        double sum = 0.0;
         int count = 0;
-        for (Map.Entry<String, String> entry : rawParameterData.entrySet()) {
-            if (count < 5) {
-                System.out.println("Timestamp: " + entry.getKey() + " | Value: " + entry.getValue());
+        for (String valueStr : rawParameterData.values()) {
+            try {
+                double value = Double.parseDouble(valueStr);
+                sum += value;
                 count++;
+            } catch (NumberFormatException e) {
+                continue;
+            }
+        }
+        double mean = count > 0 ? sum / count : 0.0;
+        double stdLong =standardDeviation;
+        double meanLong = mean;
+        double ucl = APIBase.calculateUCL(stdLong, meanLong);
+        double lcl = APIBase.calculateLCL(stdLong, meanLong);
+
+        System.out.println("Mean value: " +  mean);
+        System.out.println("Standard deviation: " + standardDeviation);
+        System.out.println("UCL : " + ucl);
+        System.out.println("LCL : " + lcl);
+        
+        System.out.println("--- Sample Data Points ---");
+        int sampleCount = 0;
+        for (Map.Entry<String, String> entry : rawParameterData.entrySet()) {
+            if (sampleCount < 5) {
+                System.out.println("Timestamp: " + entry.getKey() + " | Value: " + entry.getValue());
+                sampleCount++;
             } else {
                 break;
             }
         }
+        
         Assert.assertTrue(standardDeviation >= 0.0, "Standard deviation should be non-negative");
         
         if (rawParameterData.size() > 1) {
             Assert.assertTrue(standardDeviation > 0.0, "Standard deviation should be positive for multiple data points");
         }
-        System.out.println("standard deviation: " + String.format("%.6f", standardDeviation));
+        
+        System.out.println("\nTotal data points processed: " + rawParameterData.size());
     }
 
 }
