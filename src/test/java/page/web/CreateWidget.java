@@ -27,12 +27,13 @@ public class CreateWidget extends BasePage {
     private final Locator editWidgetButton;
     private final Locator deleteWidgetHamburger;
     private final Locator deleteButton;
-    //private final Locator resizableHandle;
+    private final Locator resizableHandle;
     private final Locator equipmentTrend;
     private final Locator machineNameOnWidget;
     private final Locator equipmentStoppage;
     private final Locator equipmentBatchDetail;
     private final Locator batchDetail;
+    private final Locator reactBackground;
 
     public CreateWidget(Page page) {
         super(page);
@@ -52,12 +53,13 @@ public class CreateWidget extends BasePage {
         this.editWidgetButton = getByAltText("edit", page);
         this.deleteWidgetHamburger = getByAltText("options", page);
         this.deleteButton = page.getByRole(AriaRole.MENU).getByRole(AriaRole.MENUITEM, new Locator.GetByRoleOptions().setName("Delete"));
-        //this.resizableHandle = page.locator(".ui-resizable-se").last();
+        this.resizableHandle = page.locator(".ui-resizable-se").last();
         this.equipmentTrend = page.locator("span").filter(new Locator.FilterOptions().setHasText("Equipment Performance"));
         this.machineNameOnWidget = getByRoleLink("SINGEING", page);
         this.equipmentStoppage= page.locator("h3").filter(new Locator.FilterOptions().setHasText("Equipment Runtime"));
         this.equipmentBatchDetail=page.locator("span").filter(new Locator.FilterOptions().setHasText("Equipment Batch Details"));
         this.batchDetail=page.locator("span").filter(new Locator.FilterOptions().setHasText("Batch Trend"));
+        this.reactBackground = page.locator("//*[local-name()='rect' and contains(@class,'highcharts-plot-background')]");
     }
 
     public void openWidgetCreationPage(){
@@ -80,6 +82,7 @@ public class CreateWidget extends BasePage {
         granularityL.click();
         getByLabelAndText(granularity, page).click();
         saveTheWidget();
+        dragTheChart();
         String widgetName=equipmentTrend.textContent();
         String machineName=machineNameOnWidget.textContent();
         return widgetName+" "+machineName;
@@ -176,5 +179,14 @@ public class CreateWidget extends BasePage {
     public void editEquipmentNameInWidget(String equipmentName){
         Allure.step("Editing Widget Configuration");
         searchEquipment.fill(equipmentName);
+    }
+
+    public void dragTheChart(){
+        Locator widget = page
+                .locator(".grid-stack-item-content")
+                .filter(new Locator.FilterOptions()
+                        .setHasText("Equipment Performance"));
+        widget.hover();
+        pageComponent.dragTheChartGraph(resizableHandle,page);
     }
 }
