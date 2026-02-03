@@ -209,3 +209,26 @@
 2026-02-02 12:07:47 INFO  BaseTest - Login successful
 2026-02-02 12:07:52 INFO  BaseTest - ===== Test Teardown Started =====
 2026-02-02 12:07:53 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 16:58:58 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 16:59:04 INFO  BaseTest - Browser: chrome
+2026-02-02 16:59:04 INFO  BaseTest - Headless: false
+2026-02-02 16:59:06 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 16:59:07 INFO  BaseTest - Starting login
+2026-02-02 16:59:07 INFO  LoginPage - Entering username
+2026-02-02 16:59:12 INFO  LoginPage - Entering password
+2026-02-02 16:59:14 INFO  LoginPage - Clicking on Login button
+2026-02-02 16:59:17 INFO  BaseTest - Login successful
+2026-02-02 16:59:30 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-02 17:00:02 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-02 17:00:02 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 17:00:02 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-02 17:04:00 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-02 17:04:07 INFO  BaseTest - Browser: chrome
+2026-02-02 17:04:07 INFO  BaseTest - Headless: false
+2026-02-02 17:04:08 INFO  BaseTest - Navigating to URL: https://uat-new-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-02 17:04:10 INFO  BaseTest - Starting login
+2026-02-02 17:04:10 INFO  LoginPage - Entering username
+2026-02-02 17:04:15 INFO  LoginPage - Entering password
+2026-02-02 17:04:18 INFO  LoginPage - Clicking on Login button
+2026-02-02 17:04:50 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-02 17:04:51 INFO  BaseTest - ===== Test Teardown Completed =====

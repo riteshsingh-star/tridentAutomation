@@ -7,6 +7,8 @@ import com.microsoft.playwright.options.AriaRole;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -52,8 +54,11 @@ public class KPISCalculationUtils {
     }
 
     public static Map<String, VerificationResult> verifyAggregatedData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
-        DateTimeFormatter rawFormatter = DateTimeFormatter.ofPattern("MMM dd, HH:mm:ss", Locale.ENGLISH);
-        DateTimeFormatter aggFormatter = DateTimeFormatter.ofPattern("MMM dd, HH:mm", Locale.ENGLISH);
+        //DateTimeFormatter rawFormatter = DateTimeFormatter.ofPattern("MMM d, HH:mm:ss", Locale.ENGLISH);
+        //DateTimeFormatter aggFormatter = DateTimeFormatter.ofPattern("MMM d, HH:mm", Locale.ENGLISH);
+        DateTimeFormatter rawFormatter = new DateTimeFormatterBuilder().appendPattern("MMM d, HH:mm:ss").parseDefaulting(ChronoField.YEAR, LocalDate.now().getYear()).toFormatter(Locale.ENGLISH);
+
+        DateTimeFormatter aggFormatter = new DateTimeFormatterBuilder().appendPattern("MMM d, HH:mm:ss").parseDefaulting(ChronoField.YEAR, LocalDate.now().getYear()).toFormatter(Locale.ENGLISH);
         List<RawPoint> rawPoints = new ArrayList<>();
         for (Map.Entry<String, String> entry : rawDataMap.entrySet()) {
             rawPoints.add(new RawPoint(LocalDateTime.parse(entry.getKey(), rawFormatter), Double.parseDouble(entry.getValue())));
@@ -99,8 +104,8 @@ public class KPISCalculationUtils {
     public static Map<String, VerificationResult> verifyAggregatedSumData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
 
         int year = LocalDate.now().getYear();
-        DateTimeFormatter rawFormatter = DateTimeFormatter.ofPattern("MMM dd, HH:mm:ss yyyy", Locale.ENGLISH);
-        DateTimeFormatter aggFormatter = DateTimeFormatter.ofPattern("MMM dd, HH:mm:ss yyyy", Locale.ENGLISH);
+        DateTimeFormatter rawFormatter = DateTimeFormatter.ofPattern("MMM d, HH:mm:ss yyyy", Locale.ENGLISH);
+        DateTimeFormatter aggFormatter = DateTimeFormatter.ofPattern("MMM d, HH:mm:ss yyyy", Locale.ENGLISH);
         List<RawPoint> rawPoints = new ArrayList<>();
         for (Map.Entry<String, String> entry : rawDataMap.entrySet()) {
             String timeWithYear = entry.getKey() + " " + year;

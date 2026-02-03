@@ -10,14 +10,21 @@ import java.util.Map;
 
 public class GetRawParameterData extends APIBase {
 
-    static String pathURL = ReadPropertiesFile.get("rawParameterPathURL");
+    static String pathURL = ReadPropertiesFile.get("timeSeriesPathURL");
+
     public static String getTimeSeriesResponseAccordingToRawParamId() throws IOException {
-        APIResponse response = readJsonFileForApiRequestPayload("getRawParameter",pathURL);
+        System.out.println(pathURL);
+
+        APIResponse response = readJsonFileForApiRequestPayload("timeSeriesDataKPI",pathURL);
+        System.out.println(response.toString());
         Assert.assertEquals(response.status(), 200);
+
         return response.text();
+
+
     }
 
-    //@Test
+   // @Test
     public static Map<String,String> getRawParameterDataValues() throws IOException {
         String responseJson = getTimeSeriesResponseAccordingToRawParamId();
         Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data",false);

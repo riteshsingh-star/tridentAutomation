@@ -12,7 +12,7 @@ public class GetChartDataApi extends APIBase {
 
     static String pathURL = ReadPropertiesFile.get("timeSeriesPathURL");
     public static String getTimeSeriesResponseAccordingToKPI() throws IOException {
-        APIResponse response = readJsonFileForApiRequestPayload("getEquipmentDetails", pathURL);
+        APIResponse response = readJsonFileForApiRequestPayload("timeSeriesDataKPI", pathURL);
         Assert.assertEquals(response.status(), 200);
         return response.text();
     }

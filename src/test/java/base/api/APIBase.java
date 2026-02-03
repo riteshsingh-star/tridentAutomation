@@ -75,6 +75,7 @@ public class APIBase {
     public static APIResponse readJsonFileForApiRequestPayload(String fileName, String urlPath) throws IOException {
         String body = Files.readString(
                 Paths.get("src/test/resources/APIRequests/" + fileName + ".json"), StandardCharsets.UTF_8);
+        System.out.println("+"+request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8))));
         return request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
     }
 
@@ -120,4 +121,36 @@ public class APIBase {
         request.dispose();
         playwright.close();
     }
+
+
+    public static double calculateSTDdiv(Map<String, String> rawParameterData) {
+        List<Double> values = new ArrayList<>();
+        for (String valueStr : rawParameterData.values()) {
+            try {
+                double value = Double.parseDouble(valueStr);
+                values.add(value);
+            } catch (NumberFormatException e) {
+                continue;
+            }
+        }
+        if (values.isEmpty()) {
+            return 0.0;
+        }
+        if (values.size() == 1) {
+            return 0.0;
+        }
+        double sum = 0.0;
+        for (double value : values) {
+            sum += value;
+        }
+        double mean = sum / values.size();
+        System.out.println("Mean value: " + mean);
+        double varianceSum = 0.0;
+        for (double value : values) {
+            varianceSum += Math.pow(value - mean, 2);
+        }
+        double variance = varianceSum / (values.size() - 1);
+        return Math.sqrt(variance);
+    }
+
 }
