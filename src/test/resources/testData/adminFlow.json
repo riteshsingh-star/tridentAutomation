@@ -3,11 +3,15 @@
   "globalParameterName":"New_One",
   "param": "Double",
   "checkbox": "Batch",
-  "defineKPIName": "New_Test_Batch",
+  "defineKPIName": "New_Test_Auto",
   "machineName":"SINGEING",
   "date": "2026-01-01",
   "formula": "avg(^SINGEING.SINGED_METER)",
   "batchFrequency": "Batch Start",
-  "unit": "meter"
-
+  "unit": "Meter",
+  "plantName": "dev",
+  "aggregateType": "SUM",
+  "KPIPerformanceCriteria": "More Value is Good",
+  "kpiUnits": "Meter",
+  "kpiPrecision": "2"
 }

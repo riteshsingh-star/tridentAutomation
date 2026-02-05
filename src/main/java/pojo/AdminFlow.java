@@ -10,5 +10,10 @@ public record AdminFlow (
     String formula,
     String machineName,
     String date,
-    String batchFrequency
+    String batchFrequency,
+    String plantName,
+    String aggregateType,
+    String KPIPerformanceCriteria,
+    String kpiUnits,
+    String kpiPrecision
 ){}

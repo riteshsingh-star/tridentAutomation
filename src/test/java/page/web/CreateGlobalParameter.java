@@ -13,7 +13,7 @@ public class CreateGlobalParameter extends BasePage {
     PageComponent pageComponent;
     private final Locator globalParameterList;
     private final Locator createNewGlobalParameter;
-    private final Locator globalParameterName;
+    private final Locator globalParameterNameL;
     private final Locator globalParameterDataType;
     private final Locator globalParameterDataTypeValueDouble;
     private final Locator globalParameterDimension;
@@ -26,7 +26,7 @@ public class CreateGlobalParameter extends BasePage {
         this.childPage=childPage;
         this.globalParameterList = getByText("Global Parameters List", childPage);
         this.createNewGlobalParameter = getByRoleButton("CREATE NEW", childPage);
-        this.globalParameterName = getByPlaceholder("Global Parameter Name", childPage);
+        this.globalParameterNameL = getByPlaceholder("Global Parameter Name", childPage);
         this.globalParameterDataType = childPage.locator("//div[@class=' css-tlfecz-indicatorContainer']");
         this.globalParameterDataTypeValueDouble = childPage.locator("div[class*='menu']").getByText("Double", new Locator.GetByTextOptions().setExact(true));
         this.globalParameterDimension = getByLabelCheckbox("Batch", childPage);
@@ -34,9 +34,9 @@ public class CreateGlobalParameter extends BasePage {
     }
 
 
-    public void createGlobalParameter(String name) {
+    public void createGlobalParameter(String globalParameterName) {
         clickGlobalParameters();
-        clickCreateNewParameter(name);
+        clickCreateNewParameter(globalParameterName);
         clickSaveButton();
     }
 
@@ -44,10 +44,10 @@ public class CreateGlobalParameter extends BasePage {
         globalParameterList.click();
     }
 
-    private void clickCreateNewParameter(String name) {
+    private void clickCreateNewParameter(String gPName) {
 
         createNewGlobalParameter.click();
-        globalParameterName.fill(name);
+        globalParameterNameL.fill(gPName);
         globalParameterDataType.click();
         globalParameterDataTypeValueDouble.click();
         globalParameterDimension.check();
