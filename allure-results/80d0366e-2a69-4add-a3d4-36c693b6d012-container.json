@@ -1,1 +1,0 @@
-{"uuid":"80d0366e-2a69-4add-a3d4-36c693b6d012","name":"test.AdminFlowTest","children":["bcf1103a-db88-41b1-8280-28433d8b153f"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1769758539081,"stop":1769758557362}],"afters":[],"start":1769758539025,"stop":1769758597331}

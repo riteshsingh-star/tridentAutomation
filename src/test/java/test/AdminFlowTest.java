@@ -1,4 +1,5 @@
 package test;
+
 import com.microsoft.playwright.Page;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -18,13 +19,13 @@ public class AdminFlowTest extends BaseTest {
     KPIAdvanceImplementation kpiAdvance;
 
     @BeforeClass
-    public void createAdminFlowSetupTest(){
+    public void createAdminFlowSetupTest() {
         data = ReadJsonFile.readJson("testData/adminFlow.json", AdminFlow.class);
-        pageComponent=new PageComponent(page);
-        childPage=pageComponent.moveToAdminPage(page,context);
-        globalParameter=new CreateGlobalParameter(childPage,context);
+        pageComponent = new PageComponent(page);
+        childPage = pageComponent.moveToAdminPage(page, context);
+        globalParameter = new CreateGlobalParameter(childPage, context);
         kpiDefinition = new CreateNewKPIDefinition(childPage, context);
-        kpiAdvance = new KPIAdvanceImplementation(childPage,context);
+        kpiAdvance = new KPIAdvanceImplementation(childPage, context);
     }
 
     @Test
@@ -34,12 +35,13 @@ public class AdminFlowTest extends BaseTest {
 
     @Test
     public void createNewKpiDefinitionTest() throws InterruptedException {
-        kpiDefinition.createNewKPIDefinition(data.defineKPIName());
+        kpiDefinition.createNewKPIDefinition(data.defineKPIName(),data.plantName(),data.globalParameterName(),data.aggregateType(),data.KPIPerformanceCriteria(),data.kpiUnits(),data.kpiPrecision());
+        //kpiDefinition.editExistingKPI(data.defineKPIName(),data.globalParameterName());
     }
 
     @Test
     public void validateGlobalParameterAndKPITest() {
-        kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.machineName(), data.formula(), data.defineKPIName(), data.date(), data.batchFrequency(), data.unit());
+        kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.defineKPIName(), data.machineName(), data.date(), data.batchFrequency(), data.unit(), data.formula());
     }
 
 }

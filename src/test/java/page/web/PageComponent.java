@@ -1,6 +1,8 @@
 package page.web;
 
 import base.web.BasePage;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Mouse;
@@ -12,6 +14,8 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
 import utils.WaitUtils;
+
+import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -185,4 +189,7 @@ public class PageComponent extends BasePage {
         );
         page.mouse().up();
     }
+
+
+
 }

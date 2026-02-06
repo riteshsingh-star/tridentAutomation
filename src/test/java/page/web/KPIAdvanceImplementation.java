@@ -13,7 +13,7 @@ public class KPIAdvanceImplementation extends BasePage {
     BrowserContext context;
     Page childPage;
     PageComponent pageComponent;
-    private final Locator kpiValidatePage;
+    private final Locator advancedImplementationPage;
     private final Locator kpiValidateSearch;
     private final Locator kpiSearch;
     private final Locator editKpiImplementationSearch;
@@ -31,35 +31,35 @@ public class KPIAdvanceImplementation extends BasePage {
 
     public KPIAdvanceImplementation(Page childPage, BrowserContext context) {
         super(childPage);
-        this.context=context;
-        this.childPage=childPage;
-        this.kpiValidatePage = childPage.getByText("Advanced Implementation");
+        this.context = context;
+        this.childPage = childPage;
+        this.advancedImplementationPage = childPage.getByText("Advanced Implementation");
         this.kpiValidateSearch = getByRoleButton("Search", childPage);
         this.kpiSearch = childPage.locator("//input[@aria-label='Search']");
         this.editKpiImplementationSearch = getByRoleButton("Search", childPage);
         this.editKpiSearch = childPage.locator("//input[@aria-label='Search']");
-        this.expandGlobalParameter=childPage.locator("//tr[contains(@id,'MUIDataTableBodyRow')]");
-        this.selectUnit=childPage.locator("//select[@class='multipleSelDD searchSelect form-control select-unit']");
-        this.validateButton=childPage.locator("//button[text()='VALIDATE']");
-        this.expandButton=childPage.locator("#expandable-button");
-        this.batchFrq=childPage.locator("select.select-batch-frequency");
-        this.unitSelect=childPage.locator("select.select-unit");
-        this.activeRadio=childPage.locator("//label[text()='Active']");
-        this.textBox=childPage.locator("textarea, [role='textbox'], div[contenteditable='true']");
-        this.calender=childPage.locator("div.calendarWrap");
-        this.calenderInput=childPage.locator("input[type='date']");
+        this.expandGlobalParameter = childPage.locator("//tr[contains(@id,'MUIDataTableBodyRow')]");
+        this.selectUnit = childPage.locator("//select[@class='multipleSelDD searchSelect form-control select-unit']");
+        this.validateButton = childPage.locator("//button[text()='VALIDATE']");
+        this.expandButton = childPage.locator("#expandable-button");
+        this.batchFrq = childPage.locator("select.select-batch-frequency");
+        this.unitSelect = childPage.locator("select.select-unit");
+        this.activeRadio = childPage.locator("//label[text()='Active']");
+        this.textBox = childPage.locator("textarea, [role='textbox'], div[contenteditable='true']");
+        this.calender = childPage.locator("div.calendarWrap");
+        this.calenderInput = childPage.locator("input[type='date']");
 
     }
 
-    public void addLogicToTheKPIAndValidate( String editGlobalName,String searchName,String machineName, String date, String batchFreq, String units,String formula)  {
-        kpiValidatePage.click();
-        editGlobalParameterImplementations(editGlobalName, machineName,formula,"meter");
-        editKPIImplementation(searchName,machineName,date,batchFreq,units);
+    public void addLogicToTheKPIAndValidate(String globalParameterName, String kpiName, String machineName, String date, String batchFreq, String units, String formula) {
+        advancedImplementationPage.click();
+        validateGlobalParameterImplementations(globalParameterName, machineName, units, formula);
+        validateKPIImplementation(kpiName, machineName, date, batchFreq, units);
     }
 
-    private void editGlobalParameterImplementations(String editGlobalName, String machineName, String unit ,String formula) {
+    private void validateGlobalParameterImplementations(String globalParameterName, String machineName, String unit, String formula) {
         kpiValidateSearch.first().click();
-        kpiSearch.fill(editGlobalName);
+        kpiSearch.fill(globalParameterName);
         expandGlobalParameter.first().click();
         Locator equipmentHeader = childPage.locator("h4").filter(new Locator.FilterOptions().setHasText(machineName));
         equipmentHeader.scrollIntoViewIfNeeded();
@@ -74,14 +74,14 @@ public class KPIAdvanceImplementation extends BasePage {
         machineSection.locator(validateButton).first().click();
     }
 
-    private void editKPIImplementation(String SearchName, String machineName, String date, String batchFrequency, String unit) {
+    private void validateKPIImplementation(String kpiName, String machineName, String date, String batchFrequency, String unit) {
         editKpiImplementationSearch.nth(1).click();
-        editKpiSearch.fill(SearchName);
-        Locator targetRow = childPage.locator("tr").filter(new Locator.FilterOptions().setHasText(SearchName));
+        editKpiSearch.fill(kpiName);
+        Locator targetRow = childPage.locator("tr").filter(new Locator.FilterOptions().setHasText(kpiName));
         Locator expandBtn = targetRow.locator(expandButton);
         expandBtn.click();
         Locator machineHeader = childPage.locator("h4").filter(new Locator.FilterOptions().setHas(childPage.locator("span.machine-name",
-                new Page.LocatorOptions().setHasText(Pattern.compile("^"+machineName+"$")))));
+                new Page.LocatorOptions().setHasText(Pattern.compile("^" + machineName + "$")))));
         machineHeader.scrollIntoViewIfNeeded();
         machineHeader.click();
         Locator singeingSection = childPage.locator("div").filter(new Locator.FilterOptions().setHas(machineHeader)).last();

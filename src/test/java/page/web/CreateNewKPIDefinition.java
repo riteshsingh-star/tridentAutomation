@@ -20,7 +20,7 @@ public class CreateNewKPIDefinition extends BasePage {
     private final Locator kpiType;
     private final Locator kpiContinueButton;
     private final Locator globalParameterButton;
-    private final Locator selectGlobalParameter;
+   // private final Locator selectGlobalParameter;
     private final Locator textboxKpivalidate;
     private final Locator variblePrecession;
     private final Locator variableValidate;
@@ -44,7 +44,7 @@ public class CreateNewKPIDefinition extends BasePage {
         this.kpiType = getByLabel("Batch", childPage);
         this.kpiContinueButton = getByRoleButton("Continue", childPage);
         this.globalParameterButton = childPage.locator("//li[.//span[normalize-space()='Global Parameters']]");
-        this.selectGlobalParameter=childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText("New_Test_Batch"));
+        //this.selectGlobalParameter=childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText("New_Test_Batch"));
         this.textboxKpivalidate = getByPlaceholder("Drag and Drop fields to define the KPI...", childPage);
         this.variblePrecession = getByPlaceholder("Enter Precision", childPage);
         this.variableValidate = getByRoleButton("Validate", childPage);
@@ -52,14 +52,14 @@ public class CreateNewKPIDefinition extends BasePage {
         this.searcheditKPI = childPage.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Search"));
         this.searchInput = childPage.getByRole(AriaRole.TEXTBOX, new Page.GetByRoleOptions().setName("Search"));
         this.editButton = childPage.getByTitle("Edit").first();
-        this.aggregateFunctionDropdown = childPage.locator("//label[normalize-space()='Select Aggregated Function']/following-sibling::div//select");
-        this.kpiPerformanceDropdown = childPage.locator("//label[normalize-space()='KPI Performance']/following-sibling::div//select");
-        this.unitsDropdown = childPage.locator("//label[normalize-space()='Units']/following-sibling::div//select");
+        this.aggregateFunctionDropdown = childPage.locator("//label[contains(text(),'Select Aggregated Function')]/following-sibling::div//select");
+        this.kpiPerformanceDropdown = childPage.locator("//label[contains(text(),'KPI Performance')]/following-sibling::div//select");
+        this.unitsDropdown = childPage.locator("//label[contains(text(),'Units')]/following-sibling::div//select");
     }
 
 
-    public void dragNewBatchBatchToDefinition() {
-        Locator source = selectGlobalParameter;
+    public void dragNewBatchBatchToDefinition(String gPName) {
+        Locator source = selectGlobalParameterFromKPIPage(gPName);
         Locator target = textboxKpivalidate;
         source.scrollIntoViewIfNeeded();
         target.scrollIntoViewIfNeeded();
@@ -69,30 +69,30 @@ public class CreateNewKPIDefinition extends BasePage {
 
     }
 
-    public void createNewKPIDefinition(String name) throws InterruptedException {
+    public void createNewKPIDefinition(String kpiName, String plantName, String globalParameterName, String aggregateType, String KPIPerformanceCriteria, String units, String precision) throws InterruptedException {
         createKpi.click();
-        defineKpi(name);
-        selectVariableAndDefine();
+        defineKpi(kpiName,plantName);
+        selectVariableAndDefine(globalParameterName, aggregateType,KPIPerformanceCriteria,units,precision);
     }
 
-    private void defineKpi(String kpiName) {
+    private void defineKpi(String kpiName, String plantName) {
         kpiNameField.fill(kpiName);
-        childPage.selectOption("#selectedPlant", "covacsis_dev");
+        childPage.selectOption("#selectedPlant", plantName);
         kpiIndustry.check();
         kpiType.check();
         kpiContinueButton.click();
     }
 
-    private void selectVariableAndDefine() throws InterruptedException {
+    private void selectVariableAndDefine(String globalParameterName, String aggregateType, String KPIPerformanceCriteria, String units, String precision) throws InterruptedException {
         WaitUtils.waitForVisible(globalParameterButton,4000);
         globalParameterButton.click();
-        dragNewBatchBatchToDefinition();
-        selectVariableAndDefineKPI("SUM","More Value is Good","meter","2");
+        dragNewBatchBatchToDefinition(globalParameterName);
+        selectVariableAndDefineKPI(aggregateType,KPIPerformanceCriteria,units,precision);
         variableValidate.click();
 
     }
 
-    public void editExistingKPI(String searchName) throws InterruptedException {
+    public void editExistingKPI(String searchName, String globalParameterName) throws InterruptedException {
         editKPIPage.click();
         searcheditKPI.click();
         searchInput.fill(searchName);
@@ -104,8 +104,8 @@ public class CreateNewKPIDefinition extends BasePage {
         }
         syncUntil(2000);
         globalParameterButton.click();
-        dragNewBatchBatchToDefinition();
-        selectVariableAndDefineKPI("SUM", "More Value is Good", "meter", "2");
+        dragNewBatchBatchToDefinition(globalParameterName);
+        selectVariableAndDefineKPI("SUM", "More Value is Good", "Meter", "2");
         variableValidate.click();
 
 
@@ -116,6 +116,9 @@ public class CreateNewKPIDefinition extends BasePage {
         kpiPerformanceDropdown.selectOption(KPIPerformanceCriteria);
         unitsDropdown.selectOption(units);
         variblePrecession.fill(precision);
+    }
 
+    private Locator selectGlobalParameterFromKPIPage(String gPName){
+       return childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText(gPName));
     }
 }
