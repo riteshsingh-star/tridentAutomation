@@ -1345,3 +1345,191 @@
 2026-02-05 16:47:28 INFO  BaseTest - Login successful
 2026-02-05 16:47:39 INFO  BaseTest - ===== Test Teardown Started =====
 2026-02-05 16:47:39 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:30:18 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:30:22 INFO  BaseTest - Browser: chrome
+2026-02-06 11:30:22 INFO  BaseTest - Headless: false
+2026-02-06 11:30:26 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:30:28 INFO  BaseTest - Starting login
+2026-02-06 11:30:28 INFO  LoginPage - Entering username
+2026-02-06 11:30:32 INFO  LoginPage - Entering password
+2026-02-06 11:30:34 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:30:37 INFO  BaseTest - Login successful
+2026-02-06 11:30:40 INFO  Listeners - validateGlobalParameterAndKPITestTest Started
+2026-02-06 11:30:45 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:30:45 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:30:46 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:31:01 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:31:05 INFO  BaseTest - Browser: chrome
+2026-02-06 11:31:05 INFO  BaseTest - Headless: false
+2026-02-06 11:31:06 INFO  BaseTest - Navigating to URL: null
+2026-02-06 11:31:07 INFO  Listeners - validateGlobalParameterAndKPITestTest Started
+2026-02-06 11:31:07 INFO  Listeners - validateGlobalParameterAndKPITestSkipped
+2026-02-06 11:31:07 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:31:07 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:32:16 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:32:20 INFO  BaseTest - Browser: chrome
+2026-02-06 11:32:20 INFO  BaseTest - Headless: false
+2026-02-06 11:32:21 INFO  BaseTest - Navigating to URL: https://uat-new-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:32:23 INFO  BaseTest - Starting login
+2026-02-06 11:32:23 INFO  LoginPage - Entering username
+2026-02-06 11:32:27 INFO  LoginPage - Entering password
+2026-02-06 11:32:30 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:32:32 INFO  BaseTest - Login successful
+2026-02-06 11:32:36 INFO  Listeners - validateGlobalParameterAndKPITestTest Started
+2026-02-06 11:32:45 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:32:45 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:32:45 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:40:21 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:40:25 INFO  BaseTest - Browser: chrome
+2026-02-06 11:40:25 INFO  BaseTest - Headless: false
+2026-02-06 11:40:26 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:40:27 INFO  BaseTest - Starting login
+2026-02-06 11:40:27 INFO  LoginPage - Entering username
+2026-02-06 11:40:31 INFO  LoginPage - Entering password
+2026-02-06 11:40:33 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:40:36 INFO  BaseTest - Login successful
+2026-02-06 11:40:57 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:40:57 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:40:57 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:40:57 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:40:58 INFO  BaseTest - Browser: chrome
+2026-02-06 11:40:58 INFO  BaseTest - Headless: false
+2026-02-06 11:40:59 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:41:00 INFO  BaseTest - Starting login
+2026-02-06 11:41:00 INFO  LoginPage - Entering username
+2026-02-06 11:41:05 INFO  LoginPage - Entering password
+2026-02-06 11:41:07 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:41:07 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:41:07 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:41:07 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:41:08 INFO  BaseTest - Browser: chrome
+2026-02-06 11:41:08 INFO  BaseTest - Headless: false
+2026-02-06 11:41:09 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:41:10 INFO  BaseTest - Starting login
+2026-02-06 11:41:10 INFO  LoginPage - Entering username
+2026-02-06 11:41:12 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:41:12 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:41:12 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:41:13 INFO  BaseTest - Browser: chrome
+2026-02-06 11:41:13 INFO  BaseTest - Headless: false
+2026-02-06 11:41:14 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:41:15 INFO  BaseTest - Starting login
+2026-02-06 11:41:15 INFO  LoginPage - Entering username
+2026-02-06 11:41:20 INFO  LoginPage - Entering password
+2026-02-06 11:41:51 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:41:55 INFO  BaseTest - Browser: chrome
+2026-02-06 11:41:55 INFO  BaseTest - Headless: false
+2026-02-06 11:41:56 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:41:57 INFO  BaseTest - Starting login
+2026-02-06 11:41:57 INFO  LoginPage - Entering username
+2026-02-06 11:42:01 INFO  LoginPage - Entering password
+2026-02-06 11:42:03 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:42:06 INFO  BaseTest - Login successful
+2026-02-06 11:42:40 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:42:40 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:42:41 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:42:41 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:42:41 INFO  BaseTest - Browser: chrome
+2026-02-06 11:42:41 INFO  BaseTest - Headless: false
+2026-02-06 11:42:42 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:42:43 INFO  BaseTest - Starting login
+2026-02-06 11:42:43 INFO  LoginPage - Entering username
+2026-02-06 11:42:48 INFO  LoginPage - Entering password
+2026-02-06 11:42:50 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:42:52 INFO  BaseTest - Login successful
+2026-02-06 11:43:01 ERROR BaseTest - Test Failed: createDeviceTest
+2026-02-06 11:43:01 ERROR BaseTest - Test Failed: createUserTest
+2026-02-06 11:43:01 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:43:01 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:43:01 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:43:02 INFO  BaseTest - Browser: chrome
+2026-02-06 11:43:02 INFO  BaseTest - Headless: false
+2026-02-06 11:43:43 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:43:46 INFO  BaseTest - Browser: chrome
+2026-02-06 11:43:46 INFO  BaseTest - Headless: false
+2026-02-06 11:43:48 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:43:49 INFO  BaseTest - Starting login
+2026-02-06 11:43:49 INFO  LoginPage - Entering username
+2026-02-06 11:43:53 INFO  LoginPage - Entering password
+2026-02-06 11:43:55 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:43:58 INFO  BaseTest - Login successful
+2026-02-06 11:44:35 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:44:35 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:44:35 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:44:35 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:44:36 INFO  BaseTest - Browser: chrome
+2026-02-06 11:44:36 INFO  BaseTest - Headless: false
+2026-02-06 11:44:37 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:44:38 INFO  BaseTest - Starting login
+2026-02-06 11:44:38 INFO  LoginPage - Entering username
+2026-02-06 11:44:43 INFO  LoginPage - Entering password
+2026-02-06 11:44:45 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:44:47 INFO  BaseTest - Login successful
+2026-02-06 11:45:03 ERROR BaseTest - Test Failed: createDeviceTest
+2026-02-06 11:53:49 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:53:53 INFO  BaseTest - Browser: chrome
+2026-02-06 11:53:53 INFO  BaseTest - Headless: false
+2026-02-06 11:53:54 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:53:55 INFO  BaseTest - Starting login
+2026-02-06 11:53:55 INFO  LoginPage - Entering username
+2026-02-06 11:54:00 INFO  LoginPage - Entering password
+2026-02-06 11:54:02 INFO  LoginPage - Clicking on Login button
+2026-02-06 11:54:04 INFO  BaseTest - Login successful
+2026-02-06 11:54:39 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 11:54:39 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 11:54:39 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 11:54:39 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:54:40 INFO  BaseTest - Browser: chrome
+2026-02-06 11:54:40 INFO  BaseTest - Headless: false
+2026-02-06 11:54:41 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 11:54:43 INFO  BaseTest - Starting login
+2026-02-06 11:54:43 INFO  LoginPage - Entering username
+2026-02-06 11:54:47 INFO  LoginPage - Entering password
+2026-02-06 11:59:24 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 11:59:28 INFO  BaseTest - Browser: chrome
+2026-02-06 11:59:28 INFO  BaseTest - Headless: false
+2026-02-06 14:24:53 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 14:24:59 INFO  BaseTest - Browser: chrome
+2026-02-06 14:24:59 INFO  BaseTest - Headless: false
+2026-02-06 14:25:03 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 14:25:04 INFO  BaseTest - Starting login
+2026-02-06 14:25:04 INFO  LoginPage - Entering username
+2026-02-06 14:25:08 INFO  LoginPage - Entering password
+2026-02-06 14:25:11 INFO  LoginPage - Clicking on Login button
+2026-02-06 14:25:13 INFO  BaseTest - Login successful
+2026-02-06 14:25:29 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 14:25:29 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 14:25:29 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 14:28:58 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 14:29:03 INFO  BaseTest - Browser: chrome
+2026-02-06 14:29:03 INFO  BaseTest - Headless: false
+2026-02-06 14:29:04 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 14:29:06 INFO  BaseTest - Starting login
+2026-02-06 14:29:06 INFO  LoginPage - Entering username
+2026-02-06 14:29:10 INFO  LoginPage - Entering password
+2026-02-06 14:29:13 INFO  LoginPage - Clicking on Login button
+2026-02-06 14:29:15 INFO  BaseTest - Login successful
+2026-02-06 14:29:52 ERROR BaseTest - Test Failed: validateGraphWithMyApi
+2026-02-06 14:29:52 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 14:29:53 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 14:38:32 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 14:38:38 INFO  BaseTest - Browser: chrome
+2026-02-06 14:38:38 INFO  BaseTest - Headless: false
+2026-02-06 14:38:40 INFO  BaseTest - Navigating to URL: https://sit-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 14:38:41 INFO  BaseTest - Starting login
+2026-02-06 14:38:41 INFO  LoginPage - Entering username
+2026-02-06 14:38:46 INFO  LoginPage - Entering password
+2026-02-06 14:38:48 INFO  LoginPage - Clicking on Login button
+2026-02-06 14:38:51 INFO  BaseTest - Login successful
+2026-02-06 14:39:16 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-06 14:39:16 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-06 14:39:17 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-06 16:37:24 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-06 16:37:28 INFO  BaseTest - Browser: chrome
+2026-02-06 16:37:28 INFO  BaseTest - Headless: false
+2026-02-06 16:37:29 INFO  BaseTest - Navigating to URL: https://uat-new-process.infinite-uptime.com/dashboard?q=&view=compact
+2026-02-06 16:37:30 INFO  BaseTest - Starting login
+2026-02-06 16:37:30 INFO  LoginPage - Entering username
+2026-02-06 16:37:35 INFO  LoginPage - Entering password
+2026-02-06 16:37:37 INFO  LoginPage - Clicking on Login button
+2026-02-06 16:37:39 INFO  BaseTest - Login successful

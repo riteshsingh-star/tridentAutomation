@@ -4,31 +4,48 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class ReadPropertiesFile {
-        private static Properties prop;
+    private static Properties prop;
+    private static String env;
+    private static String client;
+    private static String userType;
 
-        public static Properties getProperties() {
+    static {
+        load();
+    }
 
-            if (prop == null) {
-                try {
-                    prop = new Properties();
-                    InputStream is = ReadPropertiesFile.class
-                            .getClassLoader()
-                            .getResourceAsStream("config.properties");
-
-                    if (is == null) {
-                        throw new RuntimeException("config.properties not found in classpath");
-                    }
-
-                    prop.load(is);
-
-                } catch (Exception e) {
-                    throw new RuntimeException("Failed to load config.properties", e);
-                }
+    private static void load() {
+        try {
+            prop = new Properties();
+            InputStream is = ReadPropertiesFile.class.getClassLoader().getResourceAsStream("config.properties");
+            if (is == null) {
+                throw new RuntimeException("config.properties not found");
             }
-            return prop;
-        }
+            prop.load(is);
+            env = System.getProperty("env", "uat").toLowerCase();
+            client = System.getProperty("client", "mtr").toLowerCase();
+            userType = System.getProperty("userType", "user").toLowerCase();
 
-        public static String get(String key) {
-            return getProperties().getProperty(key);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to load config", e);
         }
+    }
+
+    public static String get(String key) {
+        String value = prop.getProperty(
+                env + "." + client + "." + userType + "." + key
+        );
+        if (value != null) return value;
+
+        value = prop.getProperty(
+                env + "." + client + "." + key
+        );
+        if (value != null) return value;
+
+        value = prop.getProperty(
+                env + "." + key
+        );
+        if (value != null) return value;
+
+        return prop.getProperty(key);
+    }
 }

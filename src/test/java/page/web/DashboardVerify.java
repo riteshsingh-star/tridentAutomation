@@ -14,9 +14,7 @@ public class DashboardVerify extends BasePage {
     }
 
     public void EquipmentPage(String SearchName) throws InterruptedException {
-        page.getByRole(AriaRole.LINK,
-                        new Page.GetByRoleOptions().setName("Equipment"))
-                .click();
+        page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Equipment")).click();
         page.click("(//button[@data-slot=\"popover-trigger\"])[1]");
 
         //CalenderUtil.selectDate(page,2026,"January","20");

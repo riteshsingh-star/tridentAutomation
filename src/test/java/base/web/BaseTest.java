@@ -26,9 +26,11 @@ public class BaseTest {
     @BeforeClass(alwaysRun = true)
     public void setUp() throws InterruptedException {
         log.info("===== Test Setup Started =====");
+
         String browserName = ReadPropertiesFile.get("browser");
+
         boolean headless = Boolean.parseBoolean(ReadPropertiesFile.get("headless"));
-        String baseUrl = ReadPropertiesFile.get("baseUrl");
+        String baseUrl = ReadPropertiesFile.get("webUrl");
 
         playwright = Playwright.create();
 
@@ -55,7 +57,7 @@ public class BaseTest {
 
 
     private void performLogin(){
-        String user = ReadPropertiesFile.get("webUserName");
+        String user = ReadPropertiesFile.get("userName");
         String pass = ReadPropertiesFile.get("webPassword");
         log.info("Starting login");
         LoginPage loginPage = new LoginPage(page);

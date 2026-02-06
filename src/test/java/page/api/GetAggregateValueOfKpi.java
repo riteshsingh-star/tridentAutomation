@@ -14,6 +14,7 @@ public class GetAggregateValueOfKpi extends APIBase {
     static String pathURL = ReadPropertiesFile.get("timeSeriesPathURL");
     @Test
     public static void getTimeSeriesDataAccordingToRawParamId() throws IOException {
+
         APIResponse response = readJsonFileForApiRequestPayload("timeSeriesDataKPI",pathURL);
         Assert.assertEquals(response.status(), 200);
 

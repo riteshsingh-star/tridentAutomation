@@ -4,7 +4,7 @@
     </listeners>
     <test name="PlaywrightTrident">
         <classes>
-            <class name="test.GraphVsApiValidationTest"/>
+            <class name="test.AdminFlowTest"/>
         </classes>
     </test>
 </suite>

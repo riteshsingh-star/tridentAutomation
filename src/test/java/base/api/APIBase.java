@@ -33,18 +33,15 @@ public class APIBase {
     public void initApi() {
         String baseURIIU = ReadPropertiesFile.get("APIBaseURL");
         String authToken = ReadPropertiesFile.get("authToken");
+        String orgID=ReadPropertiesFile.get("X-ORG-ID");
         playwright = Playwright.create();
 
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
-        headers.put("X-ORG-ID", "1138");
+        headers.put("X-ORG-ID", orgID);
         headers.put("Authorization", "Bearer " + authToken);
 
-        request = playwright.request().newContext(
-                new APIRequest.NewContextOptions()
-                        .setBaseURL(baseURIIU)
-                        .setExtraHTTPHeaders(headers)
-        );
+        request = playwright.request().newContext(new APIRequest.NewContextOptions().setBaseURL(baseURIIU).setExtraHTTPHeaders(headers));
     }
 
     static String changedDoubleValue;

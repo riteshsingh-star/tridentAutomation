@@ -16,18 +16,19 @@ import java.util.Map;
 public class AdminGraphValidationTest extends BaseTest {
 
     private APIBase apiBase;
-    PageComponent pageComponent =new PageComponent(page);
+    PageComponent pageComponent;
 
     @BeforeMethod(alwaysRun = true)
     public void setupApi() {
         apiBase = new APIBase();
         apiBase.initApi();
     }
+
+
     @Test
     public void validateGraphWithMyApi() throws InterruptedException, IOException {
-
+        pageComponent =new PageComponent(page);
         DashboardVerify dashboardV = new DashboardVerify(page);
-
         dashboardV.EquipmentPage("singeing");
         Map<String ,String> uiList = pageComponent.getChartData(0,2,0);
         System.out.println("Ui List data "+uiList);

@@ -17,7 +17,7 @@ public class KPIAdvanceImplementation extends BasePage {
     PageComponent pageComponent;
     private final Locator advancedImplementationPage;
     private final Locator kpiValidateSearch;
-    private final Locator kpiSearch;
+    private final Locator gpSearch;
     private final Locator editKpiImplementationSearch;
     private final Locator editKpiSearch;
     private final Locator expandGlobalParameter;
@@ -37,7 +37,7 @@ public class KPIAdvanceImplementation extends BasePage {
         this.childPage = childPage;
         this.advancedImplementationPage = childPage.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Advanced Implementation"));
         this.kpiValidateSearch = getByRoleButton("Search", childPage);
-        this.kpiSearch = childPage.locator("//input[@aria-label='Search']");
+        this.gpSearch = childPage.locator("//input[@aria-label='Search']");
         this.editKpiImplementationSearch = getByRoleButton("Search", childPage);
         this.editKpiSearch = childPage.locator("//input[@aria-label='Search']").last();
         this.expandGlobalParameter = childPage.locator("//tr[contains(@id,'MUIDataTableBodyRow')]");
@@ -63,7 +63,7 @@ public class KPIAdvanceImplementation extends BasePage {
 
     private void validateGlobalParameterImplementations(String globalParameterName, String machineName, String unit, String formula) {
         kpiValidateSearch.first().click();
-        kpiSearch.fill(globalParameterName);
+        gpSearch.fill(globalParameterName);
         expandGlobalParameter.first().click();
         Locator equipmentHeader = childPage.locator("h4").locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + machineName + "$")));
         equipmentHeader.scrollIntoViewIfNeeded();
@@ -79,7 +79,7 @@ public class KPIAdvanceImplementation extends BasePage {
     }
 
     private void validateKPIImplementation(String kpiName, String machineName, String date, String batchFrequency, String unit) {
-        editKpiImplementationSearch.nth(1).click();
+        editKpiImplementationSearch.last().click();
         editKpiSearch.fill(kpiName);
         Locator targetRow = childPage.locator("tr").filter(new Locator.FilterOptions().setHasText(kpiName));
         Locator expandBtn = targetRow.locator(expandButton);

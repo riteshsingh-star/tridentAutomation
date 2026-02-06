@@ -35,7 +35,7 @@ public class GetRawParameterData extends APIBase {
         String responseJson = getTimeSeriesResponseAccordingToRawParamId();
         // System.out.println(responseJson);
         Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data", false);
-        // System.out.println(apiValues);
+        System.out.println(apiValues);
         return apiValues;
 
     }
