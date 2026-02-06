@@ -70,6 +70,21 @@ public class APIBase {
         return apiValues;
     }
 
+    public static APIResponse postApiRequest(Map<String, Object> bodyMap, String urlPath) {
+        try {
+            ObjectMapper objectMapper = new ObjectMapper();
+            String body = objectMapper.writeValueAsString(bodyMap);
+
+            return request.post(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8))
+            );
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to create API request body from Map", e);
+        }
+    }
+
+
+
+
     public static APIResponse readJsonFileForApiRequestPayload(String fileName, String urlPath) throws IOException {
         String body = Files.readString(
                 Paths.get("src/test/resources/APIRequests/" + fileName + ".json"), StandardCharsets.UTF_8);
