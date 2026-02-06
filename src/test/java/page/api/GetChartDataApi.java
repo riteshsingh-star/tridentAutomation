@@ -20,7 +20,7 @@ public class GetChartDataApi extends APIBase {
     public static Map<String, String> getTimeSeriesDataAccordingToKPIS() throws IOException {
         String responseJson = getTimeSeriesResponseAccordingToKPI();
         Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data",false);
-        //System.out.println("API Response after Formatting: " + apiValues);
+        System.out.println("API Response after Formatting: " + apiValues);
         //System.out.println(apiValues.size());
         return apiValues;
     }
