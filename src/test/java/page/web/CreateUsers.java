@@ -39,18 +39,18 @@ public class CreateUsers extends BasePage{
         this.lastNameField=page.locator("#lastNameForUser");
         this.organizationField=page.getByRole(AriaRole.COMBOBOX).first();
         this.phoneNumberField=page.locator(".PhoneInputInput");
-        this.languageField=page.getByRole(AriaRole.COMBOBOX).nth(1);
-        this.userRoleField=page.getByRole(AriaRole.COMBOBOX).nth(2);
-        this.unitSystemField=page.getByRole(AriaRole.COMBOBOX).nth(3);
-        this.timeZoneField=page.getByRole(AriaRole.COMBOBOX).nth(4);
-        this.alertMediaField=page.getByRole(AriaRole.COMBOBOX).nth(5);
+        this.languageField=page.getByRole(AriaRole.COMBOBOX).nth(2);
+        this.userRoleField=page.getByRole(AriaRole.COMBOBOX).nth(3);
+        this.unitSystemField=page.getByRole(AriaRole.COMBOBOX).nth(4);
+        this.timeZoneField=page.getByRole(AriaRole.COMBOBOX).nth(5);
+        this.alertMediaField=page.getByRole(AriaRole.COMBOBOX).nth(6);
         this.alertTypeField=page.locator("#select-entityType");
         this.adminNonAdminButton=getByLabel("myonoffswitchAdmin",page);
         this.addPlantButton=getByRoleButton("Add Plants",page);
     }
 
 
-    public void createNewUser(String email, String firstName, String lastName, String organizationName, long phoneNumber, String language, String unit, String timeZone, String alertMedia, String alertType, boolean isAdmin){
+    public void createNewUser(String email, String firstName, String lastName, String organizationName, long phoneNumber, String language, String unit, String timeZone, String alertMedia, String alertType, boolean isAdmin, String plantName) throws InterruptedException {
         userPage.click();
         createNewUserButton.click();
         emailIdField.fill(email);
@@ -64,17 +64,20 @@ public class CreateUsers extends BasePage{
         alertMediaField.selectOption(alertMedia);
         alertTypeField.click();
         getByRoleOption(alertType,page);
+        page.keyboard().press("Escape");
         if(isAdmin){
             adminNonAdminButton.click();
         }
 
+        selectAndAddPlant(organizationName,plantName);
     }
 
 
-    private void selectAndAddPlant(String organizationName, String plantName){
+    private void selectAndAddPlant(String organizationName, String plantName) throws InterruptedException {
         addPlantButton.click();
-        getByRoleButton(organizationName,page);
-        getBySpanAndText(plantName,page);
-        getByRoleButton("UPDATE",page);
+        getByRoleButton(organizationName,page).click();
+        getBySpanAndText(plantName,page).click();
+        getByRoleButton("UPDATE",page).click();
     }
+
 }

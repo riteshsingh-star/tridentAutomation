@@ -15,7 +15,7 @@ public class GetRawParameterData extends APIBase {
     public static String getTimeSeriesResponseAccordingToRawParamId() throws IOException {
         System.out.println(pathURL);
 
-        APIResponse response = readJsonFileForApiRequestPayload("timeseriesUAT",pathURL);
+        APIResponse response = readJsonFileForApiRequestPayload("getRawParameter",pathURL);
         System.out.println(response.toString());
 
         Assert.assertEquals(response.status(), 200);

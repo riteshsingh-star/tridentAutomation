@@ -4,8 +4,10 @@ import base.web.BasePage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.SelectOption;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import utils.WaitUtils;
 
 import java.util.regex.Pattern;
 
@@ -33,16 +35,16 @@ public class KPIAdvanceImplementation extends BasePage {
         super(childPage);
         this.context = context;
         this.childPage = childPage;
-        this.advancedImplementationPage = childPage.getByText("Advanced Implementation");
+        this.advancedImplementationPage = childPage.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Advanced Implementation"));
         this.kpiValidateSearch = getByRoleButton("Search", childPage);
         this.kpiSearch = childPage.locator("//input[@aria-label='Search']");
         this.editKpiImplementationSearch = getByRoleButton("Search", childPage);
-        this.editKpiSearch = childPage.locator("//input[@aria-label='Search']");
+        this.editKpiSearch = childPage.locator("//input[@aria-label='Search']").last();
         this.expandGlobalParameter = childPage.locator("//tr[contains(@id,'MUIDataTableBodyRow')]");
         this.selectUnit = childPage.locator("//select[@class='multipleSelDD searchSelect form-control select-unit']");
         this.validateButton = childPage.locator("//button[text()='VALIDATE']");
         this.expandButton = childPage.locator("#expandable-button");
-        this.batchFrq = childPage.locator("select.select-batch-frequency");
+        this.batchFrq = childPage.locator("select.select-frequency");
         this.unitSelect = childPage.locator("select.select-unit");
         this.activeRadio = childPage.locator("//label[text()='Active']");
         this.textBox = childPage.locator("textarea, [role='textbox'], div[contenteditable='true']");
@@ -52,6 +54,8 @@ public class KPIAdvanceImplementation extends BasePage {
     }
 
     public void addLogicToTheKPIAndValidate(String globalParameterName, String kpiName, String machineName, String date, String batchFreq, String units, String formula) {
+        WaitUtils.waitForEnabled(childPage,advancedImplementationPage,4000);
+        advancedImplementationPage.click();
         advancedImplementationPage.click();
         validateGlobalParameterImplementations(globalParameterName, machineName, units, formula);
         validateKPIImplementation(kpiName, machineName, date, batchFreq, units);
@@ -61,7 +65,7 @@ public class KPIAdvanceImplementation extends BasePage {
         kpiValidateSearch.first().click();
         kpiSearch.fill(globalParameterName);
         expandGlobalParameter.first().click();
-        Locator equipmentHeader = childPage.locator("h4").filter(new Locator.FilterOptions().setHasText(machineName));
+        Locator equipmentHeader = childPage.locator("h4").locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + machineName + "$")));
         equipmentHeader.scrollIntoViewIfNeeded();
         equipmentHeader.click();
         Locator machineSection = childPage.locator("div").filter(new Locator.FilterOptions().setHas(equipmentHeader)).last();
@@ -80,18 +84,17 @@ public class KPIAdvanceImplementation extends BasePage {
         Locator targetRow = childPage.locator("tr").filter(new Locator.FilterOptions().setHasText(kpiName));
         Locator expandBtn = targetRow.locator(expandButton);
         expandBtn.click();
-        Locator machineHeader = childPage.locator("h4").filter(new Locator.FilterOptions().setHas(childPage.locator("span.machine-name",
-                new Page.LocatorOptions().setHasText(Pattern.compile("^" + machineName + "$")))));
+        Locator machineHeader=childPage.locator("h4").locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + machineName + "$")));
         machineHeader.scrollIntoViewIfNeeded();
         machineHeader.click();
-        Locator singeingSection = childPage.locator("div").filter(new Locator.FilterOptions().setHas(machineHeader)).last();
-        Locator batchFrequencyDropdown = singeingSection.locator(batchFrq);
-        batchFrequencyDropdown.selectOption(new SelectOption().setLabel(batchFrequency));
-        Locator unitDropdown = singeingSection.locator(unitSelect);
+        Locator machineSection = childPage.locator("div").filter(new Locator.FilterOptions().setHas(machineHeader)).last();
+        Locator batchFrequencyDropdown = machineSection.locator(batchFrq);
+        batchFrequencyDropdown.selectOption(batchFrequency);
+        Locator unitDropdown = machineSection.locator(unitSelect);
         unitDropdown.selectOption(new SelectOption().setLabel(unit));
-        singeingSection.locator(calender).locator(calenderInput).fill(date);
-        singeingSection.locator(activeRadio).check();
-        singeingSection.locator(validateButton).first().click();
+        machineSection.locator(calender).locator(calenderInput).fill(date);
+        machineSection.locator(activeRadio).check();
+        machineSection.locator(validateButton).first().click();
     }
 
 }

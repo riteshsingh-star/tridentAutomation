@@ -1,17 +1,19 @@
 {
 
-  "globalParameterName":"New_One",
+  "globalParameterName":"New_One_AutomatOne",
   "param": "Double",
   "checkbox": "Batch",
-  "defineKPIName": "New_Test_Auto",
+  "defineKPIName": "New_Test_AutomationKPIO",
   "machineName":"SINGEING",
   "date": "2026-01-01",
   "formula": "avg(^SINGEING.SINGED_METER)",
-  "batchFrequency": "Batch Start",
+  "batchFrequency": "Every day",
   "unit": "Meter",
-  "plantName": "dev",
+  "plantName": "covacsis_dev",
   "aggregateType": "SUM",
   "KPIPerformanceCriteria": "More Value is Good",
   "kpiUnits": "Meter",
-  "kpiPrecision": "2"
+  "kpiPrecision": "2",
+  "industryType": "Aluminium",
+  "kpiType": "Machine"
 }

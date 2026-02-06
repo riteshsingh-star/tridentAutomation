@@ -25,6 +25,7 @@ public class ApiAggregateVerification extends APIBase {
             Assert.assertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
         }
     }
+
  @Test
     public static void validateSubKpi() throws IOException {
         Map<String, String> kpiData = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();

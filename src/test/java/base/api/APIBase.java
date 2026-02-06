@@ -30,7 +30,7 @@ public class APIBase {
     protected static APIRequestContext request;
 
     public void initApi() {
-        String baseURIIU = ReadPropertiesFile.get("APIBaseURLUAT");
+        String baseURIIU = ReadPropertiesFile.get("APIBaseURL");
         String authToken = ReadPropertiesFile.get("authToken");
         playwright = Playwright.create();
 

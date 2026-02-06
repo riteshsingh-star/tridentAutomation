@@ -1,0 +1,18 @@
+{
+  "email": "TestUser@gmail.com",
+  "firstName": "UserTest",
+  "lastName": "Automation",
+  "organizationName": "ORG_123",
+  "phoneNumber": 8974561231,
+  "language": "English",
+  "unit": "Imperial Units",
+  "timeZone": "(GMT+5:30) IST",
+  "alertMedia": "EMAIL",
+  "alertType": "DRS Fault",
+  "isAdmin": false,
+  "deviceIdentifier": "TestingAutomation",
+  "deviceName": "TestDevice",
+  "plantName":"dev",
+  "externalDeviceType": "device",
+  "deviceType": "vEdge 3.1 Battery"
+}

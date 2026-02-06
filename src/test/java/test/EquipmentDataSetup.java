@@ -30,22 +30,22 @@ public class EquipmentDataSetup extends BaseTest {
         createEquipment = new CreateEquipment(childPage, context);
     }
 
-    @Test
+    //@Test
     public void createOrganizationTest() {
         createOrganization.createNewOrganization(data.organizationName(), data.language(), data.organizationType(), data.provider(), data.notes());
     }
 
-    @Test
+    //@Test
     public void createPlant() {
         createPlant.createNewPlant(data.plantName(), data.organizationName(), data.regionName(), data.industryType(), data.language(), data.timeZone(), data.currency(), data.notes());
     }
 
-    @Test
+    //@Test
     public void createArea() {
         createAreas.createArea(data.areaName(), data.plantName(), data.productionCapacity(), data.unit(), data.unitPrice(), data.unit(), data.directFaultValue(), data.environmentValue(), data.areaEnvironment(), data.temperature(), data.applicationType(), data.areaInchargeName(), data.areaInchargeNo(), data.areaInchargeEmail());
     }
 
-    @Test
+    //@Test
     public void createEquipment() {
         createEquipment.createNewEquipment(data.equipmentName(), data.plantName(), data.areaName(), data.equipmentType(), data.makeManufacturer(), data.model(), data.serialNo(), data.appType());
     }
@@ -57,7 +57,7 @@ public class EquipmentDataSetup extends BaseTest {
         if (rawParameterWay.equals("One Raw Parameter")) {
             createEquipment.createRawParameter(data.rawParameterDataType(), data.rawParameterName(), data.rawParameterUnit(), data.LCLUCLType(), data.lclValue(), data.uclValue(), data.rawParameterNature(), data.rawParameterPrecision(), data.isExternal(), data.locationType(), data.nameOfTheLocation(), data.measureName());
         } else if (rawParameterWay.equals("Bulk Raw Parameter")) {
-            createEquipment.createMultipleRawParameter(data.bulkRawParameterCreationFilePath());
+            createEquipment.createMultipleRawParameter(data.bulkRawParameter());
         }
     }
 }

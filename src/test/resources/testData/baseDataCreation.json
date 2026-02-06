@@ -40,5 +40,11 @@
   "locationType": "Plant",
   "nameOfTheLocation": "Measure",
   "measureName": "Measurement",
-  "bulkRawParameterCreationFilePath": "testData/rawParameter.json"
+  "bulkRawParameterCreationFilePath": "testData/rawParameter.json",
+  "bulkRawParameter": [
+    "Raw Parameter Name, Meter, DOUBLE, 2, LCL, UCL, PURE, NONE, NO",
+    "Raw Parameter Name, Meter, DOUBLE, 2, LCL, UCL, PURE, NONE, NO",
+    "Raw Parameter Name, Meter, DOUBLE, 2, LCL, UCL, PURE, NONE, NO",
+    "Raw Parameter Name, Meter, DOUBLE, 2, LCL, UCL, PURE, NONE, NO"
+  ]
 }

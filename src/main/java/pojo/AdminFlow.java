@@ -15,5 +15,7 @@ public record AdminFlow (
     String aggregateType,
     String KPIPerformanceCriteria,
     String kpiUnits,
-    String kpiPrecision
+    String kpiPrecision,
+    String industryType,
+    String kpiType
 ){}
