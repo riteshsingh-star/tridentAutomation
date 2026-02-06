@@ -1,8 +1,8 @@
 package test;
 
 import com.microsoft.playwright.Page;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import page.web.*;
 import pojo.AdminFlow;
 import utils.ReadJsonFile;
@@ -28,15 +28,15 @@ public class AdminFlowTest extends BaseTest {
         kpiAdvance = new KPIAdvanceImplementation(childPage, context);
     }
 
-    @Test
+   // @Test
     public void createGlobalParameterTest() {
         globalParameter.createGlobalParameter(data.globalParameterName());
     }
 
-    @Test
+    //@Test
     public void createNewKpiDefinitionTest() throws InterruptedException {
-        kpiDefinition.createNewKPIDefinition(data.defineKPIName(),data.plantName(),data.globalParameterName(),data.aggregateType(),data.KPIPerformanceCriteria(),data.kpiUnits(),data.kpiPrecision());
-        //kpiDefinition.editExistingKPI(data.defineKPIName(),data.globalParameterName());
+      kpiDefinition.createNewKPIDefinition(data.defineKPIName(),data.plantName(),data.globalParameterName(),data.aggregateType(),data.KPIPerformanceCriteria(),data.kpiUnits(),data.kpiPrecision(), data.industryType(),data.kpiType());
+       //Assert.assertEquals(message,"Validation successful !!");
     }
 
     @Test

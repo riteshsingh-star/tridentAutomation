@@ -42,6 +42,7 @@ public record BaseData(
         String locationType,
         String nameOfTheLocation,
         String measureName,
-        String bulkRawParameterCreationFilePath
+        String bulkRawParameterCreationFilePath,
+        String[] bulkRawParameter
 ) {
 }

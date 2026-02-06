@@ -31,6 +31,7 @@ public class CreateNewKPIDefinition extends BasePage {
     private final Locator aggregateFunctionDropdown;
     private final Locator kpiPerformanceDropdown;
     private final Locator unitsDropdown;
+    //private final Locator validationMessage;
 
 
 
@@ -55,6 +56,7 @@ public class CreateNewKPIDefinition extends BasePage {
         this.aggregateFunctionDropdown = childPage.locator("//label[contains(text(),'Select Aggregated Function')]/following-sibling::div//select");
         this.kpiPerformanceDropdown = childPage.locator("//label[contains(text(),'KPI Performance')]/following-sibling::div//select");
         this.unitsDropdown = childPage.locator("//label[contains(text(),'Units')]/following-sibling::div//select");
+        //this.validationMessage=page.locator("//")
     }
 
 
@@ -69,17 +71,20 @@ public class CreateNewKPIDefinition extends BasePage {
 
     }
 
-    public void createNewKPIDefinition(String kpiName, String plantName, String globalParameterName, String aggregateType, String KPIPerformanceCriteria, String units, String precision) throws InterruptedException {
+    public void createNewKPIDefinition(String kpiName, String plantName, String globalParameterName, String aggregateType, String KPIPerformanceCriteria, String units, String precision, String industryType, String kpiType) throws InterruptedException {
         createKpi.click();
-        defineKpi(kpiName,plantName);
+        defineKpi(kpiName,plantName,industryType, kpiType);
         selectVariableAndDefine(globalParameterName, aggregateType,KPIPerformanceCriteria,units,precision);
+        //return validationMessage.textContent();
     }
 
-    private void defineKpi(String kpiName, String plantName) {
+    private void defineKpi(String kpiName, String plantName, String industryType, String kpiTypeValue) {
         kpiNameField.fill(kpiName);
         childPage.selectOption("#selectedPlant", plantName);
-        kpiIndustry.check();
-        kpiType.check();
+        //kpiIndustry.check();
+        getByLabel(industryType,childPage).check();
+        if(kpiTypeValue.equals("Batch"))
+            kpiType.check();
         kpiContinueButton.click();
     }
 
@@ -89,7 +94,6 @@ public class CreateNewKPIDefinition extends BasePage {
         dragNewBatchBatchToDefinition(globalParameterName);
         selectVariableAndDefineKPI(aggregateType,KPIPerformanceCriteria,units,precision);
         variableValidate.click();
-
     }
 
     public void editExistingKPI(String searchName, String globalParameterName) throws InterruptedException {

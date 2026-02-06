@@ -24,28 +24,28 @@ public class LoginPage extends BasePage {
     private static final Logger log = LogManager.getLogger(LoginPage.class);
 
 
-    public void login(String user, String pass) throws InterruptedException {
+    public void login(String user, String pass){
         enterUserName(userName, user);
         enterPassword(password, pass);
         clickLoginButton();
     }
 
-    public void enterUserName(Locator userName, String user) throws InterruptedException {
+    public void enterUserName(Locator userName, String user) {
         log.info("Entering username");
-        Allure.step("Enter username "+userName);
+        Allure.step("Enter username "+user);
         WaitUtils.waitForVisible(userName, 20000);
         waitAndFill(page, userName, user, 2000);
         Allure.step("Clicking on Login Button");
         waitAndClick(page, loginButton, 2000);
     }
 
-    public void enterPassword(Locator password, String pass) throws InterruptedException {
+    public void enterPassword(Locator password, String pass){
         log.info("Entering password");
-        Allure.step("Enter password "+pass);
+        Allure.step("Enter password ");
         waitAndFill(page, password, pass, 2000);
     }
 
-    public void clickLoginButton() throws InterruptedException {
+    public void clickLoginButton(){
         log.info("Clicking on Login button");
         Allure.step("Clicking on Login button");
         waitAndClick(page, loginButton, 2000);

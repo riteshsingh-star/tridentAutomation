@@ -186,12 +186,13 @@ public class CreateEquipment extends BasePage {
         }
     }
 
-    public void createMultipleRawParameter(String filepath) throws Exception {
+    public void createMultipleRawParameter(String[] bulkData) throws Exception {
         addMultipleParametersButton.click();
-        JsonNode root=loadJsonFromResources(filepath);
         syncUntil(4000);
-        addRawParameterDataFromJson(root,multipleRawParameterBox);
+        addRawParameterDataFromUsingArray(bulkData,multipleRawParameterBox);
+
         validateMultipleRawParameter.click();
+        syncUntil(8000);
         //saveRawParameterButton.click();
     }
 
@@ -204,6 +205,15 @@ public class CreateEquipment extends BasePage {
         StringBuilder bulkText = new StringBuilder();
         for (JsonNode node : rawParamsNode) {
             bulkText.append(node.asText()).append("\n");
+        }
+        textArea.fill(bulkText.toString());
+    }
+
+
+    public void addRawParameterDataFromUsingArray(String[] bulk, Locator textArea) {
+        StringBuilder bulkText = new StringBuilder();
+        for (String node : bulk) {
+            bulkText.append(node).append("\n");
         }
         textArea.fill(bulkText.toString());
     }
