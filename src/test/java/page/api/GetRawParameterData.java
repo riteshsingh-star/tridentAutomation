@@ -15,23 +15,28 @@ public class GetRawParameterData extends APIBase {
     public static String getTimeSeriesResponseAccordingToRawParamId() throws IOException {
         System.out.println(pathURL);
 
-        APIResponse response = readJsonFileForApiRequestPayload("getRawParameter",pathURL);
+        APIResponse response = readJsonFileForApiRequestPayload("timeseriesUAT", pathURL);
         System.out.println(response.toString());
 
         Assert.assertEquals(response.status(), 200);
-
         return response.text();
+    }
 
+    // @Test
+    public static Map<String, String> getKpiDatavalues() throws IOException {
+        String responseJson = getTimeSeriesResponseAccordingToRawParamId();
+        Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
+        // System.out.println(apiValues);
+        return apiValues;
 
     }
 
-   // @Test
-    public static Map<String,String> getRawParameterDataValues() throws IOException {
+    public static Map<String, String> getRawParameterDataValues() throws IOException {
         String responseJson = getTimeSeriesResponseAccordingToRawParamId();
-        //Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data",false);
-        //System.out.println(apiValues);
-
-        Map<String, String> apiValues = fetchApiData(responseJson,"equipments",0,"rawParameters",0,"data",false);
+        // System.out.println(responseJson);
+        Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data", false);
+        // System.out.println(apiValues);
         return apiValues;
+
     }
 }

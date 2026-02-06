@@ -17,4 +17,5 @@ public class GetEquipment extends APIBase {
         System.out.println(response.text());
     }
 
+
 }

@@ -1,9 +1,13 @@
 {
   "equipKpis": [
     {
+<<<<<<< HEAD
       "id": 663,
+=======
+      "id": 4248,
+>>>>>>> e7ec4b576bdf499d39051793014511cf2a10c68b
       "kpiParamDefIds": [
-        21
+        11
       ]
     }
   ],
