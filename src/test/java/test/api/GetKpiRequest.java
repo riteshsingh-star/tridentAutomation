@@ -1,4 +1,4 @@
-package utils;
+package test.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,7 +6,7 @@ import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
 import org.testng.Assert;
 
-public class GetKpiUtil {
+public class GetKpiRequest {
 
     public static JsonNode getKpiNode(APIRequestContext request, String definitionId, String equipmentId) {
         APIResponse response = request.get(

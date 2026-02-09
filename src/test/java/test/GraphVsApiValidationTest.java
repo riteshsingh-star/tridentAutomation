@@ -10,7 +10,7 @@ import pojo.DashboardData;
 import utils.CompareGraphAndApiData;
 import utils.ReadJsonFile;
 import org.testng.Assert;
-import page.api.GetChartDataApi;
+import test.api.GetChartDataApi;
 import page.web.Dashboard;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package page.api;
+package test.api;
 
 import base.api.APIBase;
 import com.microsoft.playwright.APIResponse;
