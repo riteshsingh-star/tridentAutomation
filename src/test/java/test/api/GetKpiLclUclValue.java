@@ -1,5 +1,6 @@
 package test.api;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import base.api.APIBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -8,8 +9,6 @@ import utils.Stats;
 
 import java.io.IOException;
 import java.util.Map;
-
-
 
 public class GetKpiLclUclValue extends APIBase {
 
@@ -21,15 +20,18 @@ public class GetKpiLclUclValue extends APIBase {
         String definitionId = "9";
         String equipmentId = "4248";
 
-        String lclUclType = GetKpiRequest.getLclUclType(request, definitionId, equipmentId);
+        JsonNode kpiNode = GetKpiRequest.getKpiNode(request, definitionId, equipmentId);
 
+        String lclUclType = kpiNode.path("lclUclType").asText(null);
         String lcl = null;
         String ucl = null;
+
+        System.out.println("lclUclType: " + lclUclType);
 
         kpiData = GetKpiData.getKpiDataUsingMapPojo();
         Assert.assertNotNull(kpiData, "KPI data is null");
         Assert.assertFalse(kpiData.isEmpty(), "No KPI data available");
-        System.out.println("lclUclType :"+lclUclType);
+
         double mean = Stats.calculateMean(kpiData);
         double stdDev = Stats.calculateStdDev(kpiData);
 
@@ -38,16 +40,15 @@ public class GetKpiLclUclValue extends APIBase {
 
         String type = lclUclType == null ? "NONE" : lclUclType.toUpperCase();
 
-
         switch (type) {
             case "STATS":
-                ucl = String.valueOf(Stats.calculateUCL(mean, stdDev));
                 lcl = String.valueOf(Stats.calculateLCL(mean, stdDev));
+                ucl = String.valueOf(Stats.calculateUCL(mean, stdDev));
                 break;
 
             case "FIXED":
-                lcl = GetKpiRequest.getFixedLcl(request, definitionId, equipmentId);
-                ucl = GetKpiRequest.getFixedUcl(request, definitionId, equipmentId);
+                lcl = kpiNode.path("lcl").asText(null);
+                ucl = kpiNode.path("ucl").asText(null);
                 break;
 
             case "NONE":

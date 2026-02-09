@@ -21,7 +21,7 @@ public class ReadPropertiesFile {
                 throw new RuntimeException("config.properties not found");
             }
             prop.load(is);
-            env = System.getProperty("env", "sit").toLowerCase();
+            env = System.getProperty("env", "uat").toLowerCase();
             client = System.getProperty("client", "dev").toLowerCase();
             userType = System.getProperty("userType", "admin").toLowerCase();
 

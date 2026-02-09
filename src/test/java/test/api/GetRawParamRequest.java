@@ -23,12 +23,11 @@ public class GetRawParamRequest {
                     return node;
                 }
             }
-            throw new RuntimeException("No matching raw parameter found for equipmentId=" + equipmentId + " and rawParamDefId=" + rawParamDefId);
+            throw new RuntimeException("No matching raw parameter found for equipmentId=" + equipmentId
+                    + " and rawParamDefId=" + rawParamDefId);
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse Raw Parameter API response", e);
         }
     }
-
 }
-

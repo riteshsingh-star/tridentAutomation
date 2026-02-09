@@ -33,31 +33,27 @@ public class GetKpiData extends APIBase {
         payload.put("addMissingTimestamps", true);
         APIResponse response = postApiRequest(payload, pathURL);
         System.out.println(response.url());
-        //Assert.assertEquals(response.status(), 200);
+        // Assert.assertEquals(response.status(), 200);
         return response.text();
     }
-
 
     public static void getKpiDataUsingMap() throws IOException {
         String responseJson = getKpiData();
         Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
-        //return apiValues;
+        // return apiValues;
         System.out.println(apiValues);
     }
 
-
-    public static String getKpiDataPojo(){
+    public static String getKpiDataPojo() {
 
         EquipKpi equipKpi = new EquipKpi(4248, List.of(11));
         DateRange dateRange = new DateRange(
                 "2026-01-29T04:30:00.000Z",
-                "2026-01-29T04:30:00.000Z"
-        );
+                "2026-01-29T04:30:00.000Z");
         EquipKpiRequest request = new EquipKpiRequest(List.of(equipKpi), dateRange, 60000, true);
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> payload = mapper.convertValue(request, Map.class);
         APIResponse response = postApiRequest(payload, pathURL);
-        System.out.println(response.text());
         System.out.println(response.url());
         Assert.assertEquals(response.status(), 200);
         return response.text();
@@ -74,6 +70,6 @@ public class GetKpiData extends APIBase {
         String responseJson = getKpiDataPojo();
         System.out.println(responseJson);
 
-       // return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
+        // return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
     }
 }

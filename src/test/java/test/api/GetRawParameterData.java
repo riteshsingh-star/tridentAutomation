@@ -1,4 +1,5 @@
 package test.api;
+
 import base.api.APIBase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class GetRawParameterData extends APIBase {
 
     static String pathURL = ReadPropertiesFile.get("rawParameterPathURL");
+
     public static String getRawParameterDataa() {
         Map<String, Object> payload = new HashMap<>();
         Map<String, Object> equipments = new HashMap<>();
@@ -36,12 +38,12 @@ public class GetRawParameterData extends APIBase {
 
     }
 
-    public static String getRawParaDataPojo() {
-        Raws rawData = new Raws(4248, List.of(25));
+    public static String GetRawParaDataPojo() {
+        Raws rawdata = new Raws(4248, List.of(26));
+
         DateRange dateRange = new DateRange(
-                "2026-01-28T04:30:00.000Z",
-                "2026-01-29T04:30:00.000Z"
-        );
+                "2026-01-26T04:30:00.000Z",
+                "2026-01-27T04:30:00.000Z");
 
         RawRequest request = new RawRequest(List.of(rawData), dateRange, 0, true);
         ObjectMapper mapper = new ObjectMapper();
