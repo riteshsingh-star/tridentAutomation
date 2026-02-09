@@ -1,11 +1,10 @@
-package page.api;
+package test.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import base.api.APIBase;
-import utils.GetRawParamUtil;
 import utils.ReadPropertiesFile;
 import utils.Stats;
 
@@ -23,7 +22,7 @@ public class GetRawParamLclUclValue extends APIBase {
         int equipmentId = Integer.parseInt(ReadPropertiesFile.get("equipmentId"));
         int rawParamDefId = Integer.parseInt(ReadPropertiesFile.get("rawParamDefId"));
 
-        JsonNode rawParamNode = GetRawParamUtil.getRawParamNode(request, plantId, equipmentId, rawParamDefId);
+        JsonNode rawParamNode = GetRawParamRequest.getRawParamNode(request, plantId, equipmentId, rawParamDefId);
 
         String lclUclType = rawParamNode.path("lclUclType").asText(null);
         String lcl = null;
@@ -31,7 +30,7 @@ public class GetRawParamLclUclValue extends APIBase {
 
         System.out.println("lclUclType: " + lclUclType);
 
-        rawParameterData = GetRawParameterData.getRawParameterDataUsingMap();
+        rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();
         Assert.assertNotNull(rawParameterData, "Raw parameter data is null");
         Assert.assertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
 

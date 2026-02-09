@@ -1,9 +1,9 @@
+package test.api;
+
 import base.api.APIBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import page.api.GetKpiData;
-import utils.GetKpiUtil;
 import utils.ReadPropertiesFile;
 import utils.Stats;
 
@@ -22,12 +22,12 @@ public class GetKpiLclUclValue extends APIBase {
         String definitionId = ReadPropertiesFile.get("kpiDefinitionId");
         String equipmentId = ReadPropertiesFile.get("equipmentId2");
 
-        String lclUclType = GetKpiUtil.getLclUclType(request, definitionId, equipmentId);
+        String lclUclType = GetKpiRequest.getLclUclType(request, definitionId, equipmentId);
 
         String lcl = null;
         String ucl = null;
 
-        kpiData = GetKpiData.getKpiDatavalues();
+        kpiData = GetKpiData.getKpiDataUsingMapPojo();
         Assert.assertNotNull(kpiData, "KPI data is null");
         Assert.assertFalse(kpiData.isEmpty(), "No KPI data available");
         System.out.println("lclUclType :"+lclUclType);
@@ -47,8 +47,8 @@ public class GetKpiLclUclValue extends APIBase {
                 break;
 
             case "FIXED":
-                lcl = GetKpiUtil.getFixedLcl(request, definitionId, equipmentId);
-                ucl = GetKpiUtil.getFixedUcl(request, definitionId, equipmentId);
+                lcl = GetKpiRequest.getFixedLcl(request, definitionId, equipmentId);
+                ucl = GetKpiRequest.getFixedUcl(request, definitionId, equipmentId);
                 break;
 
             case "NONE":

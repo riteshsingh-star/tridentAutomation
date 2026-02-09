@@ -1,4 +1,4 @@
-package utils;
+package test.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,7 +6,7 @@ import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
 import org.testng.Assert;
 
-public class GetRawParamUtil {
+public class GetRawParamRequest {
 
     public static JsonNode getRawParamNode(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
 
@@ -34,19 +34,19 @@ public class GetRawParamUtil {
         }
     }
 
-    public static String getLclUclType(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-                .path("lclUclType").asText(null);
-    }
-
-    public static String getFixedLcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-                .path("lcl").asText(null);
-    }
-
-    public static String getFixedUcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-                .path("ucl").asText(null);
-    }
+//    public static String getLclUclType(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
+//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
+//                .path("lclUclType").asText(null);
+//    }
+//
+//    public static String getFixedLcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
+//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
+//                .path("lcl").asText(null);
+//    }
+//
+//    public static String getFixedUcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
+//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
+//                .path("ucl").asText(null);
+//    }
 }
 

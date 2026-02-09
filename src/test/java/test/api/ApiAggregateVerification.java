@@ -1,4 +1,4 @@
-package page.api;
+package test.api;
 
 import base.api.APIBase;
 import org.testng.Assert;
@@ -9,10 +9,10 @@ import java.util.Map;
 
 public class ApiAggregateVerification extends APIBase {
 
-    @Test
+   // @Test
     public static void validateSumKpi() throws IOException {
-        Map<String, String> kpiData = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
-        Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataValues();
+        Map<String, String> kpiData = GetKpiData.getKpiDataUsingMapPojo();
+        Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();
         Map<String, KPISCalculationUtils.VerificationResult> waterCalculationMap = KPISCalculationUtils
                 .verifyAggregatedSumData(rawParameterData, kpiData);
         for (Map.Entry<String, KPISCalculationUtils.VerificationResult> entry : waterCalculationMap.entrySet()) {
@@ -28,10 +28,10 @@ public class ApiAggregateVerification extends APIBase {
         }
     }
 
-    //@Test
+    @Test
     public static void validateSubKpi() throws IOException {
-        Map<String, String> kpiData = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
-        Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataValues();
+        Map<String, String> kpiData = GetKpiData.getKpiDataUsingMapPojo();
+        Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();
         Map<String, KPISCalculationUtils.VerificationResult> waterCalculationMap = KPISCalculationUtils
                 .verifyAggregatedData(rawParameterData, kpiData);
         for (Map.Entry<String, KPISCalculationUtils.VerificationResult> entry : waterCalculationMap.entrySet()) {

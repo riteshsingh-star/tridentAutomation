@@ -5,7 +5,7 @@ import base.web.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page.api.GetChartDataApi;
+import test.api.GetChartDataApi;
 import page.web.DashboardVerify;
 import page.web.PageComponent;
 

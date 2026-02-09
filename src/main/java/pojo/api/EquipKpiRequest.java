@@ -2,11 +2,10 @@ package pojo.api;
 
 import java.util.List;
 
-public record RewMain(
-
-        List<Raws> equipKpis,
+public record EquipKpiRequest(
+        List<EquipKpi> equipKpis,
         DateRange dateRange,
-        long granularityInMillis,
+        int granularityInMillis,
         boolean addMissingTimestamps
 ) {
 }
