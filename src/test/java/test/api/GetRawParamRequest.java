@@ -33,20 +33,5 @@ public class GetRawParamRequest {
             throw new RuntimeException("Failed to parse Raw Parameter API response", e);
         }
     }
-
-//    public static String getLclUclType(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-//                .path("lclUclType").asText(null);
-//    }
-//
-//    public static String getFixedLcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-//                .path("lcl").asText(null);
-//    }
-//
-//    public static String getFixedUcl(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
-//        return getRawParamNode(request, plantId, equipmentId, rawParamDefId)
-//                .path("ucl").asText(null);
-//    }
 }
 
