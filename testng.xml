@@ -4,7 +4,7 @@
     </listeners>
     <test name="PlaywrightTrident">
         <classes>
-            <class name="test.AdminFlowTest"/>
+            <class name="test.web.AdminFlowTest"/>
         </classes>
     </test>
 </suite>

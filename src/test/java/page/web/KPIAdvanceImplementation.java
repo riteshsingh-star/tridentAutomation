@@ -32,8 +32,7 @@ public class KPIAdvanceImplementation extends BasePage {
     private final Locator calenderInput;
 
     public KPIAdvanceImplementation(Page childPage, BrowserContext context) {
-        super(childPage);
-        this.context = context;
+        super(childPage,context);
         this.childPage = childPage;
         this.advancedImplementationPage = childPage.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Advanced Implementation"));
         this.kpiValidateSearch = getByRoleButton("Search", childPage);
@@ -54,8 +53,8 @@ public class KPIAdvanceImplementation extends BasePage {
     }
 
     public void addLogicToTheKPIAndValidate(String globalParameterName, String kpiName, String machineName, String date, String batchFreq, String units, String formula) {
-        WaitUtils.waitForEnabled(childPage,advancedImplementationPage,4000);
-        advancedImplementationPage.click();
+        WaitUtils.waitForVisible(advancedImplementationPage,10000);
+        WaitUtils.safeClick(advancedImplementationPage,5000);
         advancedImplementationPage.click();
         validateGlobalParameterImplementations(globalParameterName, machineName, units, formula);
         validateKPIImplementation(kpiName, machineName, date, batchFreq, units);
@@ -76,6 +75,7 @@ public class KPIAdvanceImplementation extends BasePage {
         definitionField.type(formula, new Locator.TypeOptions().setDelay(50));
         machineSection.locator(selectUnit).selectOption(unit);
         machineSection.locator(validateButton).first().click();
+        expandGlobalParameter.first().click();
     }
 
     private void validateKPIImplementation(String kpiName, String machineName, String date, String batchFrequency, String unit) {
@@ -85,7 +85,7 @@ public class KPIAdvanceImplementation extends BasePage {
         Locator expandBtn = targetRow.locator(expandButton);
         expandBtn.click();
         Locator machineHeader=childPage.locator("h4").locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + machineName + "$")));
-        machineHeader.scrollIntoViewIfNeeded();
+        machineHeader.last().scrollIntoViewIfNeeded();
         machineHeader.click();
         Locator machineSection = childPage.locator("div").filter(new Locator.FilterOptions().setHas(machineHeader)).last();
         Locator batchFrequencyDropdown = machineSection.locator(batchFrq);

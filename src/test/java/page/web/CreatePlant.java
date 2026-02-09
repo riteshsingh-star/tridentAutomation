@@ -23,7 +23,7 @@ public class CreatePlant extends BasePage {
     private final Locator savePlantButton;
 
     public CreatePlant(Page page,BrowserContext browserContext){
-        super(page);
+        super(page,browserContext);
         this.page=page;
         this.browserContext = browserContext;
         this.plantPage=getByText("Plants",page);

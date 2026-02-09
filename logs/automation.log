@@ -1533,3 +1533,108 @@
 2026-02-06 16:37:35 INFO  LoginPage - Entering password
 2026-02-06 16:37:37 INFO  LoginPage - Clicking on Login button
 2026-02-06 16:37:39 INFO  BaseTest - Login successful
+2026-02-09 10:40:52 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 10:41:07 INFO  BaseTest - Starting login
+2026-02-09 10:41:07 INFO  LoginPage - Entering username
+2026-02-09 10:41:11 INFO  LoginPage - Entering password
+2026-02-09 10:41:13 INFO  LoginPage - Clicking on Login button
+2026-02-09 10:41:16 INFO  BaseTest - Login successful
+2026-02-09 10:41:39 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 10:41:39 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:18:35 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:18:41 INFO  BaseTest - Starting login
+2026-02-09 12:18:41 INFO  LoginPage - Entering username
+2026-02-09 12:18:45 INFO  LoginPage - Entering password
+2026-02-09 12:18:48 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:18:50 INFO  BaseTest - Login successful
+2026-02-09 12:18:56 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-09 12:19:35 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:19:35 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:19:35 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:27:14 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:27:20 INFO  BaseTest - Starting login
+2026-02-09 12:27:20 INFO  LoginPage - Entering username
+2026-02-09 12:27:24 INFO  LoginPage - Entering password
+2026-02-09 12:27:26 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:27:29 INFO  BaseTest - Login successful
+2026-02-09 12:28:04 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-09 12:28:09 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:28:09 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:28:09 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:31:11 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:31:16 INFO  BaseTest - Starting login
+2026-02-09 12:31:16 INFO  LoginPage - Entering username
+2026-02-09 12:31:21 INFO  LoginPage - Entering password
+2026-02-09 12:31:23 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:31:25 INFO  BaseTest - Login successful
+2026-02-09 12:32:12 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:32:12 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:32:12 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:36:00 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:36:05 INFO  BaseTest - Starting login
+2026-02-09 12:36:05 INFO  LoginPage - Entering username
+2026-02-09 12:36:10 INFO  LoginPage - Entering password
+2026-02-09 12:36:12 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:36:14 INFO  BaseTest - Login successful
+2026-02-09 12:36:45 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:36:45 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:45:59 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:46:05 INFO  BaseTest - Starting login
+2026-02-09 12:46:05 INFO  LoginPage - Entering username
+2026-02-09 12:46:09 INFO  LoginPage - Entering password
+2026-02-09 12:46:11 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:46:14 INFO  BaseTest - Login successful
+2026-02-09 12:46:15 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:46:15 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:46:37 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:46:42 INFO  BaseTest - Starting login
+2026-02-09 12:46:42 INFO  LoginPage - Entering username
+2026-02-09 12:46:46 INFO  LoginPage - Entering password
+2026-02-09 12:46:48 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:46:51 INFO  BaseTest - Login successful
+2026-02-09 12:47:08 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:47:08 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:47:08 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:49:52 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:49:57 INFO  BaseTest - Starting login
+2026-02-09 12:49:57 INFO  LoginPage - Entering username
+2026-02-09 12:50:02 INFO  LoginPage - Entering password
+2026-02-09 12:50:04 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:50:06 INFO  BaseTest - Login successful
+2026-02-09 12:50:24 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:50:24 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:50:24 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:53:19 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:53:24 INFO  BaseTest - Starting login
+2026-02-09 12:53:24 INFO  LoginPage - Entering username
+2026-02-09 12:53:28 INFO  LoginPage - Entering password
+2026-02-09 12:53:30 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:53:33 INFO  BaseTest - Login successful
+2026-02-09 12:54:11 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:54:11 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:54:11 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:56:23 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:56:28 INFO  BaseTest - Starting login
+2026-02-09 12:56:29 INFO  LoginPage - Entering username
+2026-02-09 12:56:33 INFO  LoginPage - Entering password
+2026-02-09 12:56:35 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:56:37 INFO  BaseTest - Login successful
+2026-02-09 12:56:50 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 12:56:50 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:56:50 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 12:57:34 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 12:57:40 INFO  BaseTest - Starting login
+2026-02-09 12:57:40 INFO  LoginPage - Entering username
+2026-02-09 12:57:44 INFO  LoginPage - Entering password
+2026-02-09 12:57:46 INFO  LoginPage - Clicking on Login button
+2026-02-09 12:57:48 INFO  BaseTest - Login successful
+2026-02-09 12:58:14 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 12:58:14 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 13:43:44 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 13:43:50 INFO  BaseTest - Starting login
+2026-02-09 13:43:50 INFO  LoginPage - Entering username
+2026-02-09 13:43:54 INFO  LoginPage - Entering password
+2026-02-09 13:43:56 INFO  LoginPage - Clicking on Login button
+2026-02-09 13:43:59 INFO  BaseTest - Login successful
+2026-02-09 13:44:17 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 13:44:17 INFO  BaseTest - ===== Test Teardown Completed =====

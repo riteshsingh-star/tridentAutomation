@@ -30,7 +30,7 @@ public class CreateAreas extends BasePage {
     private final Locator area_Incharge_Email;
 
     public CreateAreas(Page page, BrowserContext context) {
-        super(page);
+        super(page,context);
         this.page = page;
         this.browserContext = context;
         this.areaPage=page.locator("//span[text()='Areas']");

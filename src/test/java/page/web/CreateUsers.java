@@ -29,7 +29,7 @@ public class CreateUsers extends BasePage{
 
 
     public CreateUsers(Page page,  BrowserContext browserContext) {
-        super(page);
+        super(page,browserContext);
         this.page = page;
         this.browserContext = browserContext;
         this.userPage=page.locator("//span[text()='Users']");

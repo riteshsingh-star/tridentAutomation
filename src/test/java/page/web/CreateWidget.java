@@ -1,6 +1,7 @@
 package page.web;
 
 import base.web.BasePage;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -35,9 +36,9 @@ public class CreateWidget extends BasePage {
     private final Locator batchDetail;
     private final Locator reactBackground;
 
-    public CreateWidget(Page page) {
-        super(page);
-        pageComponent = new PageComponent(page);
+    public CreateWidget(Page page, BrowserContext browserContext) {
+        super(page,browserContext);
+        pageComponent = new PageComponent(page,context);
         this.addWidget = getByRoleButton("Add Widget", page);
         this.searchEquipment = getByPlaceholder("Search equipment...", page);
         this.summaryButton = getByRoleButton("Summary", page);

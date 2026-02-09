@@ -1,4 +1,4 @@
-package pojo;
+package pojo.web;
 
 public record UserAndDevice(
         String email,

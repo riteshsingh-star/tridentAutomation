@@ -27,7 +27,7 @@ public class CreateDevice extends BasePage {
     private final Locator plantFieldInDevice;
 
     public CreateDevice(Page page, BrowserContext browserContext) {
-        super(page);
+        super(page,browserContext);
         this.page=page;
         this.browserContext=browserContext;
         this.externalDevicesPage=page.locator("//span[text()='External Devices']");

@@ -1,5 +1,6 @@
 package page.web;
 
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import base.web.BasePage;
@@ -14,8 +15,8 @@ public class LoginPage extends BasePage {
     Locator password;
     Locator loginButton;
 
-    public LoginPage(Page page) {
-        super(page);
+    public LoginPage(Page page, BrowserContext browserContext) {
+        super(page,browserContext);
         this.userName = getByRoleTextbox(page);
         this.password = getByRoleTextbox(page);
         this.loginButton = getByRoleLabelText(page,"Login");

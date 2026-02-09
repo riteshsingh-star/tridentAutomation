@@ -1,11 +1,11 @@
-package test;
+package test.web;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import page.web.CreateWidget;
 import page.web.PageComponent;
-import pojo.DashboardData;
+import pojo.web.DashboardData;
 import utils.ReadJsonFile;
 import page.web.Dashboard;
 import base.web.BaseTest;
@@ -22,11 +22,11 @@ public class DashboardTest extends BaseTest {
 
     @BeforeClass
     public void dashBoardAndWidgetSetup(){
-        pageComponent =new PageComponent(page);
+        pageComponent =new PageComponent(page,context);
         data = ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
         measuresName = data.measuresName();
-        dashboard = new Dashboard(page);
-        createWidget = new CreateWidget(page);
+        dashboard = new Dashboard(page,context);
+        createWidget = new CreateWidget(page,context);
 /*      String actualName=dashboard.createDashboard(data.dashboardName(), data.dashboardDescription(),data.visibilityType());
         Assert.assertEquals(actualName,data.dashboardName());*/
         dashboard.searchDashboard(data.dashboardName());

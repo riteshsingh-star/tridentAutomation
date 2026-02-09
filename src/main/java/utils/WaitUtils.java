@@ -7,9 +7,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 public class WaitUtils {
 
     public static void waitForAttached(Locator locator, int timeoutMs) {
-        locator.waitFor(new Locator.WaitForOptions()
-                .setState(WaitForSelectorState.ATTACHED)
-                .setTimeout(timeoutMs));
+        locator.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.ATTACHED).setTimeout(timeoutMs));
     }
 
     public static void waitForVisible(Locator locator, int timeoutMs) {
@@ -24,17 +22,7 @@ public class WaitUtils {
                 .setTimeout(timeoutMs));
     }
 
-//    public static void waitForEnabled(Page page, Locator locator, int timeoutMs) {
-//        page.waitForFunction(
-//                "el => !el.disabled",
-//                locator,
-//                new Page.WaitForFunctionOptions().setTimeout(timeoutMs)
-//        );
-//    }
-
     public static void waitForEnabled(Page page, Locator locator, int timeoutMs) {
-        // 1. Convert Locator to ElementHandle so it can be passed to the JS context
-        // 2. Check for visibility or existence, as SVGs don't support 'disabled'
         page.waitForFunction(
                 "el => el && window.getComputedStyle(el).visibility !== 'hidden'",
                 locator.elementHandle(),
@@ -43,11 +31,7 @@ public class WaitUtils {
     }
 
     public static void waitForCountGreaterThanZero(Locator locator, int timeoutMs) {
-        locator.page().waitForFunction(
-                "loc => loc.count() > 0",
-                locator,
-                new Page.WaitForFunctionOptions().setTimeout(timeoutMs)
-        );
+        locator.page().waitForFunction("loc => loc.count() > 0", locator, new Page.WaitForFunctionOptions().setTimeout(timeoutMs));
     }
 
     public static void safeClick(Locator locator, int timeoutMs) {

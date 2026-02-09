@@ -1,4 +1,4 @@
-package test;
+package test.web;
 
 import base.api.APIBase;
 import base.web.BaseTest;
@@ -6,7 +6,7 @@ import io.qameta.allure.Allure;
 import org.testng.annotations.*;
 import page.web.CreateWidget;
 import page.web.PageComponent;
-import pojo.DashboardData;
+import pojo.web.DashboardData;
 import utils.CompareGraphAndApiData;
 import utils.ReadJsonFile;
 import org.testng.Assert;
@@ -40,11 +40,11 @@ public class GraphVsApiValidationTest extends BaseTest {
     @BeforeClass
     public void openWidgetPageAndCreateWidget() {
         Allure.step("Opening Widget Page");
-        pageComponent =new PageComponent(page);
+        pageComponent =new PageComponent(page,context);
         data = ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
         measuresName = data.measuresName();
-        dashboard = new Dashboard(page);
-        createWidget = new CreateWidget(page);
+        dashboard = new Dashboard(page,context);
+        createWidget = new CreateWidget(page, context);
         //dashboard.createDashboard(data.dashboardName, data.dashboardDescription,"Public");
         dashboard.searchDashboard(data.dashboardName());
         createWidget.openWidgetCreationPage();
@@ -61,7 +61,6 @@ public class GraphVsApiValidationTest extends BaseTest {
     public void validateGraphWithApi() throws InterruptedException, IOException {
         Map<String, String> uiList = pageComponent.getChartData(0, 2,0);
         System.out.println("uiList: " + uiList);
-
         Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
         System.out.println("apiList: " + apiList);
         Assert.assertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
