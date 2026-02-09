@@ -60,6 +60,7 @@ public class GetKpiData extends APIBase {
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> payload = mapper.convertValue(request, Map.class);
         APIResponse response = postApiRequest(payload, pathURL);
+        System.out.println(response.url());
         Assert.assertEquals(response.status(), 200);
         return response.text();
     }
