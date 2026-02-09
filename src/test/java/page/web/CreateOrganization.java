@@ -20,7 +20,7 @@ public class CreateOrganization extends BasePage {
 
 
     public CreateOrganization(Page page, BrowserContext context) {
-        super(page);
+        super(page,context);
         this.page = page;
         this.browserContext = context;
         //this.organizationPage=getByText("Organizations",page).nth(1);

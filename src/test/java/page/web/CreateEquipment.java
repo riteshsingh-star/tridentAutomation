@@ -58,7 +58,7 @@ public class CreateEquipment extends BasePage {
 
 
     public CreateEquipment(Page page, BrowserContext browserContext) {
-        super(page);
+        super(page,browserContext);
         this.page = page;
         this.browserContext = browserContext;
         this.equipmentPage=page.locator("//span[text()='Equipment']");

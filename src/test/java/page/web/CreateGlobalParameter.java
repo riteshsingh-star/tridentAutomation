@@ -18,25 +18,26 @@ public class CreateGlobalParameter extends BasePage {
     private final Locator globalParameterDataTypeValueDouble;
     private final Locator globalParameterDimension;
     private final Locator globalParameterSave;
+    private final Locator globalParameterDataTypeValueInt;
 
 
     public CreateGlobalParameter(Page childPage, BrowserContext context) {
-        super(childPage);
-        this.context=context;
+        super(childPage,context);
         this.childPage=childPage;
         this.globalParameterList = getByText("Global Parameters List", childPage);
         this.createNewGlobalParameter = getByRoleButton("CREATE NEW", childPage);
         this.globalParameterNameL = getByPlaceholder("Global Parameter Name", childPage);
         this.globalParameterDataType = childPage.locator("//div[@class=' css-tlfecz-indicatorContainer']");
         this.globalParameterDataTypeValueDouble = childPage.locator("div[class*='menu']").getByText("Double", new Locator.GetByTextOptions().setExact(true));
+        this.globalParameterDataTypeValueInt= childPage.locator("div[class*='menu']").getByText("Integer", new Locator.GetByTextOptions().setExact(true));
         this.globalParameterDimension = getByLabelCheckbox("Batch", childPage);
         this.globalParameterSave = getByRoleLabelText(childPage, "Save");
     }
 
 
-    public void createGlobalParameter(String globalParameterName) {
+    public void createGlobalParameter(String globalParameterName, String globalParameterType, String globalParameterDataType) {
         clickGlobalParameters();
-        clickCreateNewParameter(globalParameterName);
+        clickCreateNewParameter(globalParameterName,  globalParameterType, globalParameterDataType);
         clickSaveButton();
     }
 
@@ -44,13 +45,17 @@ public class CreateGlobalParameter extends BasePage {
         globalParameterList.click();
     }
 
-    private void clickCreateNewParameter(String gPName) {
-
+    private void clickCreateNewParameter(String gPName, String gpType, String gpDataType) {
         createNewGlobalParameter.click();
         globalParameterNameL.fill(gPName);
         globalParameterDataType.click();
-        globalParameterDataTypeValueDouble.click();
-        globalParameterDimension.check();
+        if (gpDataType.equals("Double")) {
+            globalParameterDataTypeValueDouble.click();
+        }
+        else
+            globalParameterDataTypeValueInt.click();
+        if(gpType.equals("Batch"))
+            globalParameterDimension.check();
     }
 
     private void clickSaveButton() {

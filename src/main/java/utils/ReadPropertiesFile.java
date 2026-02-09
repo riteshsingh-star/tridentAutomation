@@ -10,10 +10,10 @@ public class ReadPropertiesFile {
     private static String userType;
 
     static {
-        load();
+        getProperties();
     }
 
-    private static void load() {
+    private static void getProperties() {
         try {
             prop = new Properties();
             InputStream is = ReadPropertiesFile.class.getClassLoader().getResourceAsStream("config.properties");
@@ -21,9 +21,9 @@ public class ReadPropertiesFile {
                 throw new RuntimeException("config.properties not found");
             }
             prop.load(is);
-            env = System.getProperty("env", "uat").toLowerCase();
-            client = System.getProperty("client", "mtr").toLowerCase();
-            userType = System.getProperty("userType", "user").toLowerCase();
+            env = System.getProperty("env", "sit").toLowerCase();
+            client = System.getProperty("client", "dev").toLowerCase();
+            userType = System.getProperty("userType", "admin").toLowerCase();
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to load config", e);

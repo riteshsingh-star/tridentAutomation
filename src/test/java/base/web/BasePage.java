@@ -1,5 +1,6 @@
 package base.web;
 
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -10,8 +11,10 @@ import java.util.regex.Pattern;
 public class BasePage {
 
     public Page page;
-    public BasePage(Page page) {
+    public BrowserContext context;
+    public BasePage(Page page, BrowserContext context) {
         this.page = page;
+        this.context = context;
     }
 
     public void syncUntil(long timeUnit) throws InterruptedException {

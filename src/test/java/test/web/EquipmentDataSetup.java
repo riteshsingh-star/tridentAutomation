@@ -1,11 +1,11 @@
-package test;
+package test.web;
 
 import base.web.BaseTest;
 import com.microsoft.playwright.Page;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import page.web.*;
-import pojo.BaseData;
+import pojo.web.BaseData;
 import utils.ReadJsonFile;
 
 public class EquipmentDataSetup extends BaseTest {
@@ -22,7 +22,7 @@ public class EquipmentDataSetup extends BaseTest {
     @BeforeClass
     public void createAdminFlowSetupTest() {
         data = ReadJsonFile.readJson("testData/baseDataCreation.json", BaseData.class);
-        pageComponent = new PageComponent(page);
+        pageComponent = new PageComponent(page,context);
         childPage = pageComponent.moveToAdminPage(page, context);
         createOrganization = new CreateOrganization(childPage, context);
         createPlant = new CreatePlant(childPage, context);

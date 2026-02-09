@@ -1,4 +1,4 @@
-package pojo;
+package pojo.web;
 
 public record AdminFlow (
 
@@ -17,5 +17,7 @@ public record AdminFlow (
     String kpiUnits,
     String kpiPrecision,
     String industryType,
-    String kpiType
+    String kpiType,
+    String globalParameterDataType,
+    String globalParameterType
 ){}

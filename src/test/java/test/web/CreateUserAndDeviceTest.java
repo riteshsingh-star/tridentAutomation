@@ -1,4 +1,4 @@
-package test;
+package test.web;
 
 import base.web.BaseTest;
 import com.microsoft.playwright.Page;
@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import page.web.CreateDevice;
 import page.web.CreateUsers;
 import page.web.PageComponent;
-import pojo.UserAndDevice;
+import pojo.web.UserAndDevice;
 import utils.ReadJsonFile;
 
 public class CreateUserAndDeviceTest extends BaseTest {
@@ -21,7 +21,7 @@ public class CreateUserAndDeviceTest extends BaseTest {
     @BeforeClass
     public void createUserAndDeviceSetup(){
         data = ReadJsonFile.readJson("testData/userAndDeviceData.json", UserAndDevice.class);
-        pageComponent=new PageComponent(page);
+        pageComponent=new PageComponent(page,context);
         childPage=pageComponent.moveToAdminPage(page,context);
         createUsers=new CreateUsers(childPage,context);
         createDevice=new CreateDevice(childPage,context);

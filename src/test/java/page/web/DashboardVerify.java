@@ -1,6 +1,7 @@
 package page.web;
 
 import base.web.BasePage;
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
@@ -9,8 +10,8 @@ import java.io.IOException;
 
 public class DashboardVerify extends BasePage {
 
-    public DashboardVerify(Page page) {
-        super(page);
+    public DashboardVerify(Page page, BrowserContext context) {
+        super(page,context);
     }
 
     public void EquipmentPage(String SearchName) throws InterruptedException {

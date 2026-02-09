@@ -36,8 +36,7 @@ public class CreateNewKPIDefinition extends BasePage {
 
 
     public CreateNewKPIDefinition(Page childPage, BrowserContext context) {
-        super(childPage);
-        this.context=context;
+        super(childPage,context);
         this.childPage=childPage;
         this.createKpi = getByText("New KPI Definition", childPage);
         this.kpiNameField = getByPlaceholder("KPI Name", childPage);
@@ -76,6 +75,7 @@ public class CreateNewKPIDefinition extends BasePage {
         defineKpi(kpiName,plantName,industryType, kpiType);
         selectVariableAndDefine(globalParameterName, aggregateType,KPIPerformanceCriteria,units,precision);
         //return validationMessage.textContent();
+        getBySpanAndText("OK",childPage).click();
     }
 
     private void defineKpi(String kpiName, String plantName, String industryType, String kpiTypeValue) {
@@ -123,6 +123,7 @@ public class CreateNewKPIDefinition extends BasePage {
     }
 
     private Locator selectGlobalParameterFromKPIPage(String gPName){
-       return childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText(gPName));
+       //return childPage.locator("p[draggable='true']", new Page.LocatorOptions().setHasText(gPName));
+        return childPage.getByText(gPName, new Page.GetByTextOptions().setExact(true));
     }
 }

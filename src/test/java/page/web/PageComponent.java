@@ -41,8 +41,8 @@ public class PageComponent extends BasePage {
     private final Locator openAdminPage;
 
 
-    public PageComponent(Page page) {
-        super(page);
+    public PageComponent(Page page, BrowserContext context) {
+        super(page,context);
         this.chartGraph = page.locator("//*[local-name()='g'][contains(@class,'highcharts-markers highcharts-series-0 highcharts-line-series highcharts-tracker')]//*[local-name()='path'][contains(@opacity,'1')]");
         this.dataToolTip = page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
         this.graphContainer = page.locator("div.highcharts-container");

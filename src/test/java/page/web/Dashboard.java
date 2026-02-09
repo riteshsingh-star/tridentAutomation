@@ -1,5 +1,6 @@
 package page.web;
 
+import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import base.web.BasePage;
@@ -24,8 +25,8 @@ public class Dashboard extends BasePage {
     private final Locator deleteButton;
 
 
-    public Dashboard(Page page) {
-        super(page);
+    public Dashboard(Page page, BrowserContext context) {
+        super(page,context);
 
         this.visibilityPublic = page.locator("//div[@dir ='ltr']//following::*[text()='Public (Everyone)']");
         this.addDashboardButton = getByRoleButton("Add Dashboard", page);

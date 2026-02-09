@@ -1,4 +1,4 @@
-package test;
+package test.web;
 
 import base.api.APIBase;
 import base.web.BaseTest;
@@ -27,8 +27,8 @@ public class AdminGraphValidationTest extends BaseTest {
 
     @Test
     public void validateGraphWithMyApi() throws InterruptedException, IOException {
-        pageComponent =new PageComponent(page);
-        DashboardVerify dashboardV = new DashboardVerify(page);
+        pageComponent =new PageComponent(page,context);
+        DashboardVerify dashboardV = new DashboardVerify(page,context);
         dashboardV.EquipmentPage("singeing");
         Map<String ,String> uiList = pageComponent.getChartData(0,2,0);
         System.out.println("Ui List data "+uiList);
