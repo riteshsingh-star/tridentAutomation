@@ -19,8 +19,8 @@ public class GetKpiLclUclValue extends APIBase {
     @Test
     public void getKpiLclUcl() throws IOException {
 
-        String definitionId = ReadPropertiesFile.get("kpiDefinitionId");
-        String equipmentId = ReadPropertiesFile.get("equipmentId2");
+        String definitionId = "9";
+        String equipmentId = "4248";
 
         String lclUclType = GetKpiRequest.getLclUclType(request, definitionId, equipmentId);
 

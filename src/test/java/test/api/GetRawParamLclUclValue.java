@@ -18,9 +18,9 @@ public class GetRawParamLclUclValue extends APIBase {
     @Test
     public void getSTDMeanLCLUCL() throws IOException {
 
-        int plantId = Integer.parseInt(ReadPropertiesFile.get("plantId"));
-        int equipmentId = Integer.parseInt(ReadPropertiesFile.get("equipmentId"));
-        int rawParamDefId = Integer.parseInt(ReadPropertiesFile.get("rawParamDefId"));
+        int plantId = 839;
+        int equipmentId = 4248;
+        int rawParamDefId = 21;
 
         JsonNode rawParamNode = GetRawParamRequest.getRawParamNode(request, plantId, equipmentId, rawParamDefId);
 
