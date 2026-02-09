@@ -4,7 +4,6 @@ import base.api.APIBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
-import utils.ReadPropertiesFile;
 import utils.Stats;
 
 import java.io.IOException;

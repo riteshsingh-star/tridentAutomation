@@ -1638,3 +1638,12 @@
 2026-02-09 13:43:59 INFO  BaseTest - Login successful
 2026-02-09 13:44:17 INFO  BaseTest - ===== Test Teardown Started =====
 2026-02-09 13:44:17 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-09 16:13:14 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-09 16:13:19 INFO  BaseTest - Starting login
+2026-02-09 16:13:19 INFO  LoginPage - Entering username
+2026-02-09 16:13:24 INFO  LoginPage - Entering password
+2026-02-09 16:13:26 INFO  LoginPage - Clicking on Login button
+2026-02-09 16:13:28 INFO  BaseTest - Login successful
+2026-02-09 16:14:03 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-09 16:14:03 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-09 16:14:03 INFO  BaseTest - ===== Test Teardown Completed =====
