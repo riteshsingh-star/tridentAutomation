@@ -37,7 +37,7 @@ public class GetRawParameterData extends APIBase {
     }
 
     public static String GetRawParaDataPojo() {
-        Raws rawdata = new Raws(4248, List.of(26));
+        Raws rawdata = new Raws(4248, List.of(21));
 
         DateRange dateRange = new DateRange(
                 "2026-01-26T04:30:00.000Z",

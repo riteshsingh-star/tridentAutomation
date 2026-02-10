@@ -9,7 +9,7 @@ import org.testng.Assert;
 public class GetKpiRequest {
 
 
-    public static JsonNode getKpiNode(APIRequestContext request, String definitionId, String equipmentId) {
+    public static JsonNode getKpiNode(APIRequestContext request, int definitionId, int equipmentId) {
 
         APIResponse response = request.get(
                 "/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId

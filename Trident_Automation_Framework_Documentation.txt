@@ -1,0 +1,481 @@
+
+                    TRIDENT AUTOMATION FRAMEWORK DOCUMENTATION
+--------------------------------------------------------------------------------
+TABLE OF CONTENTS
+--------------------------------------------------------------------------------
+
+1. Introduction
+2. Features
+3. Prerequisites
+4. Installation
+5. Project Structure
+6. Configuration
+7. Running Tests
+8. Test Reports
+9. Writing Tests
+10. Page Object Model
+11. API Testing
+12. Environment Management
+13. Logging
+14. Troubleshooting
+
+--------------------------------------------------------------------------------
+1. INTRODUCTION
+--------------------------------------------------------------------------------
+
+The Trident Automation Framework is a comprehensive test automation solution built 
+with Microsoft Playwright, Java, and TestNG. It provides robust capabilities for 
+both web application testing and REST API testing, with comprehensive reporting 
+and logging features.
+
+--------------------------------------------------------------------------------
+2. FEATURES
+--------------------------------------------------------------------------------
+
+• Multi-Browser Support: Chrome, Firefox, WebKit
+• Parallel Test Execution: Configurable thread count for faster test runs
+• Page Object Model: Clean and maintainable test architecture
+• API Testing: REST API testing with comprehensive validation
+• Environment Management: Support for SIT, UAT, and multiple tenants
+• Comprehensive Reporting: Allure and ExtentReports integration
+• Logging: Log4j2-based detailed logging
+• Screenshot Capture: Automatic screenshots on test failures
+• Cross-Platform: Works on Windows and macOS
+
+--------------------------------------------------------------------------------
+3. PREREQUISITES
+--------------------------------------------------------------------------------
+
+• Java: JDK 17 or higher
+• Maven: 3.6.0 or higher
+• Node.js: Required for Playwright browser installation
+• IDE: IntelliJ IDEA, Eclipse, or VS Code
+
+--------------------------------------------------------------------------------
+4. INSTALLATION
+--------------------------------------------------------------------------------
+
+Step 1: Clone the repository
+---------------------------
+git clone <repository-url>
+cd folderName
+
+Step 2: Install dependencies
+---------------------------
+mvn clean install
+
+Step 3: Install Playwright browsers
+----------------------------------
+mvn exec:java -Dexec.mainClass="com.microsoft.playwright.CLI" -Dexec.args="install"
+
+--------------------------------------------------------------------------------
+5. PROJECT STRUCTURE
+--------------------------------------------------------------------------------
+
+tridentAutomation/
+├── src/
+│   ├── main/
+│   │   └── java/
+│   │       ├── pojo/                 # Plain Old Java Objects
+│   │       │   ├── api/              # API POJO classes
+│   │       │   │   ├── DateRange.java            # Date range for API requests
+│   │       │   │   ├── EquipKpi.java             # Equipment KPI data model
+│   │       │   │   ├── EquipKpiRequest.java      # Equipment KPI request model
+│   │       │   │   ├── LclUclResult.java         # LCL/UCL calculation results
+│   │       │   │   ├── RawRequest.java           # Raw parameter request model
+│   │       │   │   └── Raws.java                 # Raw parameter data model
+│   │       │   └── web/              # Web POJO classes
+│   │       │       ├── AdminFlow.java            # Admin flow data model
+│   │       │       ├── BaseData.java             # Base data model
+│   │       │       ├── DashboardData.java        # Dashboard data model
+│   │       │       ├── EquipmentMeasureValidation.java # Equipment data model
+│   │       │       └── UserAndDevice.java        # User and device data model
+│   │       └── utils/              # Utility classes
+│   │           ├── CalenderUtil.java             # Calendar and date utilities
+│   │           ├── CompareGraphAndApiData.java    # Graph vs API data comparison
+│   │           ├── ExtentManager.java             # ExtentReports management
+│   │           ├── KPISCalculationUtils.java      # KPI calculation utilities
+│   │           ├── LclUclUtil.java                # LCL/UCL calculation utilities
+│   │           ├── ParseTheTimeFormat.java       # Time format parsing utilities
+│   │           ├── ReadJsonFile.java             # JSON file reading utilities
+│   │           ├── ReadPropertiesFile.java       # Properties file reading
+│   │           ├── Stats.java                    # Lcl Ucl STDDiv Mean calculations
+│   │           └── WaitUtils.java                # Wait and synchronization utilities
+│   └── test/
+│       ├── java/
+│       │   ├── base/                 # Base classes
+│       │   │   ├── api/              # API base class
+│       │   │   │   └── APIBase.java               # Base class for API tests
+│       │   │   └── web/              # Web base class
+│       │   │       ├── BasePage.java             # Base page class for web page
+│       │   │       └── BaseTest.java             # Base test class for web tests
+│       │   ├── factory/              # Playwright factory
+│       │   │   └── PlaywrightFactory.java        # Browser and page management
+│       │   ├── listeners/            # TestNG listeners
+│       │   │   └── Listeners.java                # Test execution listeners
+│       │   ├── page/                 # Page objects
+│       │   │   └── web/              # Web page objects
+│       │   │       ├── CreateAreas.java           # Area creation page
+│       │   │       ├── CreateDevice.java          # Device creation page
+│       │   │       ├── CreateEquipment.java      # Equipment creation page
+│       │   │       ├── CreateGlobalParameter.java # Global parameter creation
+│       │   │       ├── CreateNewKPIDefinition.java # KPI definition creation
+│       │   │       ├── CreateOrganization.java    # Organization creation page
+│       │   │       ├── CreatePlant.java           # Plant creation page
+│       │   │       ├── CreateUsers.java           # User creation page
+│       │   │       ├── CreateWidget.java          # Widget creation page
+│       │   │       ├── Dashboard.java             # Dashboard page
+│       │   │       ├── DashboardVerify.java       # Dashboard verification
+│       │   │       ├── EquipmentPageDataVerification.java # Equipment data verification
+│       │   │       ├── KPIAdvanceImplementation.java # Advanced KPI implementation
+│       │   │       ├── LoginPage.java             # Login page
+│       │   │       └── PageComponent.java         # Common page components
+│       │   └── test/                 # Test classes
+│       │       ├── api/              # API tests
+│       │       │   ├── ApiAggregateVerification.java # API aggregate verification
+│       │       │   ├── GetAggregateValueOfKpi.java # Get aggregate KPI values
+│       │       │   ├── GetChartDataApi.java       # Chart data API test
+│       │       │   ├── GetEquipment.java          # Equipment API test
+│       │       │   ├── GetKpiData.java            # KPI data API test
+│       │       │   ├── GetKpiLclUclValue.java     # KPI LCL/UCL value test
+│       │       │   ├── GetKpiRequest.java         # KPI request test
+│       │       │   ├── GetRawParamLclUclValue.java # Raw parameter LCL/UCL test
+│       │       │   ├── GetRawParamRequest.java    # Raw parameter request test
+│       │       │   └── GetRawParameterData.java   # Raw parameter data test
+│       │       └── web/              # Web tests
+│       │           ├── AdminFlowTest.java         # Admin flow test
+│       │           ├── AdminGraphValidationTest.java # Admin graph validation
+│       │           ├── CreateUserAndDeviceTest.java # User and device creation test
+│       │           ├── DashboardTest.java         # Dashboard functionality test
+│       │           ├── DashboardVerify.java       # Dashboard verification test
+│       │           ├── EquipmentDataSetup.java    # Equipment data setup test
+│       │           └── GraphVsApiValidationTest.java # Graph vs API validation
+│       └── resources/
+│           ├── config.properties     # Configuration file
+│           └── testng.xml           # TestNG suite
+├── .github/workflows/                # CI/CD workflows
+│   └── playwrightJava.yml            # GitHub Actions workflow
+├── allure-results/                    # Allure test results
+├── logs/                            # Application logs
+│   └── automation.log                # Main automation log file
+├── screenshots/                      # Test failure screenshots
+├── pom.xml                          # Maven configuration
+├── testng.xml                       # TestNG configuration
+└── README.md                        # Project documentation
+
+--------------------------------------------------------------------------------
+6. CONFIGURATION
+--------------------------------------------------------------------------------
+
+Environment Configuration
+--------------------------
+The framework uses config.properties for configuration. Key properties include:
+
+# Browser Configuration
+browser=chrome
+headless=false
+
+# Common URLs
+timeSeriesPathURL=/query/api/kpis/timeseries
+rawParameterPathURL=/query/api/raw-parameters/timeseries
+aggregatePathURL=/query/api/kpis/aggregates
+
+# SIT Environment
+sit.webUrl=https://sit-process.infinite-uptime.com/dashboard
+sit.APIBaseURL=https://sit-ipf.infinite-uptime.com
+sit.userName=covacsis_admin@techprescient.com
+sit.webPassword=your_password
+sit.X-ORG-ID=901
+
+# UAT Environment
+uat.webUrl=https://uat-new-process.infinite-uptime.com/dashboard
+uat.APIBaseURL=https://uat-new-ipf.infinite-uptime.com
+uat.webPassword=your_password
+uat.X-ORG-ID=1138
+
+Maven Profiles
+---------------
+Use Maven profiles to switch between environments:
+
+# SIT Environment
+mvn test -P sit
+
+# UAT Environment
+mvn test -P uat
+
+--------------------------------------------------------------------------------
+7. RUNNING TESTS
+--------------------------------------------------------------------------------
+
+Basic Test Execution
+--------------------
+# Run all tests
+mvn test
+
+# Run specific test class
+mvn test -Dtest=AdminFlowTest
+
+
+Parallel Execution
+------------------
+Tests are configured to run in parallel with configurable thread count in testng.xml:
+
+<suite name="PlaywrightJava" parallel="tests" thread-count="2">
+
+Running with Allure
+------------------
+# Run tests and generate Allure report
+mvn clean test allure:report
+
+# Serve Allure report
+mvn allure:serve
+
+--------------------------------------------------------------------------------
+8. TEST REPORTS
+--------------------------------------------------------------------------------
+
+Allure Reports
+--------------
+• Location: target/allure-results/
+• View: Run mvn allure:serve to view live reports
+• Features: Interactive charts, test history, attachments
+
+ExtentReports
+-------------
+• Location: target/extent-reports/
+• Features: Rich HTML reports with screenshots and logs
+
+TestNG Reports
+--------------
+• Location: target/surefire-reports/
+• Format: XML and HTML reports
+
+--------------------------------------------------------------------------------
+9. WRITING TESTS
+--------------------------------------------------------------------------------
+
+Web Tests
+---------
+Extend BaseTest for web automation. Tests use JSON data files and POJOs for data management:
+
+public class AdminFlowTest extends BaseTest {
+
+    CreateGlobalParameter globalParameter;
+    Page childPage;
+    PageComponent pageComponent;
+    AdminFlow data;
+
+
+    @BeforeClass
+    public void createAdminFlowSetupTest() {
+        data = ReadJsonFile.readJson("testData/adminFlow.json", AdminFlow.class);
+        pageComponent = new PageComponent(page, context);
+        childPage = pageComponent.moveToAdminPage(page, context);
+        globalParameter = new CreateGlobalParameter(childPage, context);
+        
+    }
+
+    @Test
+    public void validateGlobalParameterAndKPITest() {
+        kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.defineKPIName(), data.machineName(), data.date(), 
+            data.batchFrequency(), 
+            data.unit(), 
+            data.formula()
+        );
+    }
+}
+
+API Tests
+---------
+Extend APIBase for API testing. Framework support POJO-based approaches:
+
+public class GetKpiData extends APIBase {
+
+    static String pathURL = ReadPropertiesFile.get("timeSeriesPathURL");
+
+    // POJO-based approach
+    public static String GetKpiDataPojo() {
+        EquipKpi equipKpi = new EquipKpi(4249, List.of(9));
+        DateRange dateRange = new DateRange(
+            "2026-01-26T04:30:00.000Z",
+            "2026-01-27T04:30:00.000Z"
+        );
+        
+        EquipKpiRequest request = new EquipKpiRequest(List.of(equipKpi),dateRange,60000,true);
+        
+        ObjectMapper mapper = new ObjectMapper();
+        Map<String, Object> payload = mapper.convertValue(request, Map.class);
+        APIResponse response = postApiRequest(payload, pathURL);
+        Assert.assertEquals(response.status(), 200);
+        return response.text();
+    }
+
+    public static Map<String, String> getKpiDataUsingMapPojo() throws IOException {
+        String responseJson = GetKpiDataPojo();
+        return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
+    }
+}
+
+Key Features:
+--------------
+• JSON-based test data management using ReadJsonFile utility
+• POJO classes for structured data handling
+• Multi-page navigation with childPage management
+• POJO approaches for API testing
+• Comprehensive response data extraction utilities
+• Integration with Allure for test reporting
+
+--------------------------------------------------------------------------------
+10. PAGE OBJECT MODEL
+--------------------------------------------------------------------------------
+
+Creating Page Objects
+---------------------
+Page objects extend BasePage and use Playwright Locators for element identification:
+
+public class LoginPage extends BasePage {
+
+    Locator userName;
+    Locator password;
+    Locator loginButton;
+
+    public LoginPage(Page page, BrowserContext browserContext) {
+        super(page, browserContext);
+        this.userName = getByRoleTextbox(page);
+        this.password = getByRoleTextbox(page);
+        this.loginButton = getByRoleLabelText(page, "Login");
+    }
+
+    private static final Logger log = LogManager.getLogger(LoginPage.class);
+
+    public void login(String user, String pass) {
+        enterUserName(userName, user);
+        enterPassword(password, pass);
+        clickLoginButton();
+    }
+
+}
+
+Key Features:
+--------------
+• Playwright-based Locators for robust element identification
+• Role-based element location (button, textbox, link, option, etc.)
+• Built-in wait strategies with WaitUtils integration
+• Allure integration for step-by-step test reporting
+• Comprehensive logging with Log4j2
+• Scroll-into-view functionality for better element visibility
+• Multiple locator strategies (role, text, label, placeholder, etc.)
+• Synchronization methods for handling dynamic content
+• Page navigation and context management
+
+--------------------------------------------------------------------------------
+11. API TESTING
+--------------------------------------------------------------------------------
+
+API Base Class
+--------------
+The APIBase class provides:
+• HTTP Methods: GET, POST, PUT, DELETE
+• Request Configuration: Headers, authentication, parameters
+• Response Validation: Status codes, response body, headers
+• JSON Handling: Jackson-based JSON parsing
+
+Example API Test
+----------------
+public class GetKpiData extends APIBase {
+    
+    @Test
+    public void testGetKpiData() {
+        String endpoint = "/query/api/kpis/timeseries";
+        Response response = getApiRequest(endpoint);
+        
+        assertEquals(response.statusCode(), 200);
+        
+        JsonPath jsonPath = response.jsonPath();
+        assertNotNull(jsonPath.get("data"));
+    }
+}
+
+--------------------------------------------------------------------------------
+12. ENVIRONMENT MANAGEMENT
+--------------------------------------------------------------------------------
+
+Supported Environments
+----------------------
+• SIT: System Integration Testing
+• UAT: User Acceptance Testing
+• Multiple Tenants: Dev, Hindalco, MRF, Arvind Mills, MTR, Textile, IU
+
+Tenant Configuration
+---------------------
+Each tenant has dedicated credentials and configurations:
+
+# Dev Tenant
+uat.dev.user.userName=dev_user@techprescient.com
+uat.dev.admin.userName=dev_admin@techprescient.com
+
+# Hindalco Tenant
+uat.hindalco_mouda.user.userName=hindalco_mouda_user@techprescient.com
+uat.hindalco_mouda.admin.userName=hindalco_mouda_admin@techprescient.com
+
+--------------------------------------------------------------------------------
+13. LOGGING
+--------------------------------------------------------------------------------
+
+Log4j2 Configuration
+--------------------
+• Configuration: src/test/resources/log4j2.xml
+• Log Levels: DEBUG, INFO, WARN, ERROR
+• Appenders: Console and file appenders
+• Location: logs/automation.log
+
+Log Messages
+------------
+private static final Logger log = LogManager.getLogger(YourClass.class);
+
+log.info("Test execution started");
+log.error("Test failed: {}", errorMessage);
+log.debug("Element found: {}", element);
+
+--------------------------------------------------------------------------------
+14. TROUBLESHOOTING
+--------------------------------------------------------------------------------
+
+Common Issues
+------------
+
+• Browser Launch Failure
+  - Ensure Playwright browsers are installed
+  - Check browser compatibility with your OS
+
+• Authentication Issues
+  - Verify auth token validity
+  - Check environment-specific credentials
+
+• Element Not Found
+  - Increase wait times
+  - Verify element locators
+  - Check iframes and shadow DOM
+
+• Test Failures
+  - Check logs in logs/automation.log
+  - Review screenshots in screenshots/ folder
+  - Analyze Allure reports for detailed failure information
+
+Debug Mode
+----------
+Enable debug mode by setting:
+
+# In config.properties
+headless=false
+# Add VM option: -Dlog4j.configurationFile=path/to/log4j2-debug.xml
+
+--------------------------------------------------------------------------------
+
+Framework Version: 1.0-SNAPSHOT
+Java Version: 17
+Playwright Version: 1.43.0
+TestNG Version: 7.11.0
+Last Updated: January 2025
+
+--------------------------------------------------------------------------------

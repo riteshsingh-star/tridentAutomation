@@ -43,7 +43,7 @@ public class GetKpiData extends APIBase {
 
     public static String GetKpiDataPojo(){
 
-        EquipKpi equipKpi = new EquipKpi(4248, List.of(9));
+        EquipKpi equipKpi = new EquipKpi(4249, List.of(9));
 
         DateRange dateRange = new DateRange(
                 "2026-01-26T04:30:00.000Z",

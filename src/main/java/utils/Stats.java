@@ -19,7 +19,7 @@ public class Stats {
         return count > 0 ? sum / count : 0.0;
     }
 
-    // Sample Standard Deviation (n - 1)
+
     public static double calculateStdDev(Map<String, String> rawParameterData) {
         List<Double> values = new ArrayList<>();
 
