@@ -19,10 +19,6 @@ public class Stats {
         return count > 0 ? sum / count : 0.0;
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3f3834cc5487a413030fada6c41d064ddcd00f26
     public static double calculateStdDev(Map<String, String> rawParameterData) {
         List<Double> values = new ArrayList<>();
 

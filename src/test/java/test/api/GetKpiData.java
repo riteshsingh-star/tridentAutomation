@@ -44,13 +44,8 @@ public class GetKpiData extends APIBase {
         System.out.println(apiValues);
     }
 
-<<<<<<< HEAD
-    public static String GetKpiDataPojo(){
 
-        EquipKpi equipKpi = new EquipKpi(4249, List.of(9));
-=======
-    public static String getKpiDataPojo() {
->>>>>>> 3f3834cc5487a413030fada6c41d064ddcd00f26
+    public static String getKpiDataPojo(){
 
         EquipKpi equipKpi = new EquipKpi(4248, List.of(11));
         DateRange dateRange = new DateRange(
@@ -71,11 +66,4 @@ public class GetKpiData extends APIBase {
         return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
     }
 
-    @Test
-    public static void getKpiDataUsingMapPojoL() throws IOException {
-        String responseJson = getKpiDataPojo();
-        System.out.println(responseJson);
-
-        // return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
-    }
 }
