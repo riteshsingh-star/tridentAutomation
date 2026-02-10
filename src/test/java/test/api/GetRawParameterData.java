@@ -1,4 +1,5 @@
 package test.api;
+
 import base.api.APIBase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
@@ -13,6 +14,7 @@ import java.util.Map;
 public class GetRawParameterData extends APIBase {
 
     static String pathURL = ReadPropertiesFile.get("rawParameterPathURL");
+
     public static String getRawParameterDataa() {
         Map<String, Object> payload = new HashMap<>();
         Map<String, Object> equipments = new HashMap<>();
@@ -41,25 +43,19 @@ public class GetRawParameterData extends APIBase {
 
         DateRange dateRange = new DateRange(
                 "2026-01-26T04:30:00.000Z",
-                "2026-01-27T04:30:00.000Z"
-        );
+                "2026-01-27T04:30:00.000Z");
 
-        RawRequest request = new RawRequest(
-                List.of(rawdata),
-                dateRange,
-                60000,
-                true
-        );
-
+        RawRequest request = new RawRequest(List.of(rawData), dateRange, 0, true);
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> payload = mapper.convertValue(request, Map.class);
         APIResponse response = postApiRequest(payload, pathURL);
+        System.out.println(response.text());
         Assert.assertEquals(response.status(), 200);
         return response.text();
     }
 
     public static Map<String, String> getRawParameterDataUsingPojo() throws IOException {
-        String responseJson = GetRawParaDataPojo();
+        String responseJson = getRawParaDataPojo();
         Map<String, String> apiValues = fetchApiData(responseJson, "equipments", 0, "rawParameters", 0, "data", false);
         return apiValues;
     }

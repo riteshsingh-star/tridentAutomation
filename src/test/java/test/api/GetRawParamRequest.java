@@ -16,22 +16,18 @@ public class GetRawParamRequest {
         try {
             ObjectMapper mapper = new ObjectMapper();
             JsonNode rootNode = mapper.readTree(response.text());
-
             for (JsonNode node : rootNode) {
                 int apiEquipmentId = node.path("rawParameterEquipmentId").asInt();
                 int apiRawParamDefId = node.path("id").asInt();
-
                 if (apiEquipmentId == equipmentId && apiRawParamDefId == rawParamDefId) {
                     return node;
                 }
             }
-
-            throw new RuntimeException("No matching raw parameter found for equipmentId="
-                    + equipmentId + " and rawParamDefId=" + rawParamDefId);
+            throw new RuntimeException("No matching raw parameter found for equipmentId=" + equipmentId
+                    + " and rawParamDefId=" + rawParamDefId);
 
         } catch (Exception e) {
             throw new RuntimeException("Failed to parse Raw Parameter API response", e);
         }
     }
 }
-
