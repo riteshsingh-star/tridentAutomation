@@ -7,6 +7,7 @@ import org.testng.annotations.*;
 import page.web.CreateWidget;
 import page.web.PageComponent;
 import pojo.web.DashboardData;
+import test.api.GetKpiData;
 import utils.CompareGraphAndApiData;
 import utils.ReadJsonFile;
 import org.testng.Assert;
@@ -59,11 +60,11 @@ public class GraphVsApiValidationTest extends BaseTest {
 
     @Test
     public void validateGraphWithApi() throws InterruptedException, IOException {
-        Map<String, String> uiList = pageComponent.getChartData(0, 2,0);
-        System.out.println("uiList: " + uiList);
-        Map<String, String> apiList = GetChartDataApi.getTimeSeriesDataAccordingToKPIS();
-        System.out.println("apiList: " + apiList);
-        Assert.assertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
-        CompareGraphAndApiData.compareStringMaps(uiList, apiList);
+        Map<String, String> uiData = pageComponent.getChartData(0, 2,0);
+        System.out.println("uiList: " + uiData);
+        Map<String, String> apiData = GetKpiData.getKpiDataUsingMapPojo();
+        System.out.println("apiList: " + apiData);
+        Assert.assertEquals(uiData.size(), apiData.size(), "UI and API data count mismatch");
+        CompareGraphAndApiData.compareStringMaps(uiData, apiData);
     }
 }

@@ -112,4 +112,8 @@ public class BasePage {
     public Locator getBySpanAndText(String text,Page page) {
        return page.locator("span").filter(new Locator.FilterOptions().setHasText(text));
     }
+
+    public Locator getBySpanWithExactText(String text,Page page) {
+        return page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + Pattern.quote(text) + "$")));
+    }
 }

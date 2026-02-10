@@ -29,6 +29,5 @@ public class EquipmentPageDataVerification extends BasePage {
             Assert.assertEquals((int) chartAggregate, (int) aggregateValue, "Mismatch in integer part of aggregate value");
             System.out.println(pageComponent.getMeanAndSDFromUI("SD"));
             System.out.println(pageComponent.getMeanAndSDFromUI("Mean"));
-
     }
 }

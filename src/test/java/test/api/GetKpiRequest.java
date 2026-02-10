@@ -11,9 +11,12 @@ public class GetKpiRequest {
 
     public static JsonNode getKpiNode(APIRequestContext request, int definitionId, int equipmentId) {
 
-        APIResponse response = request.get("/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId);
+        APIResponse response = request.get(
+                "/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId
+        );
 
         Assert.assertEquals(response.status(), 200, "KPI API failed");
+
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readTree(response.text());
@@ -22,5 +25,3 @@ public class GetKpiRequest {
         }
     }
 }
-
-

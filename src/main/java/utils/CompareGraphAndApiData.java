@@ -36,7 +36,7 @@ public class CompareGraphAndApiData {
 
     private static String normalizeDecimal(String val) {
         try {
-            return String.format("%.2f", Double.parseDouble(val));
+            return String.format("%.1f", Double.parseDouble(val));
         } catch (Exception e) {
             return val;
         }

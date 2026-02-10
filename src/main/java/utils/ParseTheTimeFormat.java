@@ -26,7 +26,7 @@ public class ParseTheTimeFormat {
 
     public static String formatStringTo2Decimal(String valueStr) {
         BigDecimal bd = new BigDecimal(valueStr);
-        bd = bd.setScale(1, RoundingMode.DOWN);
+        bd = bd.setScale(2, RoundingMode.DOWN);
         return bd.toPlainString();
     }
 
