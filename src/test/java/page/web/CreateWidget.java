@@ -83,7 +83,8 @@ public class CreateWidget extends BasePage {
         granularityL.click();
         getByLabelAndText(granularity, page).click();
         saveTheWidget();
-        dragTheChart();
+        WaitUtils.waitForVisible(page.locator(".grid-stack-item-content"),10000);
+        //dragTheChart();
         String widgetName=equipmentTrend.textContent();
         String machineName=machineNameOnWidget.textContent();
         return widgetName+" "+machineName;
@@ -183,10 +184,7 @@ public class CreateWidget extends BasePage {
     }
 
     public void dragTheChart(){
-        Locator widget = page
-                .locator(".grid-stack-item-content")
-                .filter(new Locator.FilterOptions()
-                        .setHasText("Equipment Performance"));
+        Locator widget = page.locator(".grid-stack-item-content").filter(new Locator.FilterOptions().setHasText("Equipment Performance"));
         widget.hover();
         pageComponent.dragTheChartGraph(resizableHandle,page);
     }

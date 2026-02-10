@@ -38,18 +38,14 @@ public class GetRawParameterData extends APIBase {
 
     }
 
-    public static String GetRawParaDataPojo() {
-        Raws rawdata = new Raws(4248, List.of(26));
-
-        DateRange dateRange = new DateRange(
-                "2026-01-26T04:30:00.000Z",
-                "2026-01-27T04:30:00.000Z");
-
+    public static String getRawParaDataPojo() {
+        Raws rawData = new Raws(4248, List.of(25));
+        DateRange dateRange = new DateRange("2026-01-26T04:30:00.000Z", "2026-01-27T04:30:00.000Z");
         RawRequest request = new RawRequest(List.of(rawData), dateRange, 0, true);
         ObjectMapper mapper = new ObjectMapper();
         Map<String, Object> payload = mapper.convertValue(request, Map.class);
         APIResponse response = postApiRequest(payload, pathURL);
-        System.out.println(response.text());
+        //System.out.println(response.text());
         Assert.assertEquals(response.status(), 200);
         return response.text();
     }

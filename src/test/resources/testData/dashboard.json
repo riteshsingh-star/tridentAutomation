@@ -4,7 +4,7 @@
   "widgetType": "Equipment Trend",
   "equipmentName": "SINGEING",
   "viewType": "Expanded",
-  "measuresName": ["Production"],
+  "measuresName": ["Total_Water_Consumption"],
   "time": "Last Week",
   "granularity": "Eight Hour",
   "visibilityType": "Public"

@@ -21,7 +21,7 @@ public class ReadPropertiesFile {
                 throw new RuntimeException("config.properties not found");
             }
             prop.load(is);
-            env = System.getProperty("env", "uat").toLowerCase();
+            env = System.getProperty("env", "sit").toLowerCase();
             client = System.getProperty("client", "dev").toLowerCase();
             userType = System.getProperty("userType", "admin").toLowerCase();
 
@@ -31,19 +31,13 @@ public class ReadPropertiesFile {
     }
 
     public static String get(String key) {
-        String value = prop.getProperty(
-                env + "." + client + "." + userType + "." + key
-        );
+        String value = prop.getProperty(env + "." + client + "." + userType + "." + key);
         if (value != null) return value;
 
-        value = prop.getProperty(
-                env + "." + client + "." + key
-        );
+        value = prop.getProperty(env + "." + client + "." + key);
         if (value != null) return value;
 
-        value = prop.getProperty(
-                env + "." + key
-        );
+        value = prop.getProperty(env + "." + key);
         if (value != null) return value;
 
         return prop.getProperty(key);
