@@ -1775,3 +1775,96 @@
 2026-02-10 09:36:56 INFO  BaseTest - Login successful
 2026-02-10 09:37:12 INFO  BaseTest - ===== Test Teardown Started =====
 2026-02-10 09:37:12 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:42:29 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:42:35 INFO  BaseTest - Starting login
+2026-02-10 14:42:35 INFO  LoginPage - Entering username
+2026-02-10 14:42:40 INFO  LoginPage - Entering password
+2026-02-10 14:42:42 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:42:44 INFO  BaseTest - Login successful
+2026-02-10 14:42:49 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:42:50 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:45:48 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:45:54 INFO  BaseTest - Starting login
+2026-02-10 14:45:54 INFO  LoginPage - Entering username
+2026-02-10 14:45:59 INFO  LoginPage - Entering password
+2026-02-10 14:46:01 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:46:04 INFO  BaseTest - Login successful
+2026-02-10 14:46:10 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:46:10 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:47:04 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:47:10 INFO  BaseTest - Starting login
+2026-02-10 14:47:10 INFO  LoginPage - Entering username
+2026-02-10 14:47:14 INFO  LoginPage - Entering password
+2026-02-10 14:47:16 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:47:19 INFO  BaseTest - Login successful
+2026-02-10 14:47:24 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:47:25 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:48:16 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:48:21 INFO  BaseTest - Starting login
+2026-02-10 14:48:21 INFO  LoginPage - Entering username
+2026-02-10 14:48:26 INFO  LoginPage - Entering password
+2026-02-10 14:48:28 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:48:30 INFO  BaseTest - Login successful
+2026-02-10 14:48:32 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:48:33 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:53:15 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:53:21 INFO  BaseTest - Starting login
+2026-02-10 14:53:21 INFO  LoginPage - Entering username
+2026-02-10 14:53:26 INFO  LoginPage - Entering password
+2026-02-10 14:53:28 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:53:30 INFO  BaseTest - Login successful
+2026-02-10 14:53:36 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:53:36 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 14:57:38 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 14:57:44 INFO  BaseTest - Starting login
+2026-02-10 14:57:44 INFO  LoginPage - Entering username
+2026-02-10 14:57:48 INFO  LoginPage - Entering password
+2026-02-10 14:57:50 INFO  LoginPage - Clicking on Login button
+2026-02-10 14:57:53 INFO  BaseTest - Login successful
+2026-02-10 14:57:58 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 14:57:58 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:04:42 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:04:48 INFO  BaseTest - Starting login
+2026-02-10 15:04:48 INFO  LoginPage - Entering username
+2026-02-10 15:04:53 INFO  LoginPage - Entering password
+2026-02-10 15:04:55 INFO  LoginPage - Clicking on Login button
+2026-02-10 15:04:57 INFO  BaseTest - Login successful
+2026-02-10 15:05:03 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:05:03 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:19:53 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:19:59 INFO  BaseTest - Starting login
+2026-02-10 15:19:59 INFO  LoginPage - Entering username
+2026-02-10 15:20:04 INFO  LoginPage - Entering password
+2026-02-10 15:20:06 INFO  LoginPage - Clicking on Login button
+2026-02-10 15:20:08 INFO  BaseTest - Login successful
+2026-02-10 15:20:20 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-10 15:20:20 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:20:20 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:20:20 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:20:24 INFO  BaseTest - Starting login
+2026-02-10 15:20:24 INFO  LoginPage - Entering username
+2026-02-10 15:20:26 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:20:27 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:20:27 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:20:30 INFO  BaseTest - Starting login
+2026-02-10 15:20:30 INFO  LoginPage - Entering username
+2026-02-10 15:20:30 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:20:30 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:20:30 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:20:33 INFO  BaseTest - Starting login
+2026-02-10 15:20:33 INFO  LoginPage - Entering username
+2026-02-10 15:20:33 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:20:33 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:20:33 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:20:37 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:20:37 INFO  BaseTest - ===== Test Teardown Completed =====
+2026-02-10 15:22:15 INFO  BaseTest - ===== Test Setup Started =====
+2026-02-10 15:22:23 INFO  BaseTest - Starting login
+2026-02-10 15:22:23 INFO  LoginPage - Entering username
+2026-02-10 15:22:27 INFO  LoginPage - Entering password
+2026-02-10 15:22:29 INFO  LoginPage - Clicking on Login button
+2026-02-10 15:22:32 INFO  BaseTest - Login successful
+2026-02-10 15:22:34 INFO  Listeners - addEquipmentTrendWidgetTestTest Started
+2026-02-10 15:22:37 INFO  Listeners - addEquipmentTrendWidgetTestPassed
+2026-02-10 15:22:37 INFO  BaseTest - ===== Test Teardown Started =====
+2026-02-10 15:22:37 INFO  BaseTest - ===== Test Teardown Completed =====

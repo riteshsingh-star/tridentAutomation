@@ -155,7 +155,8 @@ tridentAutomation/
 │           └── testng.xml           # TestNG suite
 ├── .github/workflows/                # CI/CD workflows
 │   └── playwrightJava.yml            # GitHub Actions workflow
-├── allure-results/                    # Allure test results
+├── target/allure-results/            # Allure test results
+├─  target/extent-reports/            #Extent report Support
 ├── logs/                            # Application logs
 │   └── automation.log                # Main automation log file
 ├── screenshots/                      # Test failure screenshots

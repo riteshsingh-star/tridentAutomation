@@ -21,8 +21,8 @@ import java.nio.file.Paths;
 public class Listeners implements ITestListener {
 
     private static final Logger logger = LogManager.getLogger(Listeners.class);
-    private static ExtentReports extent = ExtentManager.getInstance();
-    private static ThreadLocal<ExtentTest> testReport = new ThreadLocal<>();
+    private static final ExtentReports extent = ExtentManager.getInstance();
+    private static final ThreadLocal<ExtentTest> testReport = new ThreadLocal<>();
 
     @Override
     public void onTestSkipped(ITestResult result) {
