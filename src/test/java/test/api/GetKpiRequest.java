@@ -11,6 +11,15 @@ public class GetKpiRequest {
     public static JsonNode getKpiNode(APIRequestContext request, String definitionId, String equipmentId) {
         APIResponse response = request
                 .get("/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId);
+<<<<<<< HEAD
+        APIResponse response = request.get("/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId);
+=======
+>>>>>>> 3f3834cc5487a413030fada6c41d064ddcd00f26
+
+        APIResponse response = request.get(
+                "/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId
+        );
+>>>>>>> 5f16c47df3cd4cabf2114db2325d22c995811303
 
         Assert.assertEquals(response.status(), 200, "KPI API failed");
         try {
