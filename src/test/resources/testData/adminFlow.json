@@ -1,9 +1,9 @@
 {
 
-  "globalParameterName":"TestAutomationGP",
+  "globalParameterName":"TestAutomationGl",
   "param": "Double",
   "checkbox": "Batch",
-  "defineKPIName": "TestAutomationKPI1",
+  "defineKPIName": "TestAutomationKPI2",
   "machineName":"PTR",
   "date": "2026-01-01",
   "formula": "sum(^PTR.MAIN_WATER)",

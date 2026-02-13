@@ -11,7 +11,7 @@ public class DashboardVerify extends BaseTest {
 
     @Test
     public void dashboardVerify() throws InterruptedException {
-        EquipmentMeasureValidation data = ReadJsonFile.readJson("testData/equipmentVerification.json", EquipmentMeasureValidation.class);
+        EquipmentMeasureValidation data = ReadJsonFile.readJson("equipmentVerification.json", EquipmentMeasureValidation.class);
         EquipmentPageDataVerification equipmentVerificationPage= new EquipmentPageDataVerification(page,context);
         page.waitForLoadState(LoadState.NETWORKIDLE);
         equipmentVerificationPage.verifyTheAggregateAccordingToFormula(data.equipmentName(),data.measureName(),data.frequency(),data.granularity(),data.aggregateType());

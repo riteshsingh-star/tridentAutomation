@@ -4,7 +4,9 @@ A comprehensive test automation framework built with Playwright, Java, and TestN
 
 ## Overview
 
-The Trident Automation Framework is a robust, scalable, and maintainable test automation solution designed for testing web applications and REST APIs. It leverages Microsoft Playwright for web automation, TestNG for test execution, and includes comprehensive reporting capabilities with Allure and ExtentReports.
+The Trident Automation Framework is a robust, scalable, and maintainable test automation solution designed for testing
+web applications and REST APIs. It leverages Microsoft Playwright for web automation, TestNG for test execution, and
+includes comprehensive reporting capabilities with Allure and ExtentReports.
 
 ## Table of Contents
 
@@ -143,9 +145,16 @@ tridentAutomation/
 │       └── resources/
 │           ├── config.properties    # Configuration file
 │           └── testng.xml           # TestNG suite
+<<<<<<< HEAD
 ├── .github/workflows/               # CI/CD workflows
 │   └── playwrightJava.yml           # GitHub Actions workflow
 ├── allure-results/                  # Allure test results
+=======
+├── .github/workflows/                # CI/CD workflows
+│   └── playwrightJava.yml            # GitHub Actions workflow
+├── target/allure-results/            # Allure test results
+├─  target/extent-reports/            # Extent Report Support
+>>>>>>> b0022e0ed21109132e97cf5d20006d1ff4ec6ded
 ├── logs/                            # Application logs
 │   └── automation.log               # Main automation log file
 ├── screenshots/                     # Test failure screenshots
@@ -164,19 +173,16 @@ The framework uses `config.properties` for configuration. Key properties include
 # Browser Configuration
 browser=chrome
 headless=false
-
 # Common URLs
 timeSeriesPathURL=/query/api/kpis/timeseries
 rawParameterPathURL=/query/api/raw-parameters/timeseries
 aggregatePathURL=/query/api/kpis/aggregates
-
 # SIT Environment
 sit.webUrl=https://sit-process.infinite-uptime.com/dashboard
 sit.APIBaseURL=https://sit-ipf.infinite-uptime.com
 sit.userName=covacsis_admin@techprescient.com
 sit.webPassword=your_password
 sit.X-ORG-ID=901
-
 # UAT Environment
 uat.webUrl=https://uat-new-process.infinite-uptime.com/dashboard
 uat.APIBaseURL=https://uat-new-ipf.infinite-uptime.com
@@ -214,6 +220,7 @@ mvn test -Dtest=AdminFlowTest
 Tests are configured to run in parallel with configurable thread count in `testng.xml`:
 
 ```xml
+
 <suite name="PlaywrightJava" parallel="tests" thread-count="2">
 ```
 
@@ -253,7 +260,7 @@ Extend `BaseTest` for web automation:
 
 ```java
 public class SampleTest extends BaseTest {
-    
+
     @Test
     public void testSampleFunctionality() {
         Dashboard dashboard = new Dashboard(page, context);
@@ -269,7 +276,7 @@ Extend `APIBase` for API testing:
 
 ```java
 public class SampleApiTest extends APIBase {
-    
+
     @Test
     public void testApiEndpoint() {
         Response response = getApiRequest("/api/endpoint");
@@ -333,14 +340,14 @@ The `APIBase` class provides:
 
 ```java
 public class GetKpiData extends APIBase {
-    
+
     @Test
     public void testGetKpiData() {
         String endpoint = "/query/api/kpis/timeseries";
         Response response = getApiRequest(endpoint);
-        
+
         assertEquals(response.statusCode(), 200);
-        
+
         JsonPath jsonPath = response.jsonPath();
         assertNotNull(jsonPath.get("data"));
     }
@@ -363,7 +370,6 @@ Each tenant has dedicated credentials and configurations:
 # Dev Tenant
 uat.dev.user.userName=dev_user@techprescient.com
 uat.dev.admin.userName=dev_admin@techprescient.com
-
 # Hindalco Tenant
 uat.hindalco_mouda.user.userName=hindalco_mouda_user@techprescient.com
 uat.hindalco_mouda.admin.userName=hindalco_mouda_admin@techprescient.com
@@ -383,9 +389,15 @@ uat.hindalco_mouda.admin.userName=hindalco_mouda_admin@techprescient.com
 ```java
 private static final Logger log = LogManager.getLogger(YourClass.class);
 
-log.info("Test execution started");
-log.error("Test failed: {}", errorMessage);
-log.debug("Element found: {}", element);
+log.
+
+info("Test execution started");
+log.
+
+error("Test failed: {}",errorMessage);
+log.
+
+debug("Element found: {}",element);
 ```
 
 ## Troubleshooting
@@ -393,22 +405,22 @@ log.debug("Element found: {}", element);
 ### Common Issues
 
 1. **Browser Launch Failure**
-   - Ensure Playwright browsers are installed
-   - Check browser compatibility with your OS
+    - Ensure Playwright browsers are installed
+    - Check browser compatibility with your OS
 
 2. **Authentication Issues**
-   - Verify auth token validity
-   - Check environment-specific credentials
+    - Verify auth token validity
+    - Check environment-specific credentials
 
 3. **Element Not Found**
-   - Increase wait times
-   - Verify element locators
-   - Check iframes and shadow DOM
+    - Increase wait times
+    - Verify element locators
+    - Check iframes and shadow DOM
 
 4. **Test Failures**
-   - Check logs in `logs/automation.log`
-   - Review screenshots in `screenshots/` folder
-   - Analyze Allure reports for detailed failure information
+    - Check logs in `logs/automation.log`
+    - Review screenshots in `screenshots/` folder
+    - Analyze Allure reports for detailed failure information
 
 ### Debug Mode
 

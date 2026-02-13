@@ -10,13 +10,13 @@ public class ExtentManager {
     public static ExtentReports getInstance() {
 
         if (extent == null) {
-
-            ExtentSparkReporter spark = new ExtentSparkReporter("reports/ExtentReport.html");
+            String reportPath = System.getProperty("user.dir") + "/target/extent-reports/ExtentReport.html";
+            ExtentSparkReporter spark = new ExtentSparkReporter(reportPath);
             spark.config().setReportName("Playwright Automation Report");
             spark.config().setDocumentTitle("Test Execution Report");
             extent = new ExtentReports();
             extent.attachReporter(spark);
-            extent.setSystemInfo("Framework", "Playwright + Java");
+            extent.setSystemInfo("Framework", "Playwright + Java + Testng");
             extent.setSystemInfo("OS", System.getProperty("os.name"));
         }
         return extent;

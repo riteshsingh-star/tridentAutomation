@@ -2,17 +2,19 @@ package test.api;
 
 import base.api.APIBase;
 import com.microsoft.playwright.APIResponse;
-import utils.ReadPropertiesFile;
+import config.EnvironmentConfig;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import static factory.ApiFactory.getRequest;
 
 public class GetEquipment extends APIBase {
 
 
     @Test
     public void getEquipmentIDAndData() {
-        String equipmentID= ReadPropertiesFile.get("equipmentID");
-        APIResponse response = request.get("/web/api/kpi-implementation/equipment/"+equipmentID);
+        String equipmentID= EnvironmentConfig.getEquipmentID();
+        APIResponse response = getRequest().get("/web/api/kpi-implementation/equipment/"+equipmentID);
         Assert.assertEquals(response.status(), 200);
         System.out.println(response.text());
     }

@@ -19,7 +19,7 @@ public class AdminFlowTest extends BaseTest {
 
     @BeforeClass
     public void createAdminFlowSetupTest() {
-        data = ReadJsonFile.readJson("testData/adminFlow.json", AdminFlow.class);
+        data = ReadJsonFile.readJson("adminFlow.json", AdminFlow.class);
         pageComponent = new PageComponent(page, context);
         childPage = pageComponent.moveToAdminPage(page, context);
         globalParameter = new CreateGlobalParameter(childPage, context);
@@ -27,12 +27,12 @@ public class AdminFlowTest extends BaseTest {
         kpiAdvance = new KPIAdvanceImplementation(childPage, context);
     }
 
-    //@Test
+    @Test
     public void createGlobalParameterTest() {
         globalParameter.createGlobalParameter(data.globalParameterName(), data.globalParameterType(), data.globalParameterDataType());
     }
 
-    //@Test
+    @Test
     public void createNewKpiDefinitionTest() throws InterruptedException {
         kpiDefinition.createNewKPIDefinition(data.defineKPIName(), data.plantName(), data.globalParameterName(), data.aggregateType(), data.KPIPerformanceCriteria(), data.kpiUnits(), data.kpiPrecision(), data.industryType(), data.kpiType());
         //Assert.assertEquals(message,"Validation successful !!");

@@ -7,6 +7,7 @@ import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
+import utils.WaitUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -188,11 +189,10 @@ public class CreateEquipment extends BasePage {
 
     public void createMultipleRawParameter(String[] bulkData) throws Exception {
         addMultipleParametersButton.click();
-        syncUntil(4000);
+        WaitUtils.waitForVisible(multipleRawParameterBox,4000);
         addRawParameterDataFromUsingArray(bulkData,multipleRawParameterBox);
 
         validateMultipleRawParameter.click();
-        syncUntil(8000);
         //saveRawParameterButton.click();
     }
 

@@ -106,7 +106,7 @@ public class CreateNewKPIDefinition extends BasePage {
         if (classes == null || !classes.contains("active")) {
             globalParameterButton.click(new Locator.ClickOptions().setForce(true));
         }
-        syncUntil(2000);
+
         globalParameterButton.click();
         dragNewBatchBatchToDefinition(globalParameterName);
         selectVariableAndDefineKPI("SUM", "More Value is Good", "Meter", "2");

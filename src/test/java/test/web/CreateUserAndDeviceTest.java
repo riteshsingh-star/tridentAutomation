@@ -20,7 +20,7 @@ public class CreateUserAndDeviceTest extends BaseTest {
 
     @BeforeClass
     public void createUserAndDeviceSetup(){
-        data = ReadJsonFile.readJson("testData/userAndDeviceData.json", UserAndDevice.class);
+        data = ReadJsonFile.readJson("userAndDeviceData.json", UserAndDevice.class);
         pageComponent=new PageComponent(page,context);
         childPage=pageComponent.moveToAdminPage(page,context);
         createUsers=new CreateUsers(childPage,context);

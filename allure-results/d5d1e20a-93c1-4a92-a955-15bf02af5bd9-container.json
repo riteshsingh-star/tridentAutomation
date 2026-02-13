@@ -1,0 +1,1 @@
+{"uuid":"d5d1e20a-93c1-4a92-a955-15bf02af5bd9","name":"test.api.ApiAggregateVerification","children":["69118052-5ea8-4de0-8972-cb60a948fd71"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1770649823567,"stop":1770649831448}],"afters":[],"start":1770649823525,"stop":1770649834300}

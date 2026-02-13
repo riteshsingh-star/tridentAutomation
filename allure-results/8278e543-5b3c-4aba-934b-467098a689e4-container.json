@@ -1,0 +1,1 @@
+{"uuid":"8278e543-5b3c-4aba-934b-467098a689e4","name":"test.api.GetKpiLclUclValue","children":["55fcf822-9b9f-47e7-bf62-5cdde9a40ecd"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1770704144746,"stop":1770704150128}],"afters":[],"start":1770704144708,"stop":1770704150692}

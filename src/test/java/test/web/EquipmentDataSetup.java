@@ -21,7 +21,7 @@ public class EquipmentDataSetup extends BaseTest {
 
     @BeforeClass
     public void createAdminFlowSetupTest() {
-        data = ReadJsonFile.readJson("testData/baseDataCreation.json", BaseData.class);
+        data = ReadJsonFile.readJson("baseDataCreation.json", BaseData.class);
         pageComponent = new PageComponent(page,context);
         childPage = pageComponent.moveToAdminPage(page, context);
         createOrganization = new CreateOrganization(childPage, context);
@@ -30,27 +30,27 @@ public class EquipmentDataSetup extends BaseTest {
         createEquipment = new CreateEquipment(childPage, context);
     }
 
-    //@Test
+    @Test(priority = 0)
     public void createOrganizationTest() {
         createOrganization.createNewOrganization(data.organizationName(), data.language(), data.organizationType(), data.provider(), data.notes());
     }
 
-    //@Test
+    @Test(priority = 1)
     public void createPlant() {
         createPlant.createNewPlant(data.plantName(), data.organizationName(), data.regionName(), data.industryType(), data.language(), data.timeZone(), data.currency(), data.notes());
     }
 
-    //@Test
+    @Test(priority = 2)
     public void createArea() {
         createAreas.createArea(data.areaName(), data.plantName(), data.productionCapacity(), data.unit(), data.unitPrice(), data.unit(), data.directFaultValue(), data.environmentValue(), data.areaEnvironment(), data.temperature(), data.applicationType(), data.areaInchargeName(), data.areaInchargeNo(), data.areaInchargeEmail());
     }
 
-    //@Test
+    @Test(priority = 3)
     public void createEquipment() {
         createEquipment.createNewEquipment(data.equipmentName(), data.plantName(), data.areaName(), data.equipmentType(), data.makeManufacturer(), data.model(), data.serialNo(), data.appType());
     }
 
-    @Test
+    @Test(priority = 4)
     public void createRawParameter() throws Exception {
         String rawParameterWay = data.rawParameterWay();
         createEquipment.openRawParameterPage(data.equipmentName());
