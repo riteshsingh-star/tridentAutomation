@@ -4,7 +4,7 @@ import com.microsoft.playwright.*;
 
 import java.util.List;
 
-public class PlaywrightFactory {
+public class WebFactory {
 
     protected static ThreadLocal<Playwright> tlPlaywright = new ThreadLocal<>();
     protected static ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();

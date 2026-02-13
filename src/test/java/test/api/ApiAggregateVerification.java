@@ -3,6 +3,8 @@ package test.api;
 import base.api.APIBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import page.api.GetKpiData;
+import page.api.GetRawParameterData;
 import utils.KPISCalculationUtils;
 
 import java.io.IOException;

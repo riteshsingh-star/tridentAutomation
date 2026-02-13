@@ -4,12 +4,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import base.api.APIBase;
+import page.api.GetRawParamRequest;
+import page.api.GetRawParameterData;
 import utils.LclUclResult;
 import utils.LclUclUtil;
 import utils.Stats;
 
 import java.io.IOException;
 import java.util.Map;
+
+import static factory.ApiFactory.getRequest;
 
 public class GetRawParamLclUclValue extends APIBase {
 
@@ -22,7 +26,7 @@ public class GetRawParamLclUclValue extends APIBase {
         int equipmentId = 4248;
         int rawParamDefId = 21;
 
-        JsonNode rawParamNode = GetRawParamRequest.getRawParamNode(request, plantId, equipmentId, rawParamDefId);
+        JsonNode rawParamNode = GetRawParamRequest.getRawParamNode(getRequest(), plantId, equipmentId, rawParamDefId);
 
         String lclUclType = rawParamNode.path("lclUclType").asText(null);
         System.out.println("lclUclType: " + lclUclType);

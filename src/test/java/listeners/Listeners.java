@@ -5,7 +5,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.microsoft.playwright.Page;
 import base.web.BaseTest;
-import factory.PlaywrightFactory;
+import factory.WebFactory;
 import org.apache.logging.log4j.Logger;
 import utils.ExtentManager;
 import io.qameta.allure.Allure;
@@ -51,7 +51,7 @@ public class Listeners implements ITestListener {
         testReport.get().fail(result.getThrowable());
         Object testClass = result.getInstance();
         if (testClass instanceof BaseTest) {
-            Page page = PlaywrightFactory.getPage();
+            Page page = WebFactory.getPage();
             if (page != null) {
                 try {
                     Files.createDirectories(Paths.get("screenshots"));
@@ -62,7 +62,7 @@ public class Listeners implements ITestListener {
                     Allure.addAttachment("Screenshot", FileUtils.openInputStream(file));
                     logger.error("{}Failed", result.getMethod().getMethodName());
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e.getMessage());
                 }
             }
         }

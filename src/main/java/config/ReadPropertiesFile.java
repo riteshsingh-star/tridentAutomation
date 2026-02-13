@@ -1,22 +1,30 @@
-package utils;
+package config;
 
 import java.io.InputStream;
+import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class ReadPropertiesFile {
-    private static Properties prop;
+public final class ReadPropertiesFile {
+
+    private static final Properties prop = new Properties();
+    private static final Map<String, String> cache = new ConcurrentHashMap<>();
+
     private static String env;
     private static String client;
     private static String userType;
 
     static {
-        getProperties();
+        loadProperties();
     }
 
-    private static void getProperties() {
+    private ReadPropertiesFile() {
+    }
+
+    private static void loadProperties() {
         try {
-            prop = new Properties();
             InputStream is = ReadPropertiesFile.class.getClassLoader().getResourceAsStream("config.properties");
+
             if (is == null) {
                 throw new RuntimeException("config.properties not found");
             }
@@ -30,7 +38,24 @@ public class ReadPropertiesFile {
         }
     }
 
-    public static String get(String key) {
+    public static String get(ConfigKey key) {
+        return get(key.getKey());
+    }
+
+    private static String get(String key) {
+        if (cache.containsKey(key)) {
+            return cache.get(key);
+        }
+        String value = resolveProperty(key);
+        if (value == null) {
+            throw new RuntimeException("Property not found for key: " + key);
+        }
+        cache.put(key, value);
+        return value;
+    }
+
+    private static String resolveProperty(String key) {
+
         String value = prop.getProperty(env + "." + client + "." + userType + "." + key);
         if (value != null) return value;
 

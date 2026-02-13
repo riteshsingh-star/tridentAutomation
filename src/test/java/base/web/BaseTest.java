@@ -1,16 +1,17 @@
 package base.web;
 
 import com.microsoft.playwright.*;
-import com.microsoft.playwright.options.AriaRole;
-import factory.PlaywrightFactory;
+import config.EnvironmentConfig;
+import factory.WebFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
-import utils.ReadPropertiesFile;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import page.web.LoginPage;
+
+import java.lang.reflect.Method;
 
 
 public class BaseTest {
@@ -21,21 +22,22 @@ public class BaseTest {
 
     @BeforeClass(alwaysRun = true)
     public void setUp() {
-        log.info("===== Test Setup Started =====");
-        String browserName = ReadPropertiesFile.get("browser");
-        boolean headless = Boolean.parseBoolean(ReadPropertiesFile.get("headless"));
-        String baseUrl = ReadPropertiesFile.get("webUrl");
-        PlaywrightFactory.initBrowser(browserName, headless);
-        PlaywrightFactory.createContextAndPage();
-        page = PlaywrightFactory.getPage();
-        context = PlaywrightFactory.getContext();
+        log.info("CLASS_SETUP_START | className={}", this.getClass().getSimpleName());
+        String browserName = EnvironmentConfig.getBrowser();
+        boolean headless = Boolean.parseBoolean(EnvironmentConfig.getBrowserExecutionMode());
+        String baseUrl = EnvironmentConfig.getWebURL();
+        WebFactory.initBrowser(browserName, headless);
+        WebFactory.createContextAndPage();
+        page = WebFactory.getPage();
+        context = WebFactory.getContext();
         page.navigate(baseUrl);
         performLogin();
+        log.info("CLASS_SETUP_COMPLETE | className={}", this.getClass().getSimpleName());
     }
 
     private void performLogin() {
-        String user = ReadPropertiesFile.get("userName");
-        String pass = ReadPropertiesFile.get("webPassword");
+        String user = EnvironmentConfig.getUserName();
+        String pass = EnvironmentConfig.getPassword();
         log.info("Starting login");
         LoginPage loginPage = new LoginPage(page, context);
         loginPage.login(user, pass);
@@ -52,9 +54,10 @@ public class BaseTest {
 
     @AfterClass(alwaysRun = true)
     public void tearDown() {
-        log.info("===== Test Teardown Started =====");
-        PlaywrightFactory.closeContext();
-        PlaywrightFactory.closeBrowser();
-        log.info("===== Test Teardown Completed =====");
+        log.info("CLASS_TEARDOWN_START | className={}", this.getClass().getSimpleName());
+        WebFactory.closeContext();
+        WebFactory.closeBrowser();
+        log.info("CLASS_TEARDOWN_COMPLETE | className={}", this.getClass().getSimpleName());
+
     }
 }

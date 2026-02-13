@@ -1,4 +1,4 @@
-package test.api;
+package page.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,12 +11,9 @@ public class GetKpiRequest {
 
     public static JsonNode getKpiNode(APIRequestContext request, int definitionId, int equipmentId) {
 
-        APIResponse response = request.get(
-                "/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId
-        );
-
+        String endpoint="/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId;
+        APIResponse response = request.get(endpoint);
         Assert.assertEquals(response.status(), 200, "KPI API failed");
-
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readTree(response.text());

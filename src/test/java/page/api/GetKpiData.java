@@ -1,22 +1,23 @@
-package test.api;
+package page.api;
 
 import base.api.APIBase;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIResponse;
+import config.EnvironmentConfig;
 import org.testng.Assert;
 import pojo.api.DateRange;
 import pojo.api.EquipKpi;
 import pojo.api.EquipKpiRequest;
-import utils.ReadPropertiesFile;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static base.api.APIService.postApiRequest;
+import static utils.ApiHelper.fetchApiData;
+
 public class GetKpiData extends APIBase {
 
-    static String pathURL = ReadPropertiesFile.get("timeSeriesPathURL");
+    static String pathURL = EnvironmentConfig.getKPIPath();
 
     public static String getKpiData() {
         Map<String, Object> payload = new HashMap<>();
@@ -37,29 +38,15 @@ public class GetKpiData extends APIBase {
 
     public static Map<String, String> getKpiDataUsingMap() throws IOException {
         String responseJson = getKpiData();
-        Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
+        Map<String, String> apiValues = fetchApiData(responseJson, "equipKpis", "kpis", false);
         return apiValues;
     }
 
     public static String getKpiDataPojo() {
-
         EquipKpi equipKpi = new EquipKpi(4249, List.of(9));
-
-        DateRange dateRange = new DateRange(
-                "2026-01-26T04:30:00.000Z",
-                "2026-01-27T04:30:00.000Z"
-        );
-
-        EquipKpiRequest request = new EquipKpiRequest(
-                List.of(equipKpi),
-                dateRange,
-                60000,
-                true
-        );
-
-        ObjectMapper mapper = new ObjectMapper();
-        Map<String, Object> payload = mapper.convertValue(request, Map.class);
-        APIResponse response = postApiRequest(payload, pathURL);
+        DateRange dateRange = new DateRange("2026-01-26T04:30:00.000Z", "2026-01-27T04:30:00.000Z");
+        EquipKpiRequest request = new EquipKpiRequest(List.of(equipKpi), dateRange, 60000, true);
+        APIResponse response = postApiRequest(request, pathURL);
         System.out.println(response.url());
         Assert.assertEquals(response.status(), 200);
         return response.text();
@@ -67,7 +54,7 @@ public class GetKpiData extends APIBase {
 
     public static Map<String, String> getKpiDataUsingMapPojo() throws IOException {
         String responseJson = getKpiDataPojo();
-        return fetchApiData(responseJson, "equipKpis", 0, "kpis", 0, "data", false);
+        return fetchApiData(responseJson, "equipKpis", "kpis", false);
     }
 
 }

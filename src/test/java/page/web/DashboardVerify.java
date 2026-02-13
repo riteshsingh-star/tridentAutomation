@@ -19,7 +19,7 @@ public class DashboardVerify extends BasePage {
         page.click("(//button[@data-slot=\"popover-trigger\"])[1]");
 
         //CalenderUtil.selectDate(page,2026,"January","20");
-        syncUntil(5000);
+
         page.locator("//button[text()='Calendar']").click();
         Locator locators = page.locator("//*[@class='rdp-weeks']/tr/td/button");
         int count = locators.count();
@@ -32,7 +32,7 @@ public class DashboardVerify extends BasePage {
             }
         }
         page.locator("//button[text()='Apply']").click();;
-        syncUntil(5000);
+
 
 
         //page.click("//div[@class='shrink-0 flex items-center justify-between border-t border-border bg-background px-4 py-3']//button[2]");
@@ -52,7 +52,6 @@ public class DashboardVerify extends BasePage {
 
         page.click("button[title='Show in trend panel']");
 
-        syncUntil(5000);
 
 
     }

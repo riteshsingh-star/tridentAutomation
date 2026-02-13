@@ -23,7 +23,7 @@ public class DashboardTest extends BaseTest {
     @BeforeClass
     public void dashBoardAndWidgetSetup(){
         pageComponent =new PageComponent(page,context);
-        data = ReadJsonFile.readJson("testData/dashboard.json", DashboardData.class);
+        data = ReadJsonFile.readJson("dashboard.json", DashboardData.class);
         measuresName = data.measuresName();
         dashboard = new Dashboard(page,context);
         createWidget = new CreateWidget(page,context);
