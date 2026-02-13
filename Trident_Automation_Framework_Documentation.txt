@@ -442,7 +442,7 @@ log.debug("Element found: {}", element);
 --------------------------------------------------------------------------------
 
 Common Issues
-------------
+-------------
 
 • Browser Launch Failure
   - Ensure Playwright browsers are installed
@@ -476,6 +476,5 @@ Framework Version: 1.0-SNAPSHOT
 Java Version: 17
 Playwright Version: 1.43.0
 TestNG Version: 7.11.0
-Last Updated: January 2025
 
 --------------------------------------------------------------------------------

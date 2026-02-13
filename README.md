@@ -82,20 +82,20 @@ tridentAutomation/
 │   │       │       └── UserAndDevice.java        # User and device data model
 │   │       └── utils/              # Utility classes
 │   │           ├── CalenderUtil.java             # Calendar and date utilities
-│   │           ├── CompareGraphAndApiData.java    # Graph vs API data comparison
-│   │           ├── ExtentManager.java             # ExtentReports management
-│   │           ├── KPISCalculationUtils.java      # KPI calculation utilities
-│   │           ├── LclUclUtil.java                # LCL/UCL calculation utilities
+│   │           ├── CompareGraphAndApiData.java   # Graph vs API data comparison
+│   │           ├── ExtentManager.java            # ExtentReports management
+│   │           ├── KPISCalculationUtils.java     # KPI calculation utilities
+│   │           ├── LclUclUtil.java               # LCL/UCL calculation utilities
 │   │           ├── ParseTheTimeFormat.java       # Time format parsing utilities
 │   │           ├── ReadJsonFile.java             # JSON file reading utilities
 │   │           ├── ReadPropertiesFile.java       # Properties file reading
-│   │           ├── Stats.java                    # Statistical calculations
+│   │           ├── Stats.java                    # Lcl Ucl STDDiv Mean calculation
 │   │           └── WaitUtils.java                # Wait and synchronization utilities
 │   └── test/
 │       ├── java/
 │       │   ├── base/                 # Base classes
 │       │   │   ├── api/              # API base class
-│       │   │   │   └── APIBase.java               # Base class for API tests
+│       │   │   │   └── APIBase.java              # Base class for API tests
 │       │   │   └── web/              # Web base class
 │       │   │       ├── BasePage.java             # Base page class for POM
 │       │   │       └── BaseTest.java             # Base test class for web tests
@@ -105,8 +105,8 @@ tridentAutomation/
 │       │   │   └── Listeners.java                # Test execution listeners
 │       │   ├── page/                 # Page objects
 │       │   │   └── web/              # Web page objects
-│       │   │       ├── CreateAreas.java           # Area creation page
-│       │   │       ├── CreateDevice.java          # Device creation page
+│       │   │       ├── CreateAreas.java          # Area creation page
+│       │   │       ├── CreateDevice.java         # Device creation page
 │       │   │       ├── CreateEquipment.java      # Equipment creation page
 │       │   │       ├── CreateGlobalParameter.java # Global parameter creation
 │       │   │       ├── CreateNewKPIDefinition.java # KPI definition creation
@@ -141,14 +141,14 @@ tridentAutomation/
 │       │           ├── EquipmentDataSetup.java    # Equipment data setup test
 │       │           └── GraphVsApiValidationTest.java # Graph vs API validation
 │       └── resources/
-│           ├── config.properties     # Configuration file
+│           ├── config.properties    # Configuration file
 │           └── testng.xml           # TestNG suite
-├── .github/workflows/                # CI/CD workflows
-│   └── playwrightJava.yml            # GitHub Actions workflow
-├── allure-results/                    # Allure test results
+├── .github/workflows/               # CI/CD workflows
+│   └── playwrightJava.yml           # GitHub Actions workflow
+├── allure-results/                  # Allure test results
 ├── logs/                            # Application logs
-│   └── automation.log                # Main automation log file
-├── screenshots/                      # Test failure screenshots
+│   └── automation.log               # Main automation log file
+├── screenshots/                     # Test failure screenshots
 ├── pom.xml                          # Maven configuration
 ├── testng.xml                       # TestNG configuration
 └── README.md                        # Project documentation
