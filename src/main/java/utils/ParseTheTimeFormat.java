@@ -2,8 +2,10 @@ package utils;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.regex.Matcher;
@@ -40,5 +42,12 @@ public class ParseTheTimeFormat {
         double minutes = matcher.group(2) != null ? Double.parseDouble(matcher.group(2)) : 0;
         double seconds = matcher.group(3) != null ? Double.parseDouble(matcher.group(3)) : 0;
         return (hours * 3600) + (minutes * 60) + seconds;
+    }
+
+    public static String convertToUtc(LocalDateTime dateTime) {
+        return dateTime
+                .atZone(ZoneId.of("Asia/Kolkata"))   // change if needed
+                .withZoneSameInstant(ZoneOffset.UTC)
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
     }
 }

@@ -22,23 +22,26 @@ public class AdminFlowTest extends BaseTest {
         data = ReadJsonFile.readJson("adminFlow.json", AdminFlow.class);
         pageComponent = new PageComponent(page, context);
         childPage = pageComponent.moveToAdminPage(page, context);
+        if(childPage==null){
+            System.out.println("Please login using Admin Credentials to Access Admin Page");
+        }
         globalParameter = new CreateGlobalParameter(childPage, context);
         kpiDefinition = new CreateNewKPIDefinition(childPage, context);
         kpiAdvance = new KPIAdvanceImplementation(childPage, context);
     }
 
-    @Test
+    @Test(priority = 0)
     public void createGlobalParameterTest() {
         globalParameter.createGlobalParameter(data.globalParameterName(), data.globalParameterType(), data.globalParameterDataType());
     }
 
-    @Test
+    @Test(priority = 1)
     public void createNewKpiDefinitionTest() throws InterruptedException {
         kpiDefinition.createNewKPIDefinition(data.defineKPIName(), data.plantName(), data.globalParameterName(), data.aggregateType(), data.KPIPerformanceCriteria(), data.kpiUnits(), data.kpiPrecision(), data.industryType(), data.kpiType());
         //Assert.assertEquals(message,"Validation successful !!");
     }
 
-    @Test
+    @Test(priority = 2)
     public void validateGlobalParameterAndKPITest() {
         kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.defineKPIName(), data.machineName(), data.date(), data.batchFrequency(), data.unit(), data.formula());
     }

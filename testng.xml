@@ -4,7 +4,7 @@
     </listeners>
     <test name="PlaywrightTrident">
         <classes>
-            <class name="test.web.DashboardTest"/>
+            <class name="test.api.GetKpiLclUclValue"/>
         </classes>
     </test>
 </suite>

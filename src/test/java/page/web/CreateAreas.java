@@ -33,7 +33,7 @@ public class CreateAreas extends BasePage {
         super(page,context);
         this.page = page;
         this.browserContext = context;
-        this.areaPage=page.locator("//span[text()='Areas']");
+        this.areaPage=getByRoleLink("Areas",page);
         this.createNewAreaButton=getByRoleButton("CREATE NEW",page);
         this.areaNameField=page.locator("#name");
         this.plantNameField=page.getByRole(AriaRole.COMBOBOX).nth(0);

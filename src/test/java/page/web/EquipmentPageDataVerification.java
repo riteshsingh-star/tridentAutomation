@@ -17,7 +17,7 @@ public class EquipmentPageDataVerification extends BasePage {
 
     public Map<String, String> openEquipmentAndAddKPI(String equipmentName, String measureName, String frequency, String granularity) throws InterruptedException {
         pageComponent.addMeasureToMachineInEquipmentPage(equipmentName, measureName, frequency, granularity);
-        return pageComponent.getChartData(0,2,0);
+        return pageComponent.getChartData(0);
     }
 
     public void verifyTheAggregateAccordingToFormula(String equipmentName, String measureName, String frequency, String granularity, String aggregateType) throws InterruptedException {
@@ -25,7 +25,7 @@ public class EquipmentPageDataVerification extends BasePage {
             System.out.println(tooltipData.size());
             System.out.println("Data"+ tooltipData);
             double chartAggregate= KPISCalculationUtils.verifyTheAggregateData(aggregateType, tooltipData);
-            double aggregateValue= KPISCalculationUtils.getKpiValue(measureName,page);
+            double aggregateValue= pageComponent.getKpiValue(measureName,page);
             Assert.assertEquals((int) chartAggregate, (int) aggregateValue, "Mismatch in integer part of aggregate value");
             System.out.println(pageComponent.getMeanAndSDFromUI("SD"));
             System.out.println(pageComponent.getMeanAndSDFromUI("Mean"));
