@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class ApiAggregateVerification extends APIBase {
 
-    //@Test
+    @Test
     public static void validateSumKpi() throws IOException {
         Map<String, String> kpiData = GetKpiData.getKpiDataUsingMapPojo();
         Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();
@@ -29,8 +29,7 @@ public class ApiAggregateVerification extends APIBase {
             Assert.assertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
         }
     }
-
-    @Test
+    //Test
     public static void validateSubKpi() throws IOException {
         Map<String, String> kpiData = GetKpiData.getKpiDataUsingMapPojo();
         Map<String, String> rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();

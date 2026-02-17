@@ -145,16 +145,13 @@ tridentAutomation/
 │       └── resources/
 │           ├── config.properties    # Configuration file
 │           └── testng.xml           # TestNG suite
-<<<<<<< HEAD
 ├── .github/workflows/               # CI/CD workflows
 │   └── playwrightJava.yml           # GitHub Actions workflow
 ├── allure-results/                  # Allure test results
-=======
 ├── .github/workflows/                # CI/CD workflows
 │   └── playwrightJava.yml            # GitHub Actions workflow
 ├── target/allure-results/            # Allure test results
 ├─  target/extent-reports/            # Extent Report Support
->>>>>>> b0022e0ed21109132e97cf5d20006d1ff4ec6ded
 ├── logs/                            # Application logs
 │   └── automation.log               # Main automation log file
 ├── screenshots/                     # Test failure screenshots
