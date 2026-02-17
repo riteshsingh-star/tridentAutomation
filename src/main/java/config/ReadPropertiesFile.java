@@ -39,6 +39,10 @@ public final class ReadPropertiesFile {
     }
 
     public static String get(ConfigKey key) {
+        String value = ReadPropertiesFile.get(key.getKey());
+        if (value == null || value.isBlank()) {
+            throw new IllegalStateException("Missing configuration for key: " + key.getKey());
+        }
         return get(key.getKey());
     }
 

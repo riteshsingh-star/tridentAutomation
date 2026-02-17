@@ -2078,6 +2078,7 @@
 2026-02-13 10:57:09 ERROR BaseTest - Test Failed: createRawParameter
 2026-02-13 10:57:09 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
 2026-02-13 10:57:09 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+<<<<<<< HEAD
 2026-02-13 15:47:12 INFO  ApiFactory - Request headers configured
 2026-02-13 15:47:18 INFO  ApiFactory - API request context created
 2026-02-13 15:47:19 INFO  APIBase - Closing the API Session
@@ -2134,3 +2135,380 @@
 2026-02-13 18:32:18 INFO  Listeners - addEquipmentTrendWidgetTestTest Started
 2026-02-13 18:32:21 INFO  BaseTest - CLASS_TEARDOWN_START | className=DashboardTest
 2026-02-13 18:32:22 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=DashboardTest
+=======
+2026-02-13 14:05:21 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 14:05:28 INFO  BaseTest - Starting login
+2026-02-13 14:05:28 INFO  LoginPage - Entering username
+2026-02-13 14:05:32 INFO  LoginPage - Entering password
+2026-02-13 14:05:34 INFO  LoginPage - Clicking on Login button
+2026-02-13 14:05:37 INFO  BaseTest - Login successful
+2026-02-13 14:05:37 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 14:06:04 ERROR BaseTest - Test Failed: createOrganizationTest
+2026-02-13 14:06:04 ERROR BaseTest - Test Failed: createPlant
+2026-02-13 14:06:04 ERROR BaseTest - Test Failed: createArea
+2026-02-13 14:06:04 ERROR BaseTest - Test Failed: createEquipment
+2026-02-13 14:06:04 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 14:06:04 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 14:06:04 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:21:38 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-13 15:21:47 INFO  BaseTest - Starting login
+2026-02-13 15:21:47 INFO  LoginPage - Entering username
+2026-02-13 15:21:51 INFO  LoginPage - Entering password
+2026-02-13 15:21:53 INFO  LoginPage - Clicking on Login button
+2026-02-13 15:21:55 INFO  BaseTest - Login successful
+2026-02-13 15:21:55 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-13 15:22:00 INFO  Listeners - createGlobalParameterTestTest Started
+2026-02-13 15:22:01 INFO  Listeners - createGlobalParameterTestPassed
+2026-02-13 15:22:02 INFO  Listeners - createNewKpiDefinitionTestTest Started
+2026-02-13 15:22:08 ERROR Listeners - createNewKpiDefinitionTestFailed
+2026-02-13 15:22:08 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-13 15:22:08 INFO  Listeners - validateGlobalParameterAndKPITestTest Started
+2026-02-13 15:22:13 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-13 15:22:13 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-13 15:48:06 INFO  ApiFactory - Request headers configured
+2026-02-13 15:48:10 INFO  ApiFactory - API request context created
+2026-02-13 15:48:10 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-13 15:48:10 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-13 15:48:12 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-13 15:48:12 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-13 15:48:12 INFO  APIBase - Closing the API Session
+2026-02-13 15:48:12 INFO  ApiFactory - API Session Closed
+2026-02-13 15:48:31 INFO  ApiFactory - Request headers configured
+2026-02-13 15:48:35 INFO  ApiFactory - API request context created
+2026-02-13 15:48:36 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-13 15:48:36 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-13 15:48:37 INFO  APIBase - Closing the API Session
+2026-02-13 15:48:37 INFO  ApiFactory - API Session Closed
+2026-02-13 15:49:36 INFO  ApiFactory - Request headers configured
+2026-02-13 15:49:40 INFO  ApiFactory - API request context created
+2026-02-13 15:49:40 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-13 15:49:40 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-13 15:49:41 INFO  APIBase - Closing the API Session
+2026-02-13 15:49:41 INFO  ApiFactory - API Session Closed
+2026-02-13 15:49:55 INFO  ApiFactory - Request headers configured
+2026-02-13 15:49:59 INFO  ApiFactory - API request context created
+2026-02-13 15:49:59 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-13 15:49:59 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-13 15:50:00 INFO  APIBase - Closing the API Session
+2026-02-13 15:50:00 INFO  ApiFactory - API Session Closed
+2026-02-13 15:51:46 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 15:51:52 INFO  BaseTest - Starting login
+2026-02-13 15:51:52 INFO  LoginPage - Entering username
+2026-02-13 15:51:57 INFO  LoginPage - Entering password
+2026-02-13 15:51:59 INFO  LoginPage - Clicking on Login button
+2026-02-13 15:52:02 INFO  BaseTest - Login successful
+2026-02-13 15:52:02 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:52:13 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 15:52:13 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 15:52:14 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:52:47 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 15:52:54 INFO  BaseTest - Starting login
+2026-02-13 15:52:54 INFO  LoginPage - Entering username
+2026-02-13 15:52:59 INFO  LoginPage - Entering password
+2026-02-13 15:53:01 INFO  LoginPage - Clicking on Login button
+2026-02-13 15:53:04 INFO  BaseTest - Login successful
+2026-02-13 15:53:04 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:53:11 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 15:53:12 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:55:21 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 15:55:29 INFO  BaseTest - Starting login
+2026-02-13 15:55:29 INFO  LoginPage - Entering username
+2026-02-13 15:55:34 INFO  LoginPage - Entering password
+2026-02-13 15:55:36 INFO  LoginPage - Clicking on Login button
+2026-02-13 15:55:38 INFO  BaseTest - Login successful
+2026-02-13 15:55:38 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:55:48 ERROR BaseTest - Test Failed: createEquipment
+2026-02-13 15:55:48 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 15:55:48 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 15:55:49 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:56:30 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 15:56:37 INFO  BaseTest - Starting login
+2026-02-13 15:56:37 INFO  LoginPage - Entering username
+2026-02-13 15:56:41 INFO  LoginPage - Entering password
+2026-02-13 15:56:43 INFO  LoginPage - Clicking on Login button
+2026-02-13 15:56:46 INFO  BaseTest - Login successful
+2026-02-13 15:56:46 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 15:57:18 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 15:57:18 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:01:31 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:01:38 INFO  BaseTest - Starting login
+2026-02-13 16:01:38 INFO  LoginPage - Entering username
+2026-02-13 16:01:42 INFO  LoginPage - Entering password
+2026-02-13 16:01:44 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:01:47 INFO  BaseTest - Login successful
+2026-02-13 16:01:47 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:02:22 ERROR BaseTest - Test Failed: createOrganizationTest
+2026-02-13 16:02:57 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:02:57 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:02:57 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:04:28 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:04:34 INFO  BaseTest - Starting login
+2026-02-13 16:04:34 INFO  LoginPage - Entering username
+2026-02-13 16:04:39 INFO  LoginPage - Entering password
+2026-02-13 16:04:41 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:04:44 INFO  BaseTest - Login successful
+2026-02-13 16:04:44 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:05:19 ERROR BaseTest - Test Failed: createOrganizationTest
+2026-02-13 16:05:54 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:05:54 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:05:54 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:10:02 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:10:08 INFO  BaseTest - Starting login
+2026-02-13 16:10:08 INFO  LoginPage - Entering username
+2026-02-13 16:10:13 INFO  LoginPage - Entering password
+2026-02-13 16:10:15 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:10:18 INFO  BaseTest - Login successful
+2026-02-13 16:10:18 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:10:52 ERROR BaseTest - Test Failed: createOrganizationTest
+2026-02-13 16:11:16 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:11:16 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:11:16 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:12:06 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:12:12 INFO  BaseTest - Starting login
+2026-02-13 16:12:12 INFO  LoginPage - Entering username
+2026-02-13 16:12:17 INFO  LoginPage - Entering password
+2026-02-13 16:12:19 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:12:22 INFO  BaseTest - Login successful
+2026-02-13 16:12:22 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:13:02 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:13:02 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:13:02 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:14:38 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:14:44 INFO  BaseTest - Starting login
+2026-02-13 16:14:44 INFO  LoginPage - Entering username
+2026-02-13 16:14:49 INFO  LoginPage - Entering password
+2026-02-13 16:14:51 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:14:54 INFO  BaseTest - Login successful
+2026-02-13 16:14:54 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:15:35 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:15:35 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:15:36 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:16:17 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:16:23 INFO  BaseTest - Starting login
+2026-02-13 16:16:23 INFO  LoginPage - Entering username
+2026-02-13 16:16:27 INFO  LoginPage - Entering password
+2026-02-13 16:16:29 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:16:32 INFO  BaseTest - Login successful
+2026-02-13 16:16:32 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:16:40 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:16:40 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:18:35 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:18:41 INFO  BaseTest - Starting login
+2026-02-13 16:18:41 INFO  LoginPage - Entering username
+2026-02-13 16:18:46 INFO  LoginPage - Entering password
+2026-02-13 16:18:48 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:18:50 INFO  BaseTest - Login successful
+2026-02-13 16:18:50 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:19:05 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:19:05 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:19:06 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:19:51 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-13 16:19:59 INFO  BaseTest - Starting login
+2026-02-13 16:19:59 INFO  LoginPage - Entering username
+2026-02-13 16:20:04 INFO  LoginPage - Entering password
+2026-02-13 16:20:06 INFO  LoginPage - Clicking on Login button
+2026-02-13 16:20:09 INFO  BaseTest - Login successful
+2026-02-13 16:20:09 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:20:51 ERROR BaseTest - Test Failed: createRawParameter
+2026-02-13 16:20:51 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-13 16:20:52 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-13 16:50:39 INFO  ApiFactory - Request headers configured
+2026-02-13 16:50:43 INFO  ApiFactory - API request context created
+2026-02-13 16:50:44 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-13 16:50:44 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-13 16:50:45 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-13 16:50:45 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-13 16:50:46 INFO  APIBase - Closing the API Session
+2026-02-13 16:50:46 INFO  ApiFactory - API Session Closed
+2026-02-13 16:53:51 INFO  ApiFactory - Request headers configured
+2026-02-13 16:53:57 INFO  ApiFactory - API request context created
+2026-02-13 16:53:57 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-13 16:53:57 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-13 16:53:59 INFO  APIBase - Closing the API Session
+2026-02-13 16:53:59 INFO  ApiFactory - API Session Closed
+2026-02-13 16:58:39 INFO  ApiFactory - Request headers configured
+2026-02-13 16:58:45 INFO  ApiFactory - API request context created
+2026-02-13 16:58:45 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-13 16:58:45 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-13 16:58:46 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-13 16:58:46 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-13 16:58:47 INFO  APIBase - Closing the API Session
+2026-02-13 16:58:47 INFO  ApiFactory - API Session Closed
+2026-02-16 12:54:52 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 12:55:07 INFO  BaseTest - Starting login
+2026-02-16 12:55:07 INFO  LoginPage - Entering username
+2026-02-16 12:55:11 INFO  LoginPage - Entering password
+2026-02-16 12:55:13 INFO  LoginPage - Clicking on Login button
+2026-02-16 12:55:16 INFO  BaseTest - Login successful
+2026-02-16 12:55:16 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 12:55:23 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 12:55:24 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 12:56:10 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 12:56:19 INFO  BaseTest - Starting login
+2026-02-16 12:56:19 INFO  LoginPage - Entering username
+2026-02-16 12:56:24 INFO  LoginPage - Entering password
+2026-02-16 12:56:26 INFO  LoginPage - Clicking on Login button
+2026-02-16 12:56:28 INFO  BaseTest - Login successful
+2026-02-16 12:56:28 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 12:56:37 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 12:56:37 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 12:57:50 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 12:57:57 INFO  BaseTest - Starting login
+2026-02-16 12:57:57 INFO  LoginPage - Entering username
+2026-02-16 12:58:02 INFO  LoginPage - Entering password
+2026-02-16 12:58:04 INFO  LoginPage - Clicking on Login button
+2026-02-16 12:58:06 INFO  BaseTest - Login successful
+2026-02-16 12:58:06 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 12:58:08 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 12:58:08 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 13:00:31 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 13:00:37 INFO  BaseTest - Starting login
+2026-02-16 13:00:37 INFO  LoginPage - Entering username
+2026-02-16 13:00:42 INFO  LoginPage - Entering password
+2026-02-16 13:00:44 INFO  LoginPage - Clicking on Login button
+2026-02-16 13:00:47 INFO  BaseTest - Login successful
+2026-02-16 13:00:47 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 13:00:47 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 13:00:48 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:01:49 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:01:56 INFO  BaseTest - Starting login
+2026-02-16 18:01:56 INFO  LoginPage - Entering username
+2026-02-16 18:02:01 INFO  LoginPage - Entering password
+2026-02-16 18:02:03 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:02:05 INFO  BaseTest - Login successful
+2026-02-16 18:02:05 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:02:05 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:02:05 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:08:16 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:08:22 INFO  BaseTest - Starting login
+2026-02-16 18:08:22 INFO  LoginPage - Entering username
+2026-02-16 18:08:27 INFO  LoginPage - Entering password
+2026-02-16 18:08:29 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:08:31 INFO  BaseTest - Login successful
+2026-02-16 18:08:31 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:08:33 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:08:33 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:11:10 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:11:17 INFO  BaseTest - Starting login
+2026-02-16 18:11:17 INFO  LoginPage - Entering username
+2026-02-16 18:11:22 INFO  LoginPage - Entering password
+2026-02-16 18:11:24 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:11:26 INFO  BaseTest - Login successful
+2026-02-16 18:11:26 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:11:27 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:11:28 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:15:32 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:15:47 INFO  BaseTest - Starting login
+2026-02-16 18:15:47 INFO  LoginPage - Entering username
+2026-02-16 18:15:52 INFO  LoginPage - Entering password
+2026-02-16 18:15:54 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:15:56 INFO  BaseTest - Login successful
+2026-02-16 18:15:56 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:15:58 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:15:58 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:16:27 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:16:43 INFO  BaseTest - Starting login
+2026-02-16 18:16:43 INFO  LoginPage - Entering username
+2026-02-16 18:16:44 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:16:44 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-16 18:20:55 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:21:03 INFO  BaseTest - Starting login
+2026-02-16 18:21:03 INFO  LoginPage - Entering username
+2026-02-16 18:21:09 INFO  LoginPage - Entering password
+2026-02-16 18:21:11 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:21:13 INFO  BaseTest - Login successful
+2026-02-16 18:21:13 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:21:17 INFO  Listeners - createGlobalParameterTestTest Started
+2026-02-16 18:21:19 INFO  Listeners - createGlobalParameterTestPassed
+2026-02-16 18:21:19 INFO  Listeners - createNewKpiDefinitionTestTest Started
+2026-02-16 18:24:02 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-16 18:24:09 INFO  BaseTest - Starting login
+2026-02-16 18:24:09 INFO  LoginPage - Entering username
+2026-02-16 18:24:14 INFO  LoginPage - Entering password
+2026-02-16 18:24:16 INFO  LoginPage - Clicking on Login button
+2026-02-16 18:24:18 INFO  BaseTest - Login successful
+2026-02-16 18:24:18 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-16 18:24:19 INFO  Listeners - createGlobalParameterTestTest Started
+2026-02-16 18:24:19 INFO  Listeners - createGlobalParameterTestSkipped
+2026-02-16 18:24:19 INFO  Listeners - createNewKpiDefinitionTestTest Started
+2026-02-16 18:24:19 INFO  Listeners - createNewKpiDefinitionTestSkipped
+2026-02-16 18:24:19 INFO  Listeners - validateGlobalParameterAndKPITestTest Started
+2026-02-16 18:24:19 INFO  Listeners - validateGlobalParameterAndKPITestSkipped
+2026-02-16 18:24:19 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-16 18:24:20 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-17 13:39:53 INFO  ApiFactory - Request headers configured
+2026-02-17 13:39:57 INFO  ApiFactory - API request context created
+2026-02-17 13:39:57 INFO  Listeners - getKpiLclUclTest Started
+2026-02-17 13:39:58 INFO  APIBase - Closing the API Session
+2026-02-17 13:39:58 INFO  ApiFactory - API Session Closed
+2026-02-17 13:42:31 INFO  ApiFactory - Request headers configured
+2026-02-17 13:42:36 INFO  ApiFactory - API request context created
+2026-02-17 13:42:36 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 13:42:36 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 13:42:37 INFO  APIBase - Closing the API Session
+2026-02-17 13:42:37 INFO  ApiFactory - API Session Closed
+2026-02-17 13:51:34 INFO  ApiFactory - Request headers configured
+2026-02-17 13:51:40 INFO  ApiFactory - API request context created
+2026-02-17 13:51:40 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 13:51:40 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 13:51:41 INFO  APIBase - Closing the API Session
+2026-02-17 13:51:41 INFO  ApiFactory - API Session Closed
+2026-02-17 13:55:31 INFO  ApiFactory - Request headers configured
+2026-02-17 13:55:36 INFO  ApiFactory - API request context created
+2026-02-17 13:55:37 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 13:55:37 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 13:55:38 INFO  APIBase - Closing the API Session
+2026-02-17 13:55:38 INFO  ApiFactory - API Session Closed
+2026-02-17 14:06:11 INFO  ApiFactory - Request headers configured
+2026-02-17 14:06:16 INFO  ApiFactory - API request context created
+2026-02-17 14:06:17 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 14:06:17 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 14:06:17 INFO  APIBase - Closing the API Session
+2026-02-17 14:06:17 INFO  ApiFactory - API Session Closed
+2026-02-17 14:10:54 INFO  ApiFactory - Request headers configured
+2026-02-17 14:10:59 INFO  ApiFactory - API request context created
+2026-02-17 14:11:00 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 14:11:00 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 14:11:02 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 14:11:02 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 14:11:03 INFO  APIBase - Closing the API Session
+2026-02-17 14:11:03 INFO  ApiFactory - API Session Closed
+2026-02-17 14:11:51 INFO  ApiFactory - Request headers configured
+2026-02-17 14:11:56 INFO  ApiFactory - API request context created
+2026-02-17 14:11:56 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 14:11:56 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 14:11:57 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-17 14:11:57 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-17 14:11:58 INFO  APIBase - Closing the API Session
+2026-02-17 14:11:58 INFO  ApiFactory - API Session Closed
+2026-02-17 14:16:08 INFO  ApiFactory - Request headers configured
+2026-02-17 14:16:14 INFO  ApiFactory - API request context created
+2026-02-17 14:16:14 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-17 14:16:14 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-17 14:16:14 INFO  APIBase - Closing the API Session
+2026-02-17 14:16:14 INFO  ApiFactory - API Session Closed
+2026-02-17 14:17:15 INFO  ApiFactory - Request headers configured
+2026-02-17 14:17:20 INFO  ApiFactory - API request context created
+2026-02-17 14:17:20 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-17 14:17:20 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-17 14:17:21 INFO  APIBase - Closing the API Session
+2026-02-17 14:17:21 INFO  ApiFactory - API Session Closed
+2026-02-17 14:18:50 INFO  ApiFactory - Request headers configured
+2026-02-17 14:18:55 INFO  ApiFactory - API request context created
+2026-02-17 14:18:55 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-17 14:18:55 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-17 14:18:56 INFO  APIBase - Closing the API Session
+2026-02-17 14:18:56 INFO  ApiFactory - API Session Closed
+2026-02-17 14:19:23 INFO  ApiFactory - Request headers configured
+2026-02-17 14:19:28 INFO  ApiFactory - API request context created
+2026-02-17 14:19:28 INFO  APIBase - Sending POST request to /query/api/kpis/aggregates
+2026-02-17 14:19:28 INFO  APIBase - Request Sent for /query/api/kpis/aggregates
+2026-02-17 14:19:29 INFO  APIBase - Closing the API Session
+2026-02-17 14:19:29 INFO  ApiFactory - API Session Closed
+2026-02-17 14:31:09 INFO  ApiFactory - Request headers configured
+2026-02-17 14:31:14 INFO  ApiFactory - API request context created
+2026-02-17 14:31:15 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-17 14:31:15 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-17 14:31:16 INFO  APIBase - Closing the API Session
+2026-02-17 14:31:16 INFO  ApiFactory - API Session Closed
+>>>>>>> 2448284efb86087e2cad1bbcdf7c6bf9e8fcbdc2

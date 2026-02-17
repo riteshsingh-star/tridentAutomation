@@ -96,17 +96,6 @@ public class KPISCalculationUtils {
         return totalSeconds == 0 ? 0 : weightedSum / totalSeconds;
     }
 
-    public static double getKpiValue(String kpiName, Page page) {
-        Locator tile = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(kpiName));
-        tile.waitFor();
-        String rawText = tile.textContent().trim();
-        Matcher m = Pattern.compile("(\\d+(?:,\\d+)*(?:\\.\\d+)?)").matcher(rawText);
-        if (m.find()) {
-            String number = m.group(1).replace(",", "");
-            return Double.parseDouble(number);
-        }
-        throw new RuntimeException("No numeric value found in KPI tile: " + rawText);
-    }
 
     public static Map<String, VerificationResult> verifyAggregatedData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
         DateTimeFormatter rawFormatter = new DateTimeFormatterBuilder().appendPattern("MMM d, HH:mm:ss").parseDefaulting(ChronoField.YEAR, LocalDate.now().getYear()).toFormatter(Locale.ENGLISH);

@@ -14,6 +14,7 @@ import org.testng.Assert;
 import page.web.Dashboard;
 import base.api.APIBase.*;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,9 @@ public class GraphVsApiValidationTest extends BaseTest {
     List<String> measuresName;
     PageComponent pageComponent;
     DashboardData data;
+    LocalDateTime startTime = LocalDateTime.of(2026, 1, 26, 10, 0,0,0);
+    LocalDateTime endTime = LocalDateTime.of(2026, 1, 27, 10, 0,0,0);
+    int granularity=60000;
 
     @BeforeClass(alwaysRun = true)
     public void setupApi() {
@@ -61,9 +65,9 @@ public class GraphVsApiValidationTest extends BaseTest {
 
     @Test
     public void validateGraphWithApi() throws InterruptedException, IOException {
-        Map<String, String> uiData = pageComponent.getChartData(0, 2,0);
+        Map<String, String> uiData = pageComponent.getChartData(0);
         System.out.println("uiList: " + uiData);
-        Map<String, String> apiData = GetKpiData.getKpiDataUsingMapPojo();
+        Map<String, String> apiData = GetKpiData.getKpiDataValue(661,21,startTime,endTime,granularity);
         System.out.println("apiList: " + apiData);
         Assert.assertEquals(uiData.size(), apiData.size(), "UI and API data count mismatch");
         CompareGraphAndApiData.compareStringMaps(uiData, apiData);

@@ -19,6 +19,7 @@ public class CreateEquipment extends BasePage {
     Page page;
     BrowserContext browserContext;
     private final Locator equipmentPage;
+    private final Locator machineGroup;
     private final Locator createNewEquipmentButton;
     private final Locator equipmentNameField;
     private final Locator plantNameField;
@@ -62,7 +63,8 @@ public class CreateEquipment extends BasePage {
         super(page,browserContext);
         this.page = page;
         this.browserContext = browserContext;
-        this.equipmentPage=page.locator("//span[text()='Equipment']");
+        this.equipmentPage=getByRoleLink("Equipment",page);
+        this.machineGroup=page.locator("//span[text()='Equipment']//parent::a");
         this.createNewEquipmentButton=getByRoleButton("CREATE NEW",page);
         this.equipmentNameField=page.locator("#machineGroupName");
         this.plantNameField=page.getByRole(AriaRole.COMBOBOX).first();
@@ -119,7 +121,9 @@ public class CreateEquipment extends BasePage {
     }
 
     public void openRawParameterPage(String machineName){
-        equipmentPage.click();
+        machineGroup.scrollIntoViewIfNeeded();
+        WaitUtils.waitForHidden(machineGroup,10000);
+        machineGroup.click();
         searchEquipment.click();
         searchEquipmentField.fill(machineName);
         Locator addParameterButton=page.locator("//*[local-name()='svg'   and contains(@title,'Add Parameters')   and @id='editForMachineGroup-"+machineName+"']");

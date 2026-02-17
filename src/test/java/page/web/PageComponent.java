@@ -1,8 +1,6 @@
 package page.web;
 
 import base.web.BasePage;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Mouse;
@@ -14,11 +12,10 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
 import utils.WaitUtils;
-
-import java.io.File;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class PageComponent extends BasePage {
@@ -29,7 +26,7 @@ public class PageComponent extends BasePage {
     private final Locator reactBackground;
     private final Locator graphContainerPath;
     private final Locator searchMachine;
-    private final Locator calander;
+    private final Locator calender;
     private final Locator searchMeasure;
     private final Locator trendPanel;
     private final Locator quickLinks;
@@ -39,7 +36,9 @@ public class PageComponent extends BasePage {
     private final Locator selectMeasure;
     private final Locator openPlantOS;
     private final Locator openAdminPage;
+    private final Locator userType;
 
+    //private final String isAdmin
 
     public PageComponent(Page page, BrowserContext context) {
         super(page,context);
@@ -49,7 +48,7 @@ public class PageComponent extends BasePage {
         this.reactBackground = page.locator("//*[local-name()='rect' and contains(@class,'highcharts-plot-background')]");
         this.graphContainerPath = page.locator("//div[contains(@class,'highcharts-container')]");
         this.searchMachine=getByPlaceholder("Search...",page);
-        this.calander=page.getByRole(AriaRole.BUTTON).getByText(Pattern.compile("\\d{2} .* AM|PM", Pattern.CASE_INSENSITIVE));
+        this.calender=page.getByRole(AriaRole.BUTTON).getByText(Pattern.compile("\\d{2} .* AM|PM", Pattern.CASE_INSENSITIVE));
         this.searchMeasure=getByPlaceholder("Search measures...",page);
         this.trendPanel=byTitle("Show in trend panel",page);
         this.quickLinks=getByRoleButton("Quick Links",page);
@@ -58,9 +57,8 @@ public class PageComponent extends BasePage {
         this.equipmentPage=getByRoleLink("Equipment",page);
         this.selectMeasure=page.locator("//span[text()='Select measures']//parent::button");
         this.openPlantOS=getByRoleButton("Open PlantOS App Suite",page);
-//        this.openAdminPage=getByRoleLink("Admin Service",page);
         this.openAdminPage=page.locator("//span[text()='Admin Service']");
-
+        this.userType=page.locator("button[data-slot='dropdown-menu-trigger'] span");
     }
 
     public Locator getChartContainer(int graphIndexToLocate) {
@@ -82,7 +80,7 @@ public class PageComponent extends BasePage {
         page.waitForTimeout(150);
     }
 
-    public Map<String, String> getChartData(int timeStampIndex, int dataIndex, int graphIndex) throws InterruptedException {
+    public Map<String, String> getChartData(int graphIndex) throws InterruptedException {
       page.waitForResponse(
                 r -> r.url().contains("/api/kpis/timeseries") && r.status() == 200,
                 () -> graphContainerPath.nth(graphIndex)
@@ -104,10 +102,10 @@ public class PageComponent extends BasePage {
         for (double x = startX; x <= endX; x += 4) {
             page.mouse().move(x, y);
             page.waitForTimeout(25);
-            if (tooltipSpans.count() > Math.max(timeStampIndex, dataIndex)) {
-                String key = tooltipSpans.nth(timeStampIndex).textContent().trim();
+            if (tooltipSpans.count() > Math.max(0, 2)) {
+                String key = tooltipSpans.nth(0).textContent().trim();
                 if (!key.equals(lastKey)) {
-                    String value = tooltipSpans.nth(dataIndex).textContent().trim();
+                    String value = tooltipSpans.nth(2).textContent().trim();
                     graphData.put(normalizeSpaces(key), ParseTheTimeFormat.formatStringTo2Decimal(value)
                     );
                     lastKey = key;
@@ -133,15 +131,12 @@ public class PageComponent extends BasePage {
         WaitUtils.waitForVisible(searchMachine, 4000);
         searchMachine.fill(equipmentName);
         getByRoleLink(equipmentName,page).click();
-        calander.click();
+        calender.click();
         quickLinks.click();
         getByText(frequency,page).click();
         applyButton.click();
         addParameter.click();
         searchMeasure.fill(measureName);
-       /* page.getByRole(AriaRole.CHECKBOX,
-                new Page.GetByRoleOptions().setName(Pattern.compile("Availability", Pattern.CASE_INSENSITIVE))
-        ).click();*/
         page.locator("//span[text()='" + measureName + "']").click();
         page.keyboard().press("Escape");
         trendPanel.click();
@@ -152,12 +147,18 @@ public class PageComponent extends BasePage {
     }
 
     public Page moveToAdminPage(Page page, BrowserContext context){
-        openPlantOS.click();
-        Page newPage = context.waitForPage(() -> {
-            openAdminPage.click();
-        });
-        newPage.waitForLoadState();
-        return newPage;
+        if(!isAdminUser()){
+            System.out.println("User is not admin, please login with valid Admin user");
+        }
+        else {
+            openPlantOS.click();
+            Page newPage = context.waitForPage(() -> {
+                openAdminPage.click();
+            });
+            newPage.waitForLoadState();
+            return newPage;
+        }
+        return null;
     }
 
     public Double getMeanAndSDFromUI(String type) {
@@ -175,4 +176,28 @@ public class PageComponent extends BasePage {
         page.mouse().up();
     }
 
+    public double getKpiValue(String kpiName, Page page) {
+        Locator tile = page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName(kpiName));
+        tile.waitFor();
+        String rawText = tile.textContent().trim();
+        Matcher m = Pattern.compile("(\\d+(?:,\\d+)*(?:\\.\\d+)?)").matcher(rawText);
+        if (m.find()) {
+            String number = m.group(1).replace(",", "");
+            return Double.parseDouble(number);
+        }
+        throw new RuntimeException("No numeric value found in KPI tile: " + rawText);
+    }
+
+    private boolean isAdminUser(){
+        boolean isAdminUser = false;
+        String userText = userType.textContent().trim();
+        System.out.println("userText: " + userText);
+        if (userText.contains("admin")) {
+            System.out.println("Admin user logged in");
+            isAdminUser = true;
+        } else {
+            System.out.println("Normal user logged in");
+        }
+        return isAdminUser;
+    }
 }

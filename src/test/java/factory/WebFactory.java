@@ -2,6 +2,7 @@ package factory;
 
 import com.microsoft.playwright.*;
 
+import java.awt.*;
 import java.util.List;
 
 public class WebFactory {
@@ -10,20 +11,38 @@ public class WebFactory {
     protected static ThreadLocal<Browser> tlBrowser = new ThreadLocal<>();
     protected static ThreadLocal<BrowserContext> tlContext = new ThreadLocal<>();
     protected static ThreadLocal<Page> tlPage = new ThreadLocal<>();
+    static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    static int width = (int) screenSize.getWidth();
+    static int height = (int) screenSize.getHeight();
 
     public static void initBrowser(String browserName, boolean headless) {
+
         Playwright pw = Playwright.create();
         tlPlaywright.set(pw);
-        BrowserType type = switch (browserName.toLowerCase()) {
-            case "firefox" -> pw.firefox();
-            case "webkit" -> pw.webkit();
-            default -> pw.chromium();
+        BrowserType.LaunchOptions options = new BrowserType.LaunchOptions().setHeadless(headless);
+        Browser browser = switch (browserName.toLowerCase()) {
+            case "chrome" -> {
+                options.setChannel("chrome");
+                options.setArgs(List.of("--window-size=" + width + "," + height));
+                yield pw.chromium().launch(options);
+            }
+            case "edge" -> {
+                options.setChannel("msedge");
+                options.setArgs(List.of("--window-size=" + width + "," + height));
+                yield pw.chromium().launch(options);
+            }
+            case "firefox" -> pw.firefox().launch(options);
+            case "safari", "webkit" -> pw.webkit().launch(options);
+            default -> {
+                options.setArgs(List.of("--window-size=" + width + "," + height));
+                yield pw.chromium().launch(options);
+            }
         };
-        tlBrowser.set(type.launch(new BrowserType.LaunchOptions().setHeadless(headless).setArgs(List.of("--start-maximized"))));
+        tlBrowser.set(browser);
     }
 
     public static void createContextAndPage() {
-        BrowserContext context = tlBrowser.get().newContext(new Browser.NewContextOptions().setViewportSize(null));
+        BrowserContext context = tlBrowser.get().newContext(new Browser.NewContextOptions().setViewportSize(width, height));
         tlContext.set(context);
         tlPage.set(context.newPage());
     }

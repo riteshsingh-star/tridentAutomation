@@ -11,6 +11,7 @@ import utils.LclUclUtil;
 import utils.Stats;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Map;
 
 import static factory.ApiFactory.getRequest;
@@ -18,23 +19,21 @@ import static factory.ApiFactory.getRequest;
 public class GetRawParamLclUclValue extends APIBase {
 
     Map<String, String> rawParameterData;
+    LocalDateTime startTime = LocalDateTime.of(2026, 1, 26, 10, 0, 0, 0);
+    LocalDateTime endTime = LocalDateTime.of(2026, 1, 27, 10, 0, 0, 0);
+    int granularity = 60000;
+    int plantId = 839;
+    int equipmentId = 4248;
+    int rawParamDefId = 21;
 
     @Test
     public void getSTDMeanLCLUCL() throws IOException {
-
-        int plantId = 839;
-        int equipmentId = 4248;
-        int rawParamDefId = 21;
-
         JsonNode rawParamNode = GetRawParamRequest.getRawParamNode(getRequest(), plantId, equipmentId, rawParamDefId);
-
         String lclUclType = rawParamNode.path("lclUclType").asText(null);
         System.out.println("lclUclType: " + lclUclType);
-
-        rawParameterData = GetRawParameterData.getRawParameterDataUsingPojo();
+        rawParameterData = GetRawParameterData.getRawParameterDataValue(equipmentId, rawParamDefId, startTime, endTime, granularity);
         Assert.assertNotNull(rawParameterData, "Raw parameter data is null");
         Assert.assertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
-
         double mean = Stats.calculateMean(rawParameterData);
         double stdDev = Stats.calculateStdDev(rawParameterData);
 

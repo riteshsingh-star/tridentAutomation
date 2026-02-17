@@ -35,4 +35,15 @@ public class APIService {
             throw new RuntimeException("Failed to serialize API request body", e);
         }
     }
+
+    public static APIResponse putApiRequest(Object bodyObj, String urlPath) {
+        try {
+            log.info("Sending PUT request to {}", urlPath);
+            String body = objectMapper.writeValueAsString(bodyObj);
+            return getRequest().put(urlPath, RequestOptions.create().setData(body.getBytes(StandardCharsets.UTF_8)));
+        } catch (Exception e) {
+            log.error("Failed to create API request body from Object", e);
+            throw new RuntimeException("Failed to serialize API request body", e);
+        }
+    }
 }
