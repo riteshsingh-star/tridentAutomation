@@ -4,6 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This method is used to compare UI graph data with API graph data.
+ * It validates:
+ * - Map size
+ * - Key presence
+ * - Value equality (after normalizing decimal values)
+ *
+ * @param uiMap   Map containing UI graph data (timestamp as key, value as String)
+ * @param apiMap  Map containing API graph data (timestamp as key, value as String)
+ *
+ * @throws AssertionError if any mismatch is found between UI and API data
+ */
+
 public class CompareGraphAndApiData {
     public static void compareStringMaps(Map<String, String> uiMap, Map<String, String> apiMap) {
         try {
@@ -33,6 +46,15 @@ public class CompareGraphAndApiData {
             System.out.println(e.getMessage());
         }
     }
+
+    /**
+     * This method is used to normalize decimal values to one decimal place
+     * before comparing UI and API values.
+     *
+     * @param val  String representation of numeric value
+     * @return     Formatted decimal value up to one decimal place.
+     *             Returns original value if parsing fails.
+     */
 
     private static String normalizeDecimal(String val) {
         try {

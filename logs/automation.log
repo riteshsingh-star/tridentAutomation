@@ -2512,3 +2512,27 @@
 2026-02-17 14:31:16 INFO  APIBase - Closing the API Session
 2026-02-17 14:31:16 INFO  ApiFactory - API Session Closed
 >>>>>>> 2448284efb86087e2cad1bbcdf7c6bf9e8fcbdc2
+2026-02-17 18:37:03 INFO  ApiFactory - Request headers configured
+2026-02-17 18:37:11 INFO  ApiFactory - API request context created
+2026-02-17 18:37:12 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-17 18:37:13 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-17 18:37:14 INFO  APIBase - Closing the API Session
+2026-02-17 18:37:14 INFO  ApiFactory - API Session Closed
+2026-02-18 11:37:13 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 11:37:23 INFO  BaseTest - Starting login
+2026-02-18 11:37:23 INFO  LoginPage - Entering username
+2026-02-18 11:37:27 INFO  LoginPage - Entering password
+2026-02-18 11:37:29 INFO  LoginPage - Clicking on Login button
+2026-02-18 11:37:32 INFO  BaseTest - Login successful
+2026-02-18 11:37:32 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 11:37:32 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 11:37:33 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 11:39:16 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 11:39:23 INFO  BaseTest - Starting login
+2026-02-18 11:39:23 INFO  LoginPage - Entering username
+2026-02-18 11:39:27 INFO  LoginPage - Entering password
+2026-02-18 11:39:29 INFO  LoginPage - Clicking on Login button
+2026-02-18 11:39:31 INFO  BaseTest - Login successful
+2026-02-18 11:39:31 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 11:39:36 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 11:39:36 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest

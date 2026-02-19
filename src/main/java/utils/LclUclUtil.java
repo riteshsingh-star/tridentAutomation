@@ -3,6 +3,16 @@ package utils;
 import com.fasterxml.jackson.databind.JsonNode;
 import org.testng.Assert;
 
+/**
+ * Utility class responsible for resolving
+ * Lower Control Limit (LCL) and Upper Control Limit (UCL)
+ * based on the configured type.
+ * Supported types:
+ * - STATS → Calculated using mean and standard deviation
+ * - FIXED → Retrieved directly from API response
+ * - NONE  → Not applicable
+ */
+
 public class LclUclUtil {
 
     public static LclUclResult resolveLclUcl(String lclUclType, JsonNode sourceNode, double mean, double stdDev, String logPrefix) {

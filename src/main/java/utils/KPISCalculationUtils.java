@@ -16,7 +16,21 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
+
 public class KPISCalculationUtils {
+
+    /**
+     * This method verifies aggregate calculations based on tooltip graph data.
+     * It supports:
+     * - Sum
+     * - Average
+     * - Cumulative
+     * @param aggregateType Type of aggregation (Sum / Average / Cumulative)
+     * @param tooltipData   Map containing timestamp as key and value as String
+     * @return              Calculated aggregate result
+     * @throws IllegalArgumentException if aggregateType is invalid
+     */
 
     public static double verifyTheAggregateData(String aggregateType, Map<String, String> tooltipData) {
         double sum = 0.0;
@@ -50,6 +64,16 @@ public class KPISCalculationUtils {
         throw new IllegalArgumentException("Invalid aggregateType: " + aggregateType);
     }
 
+
+    /**
+     * Finds maximum or minimum value from tooltip data map.
+     *
+     * @param tooltipData Map containing graph values
+     * @param maxMinType  "max" to find maximum, "min" to find minimum
+     * @return Maximum or minimum value
+     * @throws IllegalArgumentException if map is empty
+     */
+
     private static double findMaxAndMin(Map<String, String> tooltipData, String maxMinType) {
         if (tooltipData == null || tooltipData.isEmpty()) {
             throw new IllegalArgumentException("Map is empty");
@@ -69,6 +93,14 @@ public class KPISCalculationUtils {
         }
         return 0.0;
     }
+
+    /**
+     * This method calculates weighted average based on time duration
+     * between consecutive data points.
+     *
+     * @param data Map containing ISO timestamp as key and numeric value as String
+     * @return     Time-weighted average value
+     */
 
     public static double averageByDuration(Map<String, String> data) {
 
@@ -96,6 +128,15 @@ public class KPISCalculationUtils {
         return totalSeconds == 0 ? 0 : weightedSum / totalSeconds;
     }
 
+
+    /**
+     * This method verifies aggregated delta-based KPI values
+     * using raw incremental data.
+     *
+     * @param rawDataMap       Raw data points (timestamp → value)
+     * @param aggregatedMap    Aggregated graph values (timestamp → value)
+     * @return                 Map of verification results per timestamp
+     */
 
     public static Map<String, VerificationResult> verifyAggregatedData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
         DateTimeFormatter rawFormatter = new DateTimeFormatterBuilder().appendPattern("MMM d, HH:mm:ss").parseDefaulting(ChronoField.YEAR, LocalDate.now().getYear()).toFormatter(Locale.ENGLISH);
@@ -142,6 +183,10 @@ public class KPISCalculationUtils {
         return resultMap;
     }
 
+    /**
+     * This method verifies aggregated sum-based KPI values
+     * within a 1-minute time.
+     */
 
     public static Map<String, VerificationResult> verifyAggregatedSumData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
         int year = LocalDate.now().getYear();
@@ -167,6 +212,10 @@ public class KPISCalculationUtils {
         return resultMap;
     }
 
+    /**
+     * This method verifies aggregated average-based KPI values
+     * within a 1-minute time
+     */
 
     public static Map<String, VerificationResult> verifyAggregatedAverageData(Map<String, String> rawDataMap, Map<String, String> aggregatedMap) {
         int year = LocalDate.now().getYear();
@@ -195,6 +244,10 @@ public class KPISCalculationUtils {
         return resultMap;
     }
 
+    /**
+     * Represents a raw data point.
+     */
+
     public static class RawPoint {
         LocalDateTime time;
         double value;
@@ -204,6 +257,13 @@ public class KPISCalculationUtils {
             this.value = value;
         }
     }
+
+    /**
+     * Represents the result of KPI verification.
+     * - expected = calculated value
+     * - actual = API/UI value
+     * - isValid = comparison result
+     */
 
     public static class VerificationResult {
         public double expected;
@@ -221,8 +281,9 @@ public class KPISCalculationUtils {
             return "expected=" + expected + ", actual=" + actual + ", match=" + isValid;
         }
     }
-
-
+    /**
+     * Builds and sorts raw data points by timestamp.
+     */
     private static List<RawPoint> buildSortedRawPoints(Map<String, String> rawDataMap, int year) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d, HH:mm:ss yyyy", Locale.ENGLISH);
         List<RawPoint> rawPoints = new ArrayList<>();
