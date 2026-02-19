@@ -9,6 +9,7 @@ import com.microsoft.playwright.options.AriaRole;
 import com.microsoft.playwright.options.BoundingBox;
 import com.microsoft.playwright.options.ViewportSize;
 import com.microsoft.playwright.options.WaitForSelectorState;
+import exception.NotAdminCredentials;
 import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
 import utils.WaitUtils;
@@ -150,7 +151,7 @@ public class PageComponent extends BasePage {
 
     public Page moveToAdminPage(Page page, BrowserContext context) {
         if (!isAdminUser()) {
-            System.out.println("User is not admin, please login with valid Admin user");
+            throw new NotAdminCredentials("Please login to Admin Credentials to perform this operation");
         } else {
             openPlantOS.click();
             Page newPage = context.waitForPage(() -> {
@@ -159,7 +160,6 @@ public class PageComponent extends BasePage {
             newPage.waitForLoadState();
             return newPage;
         }
-        return null;
     }
 
     public Double getMeanAndSDFromUI(String type) {

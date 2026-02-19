@@ -20,12 +20,18 @@ public class AdminFlowTest extends BaseTest {
 
     @BeforeClass
     public void createAdminFlowSetupTest() throws Exception {
+        // allow selecting tenant via -Dtenant=<name> (e.g. mrf, hindalco_mouda, dev)
+        String tenant = System.getProperty("tenant", "dev");
+        if (!"dev".equalsIgnoreCase(tenant)) {
+            String clientConfigPath = "testData/clientSpecific/" + tenant + ".json";
+            System.setProperty("clientConfig", clientConfigPath);
+        } else {
+            // ensure no client override for default dev
+            System.clearProperty("clientConfig");
+        }
         data = ReadDataFile.loadDataFile(AdminFlow.class);
         pageComponent = new PageComponent(page, context);
         childPage = pageComponent.moveToAdminPage(page, context);
-        if(childPage==null){
-            throw new NotAdminCredentials("You don't have admin rights to perform this operation");
-        }
         globalParameter = new CreateGlobalParameter(childPage, context);
         kpiDefinition = new CreateNewKPIDefinition(childPage, context);
         kpiAdvance = new KPIAdvanceImplementation(childPage, context);
@@ -33,18 +39,22 @@ public class AdminFlowTest extends BaseTest {
 
     @Test(priority = 0)
     public void createGlobalParameterTest() {
-        globalParameter.createGlobalParameter(data.globalParameterName(), data.globalParameterType(), data.globalParameterDataType());
+        globalParameter.createGlobalParameter(data.globalParameterName(), data.globalParameterType(),
+                data.globalParameterDataType());
     }
 
     @Test(priority = 1)
     public void createNewKpiDefinitionTest() throws InterruptedException {
-        kpiDefinition.createNewKPIDefinition(data.defineKPIName(), data.plantName(), data.globalParameterName(), data.aggregateType(), data.KPIPerformanceCriteria(), data.kpiUnits(), data.kpiPrecision(), data.industryType(), data.kpiType());
-        //Assert.assertEquals(message,"Validation successful !!");
+        kpiDefinition.createNewKPIDefinition(data.defineKPIName(), data.plantName(), data.globalParameterName(),
+                data.aggregateType(), data.KPIPerformanceCriteria(), data.kpiUnits(), data.kpiPrecision(),
+                data.industryType(), data.kpiType());
+        // Assert.assertEquals(message,"Validation successful !!");
     }
 
     @Test(priority = 2)
     public void validateGlobalParameterAndKPITest() {
-        kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.defineKPIName(), data.machineName(), data.date(), data.batchFrequency(), data.unit(), data.formula());
+        kpiAdvance.addLogicToTheKPIAndValidate(data.globalParameterName(), data.defineKPIName(), data.machineName(),
+                data.date(), data.batchFrequency(), data.unit(), data.formula());
     }
 
 }

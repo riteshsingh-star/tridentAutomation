@@ -1,10 +1,10 @@
 {
   "adminFlow": {
-    "globalParameterName":"TestOneAutomationGw",
+    "globalParameterName": "MRF_Global_{{random}}",
     "param": "Integer",
     "checkbox": "Batch",
-    "defineKPIName": "TestAutomationKP",
-    "machineName":"PTR",
+    "defineKPIName": "MRF_KPI_{{random}}",
+    "machineName": "PTR",
     "date": "2026-01-01",
     "formula": "sum(^PTR.MAIN_WATER)",
     "batchFrequency": "Every day",
