@@ -4,14 +4,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
-import org.testng.Assert;
+import static utils.AssertionUtil.assertEquals;
 
 public class GetRawParamRequest {
 
     public static JsonNode getRawParamNode(APIRequestContext request, int plantId, int equipmentId, int rawParamDefId) {
 
         APIResponse response = request.get("/web/api/rawParameterDefinitions?plantId=" + plantId);
-        Assert.assertEquals(response.status(), 200, "Raw Parameter API failed");
+        assertEquals(response.status(), 200, "Raw Parameter API failed");
 
         try {
             ObjectMapper mapper = new ObjectMapper();

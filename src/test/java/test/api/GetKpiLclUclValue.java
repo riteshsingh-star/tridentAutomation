@@ -2,13 +2,13 @@ package test.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import base.api.APIBase;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.api.GetKpiData;
 import page.api.GetKpiRequest;
 import utils.LclUclResult;
 import utils.LclUclUtil;
 import utils.Stats;
+import static utils.AssertionUtil.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -36,8 +36,8 @@ public class GetKpiLclUclValue extends APIBase {
         String lclUclType = kpiNode.path("lclUclType").asText(null);
         System.out.println("lclUclType: " + lclUclType);
         kpiData = GetKpiData.getKpiDataValue(machineId, kpiID, startTime, endTime, granularity);
-        Assert.assertNotNull(kpiData, "KPI data is null");
-        Assert.assertFalse(kpiData.isEmpty(), "No KPI data available");
+        assertNotNull(kpiData, "KPI data is null");
+        assertFalse(kpiData.isEmpty(), "No KPI data available");
         double mean = Stats.calculateMean(kpiData);
         double stdDev = Stats.calculateStdDev(kpiData);
 

@@ -10,9 +10,9 @@ import pojo.web.DashboardData;
 import page.api.GetKpiData;
 import utils.CompareGraphAndApiData;
 import utils.ReadDataFile;
-import org.testng.Assert;
 import page.web.Dashboard;
 import base.api.APIBase.*;
+import static utils.AssertionUtil.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -60,7 +60,8 @@ public class GraphVsApiValidationTest extends BaseTest {
     public void createAndValidateWidget() {
         Allure.step("Creating Widget");
         String validationData= createWidget.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
-        Assert.assertEquals(validationData,"Equipment Performance"+" "+data.equipmentName());
+        softAssertEquals(validationData,"Equipment Performance"+" "+data.equipmentName(), "Widget name should match expected value");
+        assertAll();
     }
 
     @Test
@@ -69,7 +70,8 @@ public class GraphVsApiValidationTest extends BaseTest {
         System.out.println("uiList: " + uiData);
         Map<String, String> apiData = GetKpiData.getKpiDataValue(661,23,startTime,endTime,granularity);
         System.out.println("apiList: " + apiData);
-        Assert.assertEquals(uiData.size(), apiData.size(), "UI and API data count mismatch");
+        softAssertEquals(uiData.size(), apiData.size(), "UI and API data count mismatch");
         CompareGraphAndApiData.compareStringMaps(uiData, apiData);
+        assertAll();
     }
 }

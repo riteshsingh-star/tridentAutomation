@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microsoft.playwright.APIRequestContext;
 import com.microsoft.playwright.APIResponse;
-import org.testng.Assert;
+import static utils.AssertionUtil.assertEquals;
 
 public class GetKpiRequest {
 
@@ -13,7 +13,7 @@ public class GetKpiRequest {
 
         String endpoint="/web/api/kpi-implementation?definition-id=" + definitionId + "&equipment-id=" + equipmentId;
         APIResponse response = request.get(endpoint);
-        Assert.assertEquals(response.status(), 200, "KPI API failed");
+        assertEquals(response.status(), 200, "KPI API failed");
         try {
             ObjectMapper mapper = new ObjectMapper();
             return mapper.readTree(response.text());

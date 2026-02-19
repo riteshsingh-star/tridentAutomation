@@ -15,6 +15,8 @@ import java.time.LocalDateTime;
 import java.util.Map;
 
 import static factory.ApiFactory.getRequest;
+import static utils.AssertionUtil.assertFalse;
+import static utils.AssertionUtil.assertNotNull;
 
 public class GetRawParamLclUclValue extends APIBase {
 
@@ -32,8 +34,8 @@ public class GetRawParamLclUclValue extends APIBase {
         String lclUclType = rawParamNode.path("lclUclType").asText(null);
         System.out.println("lclUclType: " + lclUclType);
         rawParameterData = GetRawParameterData.getRawParameterDataValue(equipmentId, rawParamDefId, startTime, endTime, granularity);
-        Assert.assertNotNull(rawParameterData, "Raw parameter data is null");
-        Assert.assertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
+        assertNotNull(rawParameterData, "Raw parameter data is null");
+        assertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
         double mean = Stats.calculateMean(rawParameterData);
         double stdDev = Stats.calculateStdDev(rawParameterData);
 

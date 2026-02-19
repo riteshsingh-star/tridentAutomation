@@ -1,11 +1,11 @@
 package test.api;
 
 import base.api.APIBase;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.api.GetKpiData;
 import page.api.GetRawParameterData;
 import utils.KPISCalculationUtils;
+import static utils.AssertionUtil.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -34,8 +34,9 @@ public class ApiAggregateVerification extends APIBase {
             System.out.println("Time: " + aggTime + " | Expected(Sum from raw): " + result.expected
                     + " | Actual(Aggregated API): " + result.actual
                     + " | Match: " + result.isValid);
-            Assert.assertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
+            softAssertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
         }
+        assertAll();
     }
 
     @Test
@@ -52,8 +53,8 @@ public class ApiAggregateVerification extends APIBase {
             System.out.println("Time: " + aggTime + " | Expected(Sum from raw): " + result.expected
                     + " | Actual(Aggregated API): " + result.actual
                     + " | Match: " + result.isValid);
-            Assert.assertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
-
+            softAssertEquals(actual, expected, "Mismatch at " + aggTime + " Expected=" + expected + " Actual=" + actual);
         }
+        assertAll();
     }
 }

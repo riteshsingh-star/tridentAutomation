@@ -3,12 +3,12 @@ package test.api;
 import base.api.APIBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import config.ApiTestDataProvider;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page.api.GetKpiData;
 import page.api.GetKpiRequest;
 import utils.*;
+import static utils.AssertionUtil.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -87,8 +87,8 @@ public class GetKpiLclUclValueRefactored extends APIBase {
 
         // Get KPI data from API
         Map<String, String> kpiData = GetKpiData.getKpiDataValue(machineId, kpiID, startTime, endTime, granularity);
-        Assert.assertNotNull(kpiData, "KPI data is null");
-        Assert.assertFalse(kpiData.isEmpty(), "No KPI data available");
+        softAssertNotNull(kpiData, "KPI data is null");
+        softAssertFalse(kpiData.isEmpty(), "No KPI data available");
 
         // Calculate statistics
         double mean = Stats.calculateMean(kpiData);
@@ -114,7 +114,8 @@ public class GetKpiLclUclValueRefactored extends APIBase {
             System.out.println("✗ API Value is not Matching From Calculation Value");
         }
 
-        Assert.assertTrue(comparison, "LCL/UCL values do not match expected calculations");
+        softAssertTrue(comparison, "LCL/UCL values do not match expected calculations");
+        assertAll();
     }
 
     /**

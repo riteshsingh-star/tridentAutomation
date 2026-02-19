@@ -3,10 +3,10 @@ package test.api;
 import base.api.APIBase;
 import com.microsoft.playwright.APIResponse;
 import config.EnvironmentConfig;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static factory.ApiFactory.getRequest;
+import static utils.AssertionUtil.assertEquals;
 
 public class GetEquipment extends APIBase {
 
@@ -15,7 +15,7 @@ public class GetEquipment extends APIBase {
     public void getEquipmentIDAndData() {
         String equipmentID= EnvironmentConfig.getEquipmentID();
         APIResponse response = getRequest().get("/web/api/kpi-implementation/equipment/"+equipmentID);
-        Assert.assertEquals(response.status(), 200);
+        assertEquals(response.status(), 200, "Equipment API should return status 200");
         System.out.println(response.text());
     }
 

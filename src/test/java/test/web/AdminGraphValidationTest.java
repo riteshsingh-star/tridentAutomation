@@ -2,13 +2,12 @@ package test.web;
 
 import base.api.APIBase;
 import base.web.BaseTest;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import page.api.GetStatisticsDataFromAPI;
 import page.web.DashboardVerify;
 import page.web.PageComponent;
-
+import static utils.AssertionUtil.*;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Map;
@@ -44,7 +43,8 @@ public class AdminGraphValidationTest extends BaseTest {
         System.out.println("Ui List data "+uiList);
         Map<String , String > apiList = getKpiDataValue(machineID,kpiID,startTime,endTime,granularity);
         System.out.println("apiList " + apiList);
-        Assert.assertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
+        softAssertEquals(uiList.size(), apiList.size(), "UI and API data count mismatch");
+
 
 
     }

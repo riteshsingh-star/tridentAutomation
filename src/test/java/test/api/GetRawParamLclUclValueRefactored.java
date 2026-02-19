@@ -4,12 +4,12 @@ import base.api.APIBase;
 import com.fasterxml.jackson.databind.JsonNode;
 import config.ApiTestDataProvider;
 import config.DataGeneratorUtil;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import page.api.GetRawParamRequest;
 import page.api.GetRawParameterData;
 import utils.*;
+import static utils.AssertionUtil.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -95,8 +95,8 @@ public class GetRawParamLclUclValueRefactored extends APIBase {
                 endTime,
                 granularity);
 
-        Assert.assertNotNull(rawParameterData, "Raw parameter data is null");
-        Assert.assertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
+        softAssertNotNull(rawParameterData, "Raw parameter data is null");
+        softAssertFalse(rawParameterData.isEmpty(), "No raw parameter data available");
         System.out.println("Raw Parameter data points: " + rawParameterData.size());
 
         // Calculate statistics
@@ -112,9 +112,10 @@ public class GetRawParamLclUclValueRefactored extends APIBase {
         System.out.println("UCL: " + result.getUcl());
 
         // Validate results exist
-        Assert.assertNotNull(result.getLcl(), "LCL value is null");
-        Assert.assertNotNull(result.getUcl(), "UCL value is null");
+        softAssertNotNull(result.getLcl(), "LCL value is null");
+        softAssertNotNull(result.getUcl(), "UCL value is null");
         System.out.println("✓ LCL/UCL Values Successfully Calculated");
+        assertAll();
     }
 
     /**
@@ -152,13 +153,14 @@ public class GetRawParamLclUclValueRefactored extends APIBase {
                 endTime,
                 granularity);
 
-        Assert.assertNotNull(rawParameterData, "Raw parameter data is null");
+        softAssertNotNull(rawParameterData, "Raw parameter data is null");
         double mean = Stats.calculateMean(rawParameterData);
         double stdDev = Stats.calculateStdDev(rawParameterData);
 
         LclUclResult result = LclUclUtil.resolveLclUcl(lclUclType, rawParamNode, mean, stdDev, "RawParam");
-        Assert.assertNotNull(result.getLcl(), "LCL value is null");
-        Assert.assertNotNull(result.getUcl(), "UCL value is null");
+        softAssertNotNull(result.getLcl(), "LCL value is null");
+        softAssertNotNull(result.getUcl(), "UCL value is null");
+        assertAll();
     }
 
     /**

@@ -4,7 +4,7 @@ import base.web.BasePage;
 import com.microsoft.playwright.BrowserContext;
 import com.microsoft.playwright.Page;
 import utils.KPISCalculationUtils;
-import org.testng.Assert;
+import static utils.AssertionUtil.*;
 import java.util.Map;
 
 public class EquipmentPageDataVerification extends BasePage {
@@ -26,7 +26,8 @@ public class EquipmentPageDataVerification extends BasePage {
             System.out.println("Data"+ tooltipData);
             double chartAggregate= KPISCalculationUtils.verifyTheAggregateData(aggregateType, tooltipData);
             double aggregateValue= pageComponent.getKpiValue(measureName,page);
-            Assert.assertEquals((int) chartAggregate, (int) aggregateValue, "Mismatch in integer part of aggregate value");
+            softAssertEquals((int) chartAggregate, (int) aggregateValue, "Mismatch in integer part of aggregate value");
+            assertAll();
             System.out.println(pageComponent.getMeanAndSDFromUI("SD"));
             System.out.println(pageComponent.getMeanAndSDFromUI("Mean"));
     }
