@@ -1,1 +1,0 @@
-{"uuid":"4ae6014b-4d59-4eeb-9a70-190c79d66c2b","name":"Default Suite","children":["2143c7dd-0333-45c8-8fa0-7d754c99633c"],"befores":[],"afters":[{"name":"tearDown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1770357399945,"stop":1770357399956}],"start":1770357393204,"stop":1770357399956}
