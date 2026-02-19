@@ -18,10 +18,12 @@ public enum ConfigKey {
     KPI_AGGREGATE_PATH("kpiAggregatePathURL"),
     EQUIPMENT_ID("equipmentID");
 
+
     private final String key;
 
     ConfigKey(String key) {
         this.key = key;
     }
+
 
 }

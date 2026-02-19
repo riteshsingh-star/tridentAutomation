@@ -26,7 +26,7 @@ public class AdminGraphValidationTest extends BaseTest {
     LocalDateTime endTime = LocalDateTime.of(2026, 1, 27, 10, 0,0,0);
     int granularity=60000;
     int machineID=661;
-    int kpiID=21;
+    int kpiID=23;
 
     @BeforeMethod(alwaysRun = true)
     public void setupApi() {

@@ -12,6 +12,7 @@ import com.microsoft.playwright.options.WaitForSelectorState;
 import io.qameta.allure.Allure;
 import utils.ParseTheTimeFormat;
 import utils.WaitUtils;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -41,24 +42,24 @@ public class PageComponent extends BasePage {
     //private final String isAdmin
 
     public PageComponent(Page page, BrowserContext context) {
-        super(page,context);
+        super(page, context);
         this.chartGraph = page.locator("//*[local-name()='g'][contains(@class,'highcharts-markers highcharts-series-0 highcharts-line-series highcharts-tracker')]//*[local-name()='path'][contains(@opacity,'1')]");
         this.dataToolTip = page.locator("//*[name()='g'][contains(@class,'highcharts-label') and contains(@class,'highcharts-tooltip')]//*[local-name()='text']//*[local-name()='tspan']");
         this.graphContainer = page.locator("div.highcharts-container");
         this.reactBackground = page.locator("//*[local-name()='rect' and contains(@class,'highcharts-plot-background')]");
         this.graphContainerPath = page.locator("//div[contains(@class,'highcharts-container')]");
-        this.searchMachine=getByPlaceholder("Search...",page);
-        this.calender=page.getByRole(AriaRole.BUTTON).getByText(Pattern.compile("\\d{2} .* AM|PM", Pattern.CASE_INSENSITIVE));
-        this.searchMeasure=getByPlaceholder("Search measures...",page);
-        this.trendPanel=byTitle("Show in trend panel",page);
-        this.quickLinks=getByRoleButton("Quick Links",page);
-        this.applyButton=getByRoleButton("Apply",page);
-        this.addParameter=getByRoleButton("Add parameters",page);
-        this.equipmentPage=getByRoleLink("Equipment",page);
-        this.selectMeasure=page.locator("//span[text()='Select measures']//parent::button");
-        this.openPlantOS=getByRoleButton("Open PlantOS App Suite",page);
-        this.openAdminPage=page.locator("//span[text()='Admin Service']");
-        this.userType=page.locator("button[data-slot='dropdown-menu-trigger'] span");
+        this.searchMachine = getByPlaceholder("Search...", page);
+        this.calender = page.getByRole(AriaRole.BUTTON).getByText(Pattern.compile("\\d{2} .* AM|PM", Pattern.CASE_INSENSITIVE));
+        this.searchMeasure = getByPlaceholder("Search measures...", page);
+        this.trendPanel = byTitle("Show in trend panel", page);
+        this.quickLinks = getByRoleButton("Quick Links", page);
+        this.applyButton = getByRoleButton("Apply", page);
+        this.addParameter = getByRoleButton("Add parameters", page);
+        this.equipmentPage = getByRoleLink("Equipment", page);
+        this.selectMeasure = page.locator("//span[text()='Select measures']//parent::button");
+        this.openPlantOS = getByRoleButton("Open PlantOS App Suite", page);
+        this.openAdminPage = page.locator("//span[text()='Admin Covacsis Service']");
+        this.userType = page.locator("button[data-slot='dropdown-menu-trigger'] span");
     }
 
     public Locator getChartContainer(int graphIndexToLocate) {
@@ -81,13 +82,13 @@ public class PageComponent extends BasePage {
     }
 
     public Map<String, String> getChartData(int graphIndex) throws InterruptedException {
-      page.waitForResponse(
+        /*page.waitForResponse(
                 r -> r.url().contains("/api/kpis/timeseries") && r.status() == 200,
                 () -> graphContainerPath.nth(graphIndex)
-        );
+        );*/
         Allure.step("Fetching the Data from the Graph");
-        //syncUntil(20000);
-        Locator chart =graphContainerPath.nth(graphIndex);
+        Thread.sleep(20000);
+        Locator chart = graphContainerPath.nth(graphIndex);
         chart.scrollIntoViewIfNeeded();
         Locator plotArea = chart.locator(reactBackground);
         activateChart(plotArea);
@@ -104,9 +105,10 @@ public class PageComponent extends BasePage {
             page.waitForTimeout(25);
             if (tooltipSpans.count() > Math.max(0, 2)) {
                 String key = tooltipSpans.nth(0).textContent().trim();
+                String timeStamp=ParseTheTimeFormat.convertBrowserTimeToGMT(page,key);
                 if (!key.equals(lastKey)) {
                     String value = tooltipSpans.nth(2).textContent().trim();
-                    graphData.put(normalizeSpaces(key), ParseTheTimeFormat.formatStringTo2Decimal(value)
+                    graphData.put(normalizeSpaces(timeStamp), ParseTheTimeFormat.formatStringTo2Decimal(value)
                     );
                     lastKey = key;
                 }
@@ -130,10 +132,10 @@ public class PageComponent extends BasePage {
         equipmentPage.click();
         WaitUtils.waitForVisible(searchMachine, 4000);
         searchMachine.fill(equipmentName);
-        getByRoleLink(equipmentName,page).click();
+        getByRoleLink(equipmentName, page).click();
         calender.click();
         quickLinks.click();
-        getByText(frequency,page).click();
+        getByText(frequency, page).click();
         applyButton.click();
         addParameter.click();
         searchMeasure.fill(measureName);
@@ -143,14 +145,13 @@ public class PageComponent extends BasePage {
         Locator combo = page.getByRole(AriaRole.COMBOBOX);
         combo.waitFor(new Locator.WaitForOptions().setState(WaitForSelectorState.VISIBLE));
         combo.click();
-        getByText(granularity,page).click();
+        getByText(granularity, page).click();
     }
 
-    public Page moveToAdminPage(Page page, BrowserContext context){
-        if(!isAdminUser()){
+    public Page moveToAdminPage(Page page, BrowserContext context) {
+        if (!isAdminUser()) {
             System.out.println("User is not admin, please login with valid Admin user");
-        }
-        else {
+        } else {
             openPlantOS.click();
             Page newPage = context.waitForPage(() -> {
                 openAdminPage.click();
@@ -167,7 +168,7 @@ public class PageComponent extends BasePage {
     }
 
 
-    public void dragTheChartGraph(Locator resizeHandle,Page page){
+    public void dragTheChartGraph(Locator resizeHandle, Page page) {
         BoundingBox handleBox = resizeHandle.boundingBox();
         ViewportSize viewport = page.viewportSize();
         page.mouse().move(handleBox.x + handleBox.width / 2, handleBox.y + handleBox.height / 2);
@@ -188,11 +189,11 @@ public class PageComponent extends BasePage {
         throw new RuntimeException("No numeric value found in KPI tile: " + rawText);
     }
 
-    private boolean isAdminUser(){
+    private boolean isAdminUser() {
         boolean isAdminUser = false;
         String userText = userType.textContent().trim();
         System.out.println("userText: " + userText);
-        if (userText.contains("admin")) {
+        if (userText.toLowerCase().contains("admin")) {
             System.out.println("Admin user logged in");
             isAdminUser = true;
         } else {

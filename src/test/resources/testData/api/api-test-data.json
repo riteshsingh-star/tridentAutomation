@@ -1,0 +1,82 @@
+{
+    "kpiTestDataSets": [
+        {
+            "id": "kpi_lcl_ucl_set_1",
+            "testName": "KPI LCL/UCL Calculation",
+            "definitionId": 9,
+            "equipmentId": 4249,
+            "machineId": 4249,
+            "kpiID": 9,
+            "startDateTime": "2026-01-26T10:00:00",
+            "endDateTime": "2026-01-27T10:00:00",
+            "granularity": 60000,
+            "expectedStatistics": {
+                "shouldCalculateMean": true,
+                "shouldCalculateStdDev": true,
+                "shouldValidateLCL": true,
+                "shouldValidateUCL": true
+            }
+        },
+        {
+            "id": "kpi_graph_validation_set_1",
+            "testName": "Graph vs API KPI Data Validation",
+            "machineId": 4249,
+            "kpiID": 9,
+            "startDateTime": "2026-01-26T10:00:00",
+            "endDateTime": "2026-01-27T10:00:00",
+            "granularity": 60000,
+            "tolerancePercentage": 1.0,
+            "expectedResults": {
+                "graphDataAvailable": true,
+                "apiDataAvailable": true,
+                "matchingWithinTolerance": true
+            }
+        }
+    ],
+    "rawParameterTestDataSets": [
+        {
+            "id": "raw_param_lcl_ucl_set_1",
+            "testName": "Raw Parameter LCL/UCL Calculation",
+            "plantId": 839,
+            "equipmentId": 4248,
+            "rawParamDefId": 21,
+            "startDateTime": "2026-01-26T10:00:00",
+            "endDateTime": "2026-01-27T10:00:00",
+            "granularity": 60000,
+            "expectedStatistics": {
+                "shouldCalculateMean": true,
+                "shouldCalculateStdDev": true,
+                "shouldValidateLCL": true,
+                "shouldValidateUCL": true
+            }
+        }
+    ],
+    "aggregateTestDataSets": [
+        {
+            "id": "kpi_aggregate_set_1",
+            "testName": "KPI Aggregate Value Verification",
+            "machineId": 4249,
+            "kpiID": 9,
+            "startDateTime": "2026-01-26T10:00:00",
+            "endDateTime": "2026-01-27T10:00:00",
+            "aggregationType": "AVG",
+            "expectedResults": {
+                "shouldReturnValue": true,
+                "shouldValidateType": true
+            }
+        },
+        {
+            "id": "raw_aggregate_set_1",
+            "testName": "Raw Parameter Aggregate Value Verification",
+            "equipmentId": 4248,
+            "rawParamDefId": 21,
+            "startDateTime": "2026-01-26T10:00:00",
+            "endDateTime": "2026-01-27T10:00:00",
+            "aggregationType": "AVG",
+            "expectedResults": {
+                "shouldReturnValue": true,
+                "shouldValidateType": true
+            }
+        }
+    ]
+}

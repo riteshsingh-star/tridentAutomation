@@ -1,10 +1,11 @@
 package test.web;
 
 import com.microsoft.playwright.Page;
+import exception.NotAdminCredentials;
 import org.testng.annotations.BeforeClass;
 import page.web.*;
 import pojo.web.AdminFlow;
-import utils.ReadJsonFile;
+import utils.ReadDataFile;
 import base.web.BaseTest;
 import org.testng.annotations.Test;
 
@@ -18,12 +19,12 @@ public class AdminFlowTest extends BaseTest {
     KPIAdvanceImplementation kpiAdvance;
 
     @BeforeClass
-    public void createAdminFlowSetupTest() {
-        data = ReadJsonFile.readJson("adminFlow.json", AdminFlow.class);
+    public void createAdminFlowSetupTest() throws Exception {
+        data = ReadDataFile.loadDataFile(AdminFlow.class);
         pageComponent = new PageComponent(page, context);
         childPage = pageComponent.moveToAdminPage(page, context);
         if(childPage==null){
-            System.out.println("Please login using Admin Credentials to Access Admin Page");
+            throw new NotAdminCredentials("You don't have admin rights to perform this operation");
         }
         globalParameter = new CreateGlobalParameter(childPage, context);
         kpiDefinition = new CreateNewKPIDefinition(childPage, context);

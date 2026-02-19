@@ -35,12 +35,12 @@ public class ApiHelper {
             JsonNode valueNode = node.get("doubleValue"); //Double, we cannot, as it is breaking the null comparison
             if (!valueNode.isNull()) {
                 String value = valueNode.asText(); //gson
-                String convertedTimeStamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
+                //String convertedTimeStamp = ParseTheTimeFormat.changeTimeFormat(gmtTimestamp);
                 if (isComparingWebGraph) {
                     changedDoubleValue = ParseTheTimeFormat.formatStringTo2Decimal(value);
-                    apiValues.put(convertedTimeStamp, changedDoubleValue);
+                    apiValues.put(gmtTimestamp, changedDoubleValue);
                 } else {
-                    apiValues.put(convertedTimeStamp, value);
+                    apiValues.put(gmtTimestamp, value);
                 }
             }
         }

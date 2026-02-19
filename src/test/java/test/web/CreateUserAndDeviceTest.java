@@ -8,7 +8,7 @@ import page.web.CreateDevice;
 import page.web.CreateUsers;
 import page.web.PageComponent;
 import pojo.web.UserAndDevice;
-import utils.ReadJsonFile;
+import utils.ReadDataFile;
 
 public class CreateUserAndDeviceTest extends BaseTest {
 
@@ -19,8 +19,8 @@ public class CreateUserAndDeviceTest extends BaseTest {
     CreateDevice createDevice;
 
     @BeforeClass
-    public void createUserAndDeviceSetup(){
-        data = ReadJsonFile.readJson("userAndDeviceData.json", UserAndDevice.class);
+    public void createUserAndDeviceSetup() throws Exception {
+        data = ReadDataFile.loadDataFile(UserAndDevice.class);
         pageComponent=new PageComponent(page,context);
         childPage=pageComponent.moveToAdminPage(page,context);
         createUsers=new CreateUsers(childPage,context);
