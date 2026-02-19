@@ -116,6 +116,9 @@ public class BasePage {
         return page.locator("span").filter(new Locator.FilterOptions().setHasText(Pattern.compile("^" + Pattern.quote(text) + "$")));
     }
 
+    public Locator getByRoleCombobox(Page page) {
+       return page.getByRole(AriaRole.COMBOBOX);
+    }
     public void scrollTillVisible(Locator locator) {
         locator.scrollIntoViewIfNeeded();
     }

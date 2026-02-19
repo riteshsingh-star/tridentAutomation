@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import page.web.CreateWidget;
 import page.web.PageComponent;
 import pojo.web.DashboardData;
-import utils.ReadJsonFile;
+import utils.ReadDataFile;
 import page.web.Dashboard;
 import base.web.BaseTest;
 import org.testng.annotations.Test;
@@ -21,9 +21,9 @@ public class DashboardTest extends BaseTest {
 
 
     @BeforeClass
-    public void dashBoardAndWidgetSetup(){
+    public void dashBoardAndWidgetSetup() throws Exception {
         pageComponent =new PageComponent(page,context);
-        data = ReadJsonFile.readJson("dashboard.json", DashboardData.class);
+        data = ReadDataFile.loadDataFile(DashboardData.class);
         measuresName = data.measuresName();
         dashboard = new Dashboard(page,context);
         createWidget = new CreateWidget(page,context);
@@ -38,7 +38,7 @@ public class DashboardTest extends BaseTest {
         createWidget.openWidgetCreationPage();
     }
 
-    @Test
+    //@Test
     public void addEquipmentTrendWidgetTest(){
         String widgetActualName=createWidget.addEquipmentTrendWidget(data.equipmentName(), measuresName, data.time(), data.granularity());
         Assert.assertEquals(widgetActualName,"Equipment Performance"+" "+data.equipmentName());

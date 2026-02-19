@@ -36,7 +36,7 @@ public class GetKpiData extends APIBase {
         String endUtc = convertToUtc(endTime);
         DateRange dateRange = new DateRange(startUtc, endUtc);
         String responseJson = getKpiDataAPI(machineID, kpiID, dateRange, granularity);
-        Map<String, String> kpiData = fetchApiData(responseJson, "equipKpis", "kpis", false);
+        Map<String, String> kpiData = fetchApiData(responseJson, "equipKpis", "kpis", true);
         return kpiData;
     }
 

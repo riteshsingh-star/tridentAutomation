@@ -9,7 +9,7 @@ import page.web.PageComponent;
 import pojo.web.DashboardData;
 import page.api.GetKpiData;
 import utils.CompareGraphAndApiData;
-import utils.ReadJsonFile;
+import utils.ReadDataFile;
 import org.testng.Assert;
 import page.web.Dashboard;
 import base.api.APIBase.*;
@@ -28,9 +28,9 @@ public class GraphVsApiValidationTest extends BaseTest {
     List<String> measuresName;
     PageComponent pageComponent;
     DashboardData data;
-    LocalDateTime startTime = LocalDateTime.of(2026, 1, 26, 10, 0,0,0);
-    LocalDateTime endTime = LocalDateTime.of(2026, 1, 27, 10, 0,0,0);
-    int granularity=60000;
+    LocalDateTime startTime = LocalDateTime.of(2026, 2, 9, 10, 0,0,0);
+    LocalDateTime endTime = LocalDateTime.of(2026, 2, 16, 10, 0,0,0);
+    int granularity=28800000;
 
     @BeforeClass(alwaysRun = true)
     public void setupApi() {
@@ -44,10 +44,10 @@ public class GraphVsApiValidationTest extends BaseTest {
     }
 
     @BeforeClass
-    public void openWidgetPageAndCreateWidget() {
+    public void openWidgetPageAndCreateWidget() throws Exception {
         Allure.step("Opening Widget Page");
         pageComponent =new PageComponent(page,context);
-        data = ReadJsonFile.readJson("dashboard.json", DashboardData.class);
+        data = ReadDataFile.loadDataFile(DashboardData.class);
         measuresName = data.measuresName();
         dashboard = new Dashboard(page,context);
         createWidget = new CreateWidget(page, context);
@@ -67,7 +67,7 @@ public class GraphVsApiValidationTest extends BaseTest {
     public void validateGraphWithApi() throws InterruptedException, IOException {
         Map<String, String> uiData = pageComponent.getChartData(0);
         System.out.println("uiList: " + uiData);
-        Map<String, String> apiData = GetKpiData.getKpiDataValue(661,21,startTime,endTime,granularity);
+        Map<String, String> apiData = GetKpiData.getKpiDataValue(661,23,startTime,endTime,granularity);
         System.out.println("apiList: " + apiData);
         Assert.assertEquals(uiData.size(), apiData.size(), "UI and API data count mismatch");
         CompareGraphAndApiData.compareStringMaps(uiData, apiData);

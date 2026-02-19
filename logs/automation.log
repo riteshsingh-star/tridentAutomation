@@ -2453,3 +2453,357 @@
 2026-02-17 14:31:15 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
 2026-02-17 14:31:16 INFO  APIBase - Closing the API Session
 2026-02-17 14:31:16 INFO  ApiFactory - API Session Closed
+2026-02-18 09:23:30 INFO  ApiFactory - Request headers configured
+2026-02-18 09:23:35 INFO  ApiFactory - API request context created
+2026-02-18 09:23:36 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-18 09:23:36 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-18 09:23:38 INFO  APIBase - Sending POST request to /query/api/raw-parameters/timeseries
+2026-02-18 09:23:38 INFO  APIBase - Request Sent for /query/api/raw-parameters/timeseries
+2026-02-18 09:23:41 INFO  APIBase - Closing the API Session
+2026-02-18 09:23:41 INFO  ApiFactory - API Session Closed
+2026-02-18 09:25:23 INFO  ApiFactory - Request headers configured
+2026-02-18 09:25:28 INFO  ApiFactory - API request context created
+2026-02-18 09:25:28 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-18 09:25:28 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-18 09:25:30 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-18 09:25:30 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-18 09:25:32 INFO  APIBase - Closing the API Session
+2026-02-18 09:25:32 INFO  ApiFactory - API Session Closed
+2026-02-18 11:28:35 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 11:28:56 INFO  BaseTest - Starting login
+2026-02-18 11:28:56 INFO  LoginPage - Entering username
+2026-02-18 11:29:00 INFO  LoginPage - Entering password
+2026-02-18 11:29:03 INFO  LoginPage - Clicking on Login button
+2026-02-18 11:29:05 INFO  BaseTest - Login successful
+2026-02-18 11:29:05 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 11:29:06 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 11:29:06 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 11:32:08 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 11:32:20 INFO  BaseTest - Starting login
+2026-02-18 11:32:20 INFO  LoginPage - Entering username
+2026-02-18 11:32:24 INFO  LoginPage - Entering password
+2026-02-18 11:32:27 INFO  LoginPage - Clicking on Login button
+2026-02-18 11:32:29 INFO  BaseTest - Login successful
+2026-02-18 11:32:29 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 11:32:30 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 11:32:31 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 11:57:36 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 11:57:46 INFO  BaseTest - Starting login
+2026-02-18 11:57:46 INFO  LoginPage - Entering username
+2026-02-18 11:57:50 INFO  LoginPage - Entering password
+2026-02-18 11:57:53 INFO  LoginPage - Clicking on Login button
+2026-02-18 11:57:55 INFO  BaseTest - Login successful
+2026-02-18 11:57:55 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 11:58:06 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 11:58:06 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 12:52:50 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 12:52:56 INFO  BaseTest - Starting login
+2026-02-18 12:52:56 INFO  LoginPage - Entering username
+2026-02-18 12:53:01 INFO  LoginPage - Entering password
+2026-02-18 12:53:03 INFO  LoginPage - Clicking on Login button
+2026-02-18 12:53:05 INFO  BaseTest - Login successful
+2026-02-18 12:53:05 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 12:53:16 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 12:53:17 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 12:53:17 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 12:53:17 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 12:54:02 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 12:54:09 INFO  BaseTest - Starting login
+2026-02-18 12:54:09 INFO  LoginPage - Entering username
+2026-02-18 12:54:13 INFO  LoginPage - Entering password
+2026-02-18 12:54:15 INFO  LoginPage - Clicking on Login button
+2026-02-18 12:54:17 INFO  BaseTest - Login successful
+2026-02-18 12:54:17 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 12:54:28 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 12:54:31 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 12:54:31 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 12:54:31 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:07:20 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:07:26 INFO  BaseTest - Starting login
+2026-02-18 14:07:26 INFO  LoginPage - Entering username
+2026-02-18 14:07:31 INFO  LoginPage - Entering password
+2026-02-18 14:07:33 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:07:35 INFO  BaseTest - Login successful
+2026-02-18 14:07:35 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:07:46 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:07:51 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:07:51 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:07:51 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:09:22 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:09:28 INFO  BaseTest - Starting login
+2026-02-18 14:09:28 INFO  LoginPage - Entering username
+2026-02-18 14:09:32 INFO  LoginPage - Entering password
+2026-02-18 14:09:35 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:09:37 INFO  BaseTest - Login successful
+2026-02-18 14:09:37 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:09:47 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:09:52 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:09:52 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:09:52 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:15:49 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:15:55 INFO  BaseTest - Starting login
+2026-02-18 14:15:55 INFO  LoginPage - Entering username
+2026-02-18 14:16:00 INFO  LoginPage - Entering password
+2026-02-18 14:16:02 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:16:04 INFO  BaseTest - Login successful
+2026-02-18 14:16:04 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:16:14 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:16:22 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:16:22 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:16:23 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:17:31 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:17:37 INFO  BaseTest - Starting login
+2026-02-18 14:17:37 INFO  LoginPage - Entering username
+2026-02-18 14:17:42 INFO  LoginPage - Entering password
+2026-02-18 14:17:44 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:17:46 INFO  BaseTest - Login successful
+2026-02-18 14:17:46 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:17:56 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:17:57 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:17:57 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:17:57 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:22:26 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:22:32 INFO  BaseTest - Starting login
+2026-02-18 14:22:32 INFO  LoginPage - Entering username
+2026-02-18 14:22:36 INFO  LoginPage - Entering password
+2026-02-18 14:22:39 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:22:41 INFO  BaseTest - Login successful
+2026-02-18 14:22:41 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:22:54 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:23:27 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:23:27 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:23:28 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:27:30 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:27:36 INFO  BaseTest - Starting login
+2026-02-18 14:27:36 INFO  LoginPage - Entering username
+2026-02-18 14:27:41 INFO  LoginPage - Entering password
+2026-02-18 14:27:43 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:27:45 INFO  BaseTest - Login successful
+2026-02-18 14:27:45 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:27:46 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:27:46 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:28:55 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:29:01 INFO  BaseTest - Starting login
+2026-02-18 14:29:01 INFO  LoginPage - Entering username
+2026-02-18 14:29:06 INFO  LoginPage - Entering password
+2026-02-18 14:29:08 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:29:10 INFO  BaseTest - Login successful
+2026-02-18 14:29:10 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:29:23 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:29:55 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:29:55 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:29:55 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:41:55 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:42:01 INFO  BaseTest - Starting login
+2026-02-18 14:42:01 INFO  LoginPage - Entering username
+2026-02-18 14:42:06 INFO  LoginPage - Entering password
+2026-02-18 14:42:08 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:42:10 INFO  BaseTest - Login successful
+2026-02-18 14:42:10 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:42:11 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:42:11 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 14:42:54 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 14:43:00 INFO  BaseTest - Starting login
+2026-02-18 14:43:00 INFO  LoginPage - Entering username
+2026-02-18 14:43:05 INFO  LoginPage - Entering password
+2026-02-18 14:43:07 INFO  LoginPage - Clicking on Login button
+2026-02-18 14:43:09 INFO  BaseTest - Login successful
+2026-02-18 14:43:09 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 14:43:19 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 14:43:23 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 14:43:23 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 14:43:24 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 15:01:46 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-18 15:01:52 INFO  BaseTest - Starting login
+2026-02-18 15:01:52 INFO  LoginPage - Entering username
+2026-02-18 15:01:57 INFO  LoginPage - Entering password
+2026-02-18 15:01:59 INFO  LoginPage - Clicking on Login button
+2026-02-18 15:02:01 INFO  BaseTest - Login successful
+2026-02-18 15:02:01 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-18 15:02:13 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-18 15:02:14 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-18 15:02:14 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-18 15:02:15 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-18 16:25:48 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:25:54 INFO  BaseTest - Starting login
+2026-02-18 16:25:54 INFO  LoginPage - Entering username
+2026-02-18 16:25:59 INFO  LoginPage - Entering password
+2026-02-18 16:26:01 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:26:03 INFO  BaseTest - Login successful
+2026-02-18 16:26:03 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:26:05 INFO  ApiFactory - Request headers configured
+2026-02-18 16:26:06 INFO  ApiFactory - API request context created
+2026-02-18 16:26:10 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:26:10 INFO  APIBase - Closing the API Session
+2026-02-18 16:26:10 INFO  ApiFactory - API Session Closed
+2026-02-18 16:26:10 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:26:11 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:32:32 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:32:39 INFO  BaseTest - Starting login
+2026-02-18 16:32:40 INFO  LoginPage - Entering username
+2026-02-18 16:32:44 INFO  LoginPage - Entering password
+2026-02-18 16:32:46 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:32:48 INFO  BaseTest - Login successful
+2026-02-18 16:32:48 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:32:51 INFO  ApiFactory - Request headers configured
+2026-02-18 16:32:52 INFO  ApiFactory - API request context created
+2026-02-18 16:32:56 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:32:56 INFO  APIBase - Closing the API Session
+2026-02-18 16:32:56 INFO  ApiFactory - API Session Closed
+2026-02-18 16:32:56 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:32:56 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:37:13 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:37:20 INFO  BaseTest - Starting login
+2026-02-18 16:37:20 INFO  LoginPage - Entering username
+2026-02-18 16:37:24 INFO  LoginPage - Entering password
+2026-02-18 16:37:27 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:37:29 INFO  BaseTest - Login successful
+2026-02-18 16:37:29 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:37:31 INFO  ApiFactory - Request headers configured
+2026-02-18 16:37:32 INFO  ApiFactory - API request context created
+2026-02-18 16:38:05 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:38:05 INFO  APIBase - Closing the API Session
+2026-02-18 16:38:05 INFO  ApiFactory - API Session Closed
+2026-02-18 16:38:05 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:38:05 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:38:41 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:38:47 INFO  BaseTest - Starting login
+2026-02-18 16:38:47 INFO  LoginPage - Entering username
+2026-02-18 16:38:52 INFO  LoginPage - Entering password
+2026-02-18 16:38:54 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:38:56 INFO  BaseTest - Login successful
+2026-02-18 16:38:56 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:38:59 INFO  ApiFactory - Request headers configured
+2026-02-18 16:39:00 INFO  ApiFactory - API request context created
+2026-02-18 16:39:10 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:39:10 INFO  APIBase - Closing the API Session
+2026-02-18 16:39:10 INFO  ApiFactory - API Session Closed
+2026-02-18 16:39:10 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:39:10 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:39:46 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:39:54 INFO  BaseTest - Starting login
+2026-02-18 16:39:54 INFO  LoginPage - Entering username
+2026-02-18 16:39:58 INFO  LoginPage - Entering password
+2026-02-18 16:40:01 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:40:03 INFO  BaseTest - Login successful
+2026-02-18 16:40:03 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:40:05 INFO  ApiFactory - Request headers configured
+2026-02-18 16:40:06 INFO  ApiFactory - API request context created
+2026-02-18 16:40:40 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:40:40 INFO  APIBase - Closing the API Session
+2026-02-18 16:40:40 INFO  ApiFactory - API Session Closed
+2026-02-18 16:40:40 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:40:40 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:41:35 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:41:42 INFO  BaseTest - Starting login
+2026-02-18 16:41:42 INFO  LoginPage - Entering username
+2026-02-18 16:41:46 INFO  LoginPage - Entering password
+2026-02-18 16:41:48 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:41:51 INFO  BaseTest - Login successful
+2026-02-18 16:41:51 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:41:53 INFO  ApiFactory - Request headers configured
+2026-02-18 16:41:54 INFO  ApiFactory - API request context created
+2026-02-18 16:42:23 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:42:23 INFO  APIBase - Closing the API Session
+2026-02-18 16:42:23 INFO  ApiFactory - API Session Closed
+2026-02-18 16:42:23 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:42:23 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:42:40 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:42:46 INFO  BaseTest - Starting login
+2026-02-18 16:42:46 INFO  LoginPage - Entering username
+2026-02-18 16:42:51 INFO  LoginPage - Entering password
+2026-02-18 16:42:53 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:42:55 INFO  BaseTest - Login successful
+2026-02-18 16:42:55 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:42:58 INFO  ApiFactory - Request headers configured
+2026-02-18 16:42:59 INFO  ApiFactory - API request context created
+2026-02-18 16:43:29 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-18 16:43:29 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-18 16:43:29 ERROR BaseTest - Test Failed: validateGraphWithApi
+2026-02-18 16:43:29 INFO  APIBase - Closing the API Session
+2026-02-18 16:43:29 INFO  ApiFactory - API Session Closed
+2026-02-18 16:43:29 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:43:30 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:46:13 INFO  BaseTest - CLASS_SETUP_START | className=GraphVsApiValidationTest
+2026-02-18 16:46:19 INFO  BaseTest - Starting login
+2026-02-18 16:46:19 INFO  LoginPage - Entering username
+2026-02-18 16:46:24 INFO  LoginPage - Entering password
+2026-02-18 16:46:26 INFO  LoginPage - Clicking on Login button
+2026-02-18 16:46:28 INFO  BaseTest - Login successful
+2026-02-18 16:46:28 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=GraphVsApiValidationTest
+2026-02-18 16:46:31 INFO  ApiFactory - Request headers configured
+2026-02-18 16:46:32 INFO  ApiFactory - API request context created
+2026-02-18 16:47:03 INFO  APIBase - Sending POST request to /query/api/kpis/timeseries
+2026-02-18 16:47:03 INFO  APIBase - Request Sent for /query/api/kpis/timeseries
+2026-02-18 16:47:03 INFO  APIBase - Closing the API Session
+2026-02-18 16:47:03 INFO  ApiFactory - API Session Closed
+2026-02-18 16:47:03 INFO  BaseTest - CLASS_TEARDOWN_START | className=GraphVsApiValidationTest
+2026-02-18 16:47:03 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=GraphVsApiValidationTest
+2026-02-19 09:12:07 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-19 09:12:25 INFO  BaseTest - Starting login
+2026-02-19 09:12:25 INFO  LoginPage - Entering username
+2026-02-19 09:12:29 INFO  LoginPage - Entering password
+2026-02-19 09:12:31 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:12:34 INFO  BaseTest - Login successful
+2026-02-19 09:12:34 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-19 09:12:35 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-19 09:12:35 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest
+2026-02-19 09:45:31 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 09:45:40 INFO  BaseTest - Starting login
+2026-02-19 09:45:40 INFO  LoginPage - Entering username
+2026-02-19 09:45:45 INFO  LoginPage - Entering password
+2026-02-19 09:45:47 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:45:49 INFO  BaseTest - Login successful
+2026-02-19 09:45:49 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:46:24 ERROR BaseTest - Test Failed: createPlant
+2026-02-19 09:46:24 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 09:46:24 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:48:53 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 09:49:01 INFO  BaseTest - Starting login
+2026-02-19 09:49:01 INFO  LoginPage - Entering username
+2026-02-19 09:49:06 INFO  LoginPage - Entering password
+2026-02-19 09:49:08 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:49:10 INFO  BaseTest - Login successful
+2026-02-19 09:49:10 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:49:45 ERROR BaseTest - Test Failed: createPlant
+2026-02-19 09:49:45 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 09:49:45 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:52:03 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 09:52:13 INFO  BaseTest - Starting login
+2026-02-19 09:52:13 INFO  LoginPage - Entering username
+2026-02-19 09:52:18 INFO  LoginPage - Entering password
+2026-02-19 09:52:20 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:52:22 INFO  BaseTest - Login successful
+2026-02-19 09:52:22 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:52:57 ERROR BaseTest - Test Failed: createPlant
+2026-02-19 09:52:57 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 09:52:58 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:53:57 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 09:54:04 INFO  BaseTest - Starting login
+2026-02-19 09:54:04 INFO  LoginPage - Entering username
+2026-02-19 09:54:09 INFO  LoginPage - Entering password
+2026-02-19 09:54:11 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:54:13 INFO  BaseTest - Login successful
+2026-02-19 09:54:13 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:54:18 ERROR BaseTest - Test Failed: createPlant
+2026-02-19 09:54:18 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 09:54:19 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:58:52 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 09:59:00 INFO  BaseTest - Starting login
+2026-02-19 09:59:00 INFO  LoginPage - Entering username
+2026-02-19 09:59:04 INFO  LoginPage - Entering password
+2026-02-19 09:59:06 INFO  LoginPage - Clicking on Login button
+2026-02-19 09:59:09 INFO  BaseTest - Login successful
+2026-02-19 09:59:09 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 09:59:44 ERROR BaseTest - Test Failed: createPlant
+2026-02-19 09:59:44 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 09:59:45 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 10:00:22 INFO  BaseTest - CLASS_SETUP_START | className=EquipmentDataSetup
+2026-02-19 10:00:30 INFO  BaseTest - Starting login
+2026-02-19 10:00:30 INFO  LoginPage - Entering username
+2026-02-19 10:00:34 INFO  LoginPage - Entering password
+2026-02-19 10:00:36 INFO  LoginPage - Clicking on Login button
+2026-02-19 10:00:39 INFO  BaseTest - Login successful
+2026-02-19 10:00:39 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
+2026-02-19 10:00:44 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
+2026-02-19 10:00:44 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup

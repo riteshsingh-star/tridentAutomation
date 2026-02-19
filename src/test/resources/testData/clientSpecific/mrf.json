@@ -1,0 +1,25 @@
+{
+  "adminFlow": {
+    "globalParameterName":"TestOneAutomationGw",
+    "param": "Integer",
+    "checkbox": "Batch",
+    "defineKPIName": "TestAutomationKP",
+    "machineName":"PTR",
+    "date": "2026-01-01",
+    "formula": "sum(^PTR.MAIN_WATER)",
+    "batchFrequency": "Every day",
+    "unit": "Meter",
+    "plantName": "covacsis_dev",
+    "aggregateType": "AVERAGE_ON_DURATION",
+    "KPIPerformanceCriteria": "More Value is Good",
+    "kpiUnits": "Meter",
+    "kpiPrecision": "2",
+    "industryType": "Aluminium",
+    "kpiType": "Machine",
+    "globalParameterDataType": "Double",
+    "globalParameterType": "Machine"
+  },
+  "dashboard": {
+    "dashboardName": "TestAutomation"
+  }
+}

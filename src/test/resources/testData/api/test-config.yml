@@ -1,0 +1,109 @@
+# API Test Configuration - Enterprise Data Management
+# This file centrally manages all API test data to avoid hardcoding in test classes
+
+environments:
+  sit:
+    baseUrl: "https://sit-ipf.infinite-uptime.com"
+    apiBaseUrl: "https://sit-ipf.infinite-uptime.com"
+    timeout: 30000
+  uat:
+    baseUrl: "https://uat-new-ipf.infinite-uptime.com"
+    apiBaseUrl: "https://uat-new-ipf.infinite-uptime.com"
+    timeout: 30000
+  prod:
+    baseUrl: "https://prod-ipf.infinite-uptime.com"
+    apiBaseUrl: "https://prod-ipf.infinite-uptime.com"
+    timeout: 30000
+
+apiEndpoints:
+  kpiTimeseries: "/query/api/kpis/timeseries"
+  rawParameterTimeseries: "/query/api/raw-parameters/timeseries"
+  rawParameterAggregates: "/query/api/raw-parameters/aggregates"
+  kpiAggregates: "/query/api/kpis/aggregates"
+  kpiImplementation: "/web/api/kpi-implementation"
+
+# Reusable Test Datasets - Use these in tests instead of hardcoding
+testDataSets:
+  kpiLclUcl:
+    name: "KPI LCL/UCL Verification"
+    description: "Dataset for KPI LCL/UCL value verification"
+    parameters:
+      definitionId: 9
+      equipmentId: 4249
+      machineId: 4249
+      kpiID: 9
+      granularity: 60000
+    timeRange:
+      startDate: "2026-01-26"
+      startTime: "10:00:00"
+      endDate: "2026-01-27"
+      endTime: "10:00:00"
+    expectedResults:
+      hasData: true
+      validateStatistics: true
+
+  rawParameterLclUcl:
+    name: "Raw Parameter LCL/UCL Verification"
+    description: "Dataset for Raw Parameter LCL/UCL value verification"
+    parameters:
+      plantId: 839
+      equipmentId: 4248
+      rawParamDefId: 21
+      granularity: 60000
+    timeRange:
+      startDate: "2026-01-26"
+      startTime: "10:00:00"
+      endDate: "2026-01-27"
+      endTime: "10:00:00"
+    expectedResults:
+      hasData: true
+      validateStatistics: true
+
+  graphVsApiValidation:
+    name: "Graph vs API Data Validation"
+    description: "Dataset for validating graph data against API data"
+    parameters:
+      machineId: 4249
+      kpiID: 9
+      granularity: 60000
+    timeRange:
+      startDate: "2026-01-26"
+      startTime: "10:00:00"
+      endDate: "2026-01-27"
+      endTime: "10:00:00"
+    expectedResults:
+      allowedVariance: 0.01
+
+# Parametrized Test Data - Can be expanded for multiple test scenarios
+parameterizedTestData:
+  kpiScenarios:
+    - id: "scenario_1"
+      name: "Single Equipment Single KPI"
+      equipmentIds: [4249]
+      kpiIds: [9]
+      expectedDataPoints: 1440  # 24 hours * 60 minutes
+
+    - id: "scenario_2"
+      name: "Multiple Equipment Single KPI"
+      equipmentIds: [4248, 4249]
+      kpiIds: [9]
+      expectedDataPoints: 2880
+
+    - id: "scenario_3"
+      name: "Single Equipment Multiple KPIs"
+      equipmentIds: [4249]
+      kpiIds: [9, 10, 11]
+      expectedDataPoints: 4320
+
+  rawParameterScenarios:
+    - id: "raw_scenario_1"
+      name: "Single Raw Parameter"
+      equipmentIds: [4248]
+      rawParamIds: [21]
+      expectedDataPoints: 1440
+
+    - id: "raw_scenario_2"
+      name: "Multiple Raw Parameters"
+      equipmentIds: [4248]
+      rawParamIds: [21, 22, 23]
+      expectedDataPoints: 4320

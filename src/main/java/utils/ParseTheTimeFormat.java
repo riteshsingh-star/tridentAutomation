@@ -1,30 +1,16 @@
 package utils;
 
+import com.microsoft.playwright.Page;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDateTime;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ParseTheTimeFormat {
-
-    public static String changeTimeFormat(String timestamp) {
-        String graphTime = "";
-        try {
-            OffsetDateTime odt = OffsetDateTime.parse(timestamp);
-            DateTimeFormatter graphFormat =
-                    DateTimeFormatter.ofPattern("MMM d, HH:mm:ss", Locale.ENGLISH);
-            graphTime = odt.atZoneSameInstant(ZoneId.of("Asia/Kolkata")).format(graphFormat);
-        } catch (Exception e) {
-            System.out.println("Not able to proceed: " + e);
-        }
-        return graphTime;
-    }
 
     public static String formatStringTo2Decimal(String valueStr) {
         BigDecimal bd = new BigDecimal(valueStr);
@@ -45,9 +31,19 @@ public class ParseTheTimeFormat {
     }
 
     public static String convertToUtc(LocalDateTime dateTime) {
-        return dateTime
-                .atZone(ZoneId.of("Asia/Kolkata"))   // change if needed
-                .withZoneSameInstant(ZoneOffset.UTC)
-                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
+        return dateTime.atZone(ZoneId.of("Asia/Kolkata")).withZoneSameInstant(ZoneOffset.UTC).format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"));
+    }
+
+    public static String convertBrowserTimeToGMT(Page page, String uiTime) {
+        uiTime = uiTime.trim().replaceAll("\\s+", " ");
+        String browserZone = (String) page.evaluate("Intl.DateTimeFormat().resolvedOptions().timeZone");
+        int year = Year.now().getValue();
+        String inputWithYear = year + " " + uiTime;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy MMM d, HH:mm:ss", Locale.ENGLISH);
+        LocalDateTime localDateTime = LocalDateTime.parse(inputWithYear, formatter);
+        ZonedDateTime browserTime = localDateTime.atZone(ZoneId.of(browserZone));
+        ZonedDateTime utcTime = browserTime.withZoneSameInstant(ZoneOffset.UTC);
+        return utcTime.toInstant().toString();
+
     }
 }
