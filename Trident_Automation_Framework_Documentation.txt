@@ -76,30 +76,39 @@ tridentAutomation/
 ├── src/
 │   ├── main/
 │   │   └── java/
-│   │       ├── pojo/                 # Plain Old Java Objects
+│   │       ├── config/              # Configuration management
+│   │       │   ├── ApiTestDataProvider.java  # API test data provider
+│   │       │   ├── ConfigKey.java            # Configuration keys enum
+│   │       │   ├── DataGeneratorUtil.java    # Data generation utilities
+│   │       │   ├── EnvironmentConfig.java     # Environment configuration
+│   │       │   ├── ReadPropertiesFile.java    # Properties file reader
+│   │       │   └── TestDataConfig.java       # Test data configuration
+│   │       ├── pojo/                # Plain Old Java Objects
 │   │       │   ├── api/              # API POJO classes
 │   │       │   │   ├── DateRange.java            # Date range for API requests
 │   │       │   │   ├── EquipKpi.java             # Equipment KPI data model
 │   │       │   │   ├── EquipKpiRequest.java      # Equipment KPI request model
-│   │       │   │   ├── LclUclResult.java         # LCL/UCL calculation results
+│   │       │   │   ├── KpiAggregateRequest.java  # KPI aggregate request model
 │   │       │   │   ├── RawRequest.java           # Raw parameter request model
 │   │       │   │   └── Raws.java                 # Raw parameter data model
 │   │       │   └── web/              # Web POJO classes
 │   │       │       ├── AdminFlow.java            # Admin flow data model
 │   │       │       ├── BaseData.java             # Base data model
 │   │       │       ├── DashboardData.java        # Dashboard data model
-│   │       │       ├── EquipmentMeasureValidation.java # Equipment data model
+│   │       │       ├── EquipmentMeasureValidation.java # Equipment validation data
 │   │       │       └── UserAndDevice.java        # User and device data model
 │   │       └── utils/              # Utility classes
-│   │           ├── CalenderUtil.java             # Calendar and date utilities
-│   │           ├── CompareGraphAndApiData.java    # Graph vs API data comparison
-│   │           ├── ExtentManager.java             # ExtentReports management
-│   │           ├── KPISCalculationUtils.java      # KPI calculation utilities
-│   │           ├── LclUclUtil.java                # LCL/UCL calculation utilities
+│   │           ├── ApiHelper.java              # API response processing utilities
+│   │           ├── CalenderUtil.java            # Calendar and date utilities
+│   │           ├── CompareGraphAndApiData.java  # Graph vs API data comparison
+│   │           ├── ExtentManager.java           # ExtentReports management
+│   │           ├── KPISCalculationUtils.java    # KPI calculation utilities
+│   │           ├── LclUclResult.java             # LCL/UCL result data model
+│   │           ├── LclUclUtil.java               # LCL/UCL calculation utilities
 │   │           ├── ParseTheTimeFormat.java       # Time format parsing utilities
-│   │           ├── ReadJsonFile.java             # JSON file reading utilities
-│   │           ├── ReadPropertiesFile.java       # Properties file reading
-│   │           ├── Stats.java                    # Lcl Ucl STDDiv Mean calculations
+│   │           ├── ReadJsonFile.java            # JSON file reading utilities
+│   │           ├── StatisticsComparison.java     # Statistics comparison utilities
+│   │           ├── Stats.java                    # Statistical calculations
 │   │           └── WaitUtils.java                # Wait and synchronization utilities
 │   └── test/
 │       ├── java/
@@ -110,10 +119,17 @@ tridentAutomation/
 │       │   │       ├── BasePage.java             # Base page class for web page
 │       │   │       └── BaseTest.java             # Base test class for web tests
 │       │   ├── factory/              # Playwright factory
-│       │   │   └── PlaywrightFactory.java        # Browser and page management
+│       │   │   ├── ApiFactory.java             # API request context factory
+│       │   │   └── WebFactory.java             # Browser and page management
 │       │   ├── listeners/            # TestNG listeners
 │       │   │   └── Listeners.java                # Test execution listeners
 │       │   ├── page/                 # Page objects
+│       │   │   ├── api/              # API page objects
+│       │   │   │   ├── GetKpiData.java              # KPI data API page
+│       │   │   │   ├── GetKpiRequest.java          # KPI request API page
+│       │   │   │   ├── GetRawParamRequest.java     # Raw parameter request API page
+│       │   │   │   ├── GetRawParameterData.java    # Raw parameter data API page
+│       │   │   │   └── GetStatisticsDataFromAPI.java # Statistics data API page
 │       │   │   └── web/              # Web page objects
 │       │   │       ├── CreateAreas.java           # Area creation page
 │       │   │       ├── CreateDevice.java          # Device creation page
@@ -133,15 +149,12 @@ tridentAutomation/
 │       │   └── test/                 # Test classes
 │       │       ├── api/              # API tests
 │       │       │   ├── ApiAggregateVerification.java # API aggregate verification
-│       │       │   ├── GetAggregateValueOfKpi.java # Get aggregate KPI values
-│       │       │   ├── GetChartDataApi.java       # Chart data API test
+│       │       │   ├── GetAggregateValueAndTypeOfKpi.java # Get aggregate KPI values
 │       │       │   ├── GetEquipment.java          # Equipment API test
-│       │       │   ├── GetKpiData.java            # KPI data API test
 │       │       │   ├── GetKpiLclUclValue.java     # KPI LCL/UCL value test
-│       │       │   ├── GetKpiRequest.java         # KPI request test
+│       │       │   ├── GetKpiLclUclValueRefactored.java # Refactored KPI LCL/UCL test
 │       │       │   ├── GetRawParamLclUclValue.java # Raw parameter LCL/UCL test
-│       │       │   ├── GetRawParamRequest.java    # Raw parameter request test
-│       │       │   └── GetRawParameterData.java   # Raw parameter data test
+│       │       │   └── GetRawParamLclUclValueRefactored.java # Refactored raw parameter test
 │       │       └── web/              # Web tests
 │       │           ├── AdminFlowTest.java         # Admin flow test
 │       │           ├── AdminGraphValidationTest.java # Admin graph validation
@@ -152,17 +165,32 @@ tridentAutomation/
 │       │           └── GraphVsApiValidationTest.java # Graph vs API validation
 │       └── resources/
 │           ├── config.properties     # Configuration file
-│           └── testng.xml           # TestNG suite
+│           ├── log4j2.xml           # Log4j2 configuration
+│           ├── testng.xml          # TestNG suite
+│           └── testData/           # Test data files
+│               ├── adminFlow.json              # Admin flow test data
+│               ├── api/                       # API test data
+│               │   ├── kpiAggregate.json       # KPI aggregate data
+│               │   └── rawParameterAggregate.json # Raw parameter aggregate data
+│               ├── baseData.json              # Base test data
+│               ├── clientSpecific/             # Client-specific data
+│               │   ├── hindalco.json          # Hindalco client data
+│               │   └── mrf.json                # MRF client data
+│               ├── dashboardData.json          # Dashboard test data
+│               ├── equipmentMeasureValidation.json # Equipment validation data
+│               ├── rawParameter.json           # Raw parameter data
+│               └── userAndDevice.json           # User and device data
 ├── .github/workflows/                # CI/CD workflows
 │   └── playwrightJava.yml            # GitHub Actions workflow
 ├── target/allure-results/            # Allure test results
-├─  target/extent-reports/            #Extent report Support
+├── target/extent-reports/            # Extent report support
 ├── logs/                            # Application logs
 │   └── automation.log                # Main automation log file
 ├── screenshots/                      # Test failure screenshots
 ├── pom.xml                          # Maven configuration
 ├── testng.xml                       # TestNG configuration
-└── README.md                        # Project documentation
+├── README.md                        # Project documentation
+└── Trident_Automation_Framework_Documentation.txt # Framework documentation
 
 --------------------------------------------------------------------------------
 6. CONFIGURATION
