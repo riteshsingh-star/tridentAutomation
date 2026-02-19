@@ -2807,3 +2807,15 @@
 2026-02-19 10:00:39 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=EquipmentDataSetup
 2026-02-19 10:00:44 INFO  BaseTest - CLASS_TEARDOWN_START | className=EquipmentDataSetup
 2026-02-19 10:00:44 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=EquipmentDataSetup
+2026-02-19 10:59:08 INFO  BaseTest - CLASS_SETUP_START | className=AdminFlowTest
+2026-02-19 10:59:13 INFO  BaseTest - Starting login
+2026-02-19 10:59:13 INFO  LoginPage - Entering username
+2026-02-19 10:59:18 INFO  LoginPage - Entering password
+2026-02-19 10:59:20 INFO  LoginPage - Clicking on Login button
+2026-02-19 10:59:22 INFO  BaseTest - Login successful
+2026-02-19 10:59:22 INFO  BaseTest - CLASS_SETUP_COMPLETE | className=AdminFlowTest
+2026-02-19 10:59:55 ERROR BaseTest - Test Failed: createGlobalParameterTest
+2026-02-19 10:59:55 ERROR BaseTest - Test Failed: createNewKpiDefinitionTest
+2026-02-19 10:59:56 ERROR BaseTest - Test Failed: validateGlobalParameterAndKPITest
+2026-02-19 10:59:56 INFO  BaseTest - CLASS_TEARDOWN_START | className=AdminFlowTest
+2026-02-19 10:59:56 INFO  BaseTest - CLASS_TEARDOWN_COMPLETE | className=AdminFlowTest

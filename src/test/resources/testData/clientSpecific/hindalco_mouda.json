@@ -1,0 +1,25 @@
+{
+    "adminFlow": {
+        "globalParameterName": "HIND_GLOBAL_{{random}}",
+        "param": "Integer",
+        "checkbox": "Batch",
+        "defineKPIName": "HIND_KPI_{{random}}",
+        "machineName": "PTR",
+        "date": "2026-01-01",
+        "formula": "sum(^PTR.MAIN_WATER)",
+        "batchFrequency": "Every day",
+        "unit": "Meter",
+        "plantName": "hindalco_plant",
+        "aggregateType": "AVERAGE_ON_DURATION",
+        "KPIPerformanceCriteria": "More Value is Good",
+        "kpiUnits": "Meter",
+        "kpiPrecision": "2",
+        "industryType": "Aluminium",
+        "kpiType": "Machine",
+        "globalParameterDataType": "Double",
+        "globalParameterType": "Machine"
+    },
+    "dashboard": {
+        "dashboardName": "Hindalco Dashboard {{random}}"
+    }
+}

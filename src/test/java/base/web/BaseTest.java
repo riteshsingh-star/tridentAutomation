@@ -11,8 +11,6 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import page.web.LoginPage;
 
-import java.lang.reflect.Method;
-
 
 public class BaseTest {
 
